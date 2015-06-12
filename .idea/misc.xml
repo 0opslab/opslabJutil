@@ -5,7 +5,7 @@
   </component>
   <component name="IdProvider" IDEtalkID="309CD8778319740980FAF0D56C985568" />
   <component name="JavadocGenerationManager">
-    <option name="OUTPUT_DIRECTORY" value="$USER_HOME$/Desktop/utils" />
+    <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/out/artifacts/evilp0s_util/JavaDoc" />
     <option name="OPTION_SCOPE" value="protected" />
     <option name="OPTION_HIERARCHY" value="true" />
     <option name="OPTION_NAVIGATOR" value="true" />
