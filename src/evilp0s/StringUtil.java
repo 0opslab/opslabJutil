@@ -219,8 +219,9 @@ public class StringUtil {
                 if (temp != null && temp.trim().length() > 0)
                     result += (temp + symbol);
             }
-            if (result.length() > 1)
-                result = result.substring(0, result.length() - 1);
+            if (result.length() > 1 && ValidUtil.isValid(symbol)){
+                result = result.substring(0, result.length() - symbol.length());
+            }
         }
         return result;
     }
