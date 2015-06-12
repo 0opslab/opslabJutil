@@ -1,5 +1,4 @@
-out/production/
-out/test/
+out/
 .idea/
 .gitignore
 .utils.iml
