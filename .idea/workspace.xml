@@ -35,7 +35,7 @@
       <file leaf-file-name="Readme.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Readme.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-18.457144">
+            <state vertical-scroll-proportion="-0.0">
               <caret line="50" column="34" selection-start-line="0" selection-start-column="0" selection-end-line="91" selection-end-column="36" />
               <folding />
             </state>
@@ -49,17 +49,11 @@
         <entry file="file://$PROJECT_DIR$/src/evilp0s/ClassUtil.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="58" column="33" selection-start-line="0" selection-start-column="0" selection-end-line="326" selection-end-column="0" />
+              <caret line="79" column="5" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1338#1346#0" expanded="true" />
                 <element signature="e#1869#1877#0" expanded="true" />
-                <element signature="e#2289#2290#0" expanded="true" />
-                <element signature="e#2316#2317#0" expanded="true" />
-                <element signature="e#2556#2557#0" expanded="true" />
-                <element signature="e#2583#2584#0" expanded="true" />
-                <element signature="e#2885#2886#0" expanded="true" />
-                <element signature="e#2912#2913#0" expanded="true" />
                 <element signature="e#5026#5034#0" expanded="true" />
                 <element signature="e#5641#5649#0" expanded="true" />
                 <element signature="e#7004#7012#0" expanded="true" />
@@ -81,11 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StringUtil.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="StringUtil.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/evilp0s/StringUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="17" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.47265077">
+              <caret line="224" column="9" selection-start-line="224" selection-start-column="9" selection-end-line="224" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -105,22 +99,7 @@
         <entry file="file://$PROJECT_DIR$/Junit/model/BusinessLog.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
-              <folding>
-                <element signature="e#116#117#0" expanded="true" />
-                <element signature="e#152#153#0" expanded="true" />
-                <element signature="e#210#211#0" expanded="true" />
-                <element signature="e#260#261#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.03538175">
-              <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -182,7 +161,6 @@
         <option value="$PROJECT_DIR$/Junit/evilp0s/CharsetTest.java" />
         <option value="$PROJECT_DIR$/src/evilp0s/algorithmImpl/FileReadImpl.java" />
         <option value="$PROJECT_DIR$/src/evilp0s/algorithmImpl/StringImpl.java" />
-        <option value="$PROJECT_DIR$/src/evilp0s/StringUtil.java" />
         <option value="$PROJECT_DIR$/src/evilp0s/Chines.java" />
         <option value="$PROJECT_DIR$/Junit/evilp0s/ProUtilTest.java" />
         <option value="$PROJECT_DIR$/Junit/evilp0s/ZIPUtilTest.java" />
@@ -194,6 +172,7 @@
         <option value="$PROJECT_DIR$/src/evilp0s/ClassUtil.java" />
         <option value="$PROJECT_DIR$/Junit/model/BusinessLog.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/evilp0s/StringUtil.java" />
       </list>
     </option>
   </component>
@@ -205,10 +184,8 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="753" />
+    <option name="width" value="1366" />
+    <option name="height" value="768" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -257,6 +234,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -296,8 +275,6 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -761,45 +738,45 @@
       <workItem from="1433857679862" duration="774000" />
       <workItem from="1434027544495" duration="134000" />
       <workItem from="1434027742548" duration="2613000" />
-      <workItem from="1434076505021" duration="2675000" />
+      <workItem from="1434076505021" duration="3284000" />
+      <workItem from="1434102009751" duration="1239000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48830000" />
+    <option name="totallyTimeSpent" value="50678000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="753" extended-state="6" />
-    <editor active="false" />
+    <frame x="0" y="0" width="1366" height="768" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3280757" sideWeight="0.4997281" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20902255" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32883817" sideWeight="0.5002719" order="3" side_tool="true" content_ui="tabs" x="623" y="695" width="913" height="317" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21030495" sideWeight="0.4997281" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14135338" sideWeight="0.4997281" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25657204" sideWeight="0.4997281" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24597365" sideWeight="0.49947423" order="6" side_tool="false" content_ui="combo" x="272" y="35" width="272" height="951" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14494875" sideWeight="0.49947423" order="6" side_tool="false" content_ui="combo" x="272" y="35" width="272" height="951" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20228384" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32882413" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14568081" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" x="840" y="218" width="278" height="671" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22108346" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" x="840" y="218" width="278" height="671" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2011963" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18429486" sideWeight="0.5005258" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31012657" sideWeight="0.4997281" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Struts Assistant" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32968834" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="7" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31012657" sideWeight="0.4997281" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20902255" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32912722" sideWeight="0.4997281" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14135338" sideWeight="0.4997281" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14690171" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952183" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
@@ -807,6 +784,7 @@
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14466737" sideWeight="0.5005258" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32882413" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -1190,10 +1168,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/evilp0s/StringUtil.java">
+    <entry file="file://$PROJECT_DIR$/Junit/evilp0s/CharsetTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="17" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="23" />
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Readme.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="50" column="34" selection-start-line="0" selection-start-column="0" selection-end-line="91" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.028050492">
+          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
           <folding />
         </state>
       </provider>
@@ -1201,20 +1198,7 @@
     <entry file="file://$PROJECT_DIR$/Junit/model/BusinessLog.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
-          <folding>
-            <element signature="e#116#117#0" expanded="true" />
-            <element signature="e#152#153#0" expanded="true" />
-            <element signature="e#210#211#0" expanded="true" />
-            <element signature="e#260#261#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Junit/evilp0s/CharsetTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1232,17 +1216,11 @@
     <entry file="file://$PROJECT_DIR$/src/evilp0s/ClassUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="58" column="33" selection-start-line="0" selection-start-column="0" selection-end-line="326" selection-end-column="0" />
+          <caret line="79" column="5" selection-start-line="79" selection-start-column="5" selection-end-line="79" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1338#1346#0" expanded="true" />
             <element signature="e#1869#1877#0" expanded="true" />
-            <element signature="e#2289#2290#0" expanded="true" />
-            <element signature="e#2316#2317#0" expanded="true" />
-            <element signature="e#2556#2557#0" expanded="true" />
-            <element signature="e#2583#2584#0" expanded="true" />
-            <element signature="e#2885#2886#0" expanded="true" />
-            <element signature="e#2912#2913#0" expanded="true" />
             <element signature="e#5026#5034#0" expanded="true" />
             <element signature="e#5641#5649#0" expanded="true" />
             <element signature="e#7004#7012#0" expanded="true" />
@@ -1251,21 +1229,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Readme.md">
-      <provider editor-type-id="MarkdownPreviewEditor">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/src/evilp0s/StringUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-18.457144">
-          <caret line="50" column="34" selection-start-line="0" selection-start-column="0" selection-end-line="91" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.03538175">
-          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.47265077">
+          <caret line="224" column="9" selection-start-line="224" selection-start-column="9" selection-end-line="224" selection-end-column="9" />
           <folding />
         </state>
       </provider>
