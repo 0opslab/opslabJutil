@@ -210,4 +210,22 @@ public class WebUtil {
         System.out.println(removeParam(url, "act", "ad", "redirect"));
 
     }
+
+
+    /**
+     * HTML标签转义方法 —— java代码库
+     *
+     * @param content
+     * @return
+     */
+    public static String html(String content) {
+        if (content == null) return "";
+        String html = content;
+        html = html.replaceAll("'", "&apos;");
+        html = html.replaceAll("\"", "&quot;");
+        html = html.replaceAll("\t", "&nbsp;&nbsp;");// 替换跳格
+        html = html.replaceAll("<", "&lt;");
+        html = html.replaceAll(">", "&gt;");
+        return html;
+    }
 }

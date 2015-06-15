@@ -16,85 +16,20 @@ import java.util.regex.Pattern;
  * @Description:ProUtil 提供些常用的字符串相关的工具方法
  */
 public class StringUtil {
-    private static      Pattern numericPattern       = Pattern.compile("^[0-9\\-]+$");
-    private static      Pattern numericStringPattern = Pattern
-            .compile("^[0-9\\-\\-]+$");
-    private static      Pattern floatNumericPattern  = Pattern
-            .compile("^[0-9\\-\\.]+$");
-    private static      Pattern abcPattern           = Pattern.compile("^[a-z|A-Z]+$");
-    public static final String  splitStrPattern      = ",|，|;|；|、|\\.|。|-|_|\\(|\\)|\\[|\\]|\\{|\\}|\\\\|/| |　|\"";
-
 
     /**
-     * 判断是否数字表示
+     * 判断是否是空字符串 null和"" 都返回 true
      *
-     * @param src 源字符串
-     * @return 是否数字的标志
+     * @param s
+     * @return
+     * @author Robin Chang
      */
-    public static boolean isNumeric(String src) {
-        boolean return_value = false;
-        if (src != null && src.length() > 0) {
-            Matcher m = numericPattern.matcher(src);
-            if (m.find()) {
-                return_value = true;
-            }
+    public static boolean isEmpty(String s) {
+        if (s != null && !s.equals("")) {
+            return false;
         }
-        return return_value;
+        return true;
     }
-
-    /**
-     * 判断是否数字表示
-     *
-     * @param src 源字符串
-     * @return 是否数字的标志
-     */
-    public static boolean isNumericString(String src) {
-        boolean return_value = false;
-        if (src != null && src.length() > 0) {
-            Matcher m = numericStringPattern.matcher(src);
-            if (m.find()) {
-                return_value = true;
-            }
-        }
-        return return_value;
-    }
-
-
-    /**
-     * 判断是否纯字母组合
-     *
-     * @param src 源字符串
-     * @return 是否纯字母组合的标志
-     */
-    public static boolean isABC(String src) {
-        boolean return_value = false;
-        if (src != null && src.length() > 0) {
-            Matcher m = abcPattern.matcher(src);
-            if (m.find()) {
-                return_value = true;
-            }
-        }
-        return return_value;
-    }
-
-    /**
-     * 判断是否浮点数字表示
-     *
-     * @param src 源字符串
-     * @return 是否数字的标志
-     */
-    public static boolean isFloatNumeric(String src) {
-        boolean return_value = false;
-        if (src != null && src.length() > 0) {
-            Matcher m = floatNumericPattern.matcher(src);
-            if (m.find()) {
-                return_value = true;
-            }
-        }
-        return return_value;
-    }
-
-
     /**
      * 把string array or list用给定的符号symbol连接成一个字符串
      *
@@ -117,8 +52,10 @@ public class StringUtil {
     }
 
     /**
-     * @Function:判定第一个字符串是否等于的第二个字符串中的某一个值
-     * @Summary:第二个字符串用,分隔
+     * 判定第一个字符串是否等于的第二个字符串中的某一个值
+     * @param str1 测试的字符串
+     * @param str2 字符串数组(用,分割)
+     * @return
      */
     public static boolean requals(String str1, String str2) {
         boolean falg = false;
@@ -127,12 +64,33 @@ public class StringUtil {
             String[] arr = str2.split(",");
             for (int i = 0; i < arr.length; i++) {
                 if (arr[i].equals(str1.trim())) {
-                    falg = true;
+                    return true;
                 }
             }
         }
-        return falg;
+        return false;
     }
+
+    /**
+     * 判定第一个字符串是否等于的第二个字符串中的某一个值
+     * @param str1 测试的字符串
+     * @param str2 字符串数组
+     * @param split str2字符串的分隔符
+     * @return
+     */
+    public static boolean requals(String str1,String str2,String split){
+        if (str1 != null && str2 != null) {
+            str2 = str2.replaceAll("\\s*", "");
+            String[] arr = str2.split(split);
+            for (int i = 0; i < arr.length; i++) {
+                if (arr[i].equals(str1.trim())) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
 
     /**
      * 讲字符串截取到指定长度size+...的形式
@@ -276,6 +234,32 @@ public class StringUtil {
     }
 
     /**
+     * 截取字符串左侧的Num位
+     * @param str1
+     * @param num
+     * @return
+     */
+    public static String ltrim(String str1,int num){
+        if(!isEmpty(str1) && str1.length() > num){
+            str1 = str1.substring(num,str1.length());
+        }
+        return str1;
+    }
+
+    /**
+     * 截取字符串右侧的Num位
+     * @param str1
+     * @param num
+     * @return
+     */
+    public static String rtrim(String str1,int num){
+        if(!isEmpty(str1) && str1.length() > num){
+            str1 = str1.substring(0,str1.length()- num);
+        }
+        return str1;
+    }
+
+    /**
      * 根据指定的字符把源字符串分割成一个数组
      *
      * @param src
@@ -304,19 +288,7 @@ public class StringUtil {
         return df.format(f);
     }
 
-    /**
-     * 判断是否是空字符串 null和"" 都返回 true
-     *
-     * @param s
-     * @return
-     * @author Robin Chang
-     */
-    public static boolean isEmpty(String s) {
-        if (s != null && !s.equals("")) {
-            return false;
-        }
-        return true;
-    }
+
 
     /**
      * 将list 用传入的分隔符组装为String
@@ -335,48 +307,10 @@ public class StringUtil {
         }
     }
 
-    /**
-     * HTML标签转义方法 —— java代码库
-     *
-     * @param content
-     * @return
-     */
-    public static String html(String content) {
-        if (content == null) return "";
-        String html = content;
-        html = html.replaceAll("'", "&apos;");
-        html = html.replaceAll("\"", "&quot;");
-        html = html.replaceAll("\t", "&nbsp;&nbsp;");// 替换跳格
-        html = html.replaceAll("<", "&lt;");
-        html = html.replaceAll(">", "&gt;");
-        return html;
-    }
 
 
-    /**
-     * @param str
-     * @return
-     * @Method:判断是否是整数
-     */
-    public static boolean isInteger(String str) {
-        Pattern pattern = Pattern.compile("^[-\\+]?[\\d]+$");
-        return pattern.matcher(str).matches();
-    }
 
 
-    /**
-     * @param email
-     * @return
-     * @Method:判断是否是符合邮箱
-     */
-    public static boolean isEmail(String email) {
-        if (email == null || email.length() < 1 || email.length() > 256) {
-            return false;
-        }
-        Pattern pattern = Pattern
-                .compile("^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
-        return pattern.matcher(email).matches();
-    }
 
     /**
      * 截取字符串左侧指定长度的字符串
@@ -511,7 +445,6 @@ public class StringUtil {
      * @return map
      * @author sky
      */
-    @SuppressWarnings("unchecked")
     public static Map<String, String> parseQuery(String query, char split1,
                                                  char split2, String dupLink) {
         if (!isEmpty(query) && query.indexOf(split2) > 0) {
@@ -577,39 +510,7 @@ public class StringUtil {
     }
 
 
-    /**
-     * Unicode转换成GBK字符集
-     *
-     * @param input 待转换字符串
-     * @return 转换完成字符串
-     */
-    public static String UnicodeToGB(String input)
-            throws UnsupportedEncodingException {
-        if (isEmpty(input)) {
-            return "";
-        } else {
-            String s1;
-            s1 = new String(input.getBytes("ISO8859_1"), "GBK");
-            return s1;
-        }
-    }
 
-    /**
-     * GBK转换成Unicode字符集
-     *
-     * @param input 待转换字符串
-     * @return 转换完成字符串
-     */
-    public static String GBToUnicode(String input)
-            throws UnsupportedEncodingException {
-        if (isEmpty(input)) {
-            return "";
-        } else {
-            String s1;
-            s1 = new String(input.getBytes("GBK"), "ISO8859_1");
-            return s1;
-        }
-    }
 
 
     /**
@@ -815,21 +716,5 @@ public class StringUtil {
         return count;
     }
 
-    /**
-     * 获取符合reg正则表达式的字符串在String中出现的次数
-     *
-     * @param string
-     * @param reg
-     * @return
-     */
-    public static int countSubStrReg(String string, String reg) {
-        Pattern p = Pattern.compile(reg);
-        Matcher m = p.matcher(string);
-        int i = 0;
-        while (m.find()) {
-            string = m.group(0);
-            i += string.length();
-        }
-        return i;
-    }
+
 }

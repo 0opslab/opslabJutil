@@ -17,4 +17,10 @@ public class RegUtilTest extends TestCase {
         System.out.println(RegUtil.isMatche("123as","\\d{4}"));
     }
 
+
+    @Test
+    public void testcountSubStrReg(){
+        String str1 ="192是本地址";
+        System.out.println(RegUtil.countSubStrReg(str1,"\\d{3}"));
+    }
 }
