@@ -32,6 +32,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+<<<<<<< HEAD
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="MarkdownPreviewEditor">
+            <state />
+          </provider>
+          <provider editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="63" max-vertical-offset="2016">
+              <caret line="31" column="30" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
+=======
       <file leaf-file-name="Readme.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Readme.md">
           <provider selected="true" editor-type-id="text-editor">
@@ -100,6 +110,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+>>>>>>> a1a97a784e98247fda349f909cc97d79dd04e669
               <folding />
             </state>
           </provider>
@@ -742,14 +753,30 @@
       <workItem from="1433588502333" duration="1306000" />
       <workItem from="1433857679862" duration="774000" />
       <workItem from="1434027544495" duration="134000" />
+<<<<<<< HEAD
+      <workItem from="1434027742548" duration="3313000" />
+=======
       <workItem from="1434027742548" duration="2613000" />
       <workItem from="1434076505021" duration="3284000" />
+<<<<<<< HEAD
       <workItem from="1434102009751" duration="1863000" />
+=======
+      <workItem from="1434102009751" duration="1239000" />
+>>>>>>> a1a97a784e98247fda349f909cc97d79dd04e669
+>>>>>>> fd3be291e4f547180604b25535aa623771e5d54e
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="51302000" />
+=======
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="46855000" />
+=======
+    <option name="totallyTimeSpent" value="50678000" />
+>>>>>>> a1a97a784e98247fda349f909cc97d79dd04e669
+>>>>>>> fd3be291e4f547180604b25535aa623771e5d54e
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="6" />
@@ -1181,6 +1208,16 @@
           <folding />
         </state>
       </provider>
+<<<<<<< HEAD
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="63" max-vertical-offset="2016">
+          <caret line="31" column="30" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
+=======
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
       </provider>
@@ -1229,6 +1266,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/evilp0s/StringUtil.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0">
           <caret line="824" column="36" selection-start-line="824" selection-start-column="22" selection-end-line="824" selection-end-column="36" />
           <folding />
@@ -1239,6 +1277,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.85018724">
           <caret line="72" column="18" selection-start-line="72" selection-start-column="16" selection-end-line="72" selection-end-column="34" />
+=======
+        <state vertical-scroll-proportion="0.47265077">
+          <caret line="224" column="9" selection-start-line="224" selection-start-column="9" selection-end-line="224" selection-end-column="9" />
+>>>>>>> a1a97a784e98247fda349f909cc97d79dd04e669
+>>>>>>> fd3be291e4f547180604b25535aa623771e5d54e
           <folding />
         </state>
       </provider>
