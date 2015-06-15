@@ -5,12 +5,32 @@ import org.junit.Test;
 
 public class StringUtilTest {
 
+    @Test
+    public void testTrim(){
+        String str1 = "java-utls.jar";
+        System.out.println(StringUtil.ltrim(str1,5));
+        System.out.println(StringUtil.ltrim(null,5));
+        System.out.println(StringUtil.rtrim(str1,4));
+        System.out.println(StringUtil.rtrim(null,4));
+
+
+    }
+
+
+    @Test
+    public void testLeftRigth(){
+        String str1 ="java-utils.jar";
+        System.out.println(StringUtil.right(str1,3));
+        System.out.println(StringUtil.left(str1,4));
+    }
+
     @org.junit.Test
     public void testRequals() throws Exception {
         System.out.println(StringUtil.requals("1", "1	,5,7,9,10,13,14"));
         System.out.println(StringUtil.requals("7", "1,5, 7 ,9,10,13,14"));
         System.out.println(StringUtil.requals("9", "1,5,7,9,10,13,14"));
         System.out.println(StringUtil.requals("15", "1,5,7,9,10,13,14"));
+        System.out.println(StringUtil.requals("15", "15|7|9|10|13|14","\\|"));
     }
 
     @Test
@@ -69,9 +89,5 @@ public class StringUtilTest {
                                    input4));
     }
 
-    @Test
-    public void testcountSubStrReg(){
-        String str1 ="127.0.0.1";
-        System.out.println(StringUtil.countSubStrReg(str1,"\\d{1,3}"));
-    }
+
 }

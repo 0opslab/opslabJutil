@@ -130,4 +130,38 @@ public class CharsetUtil {
         return null;
     }
 
+    /**
+     * Unicode转换成GBK字符集
+     *
+     * @param input 待转换字符串
+     * @return 转换完成字符串
+     */
+    public static String UnicodeToGB(String input)
+            throws UnsupportedEncodingException {
+        if (StringUtil.isEmpty(input)) {
+            return "";
+        } else {
+            String s1;
+            s1 = new String(input.getBytes("ISO8859_1"), "GBK");
+            return s1;
+        }
+    }
+
+    /**
+     * GBK转换成Unicode字符集
+     *
+     * @param input 待转换字符串
+     * @return 转换完成字符串
+     */
+    public static String GBToUnicode(String input)
+            throws UnsupportedEncodingException {
+        if (StringUtil.isEmpty(input)) {
+            return "";
+        } else {
+            String s1;
+            s1 = new String(input.getBytes("GBK"), "ISO8859_1");
+            return s1;
+        }
+    }
+
 }
