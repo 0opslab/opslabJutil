@@ -37,6 +37,25 @@ public class StringUtilTest {
     }
 
     @Test
+    public void testgetStringLen(){
+        String str1 ="234判断fg456";
+        System.out.println(StringUtil.getStringLen(str1));
+        System.out.println(StringUtil.ChineseLength(str1));
+    }
+
+    @Test
+    public void testgetHideEmailPrefix(){
+        String str1 ="test@163.com";
+        System.out.println(StringUtil.getHideEmailPrefix(str1));
+    }
+
+
+    @Test
+    public void testtrimPunct(){
+        String str1 ="鬼谷子是春秋战国著名的思想家、道家、谋略家，称得上是先秦最神秘的历史人物";
+        System.out.println(StringUtil.trimPunct(str1));
+    }
+    @Test
     public void testStringSimilar() {
         String input1 = "每样东西都有根本有枝末，每件事情都有开始有终结。明白了这本末始终的道理，就接近事物发展的规律了。";
         String input2 = "物品有基础也有末路，事情有开始也有终结。知道先与后，就近乎得道了。";
@@ -45,6 +64,14 @@ public class StringUtilTest {
         String input3 = "鬼谷子是春秋战国时期道家、纵横家的鼻祖.";
         String input4 = "鬼谷子是春秋战国著名的思想家、道家、谋略家，称得上是先秦最神秘的历史人物";
         System.out.println(StringUtil.SimilarDegree(input3, input4));
-        System.out.println(StringUtil.SimilarityRatio(input3, input4));
+        System.out.println(StringUtil.SimilarityRatio(
+                                   input3,
+                                   input4));
+    }
+
+    @Test
+    public void testcountSubStrReg(){
+        String str1 ="127.0.0.1";
+        System.out.println(StringUtil.countSubStrReg(str1,"\\d{1,3}"));
     }
 }
