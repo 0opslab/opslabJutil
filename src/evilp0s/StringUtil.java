@@ -227,7 +227,7 @@ public class StringUtil {
     }
 
     /**
-     * 取得字符串的实际长度（考虑了汉字的情况）
+     * 取得字符串的实际长度（考虑了汉字的情况一个汉字按照俩个字符算）
      *
      * @param SrcStr 源字符串
      * @return 字符串的实际长度
@@ -816,7 +816,7 @@ public class StringUtil {
     }
 
     /**
-     * 获取符合reg正则表达式的字符串在String中出现的此时
+     * 获取符合reg正则表达式的字符串在String中出现的次数
      *
      * @param string
      * @param reg
