@@ -2,7 +2,6 @@ package evilp0s;
 
 import evilp0s.algorithmImpl.StringImpl;
 
-import java.io.UnsupportedEncodingException;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,6 +29,7 @@ public class StringUtil {
         }
         return true;
     }
+
     /**
      * 把string array or list用给定的符号symbol连接成一个字符串
      *
@@ -53,6 +53,7 @@ public class StringUtil {
 
     /**
      * 判定第一个字符串是否等于的第二个字符串中的某一个值
+     *
      * @param str1 测试的字符串
      * @param str2 字符串数组(用,分割)
      * @return
@@ -73,12 +74,13 @@ public class StringUtil {
 
     /**
      * 判定第一个字符串是否等于的第二个字符串中的某一个值
-     * @param str1 测试的字符串
-     * @param str2 字符串数组
+     *
+     * @param str1  测试的字符串
+     * @param str2  字符串数组
      * @param split str2字符串的分隔符
      * @return
      */
-    public static boolean requals(String str1,String str2,String split){
+    public static boolean requals(String str1, String str2, String split) {
         if (str1 != null && str2 != null) {
             str2 = str2.replaceAll("\\s*", "");
             String[] arr = str2.split(split);
@@ -93,13 +95,14 @@ public class StringUtil {
 
 
     /**
-     * 讲字符串截取到指定长度size+...的形式
+     * 字符串省略截取
+     * 字符串截取到指定长度size+...的形式
      *
      * @param subject
      * @param size
      * @return
      */
-    public static String subStringNotEncode(String subject, int size) {
+    public static String subStringOmit(String subject, int size) {
         if (subject != null && subject.length() > size) {
             subject = subject.substring(0, size) + "...";
         }
@@ -116,9 +119,9 @@ public class StringUtil {
      * @return
      */
     public static String getLimitLengthString(String str, int len, String symbol) {
-        int iLen = len * 2;
-        int counterOfDoubleByte = 0;
-        String strRet = "";
+        int    iLen                = len * 2;
+        int    counterOfDoubleByte = 0;
+        String strRet              = "";
         try {
             if (str != null) {
                 byte[] b = str.getBytes("GBK");
@@ -149,20 +152,6 @@ public class StringUtil {
 
 
     /**
-     * 截取字符，不转码
-     *
-     * @param subject
-     * @param size
-     * @return
-     */
-    public static String subStrNotEncode(String subject, int size) {
-        if (subject.length() > size) {
-            subject = subject.substring(0, size);
-        }
-        return subject;
-    }
-
-    /**
      * 把string array or list用给定的符号symbol连接成一个字符串
      *
      * @param array
@@ -177,7 +166,7 @@ public class StringUtil {
                 if (temp != null && temp.trim().length() > 0)
                     result += (temp + symbol);
             }
-            if (result.length() > 1 && ValidUtil.isValid(symbol)){
+            if (result.length() > 1 && ValidUtil.isValid(symbol)) {
                 result = result.substring(0, result.length() - symbol.length());
             }
         }
@@ -235,26 +224,28 @@ public class StringUtil {
 
     /**
      * 截取字符串左侧的Num位
+     *
      * @param str1
      * @param num
      * @return
      */
-    public static String ltrim(String str1,int num){
-        if(!isEmpty(str1) && str1.length() > num){
-            str1 = str1.substring(num,str1.length());
+    public static String ltrim(String str1, int num) {
+        if (!isEmpty(str1) && str1.length() > num) {
+            str1 = str1.substring(num, str1.length());
         }
         return str1;
     }
 
     /**
      * 截取字符串右侧的Num位
+     *
      * @param str1
      * @param num
      * @return
      */
-    public static String rtrim(String str1,int num){
-        if(!isEmpty(str1) && str1.length() > num){
-            str1 = str1.substring(0,str1.length()- num);
+    public static String rtrim(String str1, int num) {
+        if (!isEmpty(str1) && str1.length() > num) {
+            str1 = str1.substring(0, str1.length() - num);
         }
         return str1;
     }
@@ -265,13 +256,12 @@ public class StringUtil {
      * @param src
      * @return
      */
-    public static List<String> parseString2ListByCustomerPattern(
-            String pattern, String src) {
+    public static List<String> parseString2ListByCustomerPattern(String pattern, String src) {
 
         if (src == null)
             return null;
-        List<String> list = new ArrayList<String>();
-        String[] result = src.split(pattern);
+        List<String> list   = new ArrayList<String>();
+        String[]     result = src.split(pattern);
         for (int i = 0; i < result.length; i++) {
             list.add(result[i]);
         }
@@ -287,7 +277,6 @@ public class StringUtil {
         DecimalFormat df = new DecimalFormat(format);
         return df.format(f);
     }
-
 
 
     /**
@@ -306,10 +295,6 @@ public class StringUtil {
             return "";
         }
     }
-
-
-
-
 
 
     /**
@@ -333,6 +318,7 @@ public class StringUtil {
      * @param input 输入字符串
      * @param count 截取长度
      * @return 截取字符串
+     * @Summary 其他编码的有待测试
      */
     public static String right(String input, int count) {
         if (isEmpty(input)) {
@@ -393,11 +379,11 @@ public class StringUtil {
      * @return 替换后的字符串
      */
     public static String replaceAll(String s, String sf, String sb) {
-        int i = 0, j = 0;
-        int l = sf.length();
-        boolean b = true;
-        boolean o = true;
-        String str = "";
+        int     i   = 0, j = 0;
+        int     l   = sf.length();
+        boolean b   = true;
+        boolean o   = true;
+        String  str = "";
         do {
             j = i;
             i = s.indexOf(sf, j);
@@ -445,10 +431,9 @@ public class StringUtil {
      * @return map
      * @author sky
      */
-    public static Map<String, String> parseQuery(String query, char split1,
-                                                 char split2, String dupLink) {
+    public static Map<String,String> parseQuery(String query, char split1, char split2, String dupLink) {
         if (!isEmpty(query) && query.indexOf(split2) > 0) {
-            Map<String, String> result = new HashMap();
+            Map<String,String> result = new HashMap();
 
             String name = null;
             String value = null;
@@ -504,13 +489,9 @@ public class StringUtil {
         if (isEmpty(input)) {
             return "";
         }
-        count = (count > input.length() - index + 1) ? input.length() - index
-                + 1 : count;
+        count = (count > input.length() - index + 1) ? input.length() - index + 1 : count;
         return input.substring(index - 1, index + count - 1);
     }
-
-
-
 
 
     /**
@@ -553,7 +534,7 @@ public class StringUtil {
      */
     public static String unicode2String(String unicode) {
         StringBuffer string = new StringBuffer();
-        String[] hex = unicode.split("\\\\u");
+        String[]     hex    = unicode.split("\\\\u");
         for (int i = 1; i < hex.length; i++) {
             int data = Integer.parseInt(hex[i], 16);
             string.append((char) data);
@@ -561,86 +542,6 @@ public class StringUtil {
         return string.toString();
     }
 
-    /**
-     * 判断是否是中文
-     *
-     * @param c
-     * @return
-     */
-    public static boolean isChinese(char c) {
-        Character.UnicodeBlock ub = Character.UnicodeBlock.of(c);
-        if (ub == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS
-                || ub == Character.UnicodeBlock.CJK_COMPATIBILITY_IDEOGRAPHS
-                || ub == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A
-                || ub == Character.UnicodeBlock.GENERAL_PUNCTUATION
-                || ub == Character.UnicodeBlock.CJK_SYMBOLS_AND_PUNCTUATION
-                || ub == Character.UnicodeBlock.HALFWIDTH_AND_FULLWIDTH_FORMS) {
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * 判断是否是乱码
-     *
-     * @param strName
-     * @return
-     */
-    public static boolean isMessyCode(String strName) {
-        Pattern p = Pattern.compile("\\s*|\t*|\r*|\n*");
-        Matcher m = p.matcher(strName);
-        String after = m.replaceAll("");
-        String temp = after.replaceAll("\\p{P}", "");
-        char[] ch = temp.trim().toCharArray();
-        float chLength = 0;
-        float count = 0;
-        for (int i = 0; i < ch.length; i++) {
-            char c = ch[i];
-            if (!Character.isLetterOrDigit(c)) {
-                if (!isChinese(c)) {
-                    count = count + 1;
-                }
-                chLength++;
-            }
-        }
-        float result = count / chLength;
-        if (result > 0.4) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    /**
-     * 完整的判断中文汉字和符号
-     */
-
-    public static boolean isChinese(String strName) {
-        char[] ch = strName.toCharArray();
-        for (int i = 0; i < ch.length; i++) {
-            char c = ch[i];
-            if (isChinese(c)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-
-
-    /**
-     * 获取一个字符串中中文字符的个数
-     */
-    public static int ChineseLength(String str) {
-        Pattern p = Pattern.compile("[\u4E00-\u9FA5]+");
-        Matcher m = p.matcher(str);
-        int i = 0;
-        while (m.find()) {
-            String temp = m.group(0);
-            i += temp.length();
-        }
-        return i;
-    }
 
     /**
      * 删除所有的标点符号
@@ -715,6 +616,5 @@ public class StringUtil {
         }
         return count;
     }
-
 
 }

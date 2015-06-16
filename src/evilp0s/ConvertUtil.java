@@ -90,4 +90,10 @@ public class ConvertUtil {
         s = s0 | s1 | s2 | s3 | s4 | s5 | s6 | s7;
         return s;
     }
+
+    public static String byteToString(byte[] b){
+        String strRead = new String(b);
+        strRead = String.copyValueOf(strRead.toCharArray(), 0, b.length);
+        return strRead;
+    }
 }
