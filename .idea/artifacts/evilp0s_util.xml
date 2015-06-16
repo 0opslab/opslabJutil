@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="evilp0s-util">
-    <output-path>$PROJECT_DIR$/out/artifacts/evilp0s_util</output-path>
-    <root id="archive" name="evilp0s-util.jar">
-      <element id="module-output" name="utils" />
-    </root>
-  </artifact>
-</component>

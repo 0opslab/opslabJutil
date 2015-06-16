@@ -1,4 +1,3 @@
 out/
 .idea/
-.gitignore
-.utils.iml
+utils.iml
