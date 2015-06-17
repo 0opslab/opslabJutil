@@ -1,12 +1,12 @@
 package evilp0s;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 public class FileUtilTest extends SupportTest{
 
@@ -18,10 +18,54 @@ public class FileUtilTest extends SupportTest{
     }
 
     @Test
+    public void testHash(){
+        String file =System.getProperty("user.dir") + "/Junit/Resource/ali.gif";
+        assertEquals("文件Hash校验错误", "4FE6FF69F7257F2E8C36B0752B5393BF", FileUtil.hash(new File(file)).toUpperCase());
+    }
+
+    @Test
+    public void testFileType(){
+        String efile = System.getProperty("user.dir") + "/Junit/Resource/ali.gif";
+        assertEquals("文件类型判断有错", "gif",FileUtil.FileType(new File(efile)));
+        String hfile = System.getProperty("user.dir") + "/Junit/Resource/tgepng";
+        assertEquals("文件类型判断有错", "png",FileUtil.FileType(new File(hfile)));
+    }
+
+    @Test
     public void testLines(){
-        System.out.println("按List讲文件全部读入到List中");
-        List<String> lines = FileUtil.Lines(new File("c:/windows/WindowsUpdate.log"));
+        System.out.println("=====按List讲文件全部读入到List中======");
+
+        PrintUtil.println("全英文文件测试");
+        String efile = System.getProperty("user.dir") + "/Junit/Resource/English.txt";
+        List<String> lines = FileUtil.Lines(new File(efile));
         PrintUtil.print(lines);
+        PrintUtil.println("读取文件的前3行");
+        lines = FileUtil.Lines(new File(efile),3);
+        PrintUtil.print(lines);
+
+
+        PrintUtil.println("GBK文件测试");
+        String gbkfile = System.getProperty("user.dir") + "/Junit/Resource/GBK.txt";
+        List<String> gbklines = FileUtil.Lines(new File(gbkfile));
+        PrintUtil.print(gbklines);
+        gbklines =FileUtil.Lines(new File(gbkfile),"GBK");
+        PrintUtil.print(gbklines);
+        PrintUtil.println("读取文件的前3行");
+        lines = FileUtil.Lines(new File(gbkfile),3,"GBK");
+        PrintUtil.print(lines);
+
+
+
+        PrintUtil.println("UTF8文件测试");
+        String utf8file = System.getProperty("user.dir")+"/JUnit/Resource/UTF8.txt";
+        List<String> utf8lines = FileUtil.Lines(new File(utf8file));
+        PrintUtil.print(utf8lines);
+        utf8lines =FileUtil.Lines(new File(utf8file),"UTF-8");
+        PrintUtil.print(utf8lines);
+        PrintUtil.println("读取文件的前3行");
+        lines = FileUtil.Lines(new File(utf8file),3,"UTF-8");
+        PrintUtil.print(lines);
+
     }
 
     @Test
@@ -41,9 +85,35 @@ public class FileUtilTest extends SupportTest{
         System.out.println("测试文件拷贝");
         FileUtil.copy("f:/oracle11g_winX64.rar", "d:/oracle.rar");
         FileUtil.copy("f:/oracle11g_winX64.rar", "d:/oracle.rar");
-        FileUtil.copy("f:/oracle11g_winX64.rar","c:/test/oracle.rar");
+        FileUtil.copy("f:/oracle11g_winX64.rar", "c:/test/oracle.rar");
     }
 
+    @Test
+    public void testAppendLine(){
+        System.out.println("向文件中追加行");
+        String line1 ="E-String";
+        String line2 ="中文字符串";
+
+        File efile = new File(System.getProperty("user.dir")+"/JUnit/Resource/EnglishWrite.txt");
+        File gbkfile = new File(System.getProperty("user.dir")+"/JUnit/Resource/GBKWrite.txt");
+        File utf8file = new File(System.getProperty("user.dir")+"/JUnit/Resource/UTF8Write.txt");
+
+        FileUtil.appendLine(efile,line1);
+        FileUtil.appendLine(efile,line2);
+        FileUtil.appendLine(efile,line1,"UTF-8");
+        FileUtil.appendLine(efile,line2,"UTF-8");
+
+        FileUtil.appendLine(gbkfile,line1);
+        FileUtil.appendLine(gbkfile,line2);
+        FileUtil.appendLine(gbkfile,line1,"GBK");
+        FileUtil.appendLine(gbkfile,line2,"GBK");
+
+        FileUtil.appendLine(utf8file,line1);
+        FileUtil.appendLine(utf8file,line2);
+        FileUtil.appendLine(utf8file,line1,"UTF-8");
+        FileUtil.appendLine(utf8file,line2,"UTF-8");
+
+    }
 
 
     @Test

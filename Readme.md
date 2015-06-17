@@ -159,7 +159,8 @@
     static boolean	isChinese(java.lang.String strName)
     static boolean	isChineseByName(java.lang.String str)
     static boolean	isChineseByREG(java.lang.String str)
-    static void	main(java.lang.String[] args)
+    static boolean  isMessyCode(java.lang.String strName) 
+    判断是否是乱码 
 #ConvertUtil转换相关的工具类
 
 ##常量方法
@@ -271,6 +272,8 @@
 ##常量方法
     static boolean	appendLine(java.io.File file, java.lang.String str)
     在文件末尾追加一行
+    static boolean	appendLine(java.io.File file, java.lang.String str, java.lang.String encoding)
+    在文件末尾追加一行
     static boolean	cleanFile(java.io.File file)
     快速清空一个超大的文件
     static boolean	copy(java.io.File file, java.lang.String targetFile)
@@ -303,6 +306,10 @@
     以列表的方式获取文件的所有行
     static java.util.List<java.lang.String>	Lines(java.io.File file, int lines)
     以列表的方式获取文件的指定的行数数据
+    static java.util.List<java.lang.String>	Lines(java.io.File file, int lines, java.lang.String encoding)
+    以列表的方式获取文件的指定的行数数据
+    static java.util.List<java.lang.String>	Lines(java.io.File file, java.lang.String encoding)
+    以列表的方式获取文件的所有行
     static java.util.List<java.io.File>	listFile(java.io.File path)
     罗列指定路径下的全部文件
     static java.util.List<java.io.File>	listFile(java.lang.String path)
@@ -363,8 +370,20 @@
     生成一个定长的纯0字符串
 #RegUtil正则相关的工具类
 ##常量方法
+    static int	countSubStrReg(java.lang.String str, java.lang.String reg)
+    获取符合reg正则表达式的字符串在String中出现的次数
+    static boolean	isABC(java.lang.String src)
+    判断是否纯字母组合
+    static boolean	isEmail(java.lang.String email) 
+    static boolean	isFloatNumeric(java.lang.String src)
+    判断是否浮点数字表示
+    static boolean	isInteger(java.lang.String str) 
     static boolean	isMatche(java.lang.String str, java.lang.String reg)
     判断字符串str是否符合正则表达式reg
+    static boolean	isNumeric(java.lang.String src)
+    判断是否数字表示
+    static boolean	isNumericString(java.lang.String src)
+    判断是否数字表示
 #SecUtil安全相关的工具类
 ##常量方法
     static java.lang.String	FileMD5(java.io.File file)
@@ -380,48 +399,24 @@
     Read an input stream into a string
 #StringUtil字符串相关的工具类
 ##常量方法
-    static int	ChineseLength(java.lang.String str)
-    获取一个字符串中中文字符的个数
     static int	countSubStr(java.lang.String string, java.lang.String str)
     获取字符串str在String中出现的次数
-    static int	countSubStrReg(java.lang.String string, java.lang.String reg)
-    获取符合reg正则表达式的字符串在String中出现的此时
     java.lang.String	cpDetector(java.lang.String str)
     获取字符串的编码
     static java.lang.String	formatFloat(float f, java.lang.String format)
     格式化一个float
     static java.lang.String	full2Half(java.lang.String str)
     全角字符变半角字符
-    static java.lang.String	GBToUnicode(java.lang.String input)
-    GBK转换成Unicode字符集
     static java.lang.String	getHideEmailPrefix(java.lang.String email)
     隐藏邮件地址前缀。
     static java.lang.String	getLimitLengthString(java.lang.String str, int len, java.lang.String symbol)
     截取字符串　超出的字符用symbol代替
     static int	getStringLen(java.lang.String SrcStr)
-    取得字符串的实际长度（考虑了汉字的情况）
-    static java.lang.String	html(java.lang.String content)
-    HTML标签转义方法 —— java代码库
-    static boolean	isABC(java.lang.String src)
-    判断是否纯字母组合
-    static boolean	isChinese(char c)
-    判断是否是中文
-    static boolean	isChinese(java.lang.String strName)
-    完整的判断中文汉字和符号
-    static boolean	isEmail(java.lang.String email)
+    取得字符串的实际长度（考虑了汉字的情况一个汉字按照俩个字符算）
     static boolean	isEmpty(java.lang.String s)
     判断是否是空字符串 null和"" 都返回 true
-    static boolean	isFloatNumeric(java.lang.String src)
-    判断是否浮点数字表示
     static boolean	isIn(java.lang.String substring, java.lang.String[] source)
     判断字符串数组中是否包含某字符串元素
-    static boolean	isInteger(java.lang.String str)
-    static boolean	isMessyCode(java.lang.String strName)
-    判断是否是乱码
-    static boolean	isNumeric(java.lang.String src)
-    判断是否数字表示
-    static boolean	isNumericString(java.lang.String src)
-    判断是否数字表示
     static java.lang.String	joinString(java.util.List array, java.lang.String symbol)
     把string array or list用给定的符号symbol连接成一个字符串
     static java.lang.String	joinString(java.lang.String[] array, java.lang.String symbol)
@@ -430,6 +425,8 @@
     截取字符串左侧指定长度的字符串
     static java.lang.String	listToStringSlipStr(java.util.List list, java.lang.String slipStr)
     将list 用传入的分隔符组装为String
+    static java.lang.String	ltrim(java.lang.String str1, int num)
+    截取字符串左侧的Num位
     static java.lang.String	middle(java.lang.String input, int index, int count)
     从指定位置开始截取指定长度的字符串
     static java.util.Map<java.lang.String,java.lang.String>	parseQuery(java.lang.String query, char split1, char split2, java.lang.String dupLink)
@@ -445,24 +442,25 @@
     static java.lang.String	replaceBracketStr(java.lang.String str)
     全角括号转为半角
     static boolean	requals(java.lang.String str1, java.lang.String str2)
+    判定第一个字符串是否等于的第二个字符串中的某一个值
+    static boolean	requals(java.lang.String str1, java.lang.String str2, java.lang.String split)
+    判定第一个字符串是否等于的第二个字符串中的某一个值
     static java.lang.String	right(java.lang.String input, int count)
     截取字符串右侧指定长度的字符串
+    static java.lang.String	rtrim(java.lang.String str1, int num)
+    截取字符串右侧的Num位
     static double	SimilarDegree(java.lang.String str1, java.lang.String str2)
     字符串相似度比较(速度较快)
     static double	SimilarityRatio(java.lang.String str1, java.lang.String str2)
     字符串相似度比较(速度较快)
     java.lang.String	SimpleEncoding(java.lang.String str)
     获取字符串的编码
-    static java.lang.String	string2Unicode(java.lang.String string)
-    static java.lang.String	subStringNotEncode(java.lang.String subject, int size)
-    讲字符串截取到指定长度size+...的形式
-    static java.lang.String	subStrNotEncode(java.lang.String subject, int size)
-    截取字符，不转码
+    static java.lang.String	string2Unicode(java.lang.String string) 
+    static java.lang.String	subStringOmit(java.lang.String subject, int size)
+    字符串省略截取 字符串截取到指定长度size+...的形式
     static java.lang.String	trimPunct(java.lang.String str)
     删除所有的标点符号
-    static java.lang.String	unicode2String(java.lang.String unicode)
-    static java.lang.String	UnicodeToGB(java.lang.String input)
-    Unicode转换成GBK字符集
+    static java.lang.String	unicode2String(java.lang.String unicode) 
 #SysUtil系统相关的工具类
 ##常量字段
     static java.lang.String	STR_HOSTNAME
