@@ -66,6 +66,33 @@ public class FileUtil {
     }
 
     /**
+     * 以列表的方式获取文件的所有行
+     * @param file
+     * @param encoding 指定读取文件的编码
+     * @return
+     */
+    public static List<String> Lines(File file,String encoding){
+        BufferedReader reader = null;
+        List<String> list = new ArrayList<String>();
+        try {
+            reader = new BufferedReader(new InputStreamReader(new FileInputStream(file),encoding));
+            String line = null;
+            while ((line = reader.readLine()) != null) {
+                list.add(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                reader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return list;
+    }
+
+    /**
      * 以列表的方式获取文件的指定的行数数据
      */
     public static List<String> Lines(File file, int lines) {
@@ -90,6 +117,87 @@ public class FileUtil {
             }
         }
         return list;
+    }
+
+    /**
+     *  以列表的方式获取文件的指定的行数数据
+     * @param file
+     * @param lines
+     * @param encoding 指定读取文件的编码
+     * @return
+     */
+    public static List<String> Lines(File file, int lines,String encoding) {
+        BufferedReader reader = null;
+        List<String> list = new ArrayList<String>();
+        try {
+            reader = new BufferedReader(new InputStreamReader(new FileInputStream(file),encoding));
+            String line = null;
+            while ((line = reader.readLine()) != null) {
+                list.add(line);
+                if (list.size() == lines) {
+                    break;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                reader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return list;
+    }
+
+    /**
+     * 在文件末尾追加一行
+     */
+    public static boolean appendLine(File file, String str) {
+        RandomAccessFile randomFile = null;
+        String lineSeparator = System.getProperty("line.separator", "\n");
+        try {
+            randomFile = new RandomAccessFile(file, "rw");
+            long fileLength = randomFile.length();
+            randomFile.seek(fileLength);
+            randomFile.writeBytes(lineSeparator+str);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                randomFile.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 在文件末尾追加一行
+     * @param file
+     * @param str
+     * @param encoding 指定写入的编码
+     * @return
+     */
+    public static boolean appendLine(File file, String str,String encoding) {
+        RandomAccessFile randomFile = null;
+        String lineSeparator = System.getProperty("line.separator", "\n");
+        try {
+            randomFile = new RandomAccessFile(file, "rw");
+            long fileLength = randomFile.length();
+            randomFile.seek(fileLength);
+            randomFile.write((lineSeparator+str).getBytes(encoding));
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                randomFile.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return false;
     }
 
     /**
@@ -141,10 +249,6 @@ public class FileUtil {
         return date;
     }
 
-
-
-
-
     /**
      * 获取文件的Hash
      */
@@ -154,27 +258,8 @@ public class FileUtil {
 
 
 
-    /**
-     * 在文件末尾追加一行
-     */
-    public static boolean appendLine(File file, String str) {
-        RandomAccessFile randomFile = null;
-        try {
-            randomFile = new RandomAccessFile(file, "rw");
-            long fileLength = randomFile.length();
-            randomFile.seek(fileLength);
-            randomFile.writeBytes(str);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                randomFile.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return false;
-    }
+
+
 
 
     /**
