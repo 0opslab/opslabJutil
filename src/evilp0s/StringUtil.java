@@ -586,14 +586,14 @@ public class StringUtil {
      * @param str
      * @return
      */
-    public String SimpleEncoding(String str) {
+    public static String SimpleEncoding(String str) {
         return StringImpl.simpleEncoding(str);
     }
 
     /**
      * 获取字符串的编码
      */
-    public String cpDetector(String str) {
+    public static String cpDetector(String str) {
         return StringImpl.encoding(str);
     }
 
