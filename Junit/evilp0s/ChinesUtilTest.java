@@ -3,6 +3,15 @@ package evilp0s;
 import junit.framework.TestCase;
 import org.junit.Test;
 
+import java.io.UnsupportedEncodingException;
+import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
+import java.nio.charset.CharacterCodingException;
+import java.nio.charset.Charset;
+import java.nio.charset.CharsetDecoder;
+
+import static org.junit.Assert.assertEquals;
+
 public class ChinesUtilTest extends TestCase {
 
     @Test
@@ -20,7 +29,7 @@ public class ChinesUtilTest extends TestCase {
     @Test
     public void testChineseLength() {
         String input = "234判234断一的fg456个字符rer串d23213fg中有de多少g45fhh个中文324";
-        System.out.println(ChinesUtil.ChineseLength(input));
+        assertEquals("计算有错误",15,ChinesUtil.ChineseLength(input));
     }
 
     @Test
@@ -36,6 +45,13 @@ public class ChinesUtilTest extends TestCase {
         String str1 = "234判断fg456";
         System.out.println(StringUtil.getStringLen(str1));
         System.out.println(ChinesUtil.ChineseLength(str1));
+    }
+
+    @Test
+    public void testisMessyCode() throws UnsupportedEncodingException, CharacterCodingException {
+
+        String str1 ="涓枃鐨勫瓧绗︿覆,缂栫爜缁撴灉浼氬簲椤圭洰鐨勭紪璇戝拰JVM鐨勮繍琛岀幆澧冧笉鐥涙湁鎵�奖鍝�";
+        assertEquals("判断乱码有问题",true,ChinesUtil.isMessyCode(str1));
     }
 
 

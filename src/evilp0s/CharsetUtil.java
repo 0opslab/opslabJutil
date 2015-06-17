@@ -1,5 +1,7 @@
 package evilp0s;
 
+import java.io.ByteArrayOutputStream;
+import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 
 /**
@@ -108,6 +110,12 @@ public class CharsetUtil {
             return new String(bs, newCharset);
         }
         return null;
+    }
+
+    public static String getDefaultCharSet() {
+        OutputStreamWriter writer = new OutputStreamWriter(new ByteArrayOutputStream());
+        String enc = writer.getEncoding();
+        return enc;
     }
 
     /**

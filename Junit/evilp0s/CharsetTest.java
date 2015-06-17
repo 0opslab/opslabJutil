@@ -3,15 +3,34 @@ package evilp0s;
 import org.junit.Test;
 
 import java.io.UnsupportedEncodingException;
+import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
+import java.nio.charset.CharacterCodingException;
+import java.nio.charset.Charset;
+import java.nio.charset.CharsetDecoder;
 
 
 public class CharsetTest {
+
+
     @Test
-    public void test() throws UnsupportedEncodingException {
-        String str = "This is a 中文的 String!";
-        System.out.println("str: " + str);
+    public void test() throws UnsupportedEncodingException, CharacterCodingException {
+
+        String str1 =CharsetUtil.changeCharset("计算有错误", CharsetUtil.UTF_8, CharsetUtil.GBK);
+        Charset cs = Charset.forName(CharsetUtil.GBK);
+        CharsetDecoder decoder = cs.newDecoder();
+        CharBuffer str2 = decoder.decode(ByteBuffer.wrap(str1.getBytes()));
+        System.out.println(str2);
+        System.out.println("Default Charset=" + Charset.defaultCharset());
+        System.out.println("file.encoding=" + System.getProperty("file.encoding"));
+        System.out.println("Default Charset=" + Charset.defaultCharset());
+        System.out.println("Default Charset in Use=" + CharsetUtil.getDefaultCharSet());
+        System.out.println("JVM_ENCODING ->"+ SysUtil.STR_JVM_ENCODING);
+        String str = "中文的字符串,编码结果会应项目的编译和JVM的运行环境不痛有所影响";
+        System.out.println("str: " + str+"字符串的编码:"+StringUtil.SimpleEncoding(str));
+        System.out.println("str: " + str+"字符串的编码:"+StringUtil.cpDetector(str));
         String gbk = CharsetUtil.toGBK(str);
-        System.out.println("转换成GBK码: " + gbk);
+        System.out.println("转换成GBK码: "+gbk);
         String ascii = CharsetUtil.toASCII(str);
         System.out.println("转换成US-ASCII码: " + ascii);
         gbk = CharsetUtil.changeCharset(ascii, CharsetUtil.US_ASCII, CharsetUtil.GBK);

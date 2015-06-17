@@ -18,7 +18,10 @@ public class SysUtil {
     //主机名
     public static String STR_HOSTNAME="";
 
+    //JVM的编码
+    public static String STR_JVM_ENCODING="";
     static {
+        STR_JVM_ENCODING = ProUtil.key("file.encoding");
         try {
             InetAddress addr=InetAddress.getLocalHost();
             STR_HOSTNAME = addr.getHostName();
