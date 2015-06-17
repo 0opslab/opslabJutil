@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -12,9 +13,9 @@ public class FileUtilTest extends SupportTest{
 
     @Test
     public void testCountLines() throws IOException {
-        String file ="c:/windows/WindowsUpdate.log";
-        long line = FileUtil.countLines(new File(file));
-        System.out.println("文件共计行数:"+line);
+
+        String file=System.getProperty("user.dir") + "/Junit/Resource/ali.gif";
+        assertEquals("文件行数计算有误", 5, FileUtil.countLines(new File(file)));
     }
 
     @Test
@@ -24,11 +25,21 @@ public class FileUtilTest extends SupportTest{
     }
 
     @Test
-    public void testFileType(){
+    public void testFileType() throws IOException {
         String efile = System.getProperty("user.dir") + "/Junit/Resource/ali.gif";
-        assertEquals("文件类型判断有错", "gif",FileUtil.FileType(new File(efile)));
         String hfile = System.getProperty("user.dir") + "/Junit/Resource/tgepng";
-        assertEquals("文件类型判断有错", "png",FileUtil.FileType(new File(hfile)));
+
+        assertEquals("文件类型判断有错", "gif", FileUtil.FileType(new File(efile)));
+        assertEquals("文件类型判断有错", "png", FileUtil.FileType(new File(hfile)));
+
+        assertEquals("获取文件的mime类型错误", "image/gif", FileUtil.MimeType(efile));
+    }
+
+    @Test
+    public void testModify(){
+        String exefile = System.getProperty("user.dir")+"/Junit/Resource/cmdexe";
+        Date date = FileUtil.modifyTime(new File(exefile));
+        assertEquals("获取文件修改的最后时间错误","2010-11-21 11:24:03",DateUtil.DateTime(date));
     }
 
     @Test
@@ -68,12 +79,7 @@ public class FileUtilTest extends SupportTest{
 
     }
 
-    @Test
-    public void testMimeType() throws IOException {
-        System.out.println("获取文件的mime类型");
-        System.out.println(FileUtil.MimeType("D:/picture/1.jpg"));
-        System.out.println(FileUtil.MimeType("c:/Python27/python.exe"));
-    }
+
 
     @Test
     public void testCleanFile(){
