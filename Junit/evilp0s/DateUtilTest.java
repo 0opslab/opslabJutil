@@ -161,7 +161,7 @@ public class DateUtilTest {
         String str1 = "2015-02-23 18:54:00";
         String str2 = "2015-02-23 21:55:22";
         int rs = DateUtil.SubtractHour(sdf.parse(str1), sdf.parse(str2));
-        assertEquals("计算有误", 27, rs);
+        assertEquals("计算有误", 3, rs);
     }
 
     @Test
@@ -174,9 +174,9 @@ public class DateUtilTest {
 
     @Test
     public void testSubtractDay1() throws Exception {
-        String str1 = "2015-02-23 18:54:00";
+        String str1 = "2015-03-23 18:54:00";
         String str2 = "2015-03-25 21:55:22";
-        int rs = DateUtil.SubtractDay(sdf.parse(str1), sdf.parse(str2));
+        int rs = DateUtil.SubtractDay(str1, str2);
         assertEquals("计算有误", 2, rs);
     }
 
