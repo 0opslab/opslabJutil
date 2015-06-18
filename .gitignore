@@ -2,3 +2,4 @@ out/
 .idea/
 utils.iml
 .gitignore
+Junit/Resource/temp/
