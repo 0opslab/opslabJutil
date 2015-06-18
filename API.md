@@ -367,8 +367,45 @@
     static java.lang.String	unicode2String(java.lang.String unicode) 
 #SysUtil系统相关的工具类
 ##常量字段
-    static java.lang.String	STR_HOSTNAME
-    static java.lang.String	STR_IP
+    static java.lang.String	CURRENT_USER
+    当前用户
+    static java.lang.String	CURRENT_USER_DIR
+    当用用户的工作目录
+    static java.lang.String	CURRENT_USER_HOME
+    当前用户的家目录
+    static java.lang.String	FILE_SEPARATOR
+    static java.lang.String	HOST_IP
+    主机IP
+    static java.lang.String	HOST_NAME
+    主机名
+    static java.lang.String	JVM_ENCODING
+    JVM的编码
+    static java.lang.String	JVM_TEMPDIR
+    JVM默认的临时目录
+    static java.lang.String	JVM_VERSION
+    JVM的版本
+    static java.lang.String	LINE_SEPARATOR
+    static java.lang.String	OS_ARCH
+    主机架构
+    static java.lang.String	OS_NAME
+    主机类型
+    static java.lang.String	OS_VERSION
+    主机类型版本
+    static java.lang.String	PATH_SEPARATOR
+    static java.lang.String	SUN_DESKTOP
+    操作系统类型
+    static long	TotalMemorySize
+    总的物理内存
+
+#静态方法
+    static long	JVMfreeMem()
+    虚拟机空闲内存量
+    static long	JVMmaxMem()
+    虚拟机使用最大内存量
+    static long	JVMtotalMem()
+    获取JVM内存总量
+    static long	usedMemory()
+    已使用的物理内存
 #ValidUtil字符串相关的工具类
 ##常量方法
     static boolean	isValid(java.util.Collection col)

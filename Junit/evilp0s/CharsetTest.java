@@ -25,7 +25,7 @@ public class CharsetTest {
         System.out.println("file.encoding=" + System.getProperty("file.encoding"));
         System.out.println("Default Charset=" + Charset.defaultCharset());
         System.out.println("Default Charset in Use=" + CharsetUtil.getDefaultCharSet());
-        System.out.println("JVM_ENCODING ->"+ SysUtil.STR_JVM_ENCODING);
+        System.out.println("JVM_ENCODING ->"+ SysUtil.JVM_ENCODING);
         String str = "中文的字符串,编码结果会应项目的编译和JVM的运行环境不痛有所影响";
         System.out.println("str: " + str+"字符串的编码:"+StringUtil.SimpleEncoding(str));
         System.out.println("str: " + str+"字符串的编码:"+StringUtil.cpDetector(str));
