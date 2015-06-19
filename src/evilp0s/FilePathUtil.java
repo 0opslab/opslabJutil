@@ -7,6 +7,19 @@ import java.util.regex.Pattern;
  * 文件名及文件路径相关的操作
  */
 public class FilePathUtil {
+
+    /**
+     * 判断是否符是合法的文件路径
+     * @param path
+     * @return
+     */
+    public static boolean legalFile(String path){
+        //下面的正则表达式有问题
+        String regex ="[a-zA-Z]:(?:[/][^/:*?\"<>|.][^/:*?\"<>|]{0,254})+";
+        //String regex ="^([a-zA-z]:)|(^\\.{0,2}/)|(^\\w*)\\w([^:?*\"><|]){0,250}";
+        return RegUtil.isMatche(commandPath(path),regex);
+    }
+
     /**
      * 返回一个通用的文件路径
      * @Summary windows中路径分隔符是\在linux中是/但windows也支持/方式 故全部使用/
