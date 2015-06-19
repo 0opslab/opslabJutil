@@ -9,13 +9,45 @@ import java.util.regex.Pattern;
  */
 public class RegUtil {
 
-    private static      Pattern numericPattern       = Pattern.compile("^[0-9\\-]+$");
-    private static      Pattern numericStringPattern = Pattern.compile("^[0-9\\-\\-]+$");
-    private static      Pattern floatNumericPattern  = Pattern.compile("^[0-9\\-\\.]+$");
-    private static      Pattern abcPattern           = Pattern.compile("^[a-z|A-Z]+$");
+    private static Pattern numericPattern       = Pattern.compile("^[0-9\\-]+$");
+    private static Pattern numericStringPattern = Pattern.compile("^[0-9\\-\\-]+$");
+    private static Pattern floatNumericPattern  = Pattern.compile("^[0-9\\-\\.]+$");
+    private static Pattern abcPattern           = Pattern.compile("^[a-z|A-Z]+$");
 
 
-    public static final String  splitStrPattern      = ",|，|;|；|、|\\.|。|-|_|\\(|\\)|\\[|\\]|\\{|\\}|\\\\|/| |　|\"";
+    /**空白行*/
+    public static final String REG_SPACE_LINE = "\\n\\s*\\r";
+
+    /**首尾空白字符*/
+    public static final String REG_SPACE_POINT = "^\\s*|\\s*$";
+
+    /**HTML*/
+    public static final String REG_HTML = "<(\\S*?)[^>]*>.*?</\\1>|<.*? />";
+
+    /**Email*/
+    public static final String REG_EMAIL = "^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$";
+
+    /**国内固定电话*/
+    public static final String REG_FIXED_TELEPHONE = "\\d{3}-\\d{8}|\\d{4}-\\d{7}";
+
+    /**邮政编码*/
+    public static final String REG_POSTALCODE = "[1-9]\\d{5}(?!\\d)";
+
+    /**身份证编码*/
+    public static final String REG_IDENTIFICATION_CARD = "\\d{15}|\\d{18}";
+
+    /**URL地址*/
+    public static final String REG_URL = "^http://([w-]+.)+[w-]+(/[w-./?%&=]*)?$";
+
+    /**移动电话*/
+    public static final String REG_MOBILE_TELEPHONE = "^(13[0-9]|14[5|7]|15[0|1|2|3|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\\d{8}$";
+
+    /**合法的名字（字母开头，允许5-16字节，允许字母数字下划线）*/
+    public static final String REG_LEGAL_ACCOUNT = "^[a-zA-Z][a-zA-Z0-9_]{4,15}$";
+
+    /**i地址*/
+    public static final String REG_IP = "((2[0-4]\\d|25[0-5]|[01]?\\d\\d?)\\.){3}(2[0-4]\\d|25[0-5]|[01]?\\d\\d?)";
+
     /**
      * 判断是否数字表示
      *
@@ -137,7 +169,7 @@ public class RegUtil {
             return false;
         }
         Pattern pattern = Pattern
-                .compile("^\\w+([-+.]\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
+                .compile(REG_EMAIL);
         return pattern.matcher(email).matches();
     }
 }
