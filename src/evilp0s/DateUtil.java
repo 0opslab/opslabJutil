@@ -660,6 +660,13 @@ public class DateUtil {
         long second = 0;
         Pattern p = Pattern.compile("^\\d{2}:\\d{2}-\\d{2}:\\d{2}");
         Matcher m = p.matcher(timeBurst);
+        boolean falg = false;
+        if(startDate.after(endDate)){
+            Date temp = startDate;
+            startDate = endDate;
+            endDate = temp;
+            falg = true;
+        }
         if (m.matches()) {
             String[] a = timeBurst.split("-");
             int day = subDay(startDate, endDate);
@@ -715,6 +722,9 @@ public class DateUtil {
             }
         } else {
             second = (endDate.getTime() - startDate.getTime()) / 1000 ;
+        }
+        if(falg){
+            second = Long.parseLong("-"+second);
         }
         return second;
     }

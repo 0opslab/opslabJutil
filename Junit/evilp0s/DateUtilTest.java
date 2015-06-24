@@ -239,14 +239,9 @@ public class DateUtilTest {
 
     @Test
     public void testSubtimeBurst() throws ParseException {
+        assertEquals("计算有误",DateUtil.subtimeBurst("2015-06-24 08:00:00", "2015-06-23 20:24:00", "08:00-21:00"),-2160)  ;
+        assertEquals("计算有误", DateUtil.subtimeBurst("2015-01-05 08:00:00", "2015-01-05 08:00:30", "08:00-21:00"), 30);
 
-        assertEquals(
-                "计算有误",
-                DateUtil.subtimeBurst(
-                        "2015-01-05 08:00:00",
-                        "2015-01-05 08:00:30",
-                        "08:00-21:00"),
-                30);
         assertEquals(
                 "计算有误",
                 DateUtil.subtimeBurst(
