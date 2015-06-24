@@ -691,6 +691,7 @@ public class DateUtil {
                 } else if (endDate.after(dayEnd)) {
                     lastMintues = (dayEnd.getTime() - dayStart.getTime()) / 1000 ;
                 }
+                //第一天的秒数 + 最好一天的秒数 + 天数*全天的秒数
                 second = firstMintues + lastMintues;
                 second += (day - 1) * daySecond;
             } else {
@@ -764,22 +765,34 @@ public class DateUtil {
             try {
                 Date dayStart = DateTimeInstance().parse(DateInstance().format(date) + " " + a[0] + ":00");
                 Date dayEnd = DateTimeInstance().parse(DateInstance().format(date) + " " + a[1] + ":00");
+                int DaySecond = (int)Subtract(dayStart,dayEnd);
+                int toDaySecond = (int)Subtract(dayStart,dayEnd);
                 if(second >=0) {
                     if ((date.after(dayStart) || date.equals(dayStart)) && (date.before(dayEnd) || date.equals(dayEnd))) {
                         cal.setTime(date);
+                        toDaySecond = (int)Subtract(date,dayEnd);
                     }
                     if (date.before(dayStart)) {
                         cal.setTime(dayStart);
                     }
                     if (date.after(dayEnd)) {
-                        cal.setTime(
-                                day(
-                                        dayStart,
-                                        1));
+                        cal.setTime(day(dayStart,1));
                     }
+
+                    if(second > toDaySecond){
+                        int day = (second - toDaySecond) / DaySecond;
+                        int remainder = (second - toDaySecond) % DaySecond;
+                        cal.setTime(day(dayStart,1));
+                        cal.add(Calendar.DAY_OF_YEAR,day);
+                        cal.add(Calendar.SECOND, remainder);
+                    }else{
+                        cal.add(Calendar.SECOND, second);
+                    }
+
                 }else{
                     if ((date.after(dayStart) || date.equals(dayStart)) && (date.before(dayEnd) || date.equals(dayEnd))) {
                         cal.setTime(date);
+                        toDaySecond = (int)Subtract(date,dayStart);
                     }
                     if (date.before(dayStart)) {
                         cal.setTime(day(dayEnd,-1));
@@ -787,13 +800,16 @@ public class DateUtil {
                     if (date.after(dayEnd)) {
                         cal.setTime(dayEnd);
                     }
+                    if(Math.abs(second) > Math.abs(toDaySecond)){
+                        int day = (Math.abs(second) - Math.abs(toDaySecond)) / DaySecond;
+                        int remainder = (Math.abs(second) - Math.abs(toDaySecond)) % DaySecond;
+                        cal.setTime(day(dayEnd,-1));
+                        cal.add(Calendar.DAY_OF_YEAR,Integer.valueOf("-"+day));
+                        cal.add(Calendar.SECOND, Integer.valueOf("-"+remainder));
+                    }else{
+                        cal.add(Calendar.SECOND, second);
+                    }
                 }
-                int DaySecond = (int)Subtract(dayStart,dayEnd);
-                int day = second / DaySecond;
-                int remainder = second % DaySecond;
-
-                cal.add(Calendar.DAY_OF_YEAR,day);
-                cal.add(Calendar.SECOND, remainder);
             } catch (ParseException e) {
                 e.printStackTrace();
             }

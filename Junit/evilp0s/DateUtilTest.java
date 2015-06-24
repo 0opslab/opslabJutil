@@ -280,48 +280,59 @@ public class DateUtilTest {
         assertEquals(
                 "计算有误",
                 DateUtil.DateTime(DateUtil.calculate(
-                        "2015-01-29 15:32:00",
-                        10,
+                        "2015-01-29 20:59:50",
+                        9,
                         "08:00-21:00")),
-                "2015-01-29 15:32:10");
+                "2015-01-29 20:59:59");
+        assertEquals(
+                "计算有误",
+                DateUtil.DateTime(DateUtil.calculate(
+                        "2015-01-29 20:59:50",
+                        11,
+                        "08:00-21:00")),
+                "2015-01-30 08:00:01");
+        assertEquals(
+                "计算有误",
+                DateUtil.DateTime(DateUtil.calculate(
+                        "2015-01-29 20:59:50",
+                        (3600 * 13 +1),
+                        "08:00-21:00")),
+                "2015-01-30 20:59:51");
+        assertEquals(
+                "计算有误",
+                DateUtil.DateTime(DateUtil.calculate(
+                        "2015-01-29 20:59:50",
+                        (3600 * 13 * 3 +1),
+                        "08:00-21:00")),
+                "2015-02-01 20:59:51");
+        assertEquals(
+                "计算有误",
+                DateUtil.DateTime(DateUtil.calculate(
+                        "2015-01-29 20:59:50",
+                        (3600 * 13 * 3 +11),
+                        "08:00-21:00")),
+                "2015-02-02 08:00:01");
 
         assertEquals(
                 "计算有误",
                 DateUtil.DateTime(DateUtil.calculate(
-                        "2015-01-29 21:32:00",
-                        55,
+                        "2015-01-29 08:32:00",
+                        -35,
                         "08:00-21:00")),
-                "2015-01-30 08:00:55");
-
+                "2015-01-29 08:31:25");
         assertEquals(
                 "计算有误",
                 DateUtil.DateTime(DateUtil.calculate(
-                        "2015-01-29 07:32:00",
-                        55,
+                        "2015-01-29 08:00:30",
+                        -35,
                         "08:00-21:00")),
-                "2015-01-29 08:00:55");
-
+                "2015-01-28 20:59:55");
         assertEquals(
                 "计算有误",
                 DateUtil.DateTime(DateUtil.calculate(
-                        "2015-01-29 21:32:00",
-                        55 + (21 - 8) * 60 * 60,
+                        "2015-01-29 08:00:30",
+                        Integer.parseInt("-"+(35+3600*13)),
                         "08:00-21:00")),
-                "2015-01-31 08:00:55");
-        assertEquals(
-                "计算有误",
-                DateUtil.DateTime(DateUtil.calculate(
-                        "2015-01-29 07:32:00",
-                        -55,
-                        "08:00-21:00")),
-                "2015-01-28 20:59:05");
-
-        assertEquals(
-                "计算有误",
-                DateUtil.DateTime(DateUtil.calculate(
-                        "2015-01-29 21:32:00",
-                        -55,
-                        "08:00-21:00")),
-                "2015-01-29 20:59:05");
+                "2015-01-27 20:59:55");
     }
 }
