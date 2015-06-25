@@ -3,10 +3,11 @@ package evilp0s;
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
 
 /**
  * Description:
- *      编码相关的封装类
+ * 编码相关的封装类
  */
 public class CharsetUtil {
     /**
@@ -101,8 +102,7 @@ public class CharsetUtil {
      * @return
      * @throws UnsupportedEncodingException
      */
-    public static String changeCharset(String str, String newCharset)
-            throws UnsupportedEncodingException {
+    public static String changeCharset(String str, String newCharset) throws UnsupportedEncodingException {
         if (str != null) {
             // 用默认字符编码解码字符串。
             byte[] bs = str.getBytes();
@@ -112,8 +112,8 @@ public class CharsetUtil {
         return null;
     }
 
-    public static String getDefaultCharSet() {
-        OutputStreamWriter writer = new OutputStreamWriter(new ByteArrayOutputStream());
+    public static String getDefaultCharSet() throws UnsupportedEncodingException {
+        OutputStreamWriter writer = new OutputStreamWriter(new ByteArrayOutputStream(), CharsetUtil.UTF_8);
         String enc = writer.getEncoding();
         return enc;
     }
@@ -127,8 +127,7 @@ public class CharsetUtil {
      * @return
      * @throws UnsupportedEncodingException
      */
-    public static String changeCharset(String str, String oldCharset, String newCharset)
-            throws UnsupportedEncodingException {
+    public static String changeCharset(String str, String oldCharset, String newCharset) throws UnsupportedEncodingException {
         if (str != null) {
             // 用旧的字符编码解码字符串。解码可能会出现异常。
             byte[] bs = str.getBytes(oldCharset);
@@ -144,8 +143,7 @@ public class CharsetUtil {
      * @param input 待转换字符串
      * @return 转换完成字符串
      */
-    public static String UnicodeToGB(String input)
-            throws UnsupportedEncodingException {
+    public static String toGBKWithUTF8(String input) throws UnsupportedEncodingException {
         if (StringUtil.isEmpty(input)) {
             return "";
         } else {
@@ -161,8 +159,7 @@ public class CharsetUtil {
      * @param input 待转换字符串
      * @return 转换完成字符串
      */
-    public static String GBToUnicode(String input)
-            throws UnsupportedEncodingException {
+    public static String toUnicodeWithGBK(String input) throws UnsupportedEncodingException {
         if (StringUtil.isEmpty(input)) {
             return "";
         } else {

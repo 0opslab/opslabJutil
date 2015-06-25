@@ -64,6 +64,12 @@ public class SysUtil {
     /**总的物理内存*/
     public static long TotalMemorySize;
 
+
+    public static final String HTTP_PROXY_HOST = "http.proxyHost";
+    public static final String HTTP_PROXY_PORT = "http.proxyPort";
+    public static final String HTTP_PROXY_USER = "http.proxyUser";
+    public static final String HTTP_PROXY_PASSWORD = "http.proxyPassword";
+
     static {
 
         try {
@@ -133,6 +139,24 @@ public class SysUtil {
      */
     public static long JVMmaxMem(){
         return Runtime.getRuntime().maxMemory()/kb;
+    }
+
+    /**
+     * Sets HTTP proxy settings.
+     */
+    public static void setHttpProxy(String host, String port, String username, String password) {
+        System.getProperties().put(HTTP_PROXY_HOST, host);
+        System.getProperties().put(HTTP_PROXY_PORT, port);
+        System.getProperties().put(HTTP_PROXY_USER, username);
+        System.getProperties().put(HTTP_PROXY_PASSWORD, password);
+    }
+
+    /**
+     * Sets HTTP proxy settings.
+     */
+    public static void setHttpProxy(String host, String port) {
+        System.getProperties().put(HTTP_PROXY_HOST, host);
+        System.getProperties().put(HTTP_PROXY_PORT, port);
     }
 
 }
