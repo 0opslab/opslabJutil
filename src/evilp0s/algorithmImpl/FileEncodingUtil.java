@@ -1,15 +1,12 @@
 package evilp0s.algorithmImpl;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.FilenameFilter;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
+import evilp0s.FileUtil;
+import evilp0s.ValidUtil;
+
+import java.io.*;
 import java.nio.charset.Charset;
 import java.nio.charset.UnsupportedCharsetException;
+import java.util.List;
 
 /**
  * 文件编码相关的一些工具函数
@@ -23,8 +20,7 @@ public class FileEncodingUtil {
      * @param toCharsetName   要转换的编码
      * @throws Exception
      */
-    public static void convert(String fileName, String fromCharsetName,
-                               String toCharsetName) throws Exception {
+    public static void convert(String fileName, String fromCharsetName, String toCharsetName) throws Exception {
         convert(new File(fileName), fromCharsetName, toCharsetName, null);
     }
 
@@ -36,8 +32,7 @@ public class FileEncodingUtil {
      * @param toCharsetName   要转换的编码
      * @throws Exception
      */
-    public static void convert(File file, String fromCharsetName,
-                               String toCharsetName) throws Exception {
+    public static void convert(File file, String fromCharsetName, String toCharsetName) throws Exception {
         convert(file, fromCharsetName, toCharsetName, null);
     }
 
@@ -50,8 +45,8 @@ public class FileEncodingUtil {
      * @param filter          文件名过滤器
      * @throws Exception
      */
-    public static void convert(String fileName, String fromCharsetName,
-                               String toCharsetName, FilenameFilter filter) throws Exception {
+    public static void convert(String fileName, String fromCharsetName, String toCharsetName,
+            FilenameFilter filter) throws Exception {
         convert(new File(fileName), fromCharsetName, toCharsetName, filter);
     }
 
@@ -64,23 +59,23 @@ public class FileEncodingUtil {
      * @param filter          文件名过滤器
      * @throws Exception
      */
-    public static void convert(File file, String fromCharsetName,
-                               String toCharsetName, FilenameFilter filter) throws Exception {
+    public static void convert(File file, String fromCharsetName, String toCharsetName,
+            FilenameFilter filter) throws Exception {
         if (file.isDirectory()) {
-            File[] fileList = null;
+            List<File> list = null;
             if (filter == null) {
-                fileList = file.listFiles();
+                list = FileUtil.listFile(file);
             } else {
-                fileList = file.listFiles(filter);
+                list = FileUtil.listFileFilter(file, filter);
             }
-            for (File f : fileList) {
-                convert(f, fromCharsetName, toCharsetName, filter);
+            if (ValidUtil.isValid(list)) {
+                for (File f : list) {
+                    convert(f, fromCharsetName, toCharsetName, filter);
+                }
             }
         } else {
-            if (filter == null
-                    || filter.accept(file.getParentFile(), file.getName())) {
-                String fileContent = getFileContentFromCharset(file,
-                        fromCharsetName);
+            if (filter == null || filter.accept(file.getParentFile(), file.getName())) {
+                String fileContent = getFileContentFromCharset(file, fromCharsetName);
                 saveFile2Charset(file, toCharsetName, fileContent);
             }
         }
@@ -94,18 +89,20 @@ public class FileEncodingUtil {
      * @return
      * @throws Exception
      */
-    public static String getFileContentFromCharset(File file,
-                                                   String fromCharsetName) throws Exception {
+    public static String getFileContentFromCharset(File file, String fromCharsetName) {
+        String str = "";
         if (!Charset.isSupported(fromCharsetName)) {
             throw new UnsupportedCharsetException(fromCharsetName);
         }
-        InputStream inputStream = new FileInputStream(file);
-        InputStreamReader reader = new InputStreamReader(inputStream,
-                fromCharsetName);
-        char[] chs = new char[(int) file.length()];
-        reader.read(chs);
-        String str = new String(chs).trim();
-        reader.close();
+        try (InputStream inputStream = new FileInputStream(file);
+             InputStreamReader reader = new InputStreamReader(inputStream, fromCharsetName)
+        ) {
+            char[] chs = new char[(int) file.length()];
+            reader.read(chs);
+            str = new String(chs).trim();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return str;
     }
 
@@ -117,15 +114,17 @@ public class FileEncodingUtil {
      * @param content       文件内容
      * @throws Exception
      */
-    public static void saveFile2Charset(File file, String toCharsetName,
-                                        String content) throws Exception {
+    public static void saveFile2Charset(File file, String toCharsetName, String content) {
         if (!Charset.isSupported(toCharsetName)) {
             throw new UnsupportedCharsetException(toCharsetName);
         }
-        OutputStream outputStream = new FileOutputStream(file);
-        OutputStreamWriter outWrite = new OutputStreamWriter(outputStream,
-                toCharsetName);
-        outWrite.write(content);
-        outWrite.close();
+        try (
+                OutputStream outputStream = new FileOutputStream(file);
+                OutputStreamWriter outWrite = new OutputStreamWriter(outputStream, toCharsetName);
+        ) {
+            outWrite.write(content);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

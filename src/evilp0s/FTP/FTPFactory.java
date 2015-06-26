@@ -18,8 +18,11 @@ public class FTPFactory {
     //获取一个实例
     public static FTPUtil getInstance(String Name) throws IOException {
         Properties properties = new Properties();
-        InputStream in = new BufferedInputStream(new FileInputStream(CONFIG_FILE));
-        properties.load(in);
+        try(InputStream in = new BufferedInputStream(new FileInputStream(CONFIG_FILE))){
+            properties.load(in);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
         String host = properties.getProperty(Name + ".host");
         if (host != null) {
             int port = Integer.parseInt(properties.getProperty(Name + ".port"));

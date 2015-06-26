@@ -29,10 +29,10 @@ public class FileUtilTest extends SupportTest {
         String efile = System.getProperty("user.dir") + "/Junit/Resource/ali.gif";
         String hfile = System.getProperty("user.dir") + "/Junit/Resource/tgepng";
 
-        assertEquals("文件类型判断有错", "gif", FileUtil.FileType(new File(efile)));
-        assertEquals("文件类型判断有错", "png", FileUtil.FileType(new File(hfile)));
+        assertEquals("文件类型判断有错", "gif", FileUtil.fileType(new File(efile)));
+        assertEquals("文件类型判断有错", "png", FileUtil.fileType(new File(hfile)));
 
-        assertEquals("获取文件的mime类型错误", "image/gif", FileUtil.MimeType(efile));
+        assertEquals("获取文件的mime类型错误", "image/gif", FileUtil.mimeType(efile));
     }
 
     @Test
@@ -48,32 +48,32 @@ public class FileUtilTest extends SupportTest {
 
         PrintUtil.println("全英文文件测试");
         String efile = System.getProperty("user.dir") + "/Junit/Resource/English.txt";
-        List<String> lines = FileUtil.Lines(new File(efile));
+        List<String> lines = FileUtil.lines(new File(efile));
         PrintUtil.print(lines);
         PrintUtil.println("读取文件的前3行");
-        lines = FileUtil.Lines(new File(efile), 3);
+        lines = FileUtil.lines(new File(efile), 3);
         PrintUtil.print(lines);
 
 
         PrintUtil.println("GBK文件测试");
         String gbkfile = System.getProperty("user.dir") + "/Junit/Resource/GBK.txt";
-        List<String> gbklines = FileUtil.Lines(new File(gbkfile));
+        List<String> gbklines = FileUtil.lines(new File(gbkfile));
         PrintUtil.print(gbklines);
-        gbklines = FileUtil.Lines(new File(gbkfile), "GBK");
+        gbklines = FileUtil.lines(new File(gbkfile), "GBK");
         PrintUtil.print(gbklines);
         PrintUtil.println("读取文件的前3行");
-        lines = FileUtil.Lines(new File(gbkfile), 3, "GBK");
+        lines = FileUtil.lines(new File(gbkfile), 3, "GBK");
         PrintUtil.print(lines);
 
 
         PrintUtil.println("UTF8文件测试");
         String utf8file = System.getProperty("user.dir") + "/JUnit/Resource/UTF8.txt";
-        List<String> utf8lines = FileUtil.Lines(new File(utf8file));
+        List<String> utf8lines = FileUtil.lines(new File(utf8file));
         PrintUtil.print(utf8lines);
-        utf8lines = FileUtil.Lines(new File(utf8file), "UTF-8");
+        utf8lines = FileUtil.lines(new File(utf8file), "UTF-8");
         PrintUtil.print(utf8lines);
         PrintUtil.println("读取文件的前3行");
-        lines = FileUtil.Lines(new File(utf8file), 3, "UTF-8");
+        lines = FileUtil.lines(new File(utf8file), 3, "UTF-8");
         PrintUtil.print(lines);
 
     }
@@ -171,7 +171,7 @@ public class FileUtilTest extends SupportTest {
     @Test
     public void testSimpleEncoding() {
         System.out.println("简单的利用文件头进行文件的编码探测!");
-        System.out.println(FileUtil.SimpleEncoding("C:/Windows/system.ini"));
+        System.out.println(FileUtil.simpleEncoding("C:/Windows/system.ini"));
         System.out.println("利用cpdetector进行文件编码探测");
         System.out.println(FileUtil.cpdetector(new File("C:/Windows/system.ini")));
     }

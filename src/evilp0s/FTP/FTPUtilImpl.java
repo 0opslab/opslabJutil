@@ -160,7 +160,6 @@ public class FTPUtilImpl implements FTPUtil {
 
     @Override
     public boolean putFile(File file, String remoteFileName, boolean isDelete) {
-        InputStream in = null;
         String fileName = remoteFileName;
         String path = "";
         String parent = getParentPath(remoteFileName);
@@ -170,8 +169,7 @@ public class FTPUtilImpl implements FTPUtil {
             mkDir(path);
             changeWorkDir(path);
         }
-        try {
-            in = new FileInputStream(file);
+        try(InputStream in= new FileInputStream(file)) {
             if (isDelete) {
                 deleteFile(new String(file.getName().getBytes(vo.getRemoteEncoding()), "ISO-8859-1"));
             }
@@ -179,12 +177,6 @@ public class FTPUtilImpl implements FTPUtil {
             return reply("UPLOAD", file.getAbsoluteFile().toString(), remoteFileName);
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            changeWorkDir(parent);
-            try {
-                in.close();
-            } catch (Exception e) {
-            }
         }
         return false;
     }
@@ -340,15 +332,7 @@ public class FTPUtilImpl implements FTPUtil {
         }
     }
 
-    private String dealFileName(String file) {
-        file.replaceAll("//", "/").replaceAll("\\\\", "/").replaceAll("\\\\\\\\", "/");
-        try {
-            return new String(file.getBytes(vo.getRemoteEncoding()), "ISO-8859-1");
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+
 
     private String getParentPath(String file) {
         if (file.indexOf("/") != -1) {

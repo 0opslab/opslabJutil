@@ -4,16 +4,8 @@ package evilp0s.algorithmImpl;
 import org.mozilla.intl.chardet.nsDetector;
 import org.mozilla.intl.chardet.nsICharsetDetectionObserver;
 
-import java.io.BufferedInputStream;
-import java.io.ByteArrayInputStream;
-import java.io.FileInputStream;
-import java.io.InputStream;
+import java.io.*;
 import java.net.URL;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 
 /**
  * 文件相关的算法实现
@@ -24,11 +16,16 @@ public class FileImpl {
     /**
      * 利用文件头特征判断文件的编码方式
      */
-    public static String SimpleEncoding(String fileName) throws Exception {
-        BufferedInputStream bin = new BufferedInputStream(new FileInputStream(fileName));
-        int p = (bin.read() << 8) + bin.read();
+    public static String simpleEncoding(String fileName) {
+        int p = 0;
+        try (
+                BufferedInputStream bin = new BufferedInputStream(new FileInputStream(fileName));
+        ) {
+            p = (bin.read() << 8) + bin.read();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         String code = null;
-
         switch (p) {
             case 0xefbb:
                 code = "UTF-8";
@@ -70,7 +67,7 @@ public class FileImpl {
      * @param stringValue
      * @return
      */
-    public static String Encoding(String stringValue) {
+    public static String encoding(String stringValue) {
         java.nio.charset.Charset charset = null;
         try {
             InputStream inputStream = new ByteArrayInputStream(stringValue.getBytes());
@@ -84,7 +81,8 @@ public class FileImpl {
         return null;
     }
 
-    /*****************************************************
+    /**
+     * **************************************************
      * 以下方式利用mozilla的jchardet作为探测工具
      */
 
@@ -103,8 +101,7 @@ public class FileImpl {
      * @throws FileNotFoundException
      * @throws IOException
      */
-    public static String guestFileEncoding(File file) throws FileNotFoundException,
-            IOException {
+    public static String guestFileEncoding(File file) throws  IOException {
         return geestFileEncoding(file, new nsDetector());
     }
 
@@ -118,8 +115,7 @@ public class FileImpl {
      * @throws FileNotFoundException
      * @throws IOException
      */
-    public static String guestFileEncoding(File file, int languageHint)
-            throws FileNotFoundException, IOException {
+    public static String guestFileEncoding(File file, int languageHint) throws  IOException {
         return geestFileEncoding(file, new nsDetector(languageHint));
     }
 
@@ -131,8 +127,7 @@ public class FileImpl {
      * @throws FileNotFoundException
      * @throws IOException
      */
-    public static String guestFileEncoding(String path) throws FileNotFoundException,
-            IOException {
+    public static String guestFileEncoding(String path) throws  IOException {
         return guestFileEncoding(new File(path));
     }
 
@@ -146,8 +141,7 @@ public class FileImpl {
      * @throws FileNotFoundException
      * @throws IOException
      */
-    public static String guestFileEncoding(String path, int languageHint)
-            throws FileNotFoundException, IOException {
+    public static String guestFileEncoding(String path, int languageHint) throws FileNotFoundException, IOException {
         return guestFileEncoding(new File(path), languageHint);
     }
 
@@ -160,35 +154,36 @@ public class FileImpl {
      * @throws FileNotFoundException
      * @throws IOException
      */
-    private static String geestFileEncoding(File file, nsDetector det) throws FileNotFoundException, IOException {
-        // Set an observer...
-        // The Notify() will be called when a matching charset is found.
+    private static String geestFileEncoding(File file, nsDetector det) {
         det.Init(new nsICharsetDetectionObserver() {
             public void Notify(String charset) {
                 found = true;
                 encoding = charset;
             }
         });
-
-        BufferedInputStream imp = new BufferedInputStream(new FileInputStream(file));
-
-        byte[] buf = new byte[1024];
-        int len;
-        boolean done = false;
+        byte[]  buf     = new byte[1024];
+        int     len;
+        boolean done    = false;
         boolean isAscii = true;
+        try (
+                BufferedInputStream imp = new BufferedInputStream(new FileInputStream(file));
+        ) {
+            while ((len = imp.read(buf, 0, buf.length)) != -1) {
+                // Check if the stream is only ascii.
+                if (isAscii) {
+                    isAscii = det.isAscii(buf, len);
+                }
 
-        while ((len = imp.read(buf, 0, buf.length)) != -1) {
-            // Check if the stream is only ascii.
-            if (isAscii){
-                isAscii = det.isAscii(buf, len);
+                // DoIt if non-ascii and not done yet.
+                if (!isAscii && !done) {
+                    done = det.DoIt(buf, len, false);
+                }
             }
-
-            // DoIt if non-ascii and not done yet.
-            if (!isAscii && !done) {
-                done = det.DoIt(buf, len, false);
-            }
+            det.DataEnd();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        det.DataEnd();
+
 
         if (isAscii) {
             encoding = "ASCII";

@@ -25,8 +25,7 @@ public class ProUtil {
      */
     public static String GetValueByKey(String filePath, String key) {
         Properties pps = new Properties();
-        try {
-            InputStream in = new BufferedInputStream(new FileInputStream(filePath));
+        try(InputStream in = new BufferedInputStream(new FileInputStream(filePath))) {
             pps.load(in);
             String value = pps.getProperty(key);
             return value;
@@ -41,14 +40,15 @@ public class ProUtil {
      */
     public static String GetAllProperties(String filePath) throws IOException {
         Properties pps = new Properties();
-        InputStream in = new BufferedInputStream(new FileInputStream(filePath));
-        pps.load(in);
-        Enumeration en = pps.propertyNames();
-        String str ="";
-        while (en.hasMoreElements()) {
-            String strKey = (String) en.nextElement();
-            String strValue = pps.getProperty(strKey);
-            str += strKey+":"+strValue+"<>";
+        String str = "";
+        try(InputStream in = new BufferedInputStream(new FileInputStream(filePath))) {
+            pps.load(in);
+            Enumeration en = pps.propertyNames();
+            while (en.hasMoreElements()) {
+                String strKey = (String) en.nextElement();
+                String strValue = pps.getProperty(strKey);
+                str += strKey + ":" + strValue + "<>";
+            }
         }
         return str.substring(0,str.lastIndexOf("<>"));
     }
@@ -58,11 +58,12 @@ public class ProUtil {
      */
     public static void WriteProperties(String filePath, String pKey, String pValue) throws IOException {
         Properties pps = new Properties();
-        InputStream in = new FileInputStream(filePath);
-        pps.load(in);
-        OutputStream out = new FileOutputStream(filePath);
-        pps.setProperty(pKey, pValue);
-        pps.store(out, "Update " + pKey + " name");
+        try(InputStream in = new FileInputStream(filePath);
+            OutputStream out = new FileOutputStream(filePath)){
+            pps.load(in);
+            pps.setProperty(pKey, pValue);
+            pps.store(out, "Update " + pKey + " name");
+        }
     }
 
 }
