@@ -42,7 +42,7 @@ public class StringUtil {
         if (array != null) {
             for (int i = 0; i < array.size(); i++) {
                 String temp = array.get(i).toString();
-                if (temp != null && temp.trim().length() > 0)
+                if (temp.trim().length() > 0)
                     result += (temp + symbol);
             }
             if (result.length() > 1)

@@ -742,10 +742,11 @@ public class DateUtil {
         Date start = null;
         try {
             start = DateTimeInstance().parse(date);
+            return calculate(start,second,timeBurst);
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        return calculate(start,second,timeBurst);
+        return new Date();
     }
 
     /**

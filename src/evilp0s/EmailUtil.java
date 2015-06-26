@@ -42,14 +42,20 @@ public class EmailUtil {
      * 初始化方法
      */
     public EmailUtil(boolean debug) {
+        InputStream in =null;
         try {
-            InputStream in = new BufferedInputStream(new FileInputStream(CONFIG_FILE));
+            in = new BufferedInputStream(new FileInputStream(CONFIG_FILE));
             properties.load(in);
             this.mailHost = properties.getProperty("mail.smtp.host");
             this.sender_username = properties.getProperty("mail.sender.username");
             this.sender_password = properties.getProperty("mail.sender.password");
         } catch (IOException e) {
             e.printStackTrace();
+        }finally{
+            try {
+                in.close();
+            } catch (Exception e) {
+            }
         }
         session = Session.getInstance(properties);
         session.setDebug(debug);//开启后有调试信息

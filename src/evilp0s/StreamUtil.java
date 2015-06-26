@@ -11,10 +11,7 @@ public class StreamUtil {
      *
      */
     public void streamSaveAsFile(InputStream is, File outfile) {
-        FileOutputStream fos = null;
-        try {
-            File file = outfile;
-            fos = new FileOutputStream(file);
+        try( FileOutputStream fos = new FileOutputStream(outfile)) {
             byte[] buffer = new byte[1024];
             int len;
             while((len = is.read(buffer)) > 0){
@@ -24,14 +21,6 @@ public class StreamUtil {
         } catch (Exception e) {
             e.printStackTrace();
             throw new RuntimeException(e);
-        } finally {
-            try {
-                is.close();
-                fos.close();
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                throw new RuntimeException(e2);
-            }
         }
     }
     /**

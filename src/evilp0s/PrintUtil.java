@@ -5,6 +5,7 @@ import java.util.*;
 /**
  * Description:PrintUtil 提供一些常用的打印方法
  */
+@SuppressWarnings("all")
 public class PrintUtil {
     /**
      * @param str

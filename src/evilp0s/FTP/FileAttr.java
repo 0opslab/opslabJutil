@@ -19,7 +19,7 @@ public class FileAttr {
     }
 
     public Date getModifyTime() {
-        return ModifyTime;
+        return new Date(ModifyTime.getTime());
     }
 
     public void setModifyTime(Date modifyTime) {
