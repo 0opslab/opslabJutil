@@ -15,8 +15,6 @@
 
 #项目结构
     ├─Junit#测试类
-    │  │  Test.properties
-    │  │
     │  └─evilp0s
     │      │  CharsetTest.java
     │      │  DateUtilTest.java
