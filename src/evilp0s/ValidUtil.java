@@ -12,13 +12,13 @@ public class ValidUtil {
     /**
      * 判断字符串有效性
      */
-    public static boolean isValid(String src){
+    public static boolean isValid(String src) {
         return !(src == null || "".equals(src.trim()));
     }
 
-    public static boolean isValid(String... src){
-        for(String s:src){
-            if(!isValid(s)){
+    public static boolean isValid(String... src) {
+        for (String s : src) {
+            if (!isValid(s)) {
                 return false;
             }
         }
@@ -29,27 +29,28 @@ public class ValidUtil {
     /**
      * 判断一个对象是否为空
      */
-    public static boolean isValid(Object obj){
+    public static boolean isValid(Object obj) {
         return !(null == obj);
     }
 
-    public static boolean isValid(Object[] objs){
-        if(objs != null && objs.length != 0){
+    public static boolean isValid(Object[] objs) {
+        if (objs != null && objs.length != 0) {
             return true;
         }
         return false;
     }
+
     /**
      * 判断集合的有效性
      */
     @SuppressWarnings("rawtypes")
-    public static boolean isValid(Collection col){
+    public static boolean isValid(Collection col) {
         return !(col == null || col.isEmpty());
     }
 
-    public static boolean isValid(Collection... cols){
-        for(Collection c:cols){
-            if(!isValid(c)){
+    public static boolean isValid(Collection... cols) {
+        for (Collection c : cols) {
+            if (!isValid(c)) {
                 return false;
             }
         }
@@ -57,13 +58,13 @@ public class ValidUtil {
     }
 
 
-    public static boolean isValid(Map map){
+    public static boolean isValid(Map map) {
         return !(map == null || map.isEmpty());
     }
 
-    public static boolean isValid(Map... maps){
-        for(Map m:maps){
-            if(!isValid(m)){
+    public static boolean isValid(Map... maps) {
+        for (Map m : maps) {
+            if (!isValid(m)) {
                 return false;
             }
         }

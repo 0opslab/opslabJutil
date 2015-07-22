@@ -30,20 +30,19 @@ public interface FTPUtil {
     public boolean deleteDir(String directory);
 
     //上传本地文件到远程目录
-    public boolean putFile(String fileName,String remoteFileName,boolean isDelete);
+    public boolean putFile(String fileName, String remoteFileName, boolean isDelete);
 
     //上传本地文件到远程目录
-    public boolean putFile(File file,String remoteFileName,boolean isDelete);
+    public boolean putFile(File file, String remoteFileName, boolean isDelete);
 
     //上传本地目录到远程
-    public boolean putDir(String fileName,String remoteDir);
+    public boolean putDir(String fileName, String remoteDir);
 
     //上传本地目录到远程
-    public boolean putDir(File file,String remoteDir);
+    public boolean putDir(File file, String remoteDir);
 
     //创建文件夹
     public boolean mkDir(String destory);
-
 
 
     //获取远程文件列表
@@ -53,7 +52,7 @@ public interface FTPUtil {
     public LinkedList<String> listDir(String direcotyr);
 
     //获取远程文件属性以Map形式返回
-    public Map<String,FileAttr> listFileAttr(String directory);
+    public Map<String, FileAttr> listFileAttr(String directory);
 
     //改变FTP连接的工作目录
     public boolean changeWorkDir(String directory);
@@ -62,7 +61,7 @@ public interface FTPUtil {
     public String getWorkDir();
 
     //重命名文件
-    public boolean changName(String oldName,String newName);
+    public boolean changName(String oldName, String newName);
 
     //返回FTPCliend对象(已经打开连接)
     public FTPClient client();

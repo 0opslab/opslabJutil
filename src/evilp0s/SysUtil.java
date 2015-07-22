@@ -1,4 +1,5 @@
 package evilp0s;
+
 import com.sun.management.OperatingSystemMXBean;
 
 import java.lang.management.ManagementFactory;
@@ -9,66 +10,76 @@ import java.net.NetworkInterface;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.List;
+
 /**
  * @author:Neptune
  * @Description:SysUtil 提供些获取系统信息相关的工具方法
  */
 public class SysUtil {
 
-    private static OperatingSystemMXBean osmxb;
-
-    private static int kb = 1024;
-
-    /**主机IP*/
-    public static String HOST_IP;
-
-    /**主机名*/
-    public static String HOST_NAME;
-
-    /**主机架构*/
-    public static String OS_ARCH=ProUtil.key("os.arch");;
-
-    /**主机类型*/
-    public static String OS_NAME=ProUtil.key("os.name");;
-
-    /**主机类型版本*/
-    public static String OS_VERSION = ProUtil.key("os.version");
-
-    /**操作系统类型*/
-    public static String SUN_DESKTOP = ProUtil.key("sun.desktop");
-
-    /**当前用户*/
-    public static String CURRENT_USER = ProUtil.key("user.name");
-
-    /**当前用户的家目录*/
-    public static String CURRENT_USER_HOME = ProUtil.key("user.home");
-
-    /**当用用户的工作目录*/
-    public static String CURRENT_USER_DIR = ProUtil.key("user.dir");
-
-    public static String FILE_SEPARATOR = ProUtil.key("file.separator");
-
-    public static String PATH_SEPARATOR = ProUtil.key("path.separator");
-
-    public static String LINE_SEPARATOR = ProUtil.key("line.separator");
-
-    /**JVM的版本*/
+    /**
+     * JVM的版本
+     */
     public static final String JVM_VERSION = ProUtil.key("java.version");
-
-    /**JVM的编码*/
+    /**
+     * JVM的编码
+     */
     public static final String JVM_ENCODING = ProUtil.key("file.encoding");
-
-    /**JVM默认的临时目录*/
+    /**
+     * JVM默认的临时目录
+     */
     public static final String JVM_TEMPDIR = ProUtil.key("java.io.tmpdir");
-
-    /**总的物理内存*/
-    public static long TotalMemorySize;
-
-
     public static final String HTTP_PROXY_HOST = "http.proxyHost";
     public static final String HTTP_PROXY_PORT = "http.proxyPort";
+    ;
     public static final String HTTP_PROXY_USER = "http.proxyUser";
+    ;
     public static final String HTTP_PROXY_PASSWORD = "http.proxyPassword";
+    /**
+     * 主机IP
+     */
+    public static String HOST_IP;
+    /**
+     * 主机名
+     */
+    public static String HOST_NAME;
+    /**
+     * 主机架构
+     */
+    public static String OS_ARCH = ProUtil.key("os.arch");
+    /**
+     * 主机类型
+     */
+    public static String OS_NAME = ProUtil.key("os.name");
+    /**
+     * 主机类型版本
+     */
+    public static String OS_VERSION = ProUtil.key("os.version");
+    /**
+     * 操作系统类型
+     */
+    public static String SUN_DESKTOP = ProUtil.key("sun.desktop");
+    /**
+     * 当前用户
+     */
+    public static String CURRENT_USER = ProUtil.key("user.name");
+    /**
+     * 当前用户的家目录
+     */
+    public static String CURRENT_USER_HOME = ProUtil.key("user.home");
+    /**
+     * 当用用户的工作目录
+     */
+    public static String CURRENT_USER_DIR = ProUtil.key("user.dir");
+    public static String FILE_SEPARATOR = ProUtil.key("file.separator");
+    public static String PATH_SEPARATOR = ProUtil.key("path.separator");
+    public static String LINE_SEPARATOR = ProUtil.key("line.separator");
+    /**
+     * 总的物理内存
+     */
+    public static long TotalMemorySize;
+    private static OperatingSystemMXBean osmxb;
+    private static int kb = 1024;
 
     static {
 
@@ -88,7 +99,7 @@ public class SysUtil {
                     }
                 }
             }
-            HOST_IP = HOST_IP.replaceAll("null","");
+            HOST_IP = HOST_IP.replaceAll("null", "");
         } catch (Exception e) {
             System.out.println("获取服务器IP出错");
         }
@@ -97,7 +108,7 @@ public class SysUtil {
             osmxb = (OperatingSystemMXBean) ManagementFactory.getOperatingSystemMXBean();
 
             TotalMemorySize = osmxb.getTotalPhysicalMemorySize() / kb;
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("获取系统信息失败");
             e.printStackTrace();
         }
@@ -106,12 +117,11 @@ public class SysUtil {
     }
 
 
-
     /**
      * 已使用的物理内存
      */
-    public static long usedMemory(){
-        if(ValidUtil.isValid(osmxb)) {
+    public static long usedMemory() {
+        if (ValidUtil.isValid(osmxb)) {
             return (osmxb.getTotalPhysicalMemorySize() - osmxb.getFreePhysicalMemorySize()) / kb;
         }
         return 0;
@@ -119,26 +129,29 @@ public class SysUtil {
 
     /**
      * 获取JVM内存总量
+     *
      * @return
      */
-    public static long  JVMtotalMem(){
-        return Runtime.getRuntime().totalMemory() /kb;
+    public static long JVMtotalMem() {
+        return Runtime.getRuntime().totalMemory() / kb;
     }
 
     /**
      * 虚拟机空闲内存量
+     *
      * @return
      */
-    public static long JVMfreeMem(){
-        return Runtime.getRuntime().freeMemory()/kb;
+    public static long JVMfreeMem() {
+        return Runtime.getRuntime().freeMemory() / kb;
     }
 
     /**
      * 虚拟机使用最大内存量
+     *
      * @return
      */
-    public static long JVMmaxMem(){
-        return Runtime.getRuntime().maxMemory()/kb;
+    public static long JVMmaxMem() {
+        return Runtime.getRuntime().maxMemory() / kb;
     }
 
     /**

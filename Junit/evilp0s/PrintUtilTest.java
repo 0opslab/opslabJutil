@@ -13,11 +13,11 @@ public class PrintUtilTest {
         list.add("test3");
         PrintUtil.print(list);
 
-        Map<String,String> map = new HashMap<String,String>();
-        map.put("1","test1");
-        map.put("2","test2");
-        map.put("3","test3");
-        map.put("4","test4");
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("1", "test1");
+        map.put("2", "test2");
+        map.put("3", "test3");
+        map.put("4", "test4");
         PrintUtil.print(map);
 
         Vector<String> all = new Vector<String>();

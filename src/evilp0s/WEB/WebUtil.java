@@ -1,11 +1,11 @@
 package evilp0s.WEB;
 
 import javax.servlet.http.HttpServletRequest;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 /**
  * @author:Neptune
@@ -173,8 +173,6 @@ public class WebUtil {
         }
 
     }
-
-
 
 
     /**

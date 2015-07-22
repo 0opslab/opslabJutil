@@ -119,9 +119,9 @@ public class StringUtil {
      * @return
      */
     public static String getLimitLengthString(String str, int len, String symbol) {
-        int    iLen                = len * 2;
-        int    counterOfDoubleByte = 0;
-        String strRet              = "";
+        int iLen = len * 2;
+        int counterOfDoubleByte = 0;
+        String strRet = "";
         try {
             if (str != null) {
                 byte[] b = str.getBytes("GBK");
@@ -260,8 +260,8 @@ public class StringUtil {
 
         if (src == null)
             return null;
-        List<String> list   = new ArrayList<String>();
-        String[]     result = src.split(pattern);
+        List<String> list = new ArrayList<String>();
+        String[] result = src.split(pattern);
         for (int i = 0; i < result.length; i++) {
             list.add(result[i]);
         }
@@ -379,11 +379,11 @@ public class StringUtil {
      * @return 替换后的字符串
      */
     public static String replaceAll(String s, String sf, String sb) {
-        int     i   = 0, j = 0;
-        int     l   = sf.length();
-        boolean b   = true;
-        boolean o   = true;
-        String  str = "";
+        int i = 0, j = 0;
+        int l = sf.length();
+        boolean b = true;
+        boolean o = true;
+        String str = "";
         do {
             j = i;
             i = s.indexOf(sf, j);
@@ -431,9 +431,9 @@ public class StringUtil {
      * @return map
      * @author sky
      */
-    public static Map<String,String> parseQuery(String query, char split1, char split2, String dupLink) {
+    public static Map<String, String> parseQuery(String query, char split1, char split2, String dupLink) {
         if (!isEmpty(query) && query.indexOf(split2) > 0) {
-            Map<String,String> result = new HashMap();
+            Map<String, String> result = new HashMap();
 
             String name = null;
             String value = null;
@@ -534,7 +534,7 @@ public class StringUtil {
      */
     public static String unicode2String(String unicode) {
         StringBuffer string = new StringBuffer();
-        String[]     hex    = unicode.split("\\\\u");
+        String[] hex = unicode.split("\\\\u");
         for (int i = 1; i < hex.length; i++) {
             int data = Integer.parseInt(hex[i], 16);
             string.append((char) data);
@@ -621,9 +621,9 @@ public class StringUtil {
     /**
      * 替换一个出现的子串
      *
-     * @param s      source string
-     * @param sub    substring to replace
-     * @param with   substring to replace with
+     * @param s    source string
+     * @param sub  substring to replace
+     * @param with substring to replace with
      */
     public static String replaceFirst(String s, String sub, String with) {
         int i = s.indexOf(sub);
@@ -638,9 +638,9 @@ public class StringUtil {
      * 替换最后一次出现的字串
      * Replaces the very last occurrence of a substring with supplied string.
      *
-     * @param s      source string
-     * @param sub    substring to replace
-     * @param with   substring to replace with
+     * @param s    source string
+     * @param sub  substring to replace
+     * @param with substring to replace with
      */
     public static String replaceLast(String s, String sub, String with) {
         int i = s.lastIndexOf(sub);
@@ -655,8 +655,8 @@ public class StringUtil {
      * 删除所有的子串
      * Removes all substring occurrences from the string.
      *
-     * @param s      source string
-     * @param sub    substring to remove
+     * @param s   source string
+     * @param sub substring to remove
      */
     public static String remove(String s, String sub) {
         int c = 0;

@@ -7,7 +7,6 @@ import org.junit.Test;
 import java.io.UnsupportedEncodingException;
 
 
-
 public class UrlUtilTest extends TestCase {
 
     @Test
@@ -26,7 +25,7 @@ public class UrlUtilTest extends TestCase {
     }
 
     @Test
-    public void testDecode(){
+    public void testDecode() {
         assertEquals("/aaa", UrlUtil.decode("/aaa"));
         assertEquals("/aaa?", UrlUtil.decode("/aaa?"));
         assertEquals("/aaa?b", UrlUtil.decode("/aaa?b"));
@@ -59,7 +58,7 @@ public class UrlUtilTest extends TestCase {
         assertEquals("中国", UrlUtil.decodeQuery("%E4%B8%AD%E5%9B%BD"));
         assertEquals("中国", UrlUtil.decode("%e4%b8%ad%e5%9b%bd"));
         assertEquals("中国", UrlUtil.decode("%D6%D0%B9%FA", CharsetUtil.GBK));
-        assertEquals("中国", UrlUtil.decodeQuery("%D6%D0%B9%FA",CharsetUtil.GBK));
+        assertEquals("中国", UrlUtil.decodeQuery("%D6%D0%B9%FA", CharsetUtil.GBK));
     }
 
 }

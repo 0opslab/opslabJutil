@@ -17,12 +17,15 @@ import java.util.List;
  * 封装了些文件相关的操作
  */
 public class FileUtil {
-    /**Buffer的大小*/
+    /**
+     * Buffer的大小
+     */
     private static Integer BUFFER_SIZE = 1024 * 1024 * 10;
 
 
     /**
      * 获取文件的行数
+     *
      * @param file 统计的文件
      * @return 文件行数
      */
@@ -47,6 +50,7 @@ public class FileUtil {
 
     /**
      * 以列表的方式获取文件的所有行
+     *
      * @param file 需要出来的文件
      * @return 包含所有行的list
      */
@@ -68,7 +72,7 @@ public class FileUtil {
     /**
      * 以列表的方式获取文件的所有行
      *
-     * @param file 需要处理的文件
+     * @param file     需要处理的文件
      * @param encoding 指定读取文件的编码
      * @return 包含所有行的list
      */
@@ -89,7 +93,8 @@ public class FileUtil {
 
     /**
      * 以列表的方式获取文件的指定的行数数据
-     * @param file 处理的文件
+     *
+     * @param file  处理的文件
      * @param lines 需要读取的行数
      * @return 包含制定行的list
      */
@@ -112,8 +117,8 @@ public class FileUtil {
     /**
      * 以列表的方式获取文件的指定的行数数据
      *
-     * @param file 需要处理的函数
-     * @param lines 需要处理的行还俗
+     * @param file     需要处理的函数
+     * @param lines    需要处理的行还俗
      * @param encoding 指定读取文件的编码
      * @return 包含制定行的list
      */
@@ -159,8 +164,8 @@ public class FileUtil {
     /**
      * 在文件末尾追加一行
      *
-     * @param file 需要处理的文件
-     * @param str 添加的字符串
+     * @param file     需要处理的文件
+     * @param str      添加的字符串
      * @param encoding 指定写入的编码
      * @return 是否成功
      */
@@ -181,9 +186,8 @@ public class FileUtil {
     /**
      * 快速清空一个超大的文件
      *
-     * @param file  需要处理的文件
+     * @param file 需要处理的文件
      * @return 是否成功
-     *
      */
     public static boolean cleanFile(File file) {
         try (
@@ -211,8 +215,9 @@ public class FileUtil {
 
     /**
      * 获取文件的类型
-     *
+     * <p/>
      * Summary:只利用文件头做判断故不全
+     *
      * @param file 需要处理的文件
      * @return 文件类型
      */
@@ -245,7 +250,7 @@ public class FileUtil {
      * 复制文件
      *
      * @param resourcePath 源文件
-     * @param targetPath 目标文件
+     * @param targetPath   目标文件
      * @return 是否成功
      */
     public static boolean copy(String resourcePath, String targetPath) {
@@ -257,7 +262,7 @@ public class FileUtil {
      * 复制文件
      * 通过该方式复制文件文件越大速度越是明显
      *
-     * @param file 需要处理的文件
+     * @param file       需要处理的文件
      * @param targetFile 目标文件
      * @return 是否成功
      */
@@ -400,7 +405,7 @@ public class FileUtil {
     /**
      * 复制目录
      *
-     * @param filePath 需要处理的文件
+     * @param filePath   需要处理的文件
      * @param targetPath 目标文件
      */
     public static void copyDir(String filePath, String targetPath) {
@@ -411,7 +416,7 @@ public class FileUtil {
     /**
      * 复制目录
      *
-     * @param filePath 需要处理的文件
+     * @param filePath   需要处理的文件
      * @param targetPath 目标文件
      */
     public static void copyDir(File filePath, String targetPath) {
@@ -476,7 +481,7 @@ public class FileUtil {
     /**
      * 罗列指定路径下的全部文件包括文件夹
      *
-     * @param path 需要处理的文件
+     * @param path   需要处理的文件
      * @param filter 处理文件的filter
      * @return 返回文件列表
      */
@@ -500,7 +505,7 @@ public class FileUtil {
     /**
      * 获取指定目录下的特点文件,通过后缀名过滤
      *
-     * @param dirPath 需要处理的文件
+     * @param dirPath  需要处理的文件
      * @param postfixs 文件后缀
      * @return 返回文件列表
      */
@@ -533,7 +538,7 @@ public class FileUtil {
     /**
      * 在指定的目录下搜寻文个文件
      *
-     * @param dirPath 搜索的目录
+     * @param dirPath  搜索的目录
      * @param fileName 搜索的文件名
      * @return 返回文件列表
      */
@@ -559,7 +564,7 @@ public class FileUtil {
      * 查找符合正则表达式reg的的文件
      *
      * @param dirPath 搜索的目录
-     * @param reg 正则表达式
+     * @param reg     正则表达式
      * @return 返回文件列表
      */
     public static List<File> searchFileReg(File dirPath, String reg) {

@@ -239,7 +239,7 @@ public class DateUtilTest {
 
     @Test
     public void testSubtimeBurst() throws ParseException {
-        assertEquals("计算有误",DateUtil.subtimeBurst("2015-06-24 08:00:00", "2015-06-23 20:24:00", "08:00-21:00"),-2160)  ;
+        assertEquals("计算有误", DateUtil.subtimeBurst("2015-06-24 08:00:00", "2015-06-23 20:24:00", "08:00-21:00"), -2160);
         assertEquals("计算有误", DateUtil.subtimeBurst("2015-01-05 08:00:00", "2015-01-05 08:00:30", "08:00-21:00"), 30);
 
         assertEquals(
@@ -295,21 +295,21 @@ public class DateUtilTest {
                 "计算有误",
                 DateUtil.DateTime(DateUtil.calculate(
                         "2015-01-29 20:59:50",
-                        (3600 * 13 +1),
+                        (3600 * 13 + 1),
                         "08:00-21:00")),
                 "2015-01-30 20:59:51");
         assertEquals(
                 "计算有误",
                 DateUtil.DateTime(DateUtil.calculate(
                         "2015-01-29 20:59:50",
-                        (3600 * 13 * 3 +1),
+                        (3600 * 13 * 3 + 1),
                         "08:00-21:00")),
                 "2015-02-01 20:59:51");
         assertEquals(
                 "计算有误",
                 DateUtil.DateTime(DateUtil.calculate(
                         "2015-01-29 20:59:50",
-                        (3600 * 13 * 3 +11),
+                        (3600 * 13 * 3 + 11),
                         "08:00-21:00")),
                 "2015-02-02 08:00:01");
 
@@ -331,14 +331,14 @@ public class DateUtilTest {
                 "计算有误",
                 DateUtil.DateTime(DateUtil.calculate(
                         "2015-01-29 08:00:30",
-                        Integer.parseInt("-"+(35+3600*13)),
+                        Integer.parseInt("-" + (35 + 3600 * 13)),
                         "08:00-21:00")),
                 "2015-01-27 20:59:55");
         assertEquals(
                 "计算有误",
                 DateUtil.DateTime(DateUtil.calculate(
                         "2015-01-29 21:30:30",
-                        35+3600*14,
+                        35 + 3600 * 14,
                         "08:00-21:00")),
                 "2015-01-31 09:00:35");
 

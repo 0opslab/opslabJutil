@@ -5,7 +5,6 @@ import evilp0s.ValidUtil;
 import java.beans.IntrospectionException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.rmi.MarshalledObject;
 import java.util.Map;
 import java.util.Set;
 
@@ -445,6 +444,7 @@ public class BeanUtil {
 
     /**
      * 拷贝对象指定的属性
+     *
      * @param srcBean
      * @param destBean
      * @param pros
@@ -475,8 +475,8 @@ public class BeanUtil {
     }
 
     public void copyProperties(Object srcBean, Object destBean) {
-        Map srcMap =  simpleProperties(srcBean);
-        Map dstMap =  simpleProperties(destBean);
+        Map srcMap = simpleProperties(srcBean);
+        Map dstMap = simpleProperties(destBean);
     }
 
     public void copyProperties(Object srcBean, Object destBean, Map<String, String> propertesMap) {

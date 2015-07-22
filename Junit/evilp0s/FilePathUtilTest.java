@@ -25,11 +25,11 @@ public class FilePathUtilTest {
     }
 
     @org.junit.Test
-    public void testLegalFile(){
-        assertEquals("判断错误",true,FilePathUtil.legalFile("c:\\1.txt"));
-        assertEquals("判断错误",true,FilePathUtil.legalFile("c:/1.txt"));
-        assertEquals("判断错误",true,FilePathUtil.legalFile("C:\\Program Files (x86)\\Tencent"));
-        assertEquals("判断错误",false,FilePathUtil.legalFile("C:\\Program Files\" (x86)\\Tencent"));
+    public void testLegalFile() {
+        assertEquals("判断错误", true, FilePathUtil.legalFile("c:\\1.txt"));
+        assertEquals("判断错误", true, FilePathUtil.legalFile("c:/1.txt"));
+        assertEquals("判断错误", true, FilePathUtil.legalFile("C:\\Program Files (x86)\\Tencent"));
+        assertEquals("判断错误", false, FilePathUtil.legalFile("C:\\Program Files\" (x86)\\Tencent"));
 //        assertEquals("判断错误",true,FilePathUtil.legalFile("/root/Tencent"));
 //        assertEquals("判断错误",true,FilePathUtil.legalFile("../Tencent"));
     }

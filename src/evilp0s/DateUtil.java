@@ -24,7 +24,8 @@ public class DateUtil {
 
     //注意SimpleDateFormat不是线程安全的
     private static ThreadLocal<SimpleDateFormat> ThreadDateTime = new ThreadLocal<SimpleDateFormat>();
-
+    private static ThreadLocal<SimpleDateFormat> ThreadDate = new ThreadLocal<SimpleDateFormat>();
+    private static ThreadLocal<SimpleDateFormat> ThreadTime = new ThreadLocal<SimpleDateFormat>();
 
     private static SimpleDateFormat DateTimeInstance() {
         SimpleDateFormat df = ThreadDateTime.get();
@@ -35,8 +36,6 @@ public class DateUtil {
         return df;
     }
 
-    private static ThreadLocal<SimpleDateFormat> ThreadDate = new ThreadLocal<SimpleDateFormat>();
-
     private static SimpleDateFormat DateInstance() {
         SimpleDateFormat df = ThreadDate.get();
         if (df == null) {
@@ -45,8 +44,6 @@ public class DateUtil {
         }
         return df;
     }
-
-    private static ThreadLocal<SimpleDateFormat> ThreadTime = new ThreadLocal<SimpleDateFormat>();
 
     private static SimpleDateFormat TimeInstance() {
         SimpleDateFormat df = ThreadTime.get();
@@ -151,6 +148,7 @@ public class DateUtil {
 
     /**
      * 在当前时间的基础上加或减去year年
+     *
      * @param year
      * @return
      */
@@ -163,6 +161,7 @@ public class DateUtil {
 
     /**
      * 在指定的时间上加或减去几年
+     *
      * @param date
      * @param year
      * @return
@@ -176,6 +175,7 @@ public class DateUtil {
 
     /**
      * 在当前时间的基础上加或减去几月
+     *
      * @param month
      * @return
      */
@@ -188,6 +188,7 @@ public class DateUtil {
 
     /**
      * 在指定的时间上加或减去几月
+     *
      * @param date
      * @param month
      * @return
@@ -201,6 +202,7 @@ public class DateUtil {
 
     /**
      * 在当前时间的基础上加或减去几天
+     *
      * @param day
      * @return
      */
@@ -213,6 +215,7 @@ public class DateUtil {
 
     /**
      * 在指定的时间上加或减去几天
+     *
      * @param date
      * @param day
      * @return
@@ -226,6 +229,7 @@ public class DateUtil {
 
     /**
      * 在当前时间的基础上加或减去几小时-支持浮点数
+     *
      * @param hour
      * @return
      */
@@ -238,6 +242,7 @@ public class DateUtil {
 
     /**
      * 在制定的时间上加或减去几小时-支持浮点数
+     *
      * @param date
      * @param hour
      * @return
@@ -251,6 +256,7 @@ public class DateUtil {
 
     /**
      * 在当前时间的基础上加或减去几分钟
+     *
      * @param minute
      * @return
      */
@@ -263,6 +269,7 @@ public class DateUtil {
 
     /**
      * 在制定的时间上加或减去几分钟
+     *
      * @param date
      * @param minute
      * @return
@@ -277,6 +284,7 @@ public class DateUtil {
 
     /**
      * 判断字符串是否为日期字符串
+     *
      * @param date 日期字符串
      * @return true or false
      */
@@ -305,6 +313,7 @@ public class DateUtil {
 
     /**
      * 时间date1和date2的时间差-单位秒
+     *
      * @param date1
      * @param date2
      * @return 秒
@@ -325,6 +334,7 @@ public class DateUtil {
 
     /**
      * 时间date1和date2的时间差 -单位分钟
+     *
      * @param date1
      * @param date2
      * @return 分钟
@@ -344,6 +354,7 @@ public class DateUtil {
 
     /**
      * 时间date1和date2的时间差-单位分钟
+     *
      * @param date1
      * @param date2
      * @return 分钟
@@ -355,6 +366,7 @@ public class DateUtil {
 
     /**
      * 时间date1和date2的时间差-单位小时
+     *
      * @param date1
      * @param date2
      * @return 小时
@@ -366,6 +378,7 @@ public class DateUtil {
 
     /**
      * 时间date1和date2的时间差-单位小时
+     *
      * @param date1
      * @param date2
      * @return 小时
@@ -384,9 +397,9 @@ public class DateUtil {
     }
 
 
-
     /**
      * 时间date1和date2的时间差-单位天
+     *
      * @param date1
      * @param date2
      * @return 天
@@ -406,6 +419,7 @@ public class DateUtil {
 
     /**
      * 时间date1和date2的时间差-单位天
+     *
      * @param date1
      * @param date2
      * @return 天
@@ -417,6 +431,7 @@ public class DateUtil {
 
     /**
      * 时间date1和date2的时间差-单位月
+     *
      * @param date1
      * @param date2
      * @return 月
@@ -446,6 +461,7 @@ public class DateUtil {
 
     /**
      * 时间date1和date2的时间差-单位月
+     *
      * @param date1
      * @param date2
      * @return 月
@@ -470,6 +486,7 @@ public class DateUtil {
 
     /**
      * 时间date1和date2的时间差-单位年
+     *
      * @param date1
      * @param date2
      * @return 年
@@ -493,6 +510,7 @@ public class DateUtil {
 
     /**
      * 时间date1和date2的时间差-单位年
+     *
      * @param date1
      * @param date2
      * @return 年
@@ -511,6 +529,7 @@ public class DateUtil {
 
     /**
      * 获取俩个时间的查结果用时秒表示
+     *
      * @param date1
      * @param date2
      * @return 几小时:几分钟:几秒钟
@@ -534,6 +553,7 @@ public class DateUtil {
 
     /**
      * 获取俩个时间的查结果用时秒表示
+     *
      * @param date1
      * @param date2
      * @return 几天-几小时:几分钟:几秒钟
@@ -590,6 +610,7 @@ public class DateUtil {
 
         return days;
     }
+
     /**
      * 获取俩个时间之前的相隔的天数
      *
@@ -644,7 +665,7 @@ public class DateUtil {
     public static long subtimeBurst(String startDate, String endDate, String timeBurst) throws ParseException {
         Date start = DateTimeInstance().parse(startDate);
         Date end = DateTimeInstance().parse(endDate);
-        return subtimeBurst(start,end,timeBurst);
+        return subtimeBurst(start, end, timeBurst);
     }
 
     /**
@@ -656,12 +677,12 @@ public class DateUtil {
      * @return 计算后的秒数
      * @throws ParseException
      */
-    public static long subtimeBurst(Date startDate, Date endDate, String timeBurst)throws ParseException {
+    public static long subtimeBurst(Date startDate, Date endDate, String timeBurst) throws ParseException {
         long second = 0;
         Pattern p = Pattern.compile("^\\d{2}:\\d{2}-\\d{2}:\\d{2}");
         Matcher m = p.matcher(timeBurst);
         boolean falg = false;
-        if(startDate.after(endDate)){
+        if (startDate.after(endDate)) {
             Date temp = startDate;
             startDate = endDate;
             endDate = temp;
@@ -678,7 +699,7 @@ public class DateUtil {
                 String strDayEnd = DateInstance().format(startDate) + " " + a[1] + ":00";
                 Date dayStart = DateTimeInstance().parse(strDayStart);
                 Date dayEnd = DateTimeInstance().parse(strDayEnd);
-                daySecond = Subtract(dayStart,dayEnd);
+                daySecond = Subtract(dayStart, dayEnd);
                 if ((startDate.after(dayStart) || startDate.equals(dayStart)) && startDate.before(dayEnd)) {
                     firstMintues = (dayEnd.getTime() - startDate.getTime()) / 1000;
                 } else if (startDate.before(dayStart)) {
@@ -686,10 +707,10 @@ public class DateUtil {
                 }
                 dayStart = DateTimeInstance().parse(DateInstance().format(endDate) + " " + a[0] + ":00");
                 dayEnd = DateTimeInstance().parse(DateInstance().format(endDate) + " " + a[1] + ":00");
-                if (endDate.after(dayStart) && (endDate.before(dayEnd) ||endDate.equals(dayEnd))) {
-                    lastMintues = (endDate.getTime() - dayStart.getTime()) / 1000 ;
+                if (endDate.after(dayStart) && (endDate.before(dayEnd) || endDate.equals(dayEnd))) {
+                    lastMintues = (endDate.getTime() - dayStart.getTime()) / 1000;
                 } else if (endDate.after(dayEnd)) {
-                    lastMintues = (dayEnd.getTime() - dayStart.getTime()) / 1000 ;
+                    lastMintues = (dayEnd.getTime() - dayStart.getTime()) / 1000;
                 }
                 //第一天的秒数 + 最好一天的秒数 + 天数*全天的秒数
                 second = firstMintues + lastMintues;
@@ -699,21 +720,21 @@ public class DateUtil {
                 String strDayEnd = DateInstance().format(startDate) + " " + a[1] + ":00";
                 Date dayStart = DateTimeInstance().parse(strDayStart);
                 Date dayEnd = DateTimeInstance().parse(strDayEnd);
-                if ((startDate.after(dayStart) ||startDate.equals(dayStart) ) && startDate.before(dayEnd) && endDate.after(dayStart) && (endDate.before(dayEnd) ||endDate.equals(dayEnd))) {
-                    second = (endDate.getTime() - startDate.getTime()) / 1000 ;
+                if ((startDate.after(dayStart) || startDate.equals(dayStart)) && startDate.before(dayEnd) && endDate.after(dayStart) && (endDate.before(dayEnd) || endDate.equals(dayEnd))) {
+                    second = (endDate.getTime() - startDate.getTime()) / 1000;
                 } else {
                     if (startDate.before(dayStart)) {
                         if (endDate.before(dayEnd)) {
-                            second = (endDate.getTime() - dayStart.getTime()) / 1000 ;
+                            second = (endDate.getTime() - dayStart.getTime()) / 1000;
                         } else {
-                            second = (dayEnd.getTime() - dayStart.getTime()) / 1000 ;
+                            second = (dayEnd.getTime() - dayStart.getTime()) / 1000;
                         }
                     }
                     if (startDate.after(dayStart)) {
                         if (endDate.before(dayEnd)) {
-                            second = (endDate.getTime() - startDate.getTime()) / 1000 ;
+                            second = (endDate.getTime() - startDate.getTime()) / 1000;
                         } else {
-                            second = (dayEnd.getTime() - startDate.getTime()) / 1000 ;
+                            second = (dayEnd.getTime() - startDate.getTime()) / 1000;
                         }
                     }
                 }
@@ -722,27 +743,28 @@ public class DateUtil {
                 }
             }
         } else {
-            second = (endDate.getTime() - startDate.getTime()) / 1000 ;
+            second = (endDate.getTime() - startDate.getTime()) / 1000;
         }
-        if(falg){
-            second = Long.parseLong("-"+second);
+        if (falg) {
+            second = Long.parseLong("-" + second);
         }
         return second;
     }
 
     /**
      * 时间Date在时间段(例如每天的08:00-18:00)上增加或减去second秒
+     *
      * @param date
      * @param second
      * @param timeBurst
      * @return 计算后的时间
      * @Suumary 指定的格式错误后返回原数据
      */
-    public static Date calculate(String date,int second,String timeBurst){
+    public static Date calculate(String date, int second, String timeBurst) {
         Date start = null;
         try {
             start = DateTimeInstance().parse(date);
-            return calculate(start,second,timeBurst);
+            return calculate(start, second, timeBurst);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -751,13 +773,14 @@ public class DateUtil {
 
     /**
      * 时间Date在时间段(例如每天的08:00-18:00)上增加或减去second秒
+     *
      * @param date
      * @param second
      * @param timeBurst
      * @return 计算后的时间
      * @Suumary 指定的格式错误后返回原数据
      */
-    public static Date calculate(Date date,int second,String timeBurst){
+    public static Date calculate(Date date, int second, String timeBurst) {
         Pattern p = Pattern.compile("^\\d{2}:\\d{2}-\\d{2}:\\d{2}");
         Matcher m = p.matcher(timeBurst);
         java.util.Calendar cal = java.util.Calendar.getInstance();
@@ -766,59 +789,59 @@ public class DateUtil {
             try {
                 Date dayStart = DateTimeInstance().parse(DateInstance().format(date) + " " + a[0] + ":00");
                 Date dayEnd = DateTimeInstance().parse(DateInstance().format(date) + " " + a[1] + ":00");
-                int DaySecond = (int)Subtract(dayStart,dayEnd);
-                int toDaySecond = (int)Subtract(dayStart,dayEnd);
-                if(second >=0) {
+                int DaySecond = (int) Subtract(dayStart, dayEnd);
+                int toDaySecond = (int) Subtract(dayStart, dayEnd);
+                if (second >= 0) {
                     if ((date.after(dayStart) || date.equals(dayStart)) && (date.before(dayEnd) || date.equals(dayEnd))) {
                         cal.setTime(date);
-                        toDaySecond = (int)Subtract(date,dayEnd);
+                        toDaySecond = (int) Subtract(date, dayEnd);
                     }
                     if (date.before(dayStart)) {
                         cal.setTime(dayStart);
-                        toDaySecond = (int)Subtract(dayStart,dayEnd);
+                        toDaySecond = (int) Subtract(dayStart, dayEnd);
                     }
                     if (date.after(dayEnd)) {
-                        cal.setTime(day(dayStart,1));
+                        cal.setTime(day(dayStart, 1));
                         toDaySecond = 0;
                     }
 
-                    if(second > toDaySecond){
+                    if (second > toDaySecond) {
                         int day = (second - toDaySecond) / DaySecond;
                         int remainder = (second - toDaySecond) % DaySecond;
-                        cal.setTime(day(dayStart,1));
-                        cal.add(Calendar.DAY_OF_YEAR,day);
+                        cal.setTime(day(dayStart, 1));
+                        cal.add(Calendar.DAY_OF_YEAR, day);
                         cal.add(Calendar.SECOND, remainder);
-                    }else{
+                    } else {
                         cal.add(Calendar.SECOND, second);
                     }
 
-                }else{
+                } else {
                     if ((date.after(dayStart) || date.equals(dayStart)) && (date.before(dayEnd) || date.equals(dayEnd))) {
                         cal.setTime(date);
-                        toDaySecond = (int)Subtract(date,dayStart);
+                        toDaySecond = (int) Subtract(date, dayStart);
                     }
                     if (date.before(dayStart)) {
-                        cal.setTime(day(dayEnd,-1));
-                        toDaySecond =0;
+                        cal.setTime(day(dayEnd, -1));
+                        toDaySecond = 0;
                     }
                     if (date.after(dayEnd)) {
                         cal.setTime(dayEnd);
-                        toDaySecond =(int)Subtract(dayStart,dayEnd);
+                        toDaySecond = (int) Subtract(dayStart, dayEnd);
                     }
-                    if(Math.abs(second) > Math.abs(toDaySecond)){
+                    if (Math.abs(second) > Math.abs(toDaySecond)) {
                         int day = (Math.abs(second) - Math.abs(toDaySecond)) / DaySecond;
                         int remainder = (Math.abs(second) - Math.abs(toDaySecond)) % DaySecond;
-                        cal.setTime(day(dayEnd,-1));
-                        cal.add(Calendar.DAY_OF_YEAR,Integer.valueOf("-"+day));
-                        cal.add(Calendar.SECOND, Integer.valueOf("-"+remainder));
-                    }else{
+                        cal.setTime(day(dayEnd, -1));
+                        cal.add(Calendar.DAY_OF_YEAR, Integer.valueOf("-" + day));
+                        cal.add(Calendar.SECOND, Integer.valueOf("-" + remainder));
+                    } else {
                         cal.add(Calendar.SECOND, second);
                     }
                 }
             } catch (ParseException e) {
                 e.printStackTrace();
             }
-        }else{
+        } else {
             cal.setTime(date);
         }
         return cal.getTime();

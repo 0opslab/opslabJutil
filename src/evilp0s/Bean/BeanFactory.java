@@ -6,13 +6,10 @@ import java.beans.BeanInfo;
 import java.beans.IntrospectionException;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
-
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * 提供一些BeanUti需要的方法
@@ -50,7 +47,6 @@ public class BeanFactory {
         }
         return true;
     }
-
 
 
     /**

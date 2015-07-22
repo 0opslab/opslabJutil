@@ -1,6 +1,5 @@
 package evilp0s.Bean;
 
-import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 /**
@@ -18,19 +17,19 @@ public class BeanStruct {
     private Method writeMethod;
     private boolean isDeclared;
 
+    public BeanStruct(String fieldName, Object fieldType, Method readMethod, Method writeMethod, boolean isDeclared) {
+        this.fieldName = fieldName;
+        this.fieldType = fieldType;
+        this.readMethod = readMethod;
+        this.writeMethod = writeMethod;
+    }
+
     public boolean isDeclared() {
         return isDeclared;
     }
 
     public void setDeclared(boolean isDeclared) {
         this.isDeclared = isDeclared;
-    }
-
-    public BeanStruct(String fieldName, Object fieldType, Method readMethod, Method writeMethod,boolean isDeclared) {
-        this.fieldName = fieldName;
-        this.fieldType = fieldType;
-        this.readMethod = readMethod;
-        this.writeMethod = writeMethod;
     }
 
     public String getFieldName() {

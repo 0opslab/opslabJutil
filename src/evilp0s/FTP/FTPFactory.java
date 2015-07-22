@@ -1,6 +1,9 @@
 package evilp0s.FTP;
 
-import java.io.*;
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.Properties;
 
@@ -18,9 +21,9 @@ public class FTPFactory {
     //获取一个实例
     public static FTPUtil getInstance(String Name) throws IOException {
         Properties properties = new Properties();
-        try(InputStream in = new BufferedInputStream(new FileInputStream(CONFIG_FILE))){
+        try (InputStream in = new BufferedInputStream(new FileInputStream(CONFIG_FILE))) {
             properties.load(in);
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
         String host = properties.getProperty(Name + ".host");
@@ -34,7 +37,7 @@ public class FTPFactory {
             boolean passiveMode = new Boolean(properties.getProperty(Name + ".passiveMode")).booleanValue();
             FTPVo vo = new FTPVo(host, port, username, password, remoteDir, localDir, Encoding, passiveMode);
             return new FTPUtilImpl(vo);
-        }else{
+        } else {
             throw new IOException("config error");
         }
     }

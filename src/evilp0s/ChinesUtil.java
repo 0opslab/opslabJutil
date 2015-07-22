@@ -43,8 +43,10 @@ public class ChinesUtil {
         }
         return output;
     }
+
     /**
      * 获取汉字串拼音首字母，英文字符不变
+     *
      * @param chinese 汉字串
      * @return 汉语拼音首字母
      */
@@ -70,8 +72,10 @@ public class ChinesUtil {
         }
         return pybf.toString().replaceAll("\\W", "").trim();
     }
+
     /**
      * 获取汉字串拼音，英文字符不变
+     *
      * @param chinese 汉字串
      * @return 汉语拼音
      */
@@ -94,9 +98,6 @@ public class ChinesUtil {
         }
         return pybf.toString();
     }
-
-
-
 
 
     // 只能判断部分CJK字符（CJK统一汉字）
@@ -132,6 +133,7 @@ public class ChinesUtil {
         }
         return false;
     }
+
     /**
      * 判断是否是中文
      *

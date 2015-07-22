@@ -41,7 +41,7 @@ public class FTPtest {
 
 */
         PrintUtil.print(FTPConstant.REPLYCODE);
-        System.out.println("上传目录:"+ftp.putDir("C:\\Python27", "python27"));
+        System.out.println("上传目录:" + ftp.putDir("C:\\Python27", "python27"));
         //test FTPClient
    /*
         FTPClient client = ftp.client();

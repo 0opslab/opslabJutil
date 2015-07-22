@@ -4,21 +4,22 @@ package evilp0s.crypt;
  * Base32的编码和解码
  */
 public class Base32 {
-    private static final String ERR_CANONICAL= "Invalid Base32 string";
+    private static final String ERR_CANONICAL = "Invalid Base32 string";
 
     private static final char[] CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567".toCharArray();
 
     private static final byte[] LOOKUP = {
-            26, 27, 28, 29, 30, 31, -1, -1, -1, -1, -1, -1, -1, -1,			// 0123456789:;<=>?
-            -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,			// @ABCDEFGHIJKLMNO
+            26, 27, 28, 29, 30, 31, -1, -1, -1, -1, -1, -1, -1, -1,            // 0123456789:;<=>?
+            -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,            // @ABCDEFGHIJKLMNO
             15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, -1, -1, -1, -1, -1, // PQRSTUVWXYZ[\]^_
-            -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,			// `abcdefghijklmno
-            15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25						// pqrstuvwxyz
+            -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,            // `abcdefghijklmno
+            15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25                        // pqrstuvwxyz
     };
 
 
     /**
      * 使用Base32进行编码
+     *
      * @param bytes
      * @return
      */
@@ -77,6 +78,7 @@ public class Base32 {
 
     /**
      * 用Base32进行解码
+     *
      * @param base32
      * @return
      * @throws IllegalArgumentException

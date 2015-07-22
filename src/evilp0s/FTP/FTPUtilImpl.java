@@ -1,7 +1,7 @@
 package evilp0s.FTP;
 
-import evilp0s.PrintUtil;
 import evilp0s.FileUtil;
+import evilp0s.PrintUtil;
 import evilp0s.ValidUtil;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
@@ -169,7 +169,7 @@ public class FTPUtilImpl implements FTPUtil {
             mkDir(path);
             changeWorkDir(path);
         }
-        try(InputStream in= new FileInputStream(file)) {
+        try (InputStream in = new FileInputStream(file)) {
             if (isDelete) {
                 deleteFile(new String(file.getName().getBytes(vo.getRemoteEncoding()), "ISO-8859-1"));
             }
@@ -331,7 +331,6 @@ public class FTPUtilImpl implements FTPUtil {
             }
         }
     }
-
 
 
     private String getParentPath(String file) {
