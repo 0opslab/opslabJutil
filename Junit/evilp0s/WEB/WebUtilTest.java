@@ -7,7 +7,7 @@ public class WebUtilTest extends TestCase {
 
 
     @Test
-    public  void test() {
+    public void test() {
         StringBuffer html = new StringBuffer();
         StringBuffer result = new StringBuffer();
 

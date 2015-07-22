@@ -4,9 +4,9 @@ package model;
  * Created by Poseidon on 2015/6/29.
  */
 public class Log {
-    private Integer  logId;
+    private Integer logId;
 
-    private String  logType;
+    private String logType;
 
     public Integer getLogId() {
         return logId;

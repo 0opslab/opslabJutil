@@ -91,7 +91,7 @@ public class ConvertUtil {
         return s;
     }
 
-    public static String byteToString(byte[] b){
+    public static String byteToString(byte[] b) {
         String strRead = new String(b);
         strRead = String.copyValueOf(strRead.toCharArray(), 0, b.length);
         return strRead;

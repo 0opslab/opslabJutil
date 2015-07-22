@@ -6,16 +6,11 @@ import org.junit.Test;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
-/**
- * <h6>Description:<h6>
- * <p></p>
- *
- * @date 2015-06-12.
- */
-public class ClassUtilTest  {
+
+public class ClassUtilTest {
 
     @Test
-    public  void test() throws ClassNotFoundException, InvocationTargetException, IllegalAccessException {
+    public void test() throws ClassNotFoundException, InvocationTargetException, IllegalAccessException {
         System.out.println("=============所有字段===============");
         String[] fields = ClassUtil.getField("evilp0s.StringUtil");
         for (String f : fields) {

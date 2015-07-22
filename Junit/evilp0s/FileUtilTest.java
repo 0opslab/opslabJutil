@@ -1,13 +1,13 @@
 package evilp0s;
 
+import org.junit.Test;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
-import org.junit.Test;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class FileUtilTest extends SupportTest {
 
@@ -145,10 +145,10 @@ public class FileUtilTest extends SupportTest {
     @Test
     public void testCreateFiles() {
         System.out.println("创建文件,支持多级目录");
-        String path = System.getProperty("user.dir")+"/Junit/Resource/temp/";
-        String file1 = path+"/test/test1.txt";
-        String file2 = path+"/test/test1/test.txt";
-        String file3 = path+"/test/test/";
+        String path = System.getProperty("user.dir") + "/Junit/Resource/temp/";
+        String file1 = path + "/test/test1.txt";
+        String file2 = path + "/test/test1/test.txt";
+        String file3 = path + "/test/test/";
         FileUtil.createFiles(file1);
         FileUtil.createFiles(file2);
         FileUtil.createFiles(file3);
@@ -156,16 +156,16 @@ public class FileUtilTest extends SupportTest {
 
     @Test
     public void testDeleteDir() {
-        String path = System.getProperty("user.dir")+"/Junit/Resource/temp/";
+        String path = System.getProperty("user.dir") + "/Junit/Resource/temp/";
         FileUtil.deleteDir(new File(path + "/test/"));
     }
 
     @Test
     public void testCreatePath() {
         System.out.println("创建文件夹,支持多级目录");
-        String path = System.getProperty("user.dir")+"/Junit/Resource/temp/";
-        String path1 = path+"/test/test2/";
-        String path2 = path+"/test/test3";
+        String path = System.getProperty("user.dir") + "/Junit/Resource/temp/";
+        String path1 = path + "/test/test2/";
+        String path2 = path + "/test/test3";
         FileUtil.createPaths(path1);
         FileUtil.createPaths(path2);
     }
@@ -174,8 +174,8 @@ public class FileUtilTest extends SupportTest {
     @Test
     public void testSimpleEncoding() {
         System.out.println("简单的利用文件头进行文件的编码探测!");
-        String path = System.getProperty("user.dir")+"/Junit/Resource/";
-        System.out.println(FileUtil.simpleEncoding(path+"GBK.txt"));
+        String path = System.getProperty("user.dir") + "/Junit/Resource/";
+        System.out.println(FileUtil.simpleEncoding(path + "GBK.txt"));
         System.out.println("利用cpdetector进行文件编码探测");
         System.out.println(FileUtil.cpdetector(new File(path + "GBK.txt")));
     }
@@ -183,7 +183,7 @@ public class FileUtilTest extends SupportTest {
     @Test
     public void testListFile() {
         System.out.println("罗列指定目录下的所有文件");
-        String path = System.getProperty("user.dir")+"/Junit/Resource/temp/";
+        String path = System.getProperty("user.dir") + "/Junit/Resource/temp/";
         List<File> files = FileUtil.listFile(new File(path));
         PrintUtil.print(files);
         List<File> files1 = FileUtil.listFile(path);
@@ -191,16 +191,16 @@ public class FileUtilTest extends SupportTest {
     }
 
     @Test
-    public void testCopyDirs(){
+    public void testCopyDirs() {
         System.out.println("复制文件夹");
-        String path = System.getProperty("user.dir")+"/Junit/Resource/temp";
-        FileUtil.copyDir(path+"/test/",path+"/testcopy/");
+        String path = System.getProperty("user.dir") + "/Junit/Resource/temp";
+        FileUtil.copyDir(path + "/test/", path + "/testcopy/");
     }
 
     @Test
     public void testListFileFilter() {
         System.out.println("罗列指定目录下的特定后缀的文件");
-        String path = System.getProperty("user.dir")+"/Junit/Resource/";
+        String path = System.getProperty("user.dir") + "/Junit/Resource/";
         List<File> files = FileUtil.listFileFilter(new File(path), ".txt");
         PrintUtil.print(files);
     }
@@ -208,7 +208,7 @@ public class FileUtilTest extends SupportTest {
     @Test
     public void testSearchFile() {
         System.out.println("在指定的目录下搜索指定的文件");
-        String path =System.getProperty("user.dir")+"/Junit/Resource/";
+        String path = System.getProperty("user.dir") + "/Junit/Resource/";
         List<File> files = FileUtil.searchFile(new File(path), "GBK.txt");
         PrintUtil.print(files);
     }
@@ -218,7 +218,7 @@ public class FileUtilTest extends SupportTest {
         System.out.println("在指定的目录下搜索符合某正则的文件");
         //匹配字母和数字组成的exe文件
         String reg = "\\w{1,}\\.png$";
-        String path = System.getProperty("user.dir")+"/Junit/Resource/";
+        String path = System.getProperty("user.dir") + "/Junit/Resource/";
         List<File> files = FileUtil.searchFileReg(new File(path), reg);
         PrintUtil.print(files);
     }

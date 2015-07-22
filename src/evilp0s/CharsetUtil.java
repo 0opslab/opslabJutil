@@ -3,7 +3,6 @@ package evilp0s;
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
-import java.nio.charset.Charset;
 
 /**
  * Description:

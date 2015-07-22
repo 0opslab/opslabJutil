@@ -20,35 +20,13 @@ public class ClassUtil {
 
 
     /**
-     * 加载指定的类
-     *
-     * @param className
-     * @return
-     * @throws ClassNotFoundException
-     */
-    public Class loadClass(String className) throws ClassNotFoundException {
-        Class theClass = null;
-        try {
-            theClass = Class.forName(className);
-        } catch (ClassNotFoundException e1) {
-            try {
-                theClass = Thread.currentThread().getContextClassLoader().loadClass(className);
-            } catch (ClassNotFoundException e2) {
-                theClass = getClass().getClassLoader().loadClass(className);
-            }
-        }
-        return theClass;
-    }
-
-
-    /**
      * 获取指定类的全部属性字段
      *
      * @param className
      * @return
      */
     public static String[] getField(String className) throws ClassNotFoundException {
-        Class   classz = Class.forName(className);
+        Class classz = Class.forName(className);
         Field[] fields = classz.getFields();
         Field[] fieldz = classz.getDeclaredFields();
 
@@ -69,15 +47,14 @@ public class ClassUtil {
      * @return
      */
     public static String[] getMethod(String className) throws ClassNotFoundException {
-        Class       classz  = Class.forName(className);
-        Method[]    methods = classz.getMethods();
-        Set<String> set     = new HashSet<String>();
+        Class classz = Class.forName(className);
+        Method[] methods = classz.getMethods();
+        Set<String> set = new HashSet<String>();
         for (Method f : methods) {
             set.add(f.getName());
         }
         return set.toArray(new String[]{});
     }
-
 
     /**
      * 同名属性值复制
@@ -157,10 +134,9 @@ public class ClassUtil {
         return str;
     }
 
-
     public static List<String> getClassName(String packageName, boolean childPackage) {
         List<String> fileNames = null;
-        ClassLoader  loader    = Thread.currentThread().getContextClassLoader();
+        ClassLoader loader = Thread.currentThread().getContextClassLoader();
         String packagePath = packageName.replace(".", "/");
         URL url = loader.getResource(packagePath);
         if (url != null) {
@@ -194,8 +170,8 @@ public class ClassUtil {
      */
     private static List<String> getClassNameByFile(String filePath, List<String> className, boolean childPackage) {
         List<String> myClassName = new ArrayList<String>();
-        File         file        = new File(filePath);
-        File[]       childFiles  = file.listFiles();
+        File file = new File(filePath);
+        File[] childFiles = file.listFiles();
         if (ValidUtil.isValid(childFiles)) {
             for (File childFile : childFiles) {
                 if (childFile.isDirectory()) {
@@ -224,10 +200,10 @@ public class ClassUtil {
      */
     private static List<String> getClassNameByJar(String jarPath, boolean childPackage) {
         List<String> myClassName = new ArrayList<String>();
-        String[]     jarInfo     = jarPath.split("!");
-        String       jarFilePath = jarInfo[0].substring(jarInfo[0].indexOf("/"));
-        String       packagePath = jarInfo[1].substring(1);
-        JarFile      jarFile     = null;
+        String[] jarInfo = jarPath.split("!");
+        String jarFilePath = jarInfo[0].substring(jarInfo[0].indexOf("/"));
+        String packagePath = jarInfo[1].substring(1);
+        JarFile jarFile = null;
         try {
             jarFile = new JarFile(jarFilePath);
             Enumeration<JarEntry> entrys = jarFile.entries();
@@ -290,6 +266,27 @@ public class ClassUtil {
             }
         }
         return myClassName;
+    }
+
+    /**
+     * 加载指定的类
+     *
+     * @param className
+     * @return
+     * @throws ClassNotFoundException
+     */
+    public Class loadClass(String className) throws ClassNotFoundException {
+        Class theClass = null;
+        try {
+            theClass = Class.forName(className);
+        } catch (ClassNotFoundException e1) {
+            try {
+                theClass = Thread.currentThread().getContextClassLoader().loadClass(className);
+            } catch (ClassNotFoundException e2) {
+                theClass = getClass().getClassLoader().loadClass(className);
+            }
+        }
+        return theClass;
     }
 
 }

@@ -38,12 +38,14 @@ public class StringImpl {
         }
         return new String(result);
     }
+
     private static boolean charReg(char charValue) {
         return (charValue >= 0x4E00 && charValue <= 0X9FA5)
                 || (charValue >= 'a' && charValue <= 'z')
                 || (charValue >= 'A' && charValue <= 'Z')
                 || (charValue >= '0' && charValue <= '9');
     }
+
     private static String removeSign(String str) {
         StringBuffer sb = new StringBuffer();
         for (char item : str.toCharArray())
@@ -55,10 +57,11 @@ public class StringImpl {
 
     /**
      * 快速比较俩个字符串的相似度
-     * @summary:讲长的字符串放到前面有助于提交效率
+     *
      * @param strA
      * @param strB
      * @return
+     * @summary:讲长的字符串放到前面有助于提交效率
      */
     public static double SimilarDegree(String strA, String strB) {
         String newStrA = removeSign(strA);
@@ -67,6 +70,7 @@ public class StringImpl {
         int temp2 = longestCommonSubstring(newStrA, newStrB).length();
         return temp2 * 1.0 / temp;
     }
+
     //第二种实现方式
     private static int compare(String str, String target) {
         int d[][]; // 矩阵
@@ -116,35 +120,38 @@ public class StringImpl {
 
     /**
      * 获取字符串的相似度
+     *
      * @param str
      * @param target
      * @return
      */
     public static double SimilarityRatio(String str, String target) {
-        return 1 - (double)compare(str, target)/Math.max(str.length(), target.length());
+        return 1 - (double) compare(str, target) / Math.max(str.length(), target.length());
     }
 
 
     /**
      * 获取字符串的编码
+     *
      * @Summary:改方法利用cpDetector概率探测故性能和准确率不是100%
      */
-    public static String encoding(String str){
+    public static String encoding(String str) {
         java.nio.charset.Charset charset = null;
-            try {
-                InputStream inputStream = new ByteArrayInputStream(str.getBytes());
-                charset = cpDetector.codepageDetector.detectCodepage(inputStream, 3);
-                if (charset != null){
-                    return charset.name();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
+        try {
+            InputStream inputStream = new ByteArrayInputStream(str.getBytes());
+            charset = cpDetector.codepageDetector.detectCodepage(inputStream, 3);
+            if (charset != null) {
+                return charset.name();
             }
-            return null;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     /**
      * 获取字符串编码
+     *
      * @param str
      * @return
      */

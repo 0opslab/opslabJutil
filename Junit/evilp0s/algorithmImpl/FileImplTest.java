@@ -11,7 +11,7 @@ public class FileImplTest {
         System.out.println(FileImpl.simpleEncoding("c:/windows/WindowsUpdate.log"));
         System.out.println(FileImpl.cpdetector((new File("c:/windows/WindowsUpdate.log")).toURL()));
         System.out.println(new FileImpl().guestFileEncoding("c:/windows/WindowsUpdate.log"));
-        System.out.println(new FileImpl().guestFileEncoding("c:/windows/WindowsUpdate.log",3));
+        System.out.println(new FileImpl().guestFileEncoding("c:/windows/WindowsUpdate.log", 3));
 
 
         System.out.println(FileImpl.simpleEncoding("C:/Windows/Tasks/SCHEDLGU.TXT"));

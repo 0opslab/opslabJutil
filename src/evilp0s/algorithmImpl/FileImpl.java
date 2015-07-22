@@ -14,7 +14,21 @@ public class FileImpl {
 
 
     /**
+     * **************************************************
+     * 以下方式利用mozilla的jchardet作为探测工具
+     */
+
+    private static boolean found = false;
+    /**
+     * 如果完全匹配某个字符集检测算法, 则该属性保存该字符集的名称. 否则(如二进制文件)其值就为默认值 null, 这时应当查询属性
+     */
+    private static String encoding = null;
+
+    /**
      * 利用文件头特征判断文件的编码方式
+     *
+     * @param fileName 需要处理的文件
+     * @return 返回文件编码
      */
     public static String simpleEncoding(String fileName) {
         int p = 0;
@@ -45,8 +59,8 @@ public class FileImpl {
     /**
      * 探测资源符的编码
      *
-     * @param url
-     * @return
+     * @param url 需要处理的资源
+     * @return 返回文件编码
      */
     public static String cpdetector(URL url) {
         java.nio.charset.Charset charset = null;
@@ -64,8 +78,8 @@ public class FileImpl {
     /**
      * 探测字符串的编码
      *
-     * @param stringValue
-     * @return
+     * @param stringValue 需要处理的字符串
+     * @return 返回文件的编码
      */
     public static String encoding(String stringValue) {
         java.nio.charset.Charset charset = null;
@@ -82,18 +96,6 @@ public class FileImpl {
     }
 
     /**
-     * **************************************************
-     * 以下方式利用mozilla的jchardet作为探测工具
-     */
-
-    private static boolean found = false;
-
-    /**
-     * 如果完全匹配某个字符集检测算法, 则该属性保存该字符集的名称. 否则(如二进制文件)其值就为默认值 null, 这时应当查询属性
-     */
-    private static String encoding = null;
-
-    /**
      * 传入一个文件(File)对象，检查文件编码
      *
      * @param file File对象实例
@@ -101,7 +103,7 @@ public class FileImpl {
      * @throws FileNotFoundException
      * @throws IOException
      */
-    public static String guestFileEncoding(File file) throws  IOException {
+    public static String guestFileEncoding(File file) throws IOException {
         return geestFileEncoding(file, new nsDetector());
     }
 
@@ -115,7 +117,7 @@ public class FileImpl {
      * @throws FileNotFoundException
      * @throws IOException
      */
-    public static String guestFileEncoding(File file, int languageHint) throws  IOException {
+    public static String guestFileEncoding(File file, int languageHint) throws IOException {
         return geestFileEncoding(file, new nsDetector(languageHint));
     }
 
@@ -127,7 +129,7 @@ public class FileImpl {
      * @throws FileNotFoundException
      * @throws IOException
      */
-    public static String guestFileEncoding(String path) throws  IOException {
+    public static String guestFileEncoding(String path) throws IOException {
         return guestFileEncoding(new File(path));
     }
 
@@ -137,7 +139,7 @@ public class FileImpl {
      * @param path         文件路径
      * @param languageHint 语言提示区域代码 eg：1 : Japanese; 2 : Chinese; 3 : Simplified Chinese;
      *                     4 : Traditional Chinese; 5 : Korean; 6 : Dont know (default)
-     * @return
+     * @return 返回文件的编码
      * @throws FileNotFoundException
      * @throws IOException
      */
@@ -148,9 +150,9 @@ public class FileImpl {
     /**
      * 获取文件的编码
      *
-     * @param file
-     * @param det
-     * @return
+     * @param file 需要处理文件的编码
+     * @param det  nsDetector
+     * @return 返回文件编码
      * @throws FileNotFoundException
      * @throws IOException
      */
@@ -161,9 +163,9 @@ public class FileImpl {
                 encoding = charset;
             }
         });
-        byte[]  buf     = new byte[1024];
-        int     len;
-        boolean done    = false;
+        byte[] buf = new byte[1024];
+        int len;
+        boolean done = false;
         boolean isAscii = true;
         try (
                 BufferedInputStream imp = new BufferedInputStream(new FileInputStream(file));

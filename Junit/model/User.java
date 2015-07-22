@@ -1,17 +1,18 @@
 package model;
 
 
-import com.hp.hpl.sparta.xpath.ThisNodeTest;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.print.DocFlavor;
-
 public class User {
 
-    @Getter @Setter private String userId;
+    @Getter
+    @Setter
+    private String userId;
 
-    @Getter @Setter private String userName;
+    @Getter
+    @Setter
+    private String userName;
 
     public User() {
     }
@@ -31,12 +32,12 @@ public class User {
 
     @Override
     public boolean equals(Object obj) {
-        if(obj == null){
+        if (obj == null) {
             return false;
         }
         if (obj instanceof User) {
-            User user =(User)obj;
-            if(user.getUserId().equals(this.userId) && user.getUserName().equals(this.userName)){
+            User user = (User) obj;
+            if (user.getUserId().equals(this.userId) && user.getUserName().equals(this.userName)) {
                 return true;
             }
         }

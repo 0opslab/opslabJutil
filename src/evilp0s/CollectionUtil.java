@@ -1,7 +1,5 @@
 package evilp0s;
 
-import org.junit.Test;
-
 import java.util.*;
 
 /**
@@ -17,7 +15,6 @@ import java.util.*;
  * Map<--HashMap
  */
 public class CollectionUtil {
-
 
 
     /**
@@ -112,7 +109,7 @@ public class CollectionUtil {
      */
     public static <T> List<T> subtract(List<T> list1, List<T> list2) {
         List<T> list = new ArrayList<>();
-        if(ValidUtil.isValid(list1)){
+        if (ValidUtil.isValid(list1)) {
             list.addAll(list1);
             list.removeAll(list2);
         }
@@ -121,7 +118,7 @@ public class CollectionUtil {
 
     public static <T> Set<T> subtract(Set<T> set1, Set<T> set2) {
         Set<T> set = new HashSet<>();
-        if(ValidUtil.isValid(set1)){
+        if (ValidUtil.isValid(set1)) {
             set.addAll(set1);
             set.removeAll(set2);
         }
@@ -130,7 +127,7 @@ public class CollectionUtil {
 
     public static <T> Queue<T> subtract(Queue<T> queue1, Queue<T> queue2) {
         Queue<T> queue = new LinkedList<>();
-        if(ValidUtil.isValid(queue1)){
+        if (ValidUtil.isValid(queue1)) {
             queue.addAll(queue1);
             queue.removeAll(queue2);
         }
@@ -140,9 +137,9 @@ public class CollectionUtil {
     public static <K, V> Map<K, V> subtract(Map<K, V> map1, Map<K, V> map2) {
         Map<K, V> map = new HashMap<>();
         map.putAll(map1);
-        if(ValidUtil.isValid(map2)){
-            for(K k:map.keySet())
-            map.remove(k);
+        if (ValidUtil.isValid(map2)) {
+            for (K k : map.keySet())
+                map.remove(k);
         }
         return map;
     }

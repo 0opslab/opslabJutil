@@ -8,13 +8,12 @@ import javax.mail.internet.*;
 import java.io.*;
 import java.net.URL;
 import java.util.Properties;
+
 /**
  * Description
- *      封装Email相关的操作
+ * 封装Email相关的操作
  */
 public class EmailUtil {
-    private Properties properties = new Properties();
-
     private static String CONFIG_FILE;
 
     static {
@@ -22,6 +21,7 @@ public class EmailUtil {
         CONFIG_FILE = path.getPath() + "mail.properties";
     }
 
+    private Properties properties = new Properties();
     /**
      * Message对象将存储我们实际发送的电子邮件信息，
      */
@@ -34,7 +34,7 @@ public class EmailUtil {
 
 
     private Transport transport;
-    private String mailHost        = "";
+    private String mailHost = "";
     private String sender_username = "";
     private String sender_password = "";
 
@@ -42,7 +42,7 @@ public class EmailUtil {
      * 初始化方法
      */
     public EmailUtil(boolean debug) {
-        InputStream in =null;
+        InputStream in = null;
         try {
             in = new BufferedInputStream(new FileInputStream(CONFIG_FILE));
             properties.load(in);
@@ -51,7 +51,7 @@ public class EmailUtil {
             this.sender_password = properties.getProperty("mail.sender.password");
         } catch (IOException e) {
             e.printStackTrace();
-        }finally{
+        } finally {
             try {
                 in.close();
             } catch (Exception e) {

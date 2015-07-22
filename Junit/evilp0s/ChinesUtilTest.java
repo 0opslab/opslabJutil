@@ -4,19 +4,13 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 import java.io.UnsupportedEncodingException;
-import java.nio.ByteBuffer;
-import java.nio.CharBuffer;
 import java.nio.charset.CharacterCodingException;
-import java.nio.charset.Charset;
-import java.nio.charset.CharsetDecoder;
-
-import static org.junit.Assert.assertEquals;
 
 public class ChinesUtilTest extends TestCase {
 
     @Test
-    public void testMain(){
-        String[] strArr = new String[] { "www.micmiu.com", "!@#$%^&*()_+{}[]|\"'?/:;<>,.", "！￥……（）——：；“”‘’《》，。？、", "不要啊", "やめて", "韩佳人", "???" };
+    public void testMain() {
+        String[] strArr = new String[]{"www.micmiu.com", "!@#$%^&*()_+{}[]|\"'?/:;<>,.", "！￥……（）——：；“”‘’《》，。？、", "不要啊", "やめて", "韩佳人", "???"};
         for (String str : strArr) {
             System.out.println("===========> 测试字符串：" + str);
             System.out.println("正则判断结果：" + ChinesUtil.isChineseByREG(str) + " -- " + ChinesUtil.isChineseByName(str));
@@ -29,7 +23,7 @@ public class ChinesUtilTest extends TestCase {
     @Test
     public void testChineseLength() {
         String input = "234判234断一的fg456个字符rer串d23213fg中有de多少g45fhh个中文324";
-        assertEquals("计算有错误",15,ChinesUtil.ChineseLength(input));
+        assertEquals("计算有错误", 15, ChinesUtil.ChineseLength(input));
     }
 
     @Test
@@ -50,8 +44,8 @@ public class ChinesUtilTest extends TestCase {
     @Test
     public void testisMessyCode() throws UnsupportedEncodingException, CharacterCodingException {
 
-        String str1 ="涓枃鐨勫瓧绗︿覆,缂栫爜缁撴灉浼氬簲椤圭洰鐨勭紪璇戝拰JVM鐨勮繍琛岀幆澧冧笉鐥涙湁鎵�奖鍝�";
-        assertEquals("判断乱码有问题",true,ChinesUtil.isMessyCode(str1));
+        String str1 = "涓枃鐨勫瓧绗︿覆,缂栫爜缁撴灉浼氬簲椤圭洰鐨勭紪璇戝拰JVM鐨勮繍琛岀幆澧冧笉鐥涙湁鎵�奖鍝�";
+        assertEquals("判断乱码有问题", true, ChinesUtil.isMessyCode(str1));
     }
 
 

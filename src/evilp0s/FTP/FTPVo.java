@@ -14,7 +14,7 @@ public class FTPVo {
     private boolean passiveMode;
 
 
-    public FTPVo(String hostName, int port,String username, String password, String remoteDir, String localDir, String remoteEncoding, boolean passiveMode) {
+    public FTPVo(String hostName, int port, String username, String password, String remoteDir, String localDir, String remoteEncoding, boolean passiveMode) {
         this.hostName = hostName;
         this.port = port;
         this.remoteDir = remoteDir;
@@ -80,7 +80,6 @@ public class FTPVo {
     public void setRemoteEncoding(String remoteEncoding) {
         this.remoteEncoding = remoteEncoding;
     }
-
 
 
     public boolean isPassiveMode() {
