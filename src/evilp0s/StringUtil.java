@@ -612,9 +612,70 @@ public class StringUtil {
         int index = 0;
         while ((index = string.indexOf(str, index)) != -1) {
             count++;
-            index += string.length();
+            index += str.length();
         }
         return count;
     }
 
+
+    /**
+     * 替换一个出现的子串
+     *
+     * @param s      source string
+     * @param sub    substring to replace
+     * @param with   substring to replace with
+     */
+    public static String replaceFirst(String s, String sub, String with) {
+        int i = s.indexOf(sub);
+        if (i == -1) {
+            return s;
+        }
+        return s.substring(0, i) + with + s.substring(i + sub.length());
+    }
+
+
+    /**
+     * 替换最后一次出现的字串
+     * Replaces the very last occurrence of a substring with supplied string.
+     *
+     * @param s      source string
+     * @param sub    substring to replace
+     * @param with   substring to replace with
+     */
+    public static String replaceLast(String s, String sub, String with) {
+        int i = s.lastIndexOf(sub);
+        if (i == -1) {
+            return s;
+        }
+        return s.substring(0, i) + with + s.substring(i + sub.length());
+    }
+
+
+    /**
+     * 删除所有的子串
+     * Removes all substring occurrences from the string.
+     *
+     * @param s      source string
+     * @param sub    substring to remove
+     */
+    public static String remove(String s, String sub) {
+        int c = 0;
+        int sublen = sub.length();
+        if (sublen == 0) {
+            return s;
+        }
+        int i = s.indexOf(sub, c);
+        if (i == -1) {
+            return s;
+        }
+        StringBuilder sb = new StringBuilder(s.length());
+        do {
+            sb.append(s.substring(c, i));
+            c = i + sublen;
+        } while ((i = s.indexOf(sub, c)) != -1);
+        if (c < s.length()) {
+            sb.append(s.substring(c, s.length()));
+        }
+        return sb.toString();
+    }
 }

@@ -6,6 +6,7 @@ import org.junit.Test;
 import java.io.UnsupportedEncodingException;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class StringUtilTest {
 
@@ -89,10 +90,21 @@ public class StringUtilTest {
     }
 
 
+
+
     @Test
     public void testStrlength(){
-        System.out.println("abcdef".length());
-        System.out.println("abcdef一二三四".length());
+        assertEquals(6,"abcdef".length());
+        assertEquals(10,"abcdef一二三四".length());
     }
 
+
+    @Test
+    public void testReplaceFirst(){
+        String str1=",1,2,3,4,5";
+        String str2="1,2,3,4,5,";
+        assertEquals("1,2,3,4,5", StringUtil.replaceFirst(str1, ",", ""));
+        assertEquals("1,2,3,4,5", StringUtil.replaceLast(str2, ",", ""));
+        assertEquals("12345",StringUtil.remove(str1,","));
+    }
 }

@@ -24,8 +24,6 @@ public class PrintUtilTest {
         all.add("hello");
         all.add("world");
         PrintUtil.print(all);
-
-
     }
 
 

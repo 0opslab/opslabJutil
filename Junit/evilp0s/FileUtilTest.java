@@ -1,13 +1,13 @@
 package evilp0s;
 
-import org.junit.Test;
-
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
+import org.junit.Test;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class FileUtilTest extends SupportTest {
 
@@ -67,7 +67,7 @@ public class FileUtilTest extends SupportTest {
 
 
         PrintUtil.println("UTF8文件测试");
-        String utf8file = System.getProperty("user.dir") + "/JUnit/Resource/UTF8.txt";
+        String utf8file = System.getProperty("user.dir") + "/Junit/Resource/UTF8.txt";
         List<String> utf8lines = FileUtil.lines(new File(utf8file));
         PrintUtil.print(utf8lines);
         utf8lines = FileUtil.lines(new File(utf8file), "UTF-8");
@@ -82,15 +82,15 @@ public class FileUtilTest extends SupportTest {
     @Test
     public void testCleanFile() {
         System.out.println("快速清空一个超大文件");
-        String clearFile = System.getProperty("user.dir") + "/JUnit/Resource/temp/GBKTOUTF8.txt";
+        String clearFile = System.getProperty("user.dir") + "/Junit/Resource/temp/GBKTOUTF8.txt";
         FileUtil.cleanFile(new File(clearFile));
     }
 
     @Test
     public void testCopy() throws Exception {
         System.out.println("测试文件拷贝");
-        String copy = System.getProperty("user.dir") + "/JUnit/Resource/GBKTOUTF8.txt";
-        String dest = System.getProperty("user.dir") + "/JUnit/Resource/temp/GBKTOUTF8.txt";
+        String copy = System.getProperty("user.dir") + "/Junit/Resource/GBKTOUTF8.txt";
+        String dest = System.getProperty("user.dir") + "/Junit/Resource/temp/GBKTOUTF8.txt";
         FileUtil.copy(copy, dest);
     }
 
@@ -100,9 +100,9 @@ public class FileUtilTest extends SupportTest {
         String line1 = "E-String";
         String line2 = "中文字符串";
 
-        File efile = new File(System.getProperty("user.dir") + "/JUnit/Resource/EnglishWrite.txt");
-        File gbkfile = new File(System.getProperty("user.dir") + "/JUnit/Resource/GBKWrite.txt");
-        File utf8file = new File(System.getProperty("user.dir") + "/JUnit/Resource/UTF8Write.txt");
+        File efile = new File(System.getProperty("user.dir") + "/Junit/Resource/EnglishWrite.txt");
+        File gbkfile = new File(System.getProperty("user.dir") + "/Junit/Resource/GBKWrite.txt");
+        File utf8file = new File(System.getProperty("user.dir") + "/Junit/Resource/UTF8Write.txt");
 
         FileUtil.appendLine(efile, line1);
         FileUtil.appendLine(efile, line2);
@@ -125,44 +125,47 @@ public class FileUtilTest extends SupportTest {
     @Test
     public void testDeleteFile() {
         System.out.println("删除文件");
-        String delete = System.getProperty("user.dir") + "/JUnit/Resource/temp/delete.txt";
+        String delete = System.getProperty("user.dir") + "/Junit/Resource/temp/delete.txt";
         FileUtil.deleteFile(new File(delete));
     }
 
     @Test
     public void testDeleteBigFile() {
         System.out.println("快速删除超大文件");
-        String delete = System.getProperty("user.dir") + "/JUnit/Resource/temp/bigfile.txt";
+        String delete = System.getProperty("user.dir") + "/Junit/Resource/temp/bigfile.txt";
         FileUtil.deleteBigFile(new File(delete));
     }
 
     @Test
     public void testCopyDir() {
-        FileUtil.copyDir(new File(System.getProperty("user.dir") + "/conf/"), System.getProperty("user.dir") + "/JUnit/Resource/temp/copy");
-    }
-
-    @Test
-    public void testDeleteDir() {
-        FileUtil.deleteDir(new File("c:/1"));
+        FileUtil.copyDir(new File(System.getProperty("user.dir") + "/conf/"), System.getProperty("user.dir") + "/Junit/Resource/temp/copy");
     }
 
 
     @Test
     public void testCreateFiles() {
         System.out.println("创建文件,支持多级目录");
-        String file1 = "c:/test/test1.txt";
-        String file2 = "c:/test/test1/test.txt";
-        String file3 = "c:/test/test/";
+        String path = System.getProperty("user.dir")+"/Junit/Resource/temp/";
+        String file1 = path+"/test/test1.txt";
+        String file2 = path+"/test/test1/test.txt";
+        String file3 = path+"/test/test/";
         FileUtil.createFiles(file1);
         FileUtil.createFiles(file2);
         FileUtil.createFiles(file3);
     }
 
     @Test
+    public void testDeleteDir() {
+        String path = System.getProperty("user.dir")+"/Junit/Resource/temp/";
+        FileUtil.deleteDir(new File(path + "/test/"));
+    }
+
+    @Test
     public void testCreatePath() {
         System.out.println("创建文件夹,支持多级目录");
-        String path1 = "c:/test/test2/";
-        String path2 = "c:/test/test3";
+        String path = System.getProperty("user.dir")+"/Junit/Resource/temp/";
+        String path1 = path+"/test/test2/";
+        String path2 = path+"/test/test3";
         FileUtil.createPaths(path1);
         FileUtil.createPaths(path2);
     }
@@ -171,31 +174,42 @@ public class FileUtilTest extends SupportTest {
     @Test
     public void testSimpleEncoding() {
         System.out.println("简单的利用文件头进行文件的编码探测!");
-        System.out.println(FileUtil.simpleEncoding("C:/Windows/system.ini"));
+        String path = System.getProperty("user.dir")+"/Junit/Resource/";
+        System.out.println(FileUtil.simpleEncoding(path+"GBK.txt"));
         System.out.println("利用cpdetector进行文件编码探测");
-        System.out.println(FileUtil.cpdetector(new File("C:/Windows/system.ini")));
+        System.out.println(FileUtil.cpdetector(new File(path + "GBK.txt")));
     }
 
     @Test
     public void testListFile() {
         System.out.println("罗列指定目录下的所有文件");
-        List<File> files = FileUtil.listFile(new File("c:/test"));
+        String path = System.getProperty("user.dir")+"/Junit/Resource/temp/";
+        List<File> files = FileUtil.listFile(new File(path));
         PrintUtil.print(files);
-        List<File> files1 = FileUtil.listFile("c:/windows/");
+        List<File> files1 = FileUtil.listFile(path);
         PrintUtil.print(files1);
+    }
+
+    @Test
+    public void testCopyDirs(){
+        System.out.println("复制文件夹");
+        String path = System.getProperty("user.dir")+"/Junit/Resource/temp";
+        FileUtil.copyDir(path+"/test/",path+"/testcopy/");
     }
 
     @Test
     public void testListFileFilter() {
         System.out.println("罗列指定目录下的特定后缀的文件");
-        List<File> files = FileUtil.listFileFilter(new File("c:/windows/"), ".ini");
+        String path = System.getProperty("user.dir")+"/Junit/Resource/";
+        List<File> files = FileUtil.listFileFilter(new File(path), ".txt");
         PrintUtil.print(files);
     }
 
     @Test
     public void testSearchFile() {
         System.out.println("在指定的目录下搜索指定的文件");
-        List<File> files = FileUtil.searchFile(new File("c:/windows/"), "cmd.exe");
+        String path =System.getProperty("user.dir")+"/Junit/Resource/";
+        List<File> files = FileUtil.searchFile(new File(path), "GBK.txt");
         PrintUtil.print(files);
     }
 
@@ -203,8 +217,9 @@ public class FileUtilTest extends SupportTest {
     public void testSearchReg() {
         System.out.println("在指定的目录下搜索符合某正则的文件");
         //匹配字母和数字组成的exe文件
-        String reg = "^(?!\\D+$)(?![^a-z]+$)[a-zA-Z\\d]{1,}\\.exe$";
-        List<File> files = FileUtil.searchFileReg(new File("c:/windows/"), reg);
+        String reg = "\\w{1,}\\.png$";
+        String path = System.getProperty("user.dir")+"/Junit/Resource/";
+        List<File> files = FileUtil.searchFileReg(new File(path), reg);
         PrintUtil.print(files);
     }
 }

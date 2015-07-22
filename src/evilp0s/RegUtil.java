@@ -15,6 +15,32 @@ public class RegUtil {
     private static Pattern abcPattern           = Pattern.compile("^[a-z|A-Z]+$");
 
 
+    /**Alphanumeric characters*/
+    public static final String REG_ALNUM ="\\p{Alnum}";
+    /**Alphabetic characters*/
+    public static final String REG_ALPHA ="\\p{Alpha}";
+    /**ASCII characters*/
+    public static final String REG_ASCII ="\\p{ASCII}";
+    /**Space and tab*/
+    public static final String REG_BLANK ="\\p{Blank}";
+    /**Control characters*/
+    public static final String REG_CNTRL ="\\p{Cntrl}";
+    /**Digits*/
+    public static final String REG_DIGITS ="\\p{Digit}";
+    /**SVisible characters (i.e. anything except spaces, control characters, etc.)*/
+    public static final String REG_GRAPH ="\\p{Graph}";
+    /**Lowercase letters*/
+    public static final String REG_LOWER ="\\p{Lower}";
+    /**Visible characters and spaces (i.e. anything except control characters, etc.)*/
+    public static final String REG_PRINT ="\\p{Print}";
+    /**Punctuation and symbols.*/
+    public static final String REG_PUNCT ="\\p{Punct}";
+    /**All whitespace characters, including line breaks*/
+    public static final String REG_SPACE ="\\p{Space}";
+    /**Uppercase letters*/
+    public static final String REG_UPPER ="\\p{Upper}";
+    /**Hexadecimal digits*/
+    public static final String REG_XDIGIT ="\\p{XDigit}";
     /**空白行*/
     public static final String REG_SPACE_LINE = "\\n\\s*\\r";
 
