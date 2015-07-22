@@ -170,18 +170,18 @@ public class StringUtil {
      * @return 返回已生成的重复字符串
      */
     public static String repeat(String src, int num) {
-        StringBuffer s = new StringBuffer();
+        StringBuilder s = new StringBuilder();
         for (int i = 0; i < num; i++)
             s.append(src);
         return s.toString();
     }
 
     /**
-     * 截取字符串左侧的Num位
+     * 截取字符串左侧的Num位截取到末尾
      *
-     * @param str1
-     * @param num
-     * @return
+     * @param str1 处理的字符串
+     * @param num 开始位置
+     * @return 截取后的字符串
      */
     public static String ltrim(String str1, int num) {
         String tt="";
@@ -193,17 +193,17 @@ public class StringUtil {
     }
 
     /**
-     * 截取字符串右侧的Num位
+     * 截取字符串右侧第0位到第Num位
      *
-     * @param str1
-     * @param num
-     * @return
+     * @param str 处理的字符串
+     * @param num 截取的位置
+     * @return 截取后的字符串
      */
-    public static String rtrim(String str1, int num) {
-        if (!isEmpty(str1) && str1.length() > num) {
-            str1 = str1.substring(0, str1.length() - num);
+    public static String rtrim(String str, int num) {
+        if (!isEmpty(str) && str.length() > num) {
+            str = str.substring(0, str.length() - num);
         }
-        return str1;
+        return str;
     }
 
     /**
@@ -215,10 +215,10 @@ public class StringUtil {
      */
     public static List<String> parseString2List(String src,String pattern) {
         List<String> list = new ArrayList<>();
-        String[] tt;
-        if (src != null &&(tt =src.split(pattern)) != null ){
-            for(String t:tt){
-                list.add(t);
+        if (src != null){
+            String[] tt =src.split(pattern);
+            for(int i=0;i<tt.length;i++){
+                list.add(tt[i]);
             }
         }
         return list;
@@ -228,8 +228,9 @@ public class StringUtil {
      * 格式化一个float
      *
      * @param format 要格式化成的格式 such as #.00, #.#
+     * @return 格式化后的字符串
      */
-    public static String formatFloat(float f, String format) {
+    public static String formatDouble(double f, String format) {
         DecimalFormat df = new DecimalFormat(format);
         return df.format(f);
     }

@@ -23,6 +23,13 @@ public class StringUtilTest {
     }
 
     @Test
+    public void testformatDouble(){
+        double d = Double.valueOf("10.012034");
+        assertEquals("10.01",StringUtil.formatDouble(d, "##.00"));
+        assertEquals("10.0120",StringUtil.formatDouble(d, "##.0000"));
+    }
+
+    @Test
     public void testjoinString() {
         String[] arr = new String[]{"MySQL", "ORACLE", "MSSQL", "NOSQL"};
         assertEquals("MySQL/ORACLE/MSSQL/NOSQL", StringUtil.joinString(arr, "/"));
