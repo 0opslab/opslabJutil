@@ -334,5 +334,13 @@ public class DateUtilTest {
                         Integer.parseInt("-"+(35+3600*13)),
                         "08:00-21:00")),
                 "2015-01-27 20:59:55");
+        assertEquals(
+                "计算有误",
+                DateUtil.DateTime(DateUtil.calculate(
+                        "2015-01-29 21:30:30",
+                        35+3600*14,
+                        "08:00-21:00")),
+                "2015-01-31 09:00:35");
+
     }
 }

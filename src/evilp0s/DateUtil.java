@@ -775,9 +775,11 @@ public class DateUtil {
                     }
                     if (date.before(dayStart)) {
                         cal.setTime(dayStart);
+                        toDaySecond = (int)Subtract(dayStart,dayEnd);
                     }
                     if (date.after(dayEnd)) {
                         cal.setTime(day(dayStart,1));
+                        toDaySecond = 0;
                     }
 
                     if(second > toDaySecond){
@@ -797,9 +799,11 @@ public class DateUtil {
                     }
                     if (date.before(dayStart)) {
                         cal.setTime(day(dayEnd,-1));
+                        toDaySecond =0;
                     }
                     if (date.after(dayEnd)) {
                         cal.setTime(dayEnd);
+                        toDaySecond =(int)Subtract(dayStart,dayEnd);
                     }
                     if(Math.abs(second) > Math.abs(toDaySecond)){
                         int day = (Math.abs(second) - Math.abs(toDaySecond)) / DaySecond;

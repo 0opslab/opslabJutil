@@ -3,6 +3,7 @@ package evilp0s;
 import model.BusinessLog;
 import org.junit.Test;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 
 /**
@@ -14,7 +15,7 @@ import java.util.List;
 public class ClassUtilTest  {
 
     @Test
-    public  void test() throws ClassNotFoundException {
+    public  void test() throws ClassNotFoundException, InvocationTargetException, IllegalAccessException {
         System.out.println("=============所有字段===============");
         String[] fields = ClassUtil.getField("evilp0s.StringUtil");
         for (String f : fields) {

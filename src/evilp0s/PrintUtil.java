@@ -58,4 +58,15 @@ public class PrintUtil {
         }
     }
 
+
+    /**
+     * 遍历打印数组
+     */
+    public static void print(Object[] arr){
+        if(ValidUtil.isValid(arr)){
+            for(Object a:arr){
+                print(a.toString());
+            }
+        }
+    }
 }
