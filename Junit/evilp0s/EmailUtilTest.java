@@ -4,13 +4,8 @@ import junit.framework.TestCase;
 
 import java.io.File;
 
-/**
- * <h6>Description:<h6>
- * <p></p>
- *
- * @date 2015-05-29.
- */
-public class EmailUtilTest extends TestCase {
+
+public class EmailUtilTest  {
 
     public void testMail() {
         EmailUtil se = new EmailUtil(false);
