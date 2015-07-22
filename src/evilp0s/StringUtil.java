@@ -11,42 +11,38 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * @author:Neptune
- * @Description:ProUtil 提供些常用的字符串相关的工具方法
+ * 提供些常用的字符串相关的工具方法
  */
 public class StringUtil {
 
     /**
      * 判断是否是空字符串 null和"" 都返回 true
      *
-     * @param s
-     * @return
-     * @author Robin Chang
+     * @param str 判断的字符串
+     * @return 是否有效
      */
-    public static boolean isEmpty(String s) {
-        if (s != null && !s.equals("")) {
-            return false;
-        }
-        return true;
+    public static boolean isEmpty(String str) {
+        return str == null || str.equals("");
     }
 
     /**
      * 把string array or list用给定的符号symbol连接成一个字符串
      *
-     * @param array
-     * @param symbol
-     * @return
+     * @param list  需要处理的列表
+     * @param symbol 链接的符号
+     * @return 处理后的字符串
      */
-    public static String joinString(List array, String symbol) {
+    public static String joinString(List list, String symbol) {
         String result = "";
-        if (array != null) {
-            for (int i = 0; i < array.size(); i++) {
-                String temp = array.get(i).toString();
+        if (list != null) {
+            for(Object o:list){
+                String temp = o.toString();
                 if (temp.trim().length() > 0)
                     result += (temp + symbol);
             }
-            if (result.length() > 1)
+            if (result.length() > 1) {
                 result = result.substring(0, result.length() - 1);
+            }
         }
         return result;
     }
@@ -56,15 +52,15 @@ public class StringUtil {
      *
      * @param str1 测试的字符串
      * @param str2 字符串数组(用,分割)
-     * @return
+     * @return 是否包含
+     *
      */
     public static boolean requals(String str1, String str2) {
-        boolean falg = false;
         if (str1 != null && str2 != null) {
             str2 = str2.replaceAll("\\s*", "");
             String[] arr = str2.split(",");
-            for (int i = 0; i < arr.length; i++) {
-                if (arr[i].equals(str1.trim())) {
+            for(String t:arr){
+                if (t.equals(str1.trim())) {
                     return true;
                 }
             }
@@ -78,14 +74,14 @@ public class StringUtil {
      * @param str1  测试的字符串
      * @param str2  字符串数组
      * @param split str2字符串的分隔符
-     * @return
+     * @return 是否包含
      */
     public static boolean requals(String str1, String str2, String split) {
         if (str1 != null && str2 != null) {
             str2 = str2.replaceAll("\\s*", "");
             String[] arr = str2.split(split);
-            for (int i = 0; i < arr.length; i++) {
-                if (arr[i].equals(str1.trim())) {
+            for(String t:arr){
+                if (t.equals(str1.trim())) {
                     return true;
                 }
             }
@@ -98,9 +94,9 @@ public class StringUtil {
      * 字符串省略截取
      * 字符串截取到指定长度size+...的形式
      *
-     * @param subject
-     * @param size
-     * @return
+     * @param subject 需要处理的字符串
+     * @param size 截取的长度
+     * @return 处理后的字符串
      */
     public static String subStringOmit(String subject, int size) {
         if (subject != null && subject.length() > size) {
@@ -113,56 +109,31 @@ public class StringUtil {
     /**
      * 截取字符串　超出的字符用symbol代替
      *
-     * @param len    　字符串长度　长度计量单位为一个GBK汉字　　两个英文字母计算为一个单位长度
-     * @param str
-     * @param symbol
-     * @return
+     * @param str 需要处理的字符串
+     * @param len 字符串长度　
+     * @param symbol 最后拼接的字符串
+     * @return 测试后的字符串
      */
-    public static String getLimitLengthString(String str, int len, String symbol) {
-        int iLen = len * 2;
-        int counterOfDoubleByte = 0;
-        String strRet = "";
-        try {
-            if (str != null) {
-                byte[] b = str.getBytes("GBK");
-                if (b.length <= iLen) {
-                    return str;
-                }
-                for (int i = 0; i < iLen; i++) {
-                    if (b[i] < 0) {
-                        counterOfDoubleByte++;
-                    }
-                }
-                if (counterOfDoubleByte % 2 == 0) {
-                    strRet = new String(b, 0, iLen, "GBK") + symbol;
-                    return strRet;
-                } else {
-                    strRet = new String(b, 0, iLen - 1, "GBK") + symbol;
-                    return strRet;
-                }
-            } else {
-                return "";
-            }
-        } catch (Exception ex) {
-            return str.substring(0, len);
-        } finally {
-            strRet = null;
+    public static String subStringSymbol(String str, int len, String symbol) {
+        String temp="";
+        if (str != null && str.length() > len) {
+            temp = str.substring(0, len) + symbol;
         }
+        return temp;
     }
 
 
     /**
      * 把string array or list用给定的符号symbol连接成一个字符串
      *
-     * @param array
-     * @param symbol
-     * @return
+     * @param array 需要处理的字符串数组
+     * @param symbol 链接的符号
+     * @return 处理后的字符串
      */
     public static String joinString(String[] array, String symbol) {
         String result = "";
         if (array != null) {
-            for (int i = 0; i < array.length; i++) {
-                String temp = array[i];
+            for(String temp:array){
                 if (temp != null && temp.trim().length() > 0)
                     result += (temp + symbol);
             }
@@ -173,29 +144,13 @@ public class StringUtil {
         return result;
     }
 
-    /**
-     * 取得字符串的实际长度（考虑了汉字的情况一个汉字按照俩个字符算）
-     *
-     * @param SrcStr 源字符串
-     * @return 字符串的实际长度
-     */
-    public static int getStringLen(String SrcStr) {
-        int return_value = 0;
-        if (SrcStr != null) {
-            char[] theChars = SrcStr.toCharArray();
-            for (int i = 0; i < theChars.length; i++) {
-                return_value += (theChars[i] <= 255) ? 1 : 2;
-            }
-        }
-        return return_value;
-    }
+
 
     /**
      * 隐藏邮件地址前缀。
      *
-     * @param email - EMail邮箱地址 例如: linwenguo@koubei.com 等等...
+     * @param email - EMail邮箱地址 例如: ssss@koubei.com 等等...
      * @return 返回已隐藏前缀邮件地址, 如 *********@koubei.com.
-     * @version 1.0 (2006.11.27) Wilson Lin
      */
     public static String getHideEmailPrefix(String email) {
         if (null != email) {
@@ -213,7 +168,6 @@ public class StringUtil {
      * @param src - 源字符串 例如: 空格(" "), 星号("*"), "浙江" 等等...
      * @param num - 重复生成次数
      * @return 返回已生成的重复字符串
-     * @version 1.0 (2006.10.10) Wilson Lin
      */
     public static String repeat(String src, int num) {
         StringBuffer s = new StringBuffer();
@@ -230,10 +184,12 @@ public class StringUtil {
      * @return
      */
     public static String ltrim(String str1, int num) {
-        if (!isEmpty(str1) && str1.length() > num) {
-            str1 = str1.substring(num, str1.length());
+        String tt="";
+        if (!isEmpty(str1) && str1.length() >= num) {
+            tt = str1.substring(num, str1.length());
         }
-        return str1;
+        return tt;
+
     }
 
     /**
@@ -251,19 +207,19 @@ public class StringUtil {
     }
 
     /**
-     * 根据指定的字符把源字符串分割成一个数组
+     * 根据指定的字符把源字符串分割成一个list
      *
-     * @param src
-     * @return
+     * @param src 处理的字符串
+     * @param pattern 分割字符串
+     * @return 处理后的list
      */
-    public static List<String> parseString2ListByCustomerPattern(String pattern, String src) {
-
-        if (src == null)
-            return null;
-        List<String> list = new ArrayList<String>();
-        String[] result = src.split(pattern);
-        for (int i = 0; i < result.length; i++) {
-            list.add(result[i]);
+    public static List<String> parseString2List(String src,String pattern) {
+        List<String> list = new ArrayList<>();
+        String[] tt;
+        if (src != null &&(tt =src.split(pattern)) != null ){
+            for(String t:tt){
+                list.add(t);
+            }
         }
         return list;
     }
@@ -278,23 +234,6 @@ public class StringUtil {
         return df.format(f);
     }
 
-
-    /**
-     * 将list 用传入的分隔符组装为String
-     */
-    public static String listToStringSlipStr(List list, String slipStr) {
-        StringBuffer returnStr = new StringBuffer();
-        if (list != null && list.size() > 0) {
-            for (int i = 0; i < list.size(); i++) {
-                returnStr.append(list.get(i)).append(slipStr);
-            }
-        }
-        if (returnStr.toString().length() > 0) {
-            return returnStr.toString().substring(0, returnStr.toString().lastIndexOf(slipStr));
-        } else {
-            return "";
-        }
-    }
 
 
     /**

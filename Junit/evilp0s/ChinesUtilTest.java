@@ -37,7 +37,6 @@ public class ChinesUtilTest extends TestCase {
     @Test
     public void testgetStringLen() {
         String str1 = "234判断fg456";
-        System.out.println(StringUtil.getStringLen(str1));
         System.out.println(ChinesUtil.ChineseLength(str1));
     }
 
