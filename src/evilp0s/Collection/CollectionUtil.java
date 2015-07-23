@@ -1,4 +1,6 @@
-package evilp0s;
+package evilp0s.Collection;
+
+import evilp0s.ValidUtil;
 
 import java.util.*;
 
@@ -15,6 +17,15 @@ import java.util.*;
  * Map<--HashMap
  */
 public class CollectionUtil {
+
+    /**
+     * 使用指定的Filter过滤集合
+     */
+    public static <T> List<T> Filter(List<T> list,ListFilter filter){
+        List result = new ArrayList();
+
+        return result;
+    }
 
 
     /**
@@ -56,7 +67,7 @@ public class CollectionUtil {
      * @param <V>
      * @return
      */
-    public static <K, V> Map<K, V> intersectionKey(Map<K, V> map1, Map<K, V> map2) {
+    public static <K, V> Map<K, V> intersection(Map<K, V> map1, Map<K, V> map2) {
         Map<K, V> map = new HashMap<>();
         if (ValidUtil.isValid(map1, map2)) {
             Set<K> setkey1 = map1.keySet();

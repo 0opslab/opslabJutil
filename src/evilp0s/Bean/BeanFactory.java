@@ -69,14 +69,14 @@ public class BeanFactory {
                 Map<String, BeanStruct> simplePropertiesIgnore = new Hashtable<>();
                 for (PropertyDescriptor propDesc : proDescrtptors) {
                     String fieldName = propDesc.getName();
-                    Object type = propDesc.getPropertyType();
-                    Method readMethod = propDesc.getReadMethod();
-                    Method writeMethod = propDesc.getWriteMethod();
-                    boolean isDeclared = isDeclaredField(className, fieldName);
-                    simpleProperties.put(fieldName, new BeanStruct(fieldName, type, readMethod,
-                            writeMethod, isDeclared));
-                    simplePropertiesIgnore.put(fieldName.toLowerCase(), new BeanStruct(fieldName, type,
-                            readMethod, writeMethod, isDeclared));
+                    if(!"class".equals(fieldName)){
+                        Object type = propDesc.getPropertyType();
+                        Method readMethod = propDesc.getReadMethod();
+                        Method writeMethod = propDesc.getWriteMethod();
+                        boolean isDeclared = isDeclaredField(className, fieldName);
+                        simpleProperties.put(fieldName, new BeanStruct(fieldName, type, readMethod,writeMethod, isDeclared));
+                        simplePropertiesIgnore.put(fieldName.toLowerCase(), new BeanStruct(fieldName, type, readMethod, writeMethod, isDeclared));
+                    }
                 }
                 BEAN_SIMPLE_PROPERTIES.put(className, simpleProperties);
                 BEAN_SIMPLE_PROPERTIESIGNORE.put(className, simplePropertiesIgnore);
