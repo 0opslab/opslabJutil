@@ -23,7 +23,25 @@ public class CollectionUtil {
      */
     public static <T> List<T> Filter(List<T> list,ListFilter filter){
         List result = new ArrayList();
+        if(ValidUtil.isValid(list)){
+            for (T t:list){
+                if(filter.filter(t)){
+                    result.add(t);
+                }
+            }
+        }
+        return result;
+    }
 
+    public static <T> Set<T> Filter(Set<T> set,SetFilter filter){
+        Set result = new HashSet();
+        if(ValidUtil.isValid(set)){
+            for(T t:set){
+                if(filter.filter(t)){
+                    result.add(t);
+                }
+            }
+        }
         return result;
     }
 
