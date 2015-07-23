@@ -86,12 +86,13 @@ public class BeanUtil {
     /**
      * 判断属性是否存在
      *
-     * @param obj
+     * @param bean
      * @param pro
      * @return
      */
-    public static boolean hasProperty(Object obj, String pro) {
-        Map map = simpleProperties(obj);
+    public static boolean hasProperty(Object bean, String pro) {
+        add(bean);
+        Map map = simpleProperties(bean);
         return map.containsKey(pro);
     }
 
@@ -99,12 +100,13 @@ public class BeanUtil {
     /**
      * 判断自己定义的而非继承的属性pro是否存在
      *
-     * @param obj
+     * @param bean
      * @param pro
      * @return
      */
-    public static boolean hasDeclaredProperty(Object obj, String pro) {
-        Map map = simpleProperties(obj);
+    public static boolean hasDeclaredProperty(Object bean, String pro) {
+        add(bean);
+        Map map = simpleProperties(bean);
         BeanStruct st = (BeanStruct) map.get(pro);
         if (ValidUtil.isValid(st)) {
             return st.isDeclared();
@@ -115,12 +117,13 @@ public class BeanUtil {
     /**
      * 判断属性是否存在忽略大小写
      *
-     * @param obj
+     * @param bean
      * @param pro
      * @return
      */
-    public static boolean hasPropertyIgnoreCase(Object obj, String pro) {
-        Map map = simplePropertiesIgnore(obj);
+    public static boolean hasPropertyIgnoreCase(Object bean, String pro) {
+        add(bean);
+        Map map = simplePropertiesIgnore(bean);
         return map.containsKey(pro.toLowerCase());
     }
 
@@ -128,14 +131,15 @@ public class BeanUtil {
     /**
      * 使用自定义的过滤器
      *
-     * @param obj
+     * @param bean
      * @param pro
      * @param filter
      * @return
      */
-    public static boolean hasPropertyFilter(Object obj, String pro, PropertyFilter filter) {
+    public static boolean hasPropertyFilter(Object bean, String pro, PropertyFilter filter) {
+        add(bean);
         pro = filter.Properties(pro);
-        Map map = simpleProperties(obj);
+        Map map = simpleProperties(bean);
         if (ValidUtil.isValid(map)) {
             Set<String> set = map.keySet();
             for (String s : set) {
@@ -157,6 +161,7 @@ public class BeanUtil {
      * @throws IllegalAccessException
      */
     public static Object getProperty(Object bean, String pro) throws InvocationTargetException, IllegalAccessException {
+        add(bean);
         return readMethod(bean, getReadMethod(bean, pro));
     }
 
@@ -168,6 +173,7 @@ public class BeanUtil {
      * @return 如果发生异常返回空
      */
     public static Object getPropertyPeaceful(Object bean, String pro) {
+        add(bean);
         Object result = null;
         try {
             result = readMethod(bean, getReadMethod(bean, pro));
@@ -187,6 +193,7 @@ public class BeanUtil {
      * @return
      */
     public static Object getDeclaredPropertyPeaceful(Object bean, String pro) throws InvocationTargetException, IllegalAccessException {
+        add(bean);
         Object result = null;
         if (hasDeclaredProperty(bean, pro)) {
             result = readMethod(bean, getReadMethod(bean, pro));
@@ -202,6 +209,7 @@ public class BeanUtil {
      * @return
      */
     public static Object getDeclaredProperty(Object bean, String pro) {
+        add(bean);
         Object result = null;
         if (hasDeclaredProperty(bean, pro)) {
             try {
@@ -224,11 +232,13 @@ public class BeanUtil {
      * @return
      */
     public static Object getPropertyIgnoreCase(Object bean, String pro) throws InvocationTargetException, IllegalAccessException {
+        add(bean);
         return readMethod(bean, getReadMethodIgnore(bean, pro));
     }
 
 
     public static Object getPropertyIgnoreCasePeaceful(Object bean, String pro) {
+        add(bean);
         Object result = null;
         try {
             result = readMethod(bean, getReadMethodIgnore(bean, pro));
@@ -251,6 +261,7 @@ public class BeanUtil {
      * @throws IllegalAccessException
      */
     public static Object getPropertyFilter(Object bean, String pro, PropertyFilter filter) throws InvocationTargetException, IllegalAccessException {
+        add(bean);
         Object result = null;
         pro = filter.Properties(pro);
         Map map = simpleProperties(bean);
@@ -274,6 +285,7 @@ public class BeanUtil {
      * @return
      */
     public static Object getPropertyFilterPeaceful(Object bean, String pro, PropertyFilter filter) {
+        add(bean);
         Object result = null;
         pro = filter.Properties(pro);
         Map map = simpleProperties(bean);
@@ -305,6 +317,7 @@ public class BeanUtil {
      * @throws IllegalAccessException
      */
     public static void setProperty(Object bean, String pro, Object value) throws InvocationTargetException, IllegalAccessException {
+        add(bean);
         writeMethod(bean, getWriteMethod(bean, pro), value);
     }
 
@@ -316,6 +329,7 @@ public class BeanUtil {
      * @param value
      */
     public static void setPropertyPeaceful(Object bean, String pro, Object value) {
+        add(bean);
         try {
             writeMethod(bean, getWriteMethod(bean, pro), value);
         } catch (InvocationTargetException e) {
@@ -336,6 +350,7 @@ public class BeanUtil {
      * @throws IllegalAccessException
      */
     public static void setDeclaredProperty(Object bean, String pro, Object value) throws InvocationTargetException, IllegalAccessException {
+        add(bean);
         if (hasDeclaredProperty(bean, pro)) {
             writeMethod(bean, getWriteMethod(bean, pro), value);
         }
@@ -349,6 +364,7 @@ public class BeanUtil {
      * @param value
      */
     public static void setDeclaredPropertyPeaceful(Object bean, String pro, Object value) {
+        add(bean);
         if (hasDeclaredProperty(bean, pro)) {
             try {
                 writeMethod(bean, getWriteMethod(bean, pro), value);
@@ -370,6 +386,7 @@ public class BeanUtil {
      * @throws IllegalAccessException
      */
     public static void setPropertyIgnoreCase(Object bean, String pro, Object value) throws InvocationTargetException, IllegalAccessException {
+        add(bean);
         writeMethod(bean, getWriteMethodIgnore(bean, pro), value);
     }
 
@@ -381,6 +398,7 @@ public class BeanUtil {
      * @param value
      */
     public static void setPropertyIgnoreCasePeaceful(Object bean, String pro, Object value) {
+        add(bean);
         try {
             writeMethod(bean, getWriteMethodIgnore(bean, pro), value);
         } catch (InvocationTargetException e) {
@@ -402,6 +420,7 @@ public class BeanUtil {
      * @throws IllegalAccessException
      */
     public static void setPropertyFilter(Object bean, String pro, Object value, PropertyFilter filter) throws InvocationTargetException, IllegalAccessException {
+        add(bean);
         pro = filter.Properties(pro);
         Map map = simpleProperties(bean);
         if (ValidUtil.isValid(map)) {
@@ -424,6 +443,7 @@ public class BeanUtil {
      * @param filter
      */
     public static void setPropertyFilterPeaceful(Object bean, String pro, Object value, PropertyFilter filter) {
+        add(bean);
         pro = filter.Properties(pro);
         Map map = simpleProperties(bean);
         if (ValidUtil.isValid(map)) {
@@ -454,6 +474,8 @@ public class BeanUtil {
      * @throws IllegalAccessException
      */
     public static void copyProperty(Object srcBean, Object destBean, String[] pros) throws InvocationTargetException, IllegalAccessException {
+        add(srcBean);
+        add(destBean);
         if (ValidUtil.isValid(pros)) {
             for (String s : pros) {
                 Object value = readMethod(srcBean, getReadMethod(srcBean, s));
@@ -463,6 +485,8 @@ public class BeanUtil {
     }
 
     public static void copyPropertyPeaceful(Object srcBean, Object destBean, String[] pros) {
+        add(srcBean);
+        add(destBean);
         if (ValidUtil.isValid(pros)) {
             try {
                 for (String s : pros) {
@@ -485,6 +509,8 @@ public class BeanUtil {
      * @throws IllegalAccessException
      */
     public static void copyProperties(Object srcBean, Object destBean) throws InvocationTargetException, IllegalAccessException {
+        add(srcBean);
+        add(destBean);
         Map srcMap = simpleProperties(srcBean);
         Map dstMap = simpleProperties(destBean);
         Map intersection = CollectionUtil.intersection(srcMap, dstMap);
@@ -499,6 +525,8 @@ public class BeanUtil {
 
 
     public static void copyPropertiesIgnoreCase(Object srcBean,Object destBean) throws InvocationTargetException, IllegalAccessException {
+        add(srcBean);
+        add(destBean);
         Map srcMap = simplePropertiesIgnore(srcBean);
         Map dstMap = simplePropertiesIgnore(destBean);
         Map intersection = CollectionUtil.intersection(srcMap, dstMap);
@@ -514,6 +542,8 @@ public class BeanUtil {
 
 
     public static void copyProperties(Object srcBean, Object destBean, PropertyFilter filter) {
+        add(srcBean);
+        add(destBean);
         Map srcMap = simpleProperties(srcBean);
         Map dstMap = simpleProperties(destBean);
     }

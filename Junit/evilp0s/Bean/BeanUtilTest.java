@@ -15,17 +15,21 @@ public class BeanUtilTest extends TestCase {
     @Test
     public void testHasProperties() {
         //全局执行添加一次
-        BeanUtil.add(BusinessLog.class);
 
         BusinessLog bean = new BusinessLog();
 
-        PrintUtil.print("Bean类是否有operationName属性:" + BeanUtil.hasProperty(bean, "operationName"));
+        //Bean类是否有operationName属性
+        assertEquals(true, BeanUtil.hasProperty(bean, "operationName"));
 
-        PrintUtil.print("Bean类中是否存在operationName属性(判断将忽略大小写):" + BeanUtil.hasPropertyIgnoreCase(bean, "OperationName"));
 
-        PrintUtil.print("Bean类中是否定义属性logId:" + BeanUtil.hasDeclaredProperty(bean, "logId"));
+        //Bean类中是否存在operationName属性(判断将忽略大小写)
+        assertEquals(true, BeanUtil.hasPropertyIgnoreCase(bean, "OperationName"));
 
-        PrintUtil.print("Bean类中是否存在属性(对属性命执行自定义的过滤函数后比较)" + BeanUtil.hasPropertyFilter(bean, "operationType", new PropertyFilter() {
+        //Bean类中是否定义属性logId
+        assertEquals(false, BeanUtil.hasDeclaredProperty(bean, "logId"));
+
+        //Bean类中是否存在属性(对属性命执行自定义的过滤函数后比较)
+        assertEquals(true,BeanUtil.hasPropertyFilter(bean, "operationType", new PropertyFilter() {
                     @Override
                     public String Properties(String pro) {
                         //忽略属性字段中"_" 并安装小写比较
@@ -38,7 +42,6 @@ public class BeanUtilTest extends TestCase {
 
     @Test
     public void testGetProperties() throws InvocationTargetException, IllegalAccessException {
-        BeanUtil.add(BusinessLog.class);
 
         BusinessLog bean = new BusinessLog();
 
@@ -55,7 +58,6 @@ public class BeanUtilTest extends TestCase {
 
     @Test
     public void testSetProperties() throws InvocationTargetException, IllegalAccessException {
-        BeanUtil.add(BusinessLog.class);
         BusinessLog bean = new BusinessLog();
         BeanUtil.setProperty(bean, "operationName", "Properties's value1");
         PrintUtil.println(bean);
@@ -72,9 +74,6 @@ public class BeanUtilTest extends TestCase {
 
     @Test
     public void testCopyProperty() throws InvocationTargetException, IllegalAccessException {
-        BeanUtil.add(BusinessLog.class);
-        BeanUtil.add(Log.class);
-        BeanUtil.add(Log2.class);
 
         BusinessLog bean1 = new BusinessLog();
         bean1.setOperationName("operationName test");
