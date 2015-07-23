@@ -1,9 +1,10 @@
 package evilp0s;
 
-/**
- * Created by Poseidon on 2015/4/5.
- */
+
 public class ConvertUtil {
+
+    private static String hexStr =  "0123456789ABCDEF";
+
     /**
      * @功能 短整型与字节的转换
      */
@@ -38,6 +39,20 @@ public class ConvertUtil {
         bt[1] = (byte) ((0xff00 & i) >> 8);
         bt[2] = (byte) ((0xff0000 & i) >> 16);
         bt[3] = (byte) ((0xff000000 & i) >> 24);
+        return bt;
+    }
+
+    /**
+     * 整形数组转换为字节数组的转换
+     * @param arr
+     * @return
+     */
+    public static byte[] intToByte(int[] arr){
+        byte[] bt = new byte[arr.length * 4];
+        for(int i=0;i<arr.length;i++){
+            byte[] t = intToByte(arr[i]);
+            System.arraycopy(t,0,bt,i+4,4);
+        }
         return bt;
     }
 
@@ -91,9 +106,53 @@ public class ConvertUtil {
         return s;
     }
 
-    public static String byteToString(byte[] b) {
-        String strRead = new String(b);
-        strRead = String.copyValueOf(strRead.toCharArray(), 0, b.length);
-        return strRead;
+    public static String HexStringtoBinarg(String hexStr){
+        hexStr = hexStr.replaceAll("\\s","").replaceAll("0x","");
+        char[] achar = hexStr.toCharArray();
+        String result ="";
+        for (int i = 0; i < achar.length; i++) {
+            result +=Integer.toBinaryString(Integer.valueOf(String.valueOf(achar[i]),16))+" ";
+        }
+        return result;
+    }
+
+    /**
+     *
+     * @param bytes
+     * @return 将二进制转换为十六进制字符输出
+     */
+    public static String bytesToHexString(byte[] bytes){
+
+        String result = "";
+        String hex = "";
+        for(int i=0;i<bytes.length;i++){
+            //字节高4位
+            hex = String.valueOf(hexStr.charAt((bytes[i]&0xF0)>>4));
+            //字节低4位
+            hex += String.valueOf(hexStr.charAt(bytes[i] & 0x0F));
+            result +=hex+" ";
+        }
+        return result;
+    }
+
+    /**
+     * 把16进制字符串转换成字节数组
+     * @param hexString
+     * @return byte[]
+     */
+    public static byte[] hexStringToByte(String hexString) {
+        int len = (hexString.length() / 2);
+        byte[] result = new byte[len];
+        char[] achar = hexString.toCharArray();
+        for (int i = 0; i < len; i++) {
+            int pos = i * 2;
+            result[i] = (byte) (toByte(achar[pos]) << 4 | toByte(achar[pos + 1]));
+        }
+        return result;
+    }
+
+    private static int toByte(char c) {
+        byte b = (byte) hexStr.indexOf(c);
+        return b;
     }
 }
