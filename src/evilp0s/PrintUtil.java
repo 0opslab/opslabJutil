@@ -23,6 +23,10 @@ public class PrintUtil {
         System.out.println(str);
     }
 
+    public static void print(Object obj){
+        System.out.print(obj.toString());
+    }
+
     /**
      * 遍历打印遍历List集合
      */

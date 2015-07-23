@@ -1,5 +1,6 @@
-package evilp0s;
+package evilp0s.Collection;
 
+import evilp0s.PrintUtil;
 import junit.framework.TestCase;
 import model.User;
 
