@@ -34,7 +34,9 @@ public class EmailUtil {
 
 
     private Transport transport;
-    private String mailHost = "";
+    private String mailHost        = "";
+    private int    port            = 25;
+    private boolean auth=false;
     private String sender_username = "";
     private String sender_password = "";
 
@@ -42,20 +44,15 @@ public class EmailUtil {
      * 初始化方法
      */
     public EmailUtil(boolean debug) {
-        InputStream in = null;
-        try {
-            in = new BufferedInputStream(new FileInputStream(CONFIG_FILE));
+        try (InputStream in = new BufferedInputStream(new FileInputStream(CONFIG_FILE))) {
             properties.load(in);
             this.mailHost = properties.getProperty("mail.smtp.host");
+            this.port = Integer.valueOf(properties.getProperty("mail.smtp.port"));
+            this.auth = Boolean.parseBoolean(properties.getProperty("mail.smtp.auth"));
             this.sender_username = properties.getProperty("mail.sender.username");
             this.sender_password = properties.getProperty("mail.sender.password");
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            try {
-                in.close();
-            } catch (Exception e) {
-            }
         }
         session = Session.getInstance(properties);
         session.setDebug(debug);//开启后有调试信息
@@ -93,7 +90,7 @@ public class EmailUtil {
 
             transport = session.getTransport("smtp");
             // smtp验证，就是你用来发邮件的邮箱用户名密码
-            transport.connect(mailHost, sender_username, sender_password);
+            transport.connect(mailHost, port, sender_username, sender_password);
             // 发送
             transport.sendMessage(message, message.getAllRecipients());
             //System.out.println("send success!");
@@ -163,7 +160,7 @@ public class EmailUtil {
 
             transport = session.getTransport("smtp");
             // smtp验证，就是你用来发邮件的邮箱用户名密码
-            transport.connect(mailHost, sender_username, sender_password);
+            transport.connect(mailHost, port, sender_username, sender_password);
             // 发送
             transport.sendMessage(message, message.getAllRecipients());
 

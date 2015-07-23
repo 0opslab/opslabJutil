@@ -1,11 +1,10 @@
 package evilp0s;
 
-import junit.framework.TestCase;
-
 import java.io.File;
 
 
 public class EmailUtilTest  {
+
 
     public void testMail() {
         EmailUtil se = new EmailUtil(false);
