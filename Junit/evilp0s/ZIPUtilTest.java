@@ -10,12 +10,8 @@ public class ZIPUtilTest extends SupportTest {
     public void testDeCompress() throws Exception {
         String file = SysUtil.CURRENT_USER_DIR + "/Junit/model";
         String zipFile = SysUtil.CURRENT_USER_DIR + "/Junit/Resource/temp/test.zip";
-        File zfile = new File(zipFile);
-        if(zfile.exists()){
-            if(zfile.delete()){
-                ZIPUtil.deCompress(new File(file), zipFile);
-            }
-        }
+        ZIPUtil.deCompress(new File(file), zipFile);
+
 
     }
 
