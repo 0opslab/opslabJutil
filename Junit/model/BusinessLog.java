@@ -2,19 +2,10 @@ package model;
 
 
 public class BusinessLog extends Log {
+
     private String operationName;
 
     private String operation_type;
-
-    private User user;
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     public String getOperationName() {
         return operationName;
@@ -35,7 +26,9 @@ public class BusinessLog extends Log {
     @Override
     public String toString() {
         return "BusinessLog{" +
+                "log="+super.toString()+
                 "operationName='" + operationName + '\'' +
+                ", operation_type='" + operation_type + '\'' +
                 '}';
     }
 }
