@@ -11,7 +11,7 @@ public class StreamUtil {
      */
     static public String streamToString(InputStream in) throws IOException {
         StringBuffer out = new StringBuffer();
-        byte[] b = new byte[4096];
+        byte[]       b   = new byte[4096];
         for (int n; (n = in.read(b)) != -1; ) {
             out.append(new String(b, 0, n));
         }
@@ -20,8 +20,8 @@ public class StreamUtil {
 
     public static byte[] stream2Byte(InputStream is) throws IOException {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        int len = 0;
-        byte[] b = new byte[1024];
+        int                   len  = 0;
+        byte[]                b    = new byte[1024];
         while ((len = is.read(b, 0, b.length)) != -1) {
             baos.write(b, 0, len);
         }
@@ -32,8 +32,7 @@ public class StreamUtil {
     /**
      * @方法功能 InputStream 转为 byte
      */
-    public static byte[] inputStream2Byte(InputStream inStream)
-            throws Exception {
+    public static byte[] inputStream2Byte(InputStream inStream) throws Exception {
         int count = 0;
         while (count == 0) {
             count = inStream.available();

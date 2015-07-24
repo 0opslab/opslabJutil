@@ -46,7 +46,7 @@ public class FileEncodingUtil {
      * @throws Exception
      */
     public static void convert(String fileName, String fromCharsetName, String toCharsetName,
-                               FilenameFilter filter) throws Exception {
+            FilenameFilter filter) throws Exception {
         convert(new File(fileName), fromCharsetName, toCharsetName, filter);
     }
 
@@ -60,7 +60,7 @@ public class FileEncodingUtil {
      * @throws Exception
      */
     public static void convert(File file, String fromCharsetName, String toCharsetName,
-                               FilenameFilter filter) throws Exception {
+            FilenameFilter filter) throws Exception {
         if (file.isDirectory()) {
             List<File> list = null;
             if (filter == null) {

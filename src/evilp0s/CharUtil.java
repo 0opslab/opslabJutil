@@ -137,7 +137,7 @@ public class CharUtil {
             carrLen++;
         }
         char[] carr = new char[carrLen];
-        int i = 0, j = 0;
+        int    i    = 0, j = 0;
         while (i < barr.length) {
             char c = (char) (barr[i] << 8);
             i++;

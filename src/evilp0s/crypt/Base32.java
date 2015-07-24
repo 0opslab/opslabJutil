@@ -91,9 +91,9 @@ public class Base32 {
                 throw new IllegalArgumentException(ERR_CANONICAL);
         }
 
-        byte[] bytes = new byte[base32.length() * 5 / 8];
-        int offset = 0, i = 0, lookup;
-        byte nextByte, digit;
+        byte[] bytes  = new byte[base32.length() * 5 / 8];
+        int    offset = 0, i = 0, lookup;
+        byte   nextByte, digit;
 
         while (i < base32.length()) {
             lookup = base32.charAt(i++) - '2';

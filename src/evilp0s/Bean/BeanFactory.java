@@ -21,14 +21,14 @@ public class BeanFactory {
      * 存放BeanUtil解析过的JavaBean数据
      * 只获取简单的属性字段
      */
-    protected static Map<String, Map<String, BeanStruct>> BEAN_SIMPLE_PROPERTIES = new Hashtable<>();
+    protected static Map<String,Map<String,BeanStruct>> BEAN_SIMPLE_PROPERTIES = new Hashtable<>();
 
 
     /**
      * 存放BeanUtil解析过的JavaBean数据
      * 只获取简单的属性字段(忽略字段名字的大小写)
      */
-    protected static Map<String, Map<String, BeanStruct>> BEAN_SIMPLE_PROPERTIESIGNORE = new Hashtable<>();
+    protected static Map<String,Map<String,BeanStruct>> BEAN_SIMPLE_PROPERTIESIGNORE = new Hashtable<>();
 
 
     static {
@@ -36,7 +36,7 @@ public class BeanFactory {
     }
 
     public static boolean isDeclaredField(String className, String pro) throws ClassNotFoundException {
-        Class classz = Class.forName(className);
+        Class   classz = Class.forName(className);
         Field[] fields = classz.getFields();
         if (ValidUtil.isValid(fields)) {
             for (Field f : fields) {
@@ -65,16 +65,16 @@ public class BeanFactory {
             BeanInfo beanInfo = Introspector.getBeanInfo(clazz);
             PropertyDescriptor[] proDescrtptors = beanInfo.getPropertyDescriptors();
             if (proDescrtptors != null && proDescrtptors.length > 0) {
-                Map<String, BeanStruct> simpleProperties = new Hashtable<>();
-                Map<String, BeanStruct> simplePropertiesIgnore = new Hashtable<>();
+                Map<String,BeanStruct> simpleProperties = new Hashtable<>();
+                Map<String,BeanStruct> simplePropertiesIgnore = new Hashtable<>();
                 for (PropertyDescriptor propDesc : proDescrtptors) {
                     String fieldName = propDesc.getName();
-                    if(!"class".equals(fieldName)){
+                    if (!"class".equals(fieldName)) {
                         Object type = propDesc.getPropertyType();
                         Method readMethod = propDesc.getReadMethod();
                         Method writeMethod = propDesc.getWriteMethod();
                         boolean isDeclared = isDeclaredField(className, fieldName);
-                        simpleProperties.put(fieldName, new BeanStruct(fieldName, type, readMethod,writeMethod, isDeclared));
+                        simpleProperties.put(fieldName, new BeanStruct(fieldName, type, readMethod, writeMethod, isDeclared));
                         simplePropertiesIgnore.put(fieldName.toLowerCase(), new BeanStruct(fieldName, type, readMethod, writeMethod, isDeclared));
                     }
                 }

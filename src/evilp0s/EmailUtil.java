@@ -34,11 +34,11 @@ public class EmailUtil {
 
 
     private Transport transport;
-    private String mailHost        = "";
-    private int    port            = 25;
-    private boolean auth=false;
-    private String sender_username = "";
-    private String sender_password = "";
+    private String  mailHost        = "";
+    private int     port            = 25;
+    private boolean auth            = false;
+    private String  sender_username = "";
+    private String  sender_password = "";
 
     /*
      * 初始化方法

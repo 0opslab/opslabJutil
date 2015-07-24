@@ -17,7 +17,7 @@ public class WebUtil {
      * @Method:打印请求参数
      */
     public static void print(HttpServletRequest request) {
-        Map map = new HashMap();
+        Map         map        = new HashMap();
         Enumeration paramNames = request.getParameterNames();
         while (paramNames.hasMoreElements()) {
             String paramName = (String) paramNames.nextElement();
@@ -33,8 +33,8 @@ public class WebUtil {
     }
 
     public static String escape(String src) {
-        int i;
-        char j;
+        int          i;
+        char         j;
         StringBuffer tmp = new StringBuffer();
         tmp.ensureCapacity(src.length() * 6);
         for (i = 0; i < src.length(); i++) {
@@ -57,7 +57,7 @@ public class WebUtil {
     public static String unescape(String src) {
         StringBuffer tmp = new StringBuffer();
         tmp.ensureCapacity(src.length());
-        int lastPos = 0, pos = 0;
+        int  lastPos = 0, pos = 0;
         char ch;
         while (lastPos < src.length()) {
             pos = src.indexOf("%", lastPos);
@@ -182,7 +182,8 @@ public class WebUtil {
      * @return
      */
     public static String html(String content) {
-        if (content == null) return "";
+        if (content == null)
+            return "";
         String html = content;
         html = html.replaceAll("'", "&apos;");
         html = html.replaceAll("\"", "&quot;");

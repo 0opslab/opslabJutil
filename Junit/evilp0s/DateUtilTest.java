@@ -83,8 +83,8 @@ public class DateUtilTest {
     @Test
     public void testHour() throws Exception {
         String str1 = "2015-02-23 18:54:00";
-        Date date = DateUtil.hour(DateUtil.DateTime(str1), -0.5F);
-        String rs = DateUtil.DateTime(date);
+        Date   date = DateUtil.hour(DateUtil.DateTime(str1), -0.5F);
+        String rs   = DateUtil.DateTime(date);
         assertEquals("转换有误", "2015-02-23 18:24:00", rs);
     }
 
@@ -119,7 +119,7 @@ public class DateUtilTest {
     public void testSubtract() throws Exception {
         String str1 = "2015-02-23 18:54:00";
         String str2 = "2015-02-23 18:55:22";
-        long rs = DateUtil.Subtract(str1, str2);
+        long   rs   = DateUtil.Subtract(str1, str2);
         System.out.println(rs);
         assertEquals("计算有误", 82L, rs);
     }
@@ -128,7 +128,7 @@ public class DateUtilTest {
     public void testSubtract1() throws Exception {
         String str1 = "2015-02-23 18:54:00";
         String str2 = "2015-02-23 18:55:22";
-        long rs = DateUtil.Subtract(sdf.parse(str1), sdf.parse(str2));
+        long   rs   = DateUtil.Subtract(sdf.parse(str1), sdf.parse(str2));
         assertEquals("计算有误", 82L, rs);
     }
 
@@ -136,7 +136,7 @@ public class DateUtilTest {
     public void testSubtractMinute() throws Exception {
         String str1 = "2015-02-23 18:54:00";
         String str2 = "2015-02-23 18:55:22";
-        int rs = DateUtil.SubtractMinute(str1, str2);
+        int    rs   = DateUtil.SubtractMinute(str1, str2);
         assertEquals("计算有误", 1, rs);
     }
 
@@ -144,7 +144,7 @@ public class DateUtilTest {
     public void testSubtractMinute1() throws Exception {
         String str1 = "2015-02-23 18:54:00";
         String str2 = "2015-02-23 18:55:22";
-        int rs = DateUtil.SubtractMinute(sdf.parse(str1), sdf.parse(str2));
+        int    rs   = DateUtil.SubtractMinute(sdf.parse(str1), sdf.parse(str2));
         assertEquals("计算有误", 1, rs);
     }
 
@@ -152,7 +152,7 @@ public class DateUtilTest {
     public void testSubtractHour() throws Exception {
         String str1 = "2015-02-23 18:54:00";
         String str2 = "2015-02-24 21:55:22";
-        int rs = DateUtil.SubtractHour(str1, str2);
+        int    rs   = DateUtil.SubtractHour(str1, str2);
         assertEquals("计算有误", 27, rs);
     }
 
@@ -160,7 +160,7 @@ public class DateUtilTest {
     public void testSubtractHour1() throws Exception {
         String str1 = "2015-02-23 18:54:00";
         String str2 = "2015-02-23 21:55:22";
-        int rs = DateUtil.SubtractHour(sdf.parse(str1), sdf.parse(str2));
+        int    rs   = DateUtil.SubtractHour(sdf.parse(str1), sdf.parse(str2));
         assertEquals("计算有误", 3, rs);
     }
 
@@ -168,7 +168,7 @@ public class DateUtilTest {
     public void testSubtractDay() throws Exception {
         String str1 = "2015-02-23 18:54:00";
         String str2 = "2015-03-26 21:55:22";
-        int rs = DateUtil.SubtractDay(str1, str2);
+        int    rs   = DateUtil.SubtractDay(str1, str2);
         assertEquals("计算有误", 31, rs);
     }
 
@@ -176,7 +176,7 @@ public class DateUtilTest {
     public void testSubtractDay1() throws Exception {
         String str1 = "2015-03-23 18:54:00";
         String str2 = "2015-03-25 21:55:22";
-        int rs = DateUtil.SubtractDay(str1, str2);
+        int    rs   = DateUtil.SubtractDay(str1, str2);
         assertEquals("计算有误", 2, rs);
     }
 
@@ -184,7 +184,7 @@ public class DateUtilTest {
     public void testSubtractMonth() throws Exception {
         String str1 = "2015-02-23 18:54:00";
         String str2 = "2016-08-25 21:55:22";
-        int rs = DateUtil.SubtractMonth(str1, str2);
+        int    rs   = DateUtil.SubtractMonth(str1, str2);
         assertEquals("计算有误", 18, rs);
     }
 
@@ -192,7 +192,7 @@ public class DateUtilTest {
     public void testSubtractMonth1() throws Exception {
         String str1 = "2015-02-23 18:54:00";
         String str2 = "2016-08-25 21:55:22";
-        int rs = DateUtil.SubtractMonth(sdf.parse(str1), sdf.parse(str2));
+        int    rs   = DateUtil.SubtractMonth(sdf.parse(str1), sdf.parse(str2));
         assertEquals("计算有误", 18, rs);
     }
 
@@ -200,7 +200,7 @@ public class DateUtilTest {
     public void testSubtractYear() throws Exception {
         String str1 = "2015-02-23 18:54:00";
         String str2 = "2016-08-25 21:55:22";
-        int rs = DateUtil.SubtractYear(sdf.parse(str1), sdf.parse(str2));
+        int    rs   = DateUtil.SubtractYear(sdf.parse(str1), sdf.parse(str2));
         assertEquals("计算有误", 1, rs);
     }
 
@@ -208,7 +208,7 @@ public class DateUtilTest {
     public void testSubtractYear1() throws Exception {
         String str1 = "2015-02-23 18:54:00";
         String str2 = "2016-08-25 21:55:22";
-        int rs = DateUtil.SubtractYear(str1, str2);
+        int    rs   = DateUtil.SubtractYear(str1, str2);
         assertEquals("计算有误", 1, rs);
     }
 
@@ -216,7 +216,7 @@ public class DateUtilTest {
     public void testSubtractTime() throws Exception {
         String str1 = "2015-02-23 18:54:00";
         String str2 = "2015-02-23 19:59:22";
-        String rs = DateUtil.SubtractTime(str1, str2);
+        String rs   = DateUtil.SubtractTime(str1, str2);
         assertEquals("计算有误", "1:5:22", rs);
     }
 
@@ -224,7 +224,7 @@ public class DateUtilTest {
     public void testSubtractDate() throws Exception {
         String str1 = "2015-02-23 18:54:00";
         String str2 = "2015-02-25 19:59:22";
-        String rs = DateUtil.SubtractDate(str1, str2);
+        String rs   = DateUtil.SubtractDate(str1, str2);
         assertEquals("计算有误", "2-1:5:22", rs);
     }
 
@@ -242,105 +242,27 @@ public class DateUtilTest {
         assertEquals("计算有误", DateUtil.subtimeBurst("2015-06-24 08:00:00", "2015-06-23 20:24:00", "08:00-21:00"), -2160);
         assertEquals("计算有误", DateUtil.subtimeBurst("2015-01-05 08:00:00", "2015-01-05 08:00:30", "08:00-21:00"), 30);
 
-        assertEquals(
-                "计算有误",
-                DateUtil.subtimeBurst(
-                        "2015-01-05 20:59:01",
-                        "2015-01-05 21:00:00",
-                        "08:00-21:00"),
-                59);
+        assertEquals("计算有误", DateUtil.subtimeBurst("2015-01-05 20:59:01", "2015-01-05 21:00:00", "08:00-21:00"), 59);
 
-        assertEquals(
-                "计算有误",
-                DateUtil.subtimeBurst(
-                        "2015-01-05 21:00:00",
-                        "2015-01-05 22:00:00",
-                        "08:00-21:00"),
-                0);
+        assertEquals("计算有误", DateUtil.subtimeBurst("2015-01-05 21:00:00", "2015-01-05 22:00:00", "08:00-21:00"), 0);
 
-        assertEquals(
-                "计算有误",
-                DateUtil.subtimeBurst(
-                        "2015-01-05 20:59:02",
-                        "2015-01-06 21:00:00",
-                        "08:00-21:00"),
-                58L + (21 - 8) * 60 * 60);
+        assertEquals("计算有误", DateUtil.subtimeBurst("2015-01-05 20:59:02", "2015-01-06 21:00:00", "08:00-21:00"), 58L + (21 - 8) * 60 * 60);
 
-        assertEquals(
-                "计算有误",
-                DateUtil.subtimeBurst(
-                        "2015-01-05 20:59:02",
-                        "2015-01-07 08:00:57",
-                        "08:00-21:00"),
-                (21 - 8) * 3600 + 115L);
+        assertEquals("计算有误", DateUtil.subtimeBurst("2015-01-05 20:59:02", "2015-01-07 08:00:57", "08:00-21:00"), (21 - 8) * 3600 + 115L);
     }
 
     @Test
     public void testCalculate() throws ParseException {
-        assertEquals(
-                "计算有误",
-                DateUtil.DateTime(DateUtil.calculate(
-                        "2015-01-29 20:59:50",
-                        9,
-                        "08:00-21:00")),
-                "2015-01-29 20:59:59");
-        assertEquals(
-                "计算有误",
-                DateUtil.DateTime(DateUtil.calculate(
-                        "2015-01-29 20:59:50",
-                        11,
-                        "08:00-21:00")),
-                "2015-01-30 08:00:01");
-        assertEquals(
-                "计算有误",
-                DateUtil.DateTime(DateUtil.calculate(
-                        "2015-01-29 20:59:50",
-                        (3600 * 13 + 1),
-                        "08:00-21:00")),
-                "2015-01-30 20:59:51");
-        assertEquals(
-                "计算有误",
-                DateUtil.DateTime(DateUtil.calculate(
-                        "2015-01-29 20:59:50",
-                        (3600 * 13 * 3 + 1),
-                        "08:00-21:00")),
-                "2015-02-01 20:59:51");
-        assertEquals(
-                "计算有误",
-                DateUtil.DateTime(DateUtil.calculate(
-                        "2015-01-29 20:59:50",
-                        (3600 * 13 * 3 + 11),
-                        "08:00-21:00")),
-                "2015-02-02 08:00:01");
+        assertEquals("计算有误", DateUtil.DateTime(DateUtil.calculate("2015-01-29 20:59:50", 9, "08:00-21:00")), "2015-01-29 20:59:59");
+        assertEquals("计算有误", DateUtil.DateTime(DateUtil.calculate("2015-01-29 20:59:50", 11, "08:00-21:00")), "2015-01-30 08:00:01");
+        assertEquals("计算有误", DateUtil.DateTime(DateUtil.calculate("2015-01-29 20:59:50", (3600 * 13 + 1), "08:00-21:00")), "2015-01-30 20:59:51");
+        assertEquals("计算有误", DateUtil.DateTime(DateUtil.calculate("2015-01-29 20:59:50", (3600 * 13 * 3 + 1), "08:00-21:00")), "2015-02-01 20:59:51");
+        assertEquals("计算有误", DateUtil.DateTime(DateUtil.calculate("2015-01-29 20:59:50", (3600 * 13 * 3 + 11), "08:00-21:00")), "2015-02-02 08:00:01");
 
-        assertEquals(
-                "计算有误",
-                DateUtil.DateTime(DateUtil.calculate(
-                        "2015-01-29 08:32:00",
-                        -35,
-                        "08:00-21:00")),
-                "2015-01-29 08:31:25");
-        assertEquals(
-                "计算有误",
-                DateUtil.DateTime(DateUtil.calculate(
-                        "2015-01-29 08:00:30",
-                        -35,
-                        "08:00-21:00")),
-                "2015-01-28 20:59:55");
-        assertEquals(
-                "计算有误",
-                DateUtil.DateTime(DateUtil.calculate(
-                        "2015-01-29 08:00:30",
-                        Integer.parseInt("-" + (35 + 3600 * 13)),
-                        "08:00-21:00")),
-                "2015-01-27 20:59:55");
-        assertEquals(
-                "计算有误",
-                DateUtil.DateTime(DateUtil.calculate(
-                        "2015-01-29 21:30:30",
-                        35 + 3600 * 14,
-                        "08:00-21:00")),
-                "2015-01-31 09:00:35");
+        assertEquals("计算有误", DateUtil.DateTime(DateUtil.calculate("2015-01-29 08:32:00", -35, "08:00-21:00")), "2015-01-29 08:31:25");
+        assertEquals("计算有误", DateUtil.DateTime(DateUtil.calculate("2015-01-29 08:00:30", -35, "08:00-21:00")), "2015-01-28 20:59:55");
+        assertEquals("计算有误", DateUtil.DateTime(DateUtil.calculate("2015-01-29 08:00:30", Integer.parseInt("-" + (35 + 3600 * 13)), "08:00-21:00")), "2015-01-27 20:59:55");
+        assertEquals("计算有误", DateUtil.DateTime(DateUtil.calculate("2015-01-29 21:30:30", 35 + 3600 * 14, "08:00-21:00")), "2015-01-31 09:00:35");
 
     }
 }

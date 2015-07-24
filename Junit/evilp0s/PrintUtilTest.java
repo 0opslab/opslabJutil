@@ -13,7 +13,7 @@ public class PrintUtilTest {
         list.add("test3");
         PrintUtil.print(list);
 
-        Map<String, String> map = new HashMap<String, String>();
+        Map<String,String> map = new HashMap<String,String>();
         map.put("1", "test1");
         map.put("2", "test2");
         map.put("3", "test3");

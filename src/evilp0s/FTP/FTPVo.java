@@ -4,17 +4,18 @@ package evilp0s.FTP;
  * 用于包装FTP的相关的信息
  */
 public class FTPVo {
-    private String hostName;
-    private int port;
-    private String username;
-    private String password;
-    private String remoteDir;
-    private String localDir;
-    private String remoteEncoding;
+    private String  hostName;
+    private int     port;
+    private String  username;
+    private String  password;
+    private String  remoteDir;
+    private String  localDir;
+    private String  remoteEncoding;
     private boolean passiveMode;
 
 
-    public FTPVo(String hostName, int port, String username, String password, String remoteDir, String localDir, String remoteEncoding, boolean passiveMode) {
+    public FTPVo(String hostName, int port, String username, String password, String remoteDir, String localDir,
+            String remoteEncoding, boolean passiveMode) {
         this.hostName = hostName;
         this.port = port;
         this.remoteDir = remoteDir;

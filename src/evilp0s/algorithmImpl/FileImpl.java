@@ -18,11 +18,11 @@ public class FileImpl {
      * 以下方式利用mozilla的jchardet作为探测工具
      */
 
-    private static boolean found = false;
+    private static boolean found    = false;
     /**
      * 如果完全匹配某个字符集检测算法, 则该属性保存该字符集的名称. 否则(如二进制文件)其值就为默认值 null, 这时应当查询属性
      */
-    private static String encoding = null;
+    private static String  encoding = null;
 
     /**
      * 利用文件头特征判断文件的编码方式
@@ -163,9 +163,9 @@ public class FileImpl {
                 encoding = charset;
             }
         });
-        byte[] buf = new byte[1024];
-        int len;
-        boolean done = false;
+        byte[]  buf     = new byte[1024];
+        int     len;
+        boolean done    = false;
         boolean isAscii = true;
         try (
                 BufferedInputStream imp = new BufferedInputStream(new FileInputStream(file));

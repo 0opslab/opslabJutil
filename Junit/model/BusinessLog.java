@@ -26,7 +26,7 @@ public class BusinessLog extends Log {
     @Override
     public String toString() {
         return "BusinessLog{" +
-                "log="+super.toString()+
+                "log=" + super.toString() +
                 "operationName='" + operationName + '\'' +
                 ", operation_type='" + operation_type + '\'' +
                 '}';

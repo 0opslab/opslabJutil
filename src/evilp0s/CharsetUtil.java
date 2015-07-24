@@ -113,7 +113,7 @@ public class CharsetUtil {
 
     public static String getDefaultCharSet() throws UnsupportedEncodingException {
         OutputStreamWriter writer = new OutputStreamWriter(new ByteArrayOutputStream(), CharsetUtil.UTF_8);
-        String enc = writer.getEncoding();
+        String             enc    = writer.getEncoding();
         return enc;
     }
 
@@ -126,7 +126,8 @@ public class CharsetUtil {
      * @return
      * @throws UnsupportedEncodingException
      */
-    public static String changeCharset(String str, String oldCharset, String newCharset) throws UnsupportedEncodingException {
+    public static String changeCharset(String str, String oldCharset,
+            String newCharset) throws UnsupportedEncodingException {
         if (str != null) {
             // 用旧的字符编码解码字符串。解码可能会出现异常。
             byte[] bs = str.getBytes(oldCharset);

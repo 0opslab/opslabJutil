@@ -20,7 +20,7 @@ public class Base64Test extends TestCase {
     @Test
     public void testBase642() {
         String utf8string = "物有本末 事有始终";
-        String base64 = "54mp5pyJ5pys5pyrIOS6i+acieWni+e7iA==";
+        String base64     = "54mp5pyJ5pys5pyrIOS6i+acieWni+e7iA==";
 
         String encoded = Base64.encodeToString(utf8string);
         String decoded = Base64.decodeToString(encoded);
