@@ -6,6 +6,7 @@ import evilp0s.ValidUtil;
 import java.beans.IntrospectionException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
@@ -24,22 +25,22 @@ public class BeanUtil {
     }
 
     private static Method getReadMethod(Object obj, String pro) {
-        BeanStruct st = (BeanStruct) simpleProperties(obj).get(pro);
+        BeanStruct st =  simpleProperties(obj).get(pro);
         return st.getReadMethod();
     }
 
     private static Method getWriteMethod(Object obj, String pro) {
-        BeanStruct st = (BeanStruct) simpleProperties(obj).get(pro);
+        BeanStruct st =  simpleProperties(obj).get(pro);
         return st.getWriteMethod();
     }
 
     private static Method getReadMethodIgnore(Object obj, String pro) {
-        BeanStruct st = (BeanStruct) simplePropertiesIgnore(obj).get(pro);
+        BeanStruct st =  simplePropertiesIgnore(obj).get(pro);
         return st.getReadMethod();
     }
 
     private static Method getWriteMethodIgnore(Object obj, String pro) {
-        BeanStruct st = (BeanStruct) simplePropertiesIgnore(obj).get(pro);
+        BeanStruct st =  simplePropertiesIgnore(obj).get(pro);
         return st.getWriteMethod();
     }
 
@@ -55,14 +56,12 @@ public class BeanUtil {
     /**
      * 添加Bean到BeanFactory的解析范围中
      *
-     * @param obj
+     * @param obj 将目标obj加入到BeanFactory的解析范围中
      */
     public static void add(Object obj) {
         try {
             BeanFactory.add(obj);
-        } catch (IntrospectionException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (IntrospectionException|ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -70,14 +69,12 @@ public class BeanUtil {
     /**
      * 添加Bean到BeanFactory的解析范围中
      *
-     * @param clazz
+     * @param clazz 将目标clazz加入到BeanFactory的解析范围中
      */
     public static void add(Class clazz) {
         try {
             BeanFactory.add(clazz);
-        } catch (IntrospectionException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (IntrospectionException|ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
@@ -86,9 +83,9 @@ public class BeanUtil {
     /**
      * 判断属性是否存在
      *
-     * @param bean
-     * @param pro
-     * @return
+     * @param bean 判断的目标bean
+     * @param pro 判断的属性
+     * @return 是否存在
      */
     public static boolean hasProperty(Object bean, String pro) {
         add(bean);
@@ -100,26 +97,23 @@ public class BeanUtil {
     /**
      * 判断自己定义的而非继承的属性pro是否存在
      *
-     * @param bean
-     * @param pro
-     * @return
+     * @param bean 判断的目标bean
+     * @param pro 判断的属性
+     * @return 是否存在
      */
     public static boolean hasDeclaredProperty(Object bean, String pro) {
         add(bean);
         Map map = simpleProperties(bean);
         BeanStruct st = (BeanStruct) map.get(pro);
-        if (ValidUtil.isValid(st)) {
-            return st.isDeclared();
-        }
-        return false;
+        return ValidUtil.isValid(st) && st.isDeclared();
     }
 
     /**
      * 判断属性是否存在忽略大小写
      *
-     * @param bean
-     * @param pro
-     * @return
+     * @param bean 判断的目标bean
+     * @param pro 判断的属性
+     * @return 是否存在
      */
     public static boolean hasPropertyIgnoreCase(Object bean, String pro) {
         add(bean);
@@ -131,15 +125,15 @@ public class BeanUtil {
     /**
      * 使用自定义的过滤器
      *
-     * @param bean
-     * @param pro
-     * @param filter
-     * @return
+     * @param bean 判断的目标bean
+     * @param pro 判断的属性
+     * @param filter 自定义的属性过滤函数
+     * @return  是否存在
      */
     public static boolean hasPropertyFilter(Object bean, String pro, PropertyFilter filter) {
         add(bean);
         pro = filter.Properties(pro);
-        Map map = simpleProperties(bean);
+        Map<String,BeanStruct> map = simpleProperties(bean);
         if (ValidUtil.isValid(map)) {
             Set<String> set = map.keySet();
             for (String s : set) {
@@ -154,9 +148,9 @@ public class BeanUtil {
     /**
      * 获取对象的属性
      *
-     * @param bean
-     * @param pro
-     * @return
+     * @param bean 判断的目标bean
+     * @param pro 判断的属性
+     * @return 属性对应的值
      * @throws InvocationTargetException
      * @throws IllegalAccessException
      */
@@ -168,18 +162,16 @@ public class BeanUtil {
     /**
      * 获取对象的属性
      *
-     * @param bean
-     * @param pro
-     * @return 如果发生异常返回空
+     * @param bean 操作的Bean
+     * @param pro 类型属性
+     * @return 返回属性的值如果发生异常返回空
      */
     public static Object getPropertyPeaceful(Object bean, String pro) {
         add(bean);
         Object result = null;
         try {
             result = readMethod(bean, getReadMethod(bean, pro));
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
+        } catch (InvocationTargetException|IllegalAccessException e) {
             e.printStackTrace();
         }
         return result;
@@ -188,9 +180,9 @@ public class BeanUtil {
     /**
      * 获取对象自定义的属性
      *
-     * @param bean
-     * @param pro
-     * @return
+     * @param bean 操作的Bean
+     * @param pro 类型属性
+     * @return  返回属性的值如果发生异常返回空
      */
     public static Object getDeclaredPropertyPeaceful(Object bean, String pro) throws InvocationTargetException, IllegalAccessException {
         add(bean);
@@ -204,9 +196,9 @@ public class BeanUtil {
     /**
      * 获取对象自定义的属性
      *
-     * @param bean
-     * @param pro
-     * @return
+     * @param bean 操作的Bean
+     * @param pro 类型属性
+     * @return 返回属性的值如果发生异常返回空
      */
     public static Object getDeclaredProperty(Object bean, String pro) {
         add(bean);
@@ -214,9 +206,7 @@ public class BeanUtil {
         if (hasDeclaredProperty(bean, pro)) {
             try {
                 result = readMethod(bean, getReadMethod(bean, pro));
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
+            } catch (InvocationTargetException|IllegalAccessException e) {
                 e.printStackTrace();
             }
         }
@@ -227,24 +217,28 @@ public class BeanUtil {
     /**
      * 获取对象的属性(忽略属性名字大小写)
      *
-     * @param bean
-     * @param pro
-     * @return
+     * @param bean 操作的Bean
+     * @param pro 类型属性
+     * @return  返回属性的值如果发生异常返回空
      */
     public static Object getPropertyIgnoreCase(Object bean, String pro) throws InvocationTargetException, IllegalAccessException {
         add(bean);
         return readMethod(bean, getReadMethodIgnore(bean, pro));
     }
 
-
+    /**
+     * 获取对象的属性(忽略属性名字大小写)
+     *
+     * @param bean 操作的Bean
+     * @param pro 类型属性
+     * @return  返回属性的值如果发生异常返回空
+     */
     public static Object getPropertyIgnoreCasePeaceful(Object bean, String pro) {
         add(bean);
         Object result = null;
         try {
             result = readMethod(bean, getReadMethodIgnore(bean, pro));
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
+        } catch (InvocationTargetException|IllegalAccessException e) {
             e.printStackTrace();
         }
         return result;
@@ -253,10 +247,10 @@ public class BeanUtil {
     /**
      * 使用自定义的过滤器获取对象的属性获取对象的属性
      *
-     * @param bean
-     * @param pro
-     * @param filter
-     * @return
+     * @param bean 操作的Bean
+     * @param pro 类型属性
+     * @param filter 自定义的过滤函数
+     * @return 返回属性的值如果发生异常返回空
      * @throws InvocationTargetException
      * @throws IllegalAccessException
      */
@@ -264,7 +258,7 @@ public class BeanUtil {
         add(bean);
         Object result = null;
         pro = filter.Properties(pro);
-        Map map = simpleProperties(bean);
+        Map<String,BeanStruct> map = simpleProperties(bean);
         if (ValidUtil.isValid(map)) {
             Set<String> set = map.keySet();
             for (String s : set) {
@@ -279,16 +273,16 @@ public class BeanUtil {
     /**
      * 使用自定义的过滤器获取对象的属性
      *
-     * @param bean
-     * @param pro
-     * @param filter
-     * @return
+     * @param bean 操作的Bean
+     * @param pro 类型属性
+     * @param filter 自定义的过滤函数
+     * @return 返回属性的值如果发生异常返回空
      */
     public static Object getPropertyFilterPeaceful(Object bean, String pro, PropertyFilter filter) {
         add(bean);
         Object result = null;
         pro = filter.Properties(pro);
-        Map map = simpleProperties(bean);
+        Map<String,BeanStruct> map = simpleProperties(bean);
         if (ValidUtil.isValid(map)) {
             Set<String> set = map.keySet();
             try {
@@ -297,9 +291,7 @@ public class BeanUtil {
                         result = readMethod(bean, getReadMethod(bean, s));
                     }
                 }
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
+            } catch (InvocationTargetException|IllegalAccessException e) {
                 e.printStackTrace();
             }
         }
@@ -310,9 +302,9 @@ public class BeanUtil {
     /**
      * 设置对象的属性
      *
-     * @param bean
-     * @param pro
-     * @param value
+     * @param bean 操作的Bean
+     * @param pro 类型属性
+     * @param value 设置属性的值
      * @throws InvocationTargetException
      * @throws IllegalAccessException
      */
@@ -324,17 +316,15 @@ public class BeanUtil {
     /**
      * 设置对象的属性
      *
-     * @param bean
-     * @param pro
-     * @param value
+     * @param bean 操作的Bean
+     * @param pro 类型属性
+     * @param value 设置属性的值
      */
     public static void setPropertyPeaceful(Object bean, String pro, Object value) {
         add(bean);
         try {
             writeMethod(bean, getWriteMethod(bean, pro), value);
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
+        } catch (InvocationTargetException|IllegalAccessException e) {
             e.printStackTrace();
         }
     }
@@ -343,9 +333,9 @@ public class BeanUtil {
     /**
      * 设置对象的自定义属性
      *
-     * @param bean
-     * @param pro
-     * @param value
+     * @param bean 操作的Bean
+     * @param pro 类型属性
+     * @param value 设置属性的值
      * @throws InvocationTargetException
      * @throws IllegalAccessException
      */
@@ -359,18 +349,16 @@ public class BeanUtil {
     /**
      * 设置对象的自定义属性
      *
-     * @param bean
-     * @param pro
-     * @param value
+     * @param bean 操作的Bean
+     * @param pro 类型属性
+     * @param value 设置属性的值
      */
     public static void setDeclaredPropertyPeaceful(Object bean, String pro, Object value) {
         add(bean);
         if (hasDeclaredProperty(bean, pro)) {
             try {
                 writeMethod(bean, getWriteMethod(bean, pro), value);
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
+            } catch (InvocationTargetException|IllegalAccessException e) {
                 e.printStackTrace();
             }
         }
@@ -379,9 +367,9 @@ public class BeanUtil {
     /**
      * 设置对象的属性忽略大小写
      *
-     * @param bean
-     * @param pro
-     * @param value
+     * @param bean 操作的Bean
+     * @param pro 类型属性
+     * @param value 设置属性的值
      * @throws InvocationTargetException
      * @throws IllegalAccessException
      */
@@ -393,17 +381,15 @@ public class BeanUtil {
     /**
      * 设置对象的属性忽略大小写
      *
-     * @param bean
-     * @param pro
-     * @param value
+     * @param bean 操作的Bean
+     * @param pro 类型属性
+     * @param value 设置属性的值
      */
     public static void setPropertyIgnoreCasePeaceful(Object bean, String pro, Object value) {
         add(bean);
         try {
             writeMethod(bean, getWriteMethodIgnore(bean, pro), value);
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
+        } catch (InvocationTargetException|IllegalAccessException e) {
             e.printStackTrace();
         }
     }
@@ -412,17 +398,17 @@ public class BeanUtil {
     /**
      * 使用自定义的filter进行属性设值
      *
-     * @param bean
-     * @param pro
-     * @param value
-     * @param filter
+     * @param bean 操作的Bean
+     * @param pro 类型属性
+     * @param value 设置属性的值
+     * @param filter 自定义的函数
      * @throws InvocationTargetException
      * @throws IllegalAccessException
      */
     public static void setPropertyFilter(Object bean, String pro, Object value, PropertyFilter filter) throws InvocationTargetException, IllegalAccessException {
         add(bean);
         pro = filter.Properties(pro);
-        Map map = simpleProperties(bean);
+        Map<String,BeanStruct> map = simpleProperties(bean);
         if (ValidUtil.isValid(map)) {
             Set<String> set = map.keySet();
             for (String s : set) {
@@ -437,15 +423,15 @@ public class BeanUtil {
     /**
      * 使用自定义的filter进行属性设值
      *
-     * @param bean
-     * @param pro
-     * @param value
-     * @param filter
+     * @param bean 操作的Bean
+     * @param pro 类型属性
+     * @param value 设置属性的值
+     * @param filter 自定义的函数
      */
     public static void setPropertyFilterPeaceful(Object bean, String pro, Object value, PropertyFilter filter) {
         add(bean);
         pro = filter.Properties(pro);
-        Map map = simpleProperties(bean);
+        Map<String,BeanStruct> map = simpleProperties(bean);
         if (ValidUtil.isValid(map)) {
             Set<String> set = map.keySet();
             try {
@@ -454,9 +440,7 @@ public class BeanUtil {
                         writeMethod(bean, getWriteMethodIgnore(bean, pro), value);
                     }
                 }
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
+            } catch (InvocationTargetException|IllegalAccessException e) {
                 e.printStackTrace();
             }
 
@@ -467,9 +451,9 @@ public class BeanUtil {
     /**
      * 拷贝对象指定的属性
      *
-     * @param srcBean
-     * @param destBean
-     * @param pros
+     * @param srcBean  源Bean
+     * @param destBean 目标Bean
+     * @param pros copy的属性
      * @throws InvocationTargetException
      * @throws IllegalAccessException
      */
@@ -483,7 +467,14 @@ public class BeanUtil {
             }
         }
     }
-
+    /**
+     * 拷贝对象指定的属性
+     *
+     * @param srcBean  源Bean
+     * @param destBean 目标Bean
+     * @param pros copy的属性
+     *
+     */
     public static void copyPropertyPeaceful(Object srcBean, Object destBean, String[] pros) {
         add(srcBean);
         add(destBean);
@@ -492,9 +483,7 @@ public class BeanUtil {
                 for (String s : pros) {
                     writeMethod(destBean, getWriteMethod(destBean, s), readMethod(srcBean, getReadMethod(srcBean, s)));
                 }
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
+            } catch (InvocationTargetException|IllegalAccessException e) {
                 e.printStackTrace();
             }
         }
@@ -523,16 +512,20 @@ public class BeanUtil {
         }
     }
 
-
+    /**
+     * 复制同名属性(忽略大小写)
+     * @param srcBean 原Bean
+     * @param destBean 目标Bean
+     * @throws InvocationTargetException
+     * @throws IllegalAccessException
+     */
     public static void copyPropertiesIgnoreCase(Object srcBean,Object destBean) throws InvocationTargetException, IllegalAccessException {
         add(srcBean);
         add(destBean);
         Map srcMap = simplePropertiesIgnore(srcBean);
         Map dstMap = simplePropertiesIgnore(destBean);
-        Map intersection = CollectionUtil.intersection(srcMap, dstMap);
-        Iterator iter = intersection.entrySet().iterator();
-        while (iter.hasNext()) {
-            Map.Entry entry = (Map.Entry) iter.next();
+        Map<String, BeanStruct> intersection =CollectionUtil.intersection(srcMap, dstMap);
+        for(Map.Entry entry:intersection.entrySet()){
             String key = (String)entry.getKey();
             Object value = readMethod(srcBean, getReadMethodIgnore(srcBean, key));
             writeMethod(destBean, getWriteMethodIgnore(destBean, key), value);
@@ -540,11 +533,38 @@ public class BeanUtil {
     }
 
 
-
-    public static void copyProperties(Object srcBean, Object destBean, PropertyFilter filter) {
+    /**
+     * 使用自定义的属性过滤函数
+     * @param srcBean 原Bean
+     * @param destBean 目标bean
+     * @param filter 自定义的过滤函数
+     * @throws InvocationTargetException
+     * @throws IllegalAccessException
+     */
+    public static void copyProperties(Object srcBean, Object destBean, PropertyFilter filter) throws InvocationTargetException, IllegalAccessException {
         add(srcBean);
         add(destBean);
-        Map srcMap = simpleProperties(srcBean);
-        Map dstMap = simpleProperties(destBean);
+        Map<String,BeanStruct> srcMap = simpleProperties(srcBean);
+        Map<String,BeanStruct> dstMap = simpleProperties(destBean);
+        if(ValidUtil.isValid(srcMap,dstMap)){
+            Map<String,String> srcMapFilter = new HashMap<>();
+            Map<String,String> dstMapFilter = new HashMap<>();
+            for(Map.Entry<String,BeanStruct> entry:srcMap.entrySet()){
+                srcMapFilter.put(filter.Properties(entry.getKey()),entry.getKey());
+            }
+            for(Map.Entry<String,BeanStruct> entry:dstMap.entrySet()){
+                dstMapFilter.put(filter.Properties(entry.getKey()),entry.getKey());
+            }
+            Map<String,String> intersection = CollectionUtil.intersection(srcMapFilter, dstMapFilter);
+            if(ValidUtil.isValid(intersection)){
+                for(Map.Entry<String,String> entry:intersection.entrySet()){
+                    String key = entry.getKey();
+                    String srcKey = srcMapFilter.get(key);
+                    String dstKey = dstMapFilter.get(key);
+                    Object value = readMethod(srcBean, getReadMethod(srcBean, srcKey));
+                    writeMethod(destBean, getWriteMethod(destBean, dstKey), value);
+                }
+            }
+        }
     }
 }

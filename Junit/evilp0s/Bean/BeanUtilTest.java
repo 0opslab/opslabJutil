@@ -29,13 +29,13 @@ public class BeanUtilTest extends TestCase {
         assertEquals(false, BeanUtil.hasDeclaredProperty(bean, "logId"));
 
         //Bean类中是否存在属性(对属性命执行自定义的过滤函数后比较)
-        assertEquals(true,BeanUtil.hasPropertyFilter(bean, "operationType", new PropertyFilter() {
-                    @Override
-                    public String Properties(String pro) {
-                        //忽略属性字段中"_" 并安装小写比较
-                        return StringUtil.remove(pro, "_").toLowerCase();
-                    }
-                }));
+        assertEquals(true, BeanUtil.hasPropertyFilter(bean, "operationType", new PropertyFilter() {
+            @Override
+            public String Properties(String pro) {
+                //忽略属性字段中"_" 并安装小写比较
+                return StringUtil.remove(pro, "_").toLowerCase();
+            }
+        }));
 
     }
 
@@ -92,5 +92,26 @@ public class BeanUtilTest extends TestCase {
         Log2 bean4 = new Log2();
         BeanUtil.copyPropertiesIgnoreCase(bean1,bean4);
         PrintUtil.println(bean4);
+    }
+
+    @Test
+    public void testCopyProperties() throws InvocationTargetException, IllegalAccessException {
+        BusinessLog bean1 = new BusinessLog();
+        bean1.setOperationName("operationName test");
+        bean1.setOperation_type("operationName type");
+        bean1.setLogType("logTypevalue");
+
+        Log2 bean2 = new Log2();
+
+        PrintUtil.print("复制前:" + bean1);
+        PrintUtil.print("复制前:" + bean2);
+        BeanUtil.copyProperties(bean1, bean2, new PropertyFilter() {
+            @Override
+            public String Properties(String pro) {
+                return StringUtil.remove(pro, "_").toLowerCase().replaceAll("yy", "ty");
+            }
+        });
+        PrintUtil.print("复制后:"+bean1);
+        PrintUtil.print("复制后:" + bean2);
     }
 }

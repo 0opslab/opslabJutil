@@ -19,6 +19,24 @@ import java.util.*;
 public class CollectionUtil {
 
     /**
+     * 去重
+     */
+    public static <T> List<T> removeDuplicate(List<T> list){
+        Set set = new HashSet();
+        List newList = new ArrayList();
+        for (Iterator iter = list.iterator(); iter.hasNext();) {
+            Object element = iter.next();
+            if (set.add(element))
+                newList.add(element);
+        }
+        return newList;
+    }
+
+
+
+
+
+    /**
      * 使用指定的Filter过滤集合
      */
     public static <T> List<T> Filter(List<T> list,ListFilter filter){
@@ -45,6 +63,29 @@ public class CollectionUtil {
         return result;
     }
 
+    public static <T> Queue Filter(Queue<T> queue,QueueFilter filter){
+        Queue  result = new LinkedList();
+        if(ValidUtil.isValid(queue)){
+            for(T t:queue){
+                if(filter.filter(t)){
+                    result.add(t);
+                }
+            }
+        }
+        return result;
+    }
+
+    public static <K,V> Map Filter(Map<K,V> map,MapFilter filter){
+        Map result = new HashMap();
+        if(ValidUtil.isValid(map)){
+            for(Map.Entry<K, V> entry:map.entrySet()){
+                if(filter.filter(entry)){
+                    result.put(entry.getKey(), entry.getValue());
+                }
+            }
+        }
+        return result;
+    }
 
     /**
      * 求俩个集合的交集
@@ -88,8 +129,8 @@ public class CollectionUtil {
     public static <K, V> Map<K, V> intersection(Map<K, V> map1, Map<K, V> map2) {
         Map<K, V> map = new HashMap<>();
         if (ValidUtil.isValid(map1, map2)) {
-            Set<K> setkey1 = map1.keySet();
-            Set<K> setkey2 = map2.keySet();
+            Set<K> setkey1 = new HashSet<>(map1.keySet());
+            Set<K> setkey2 = new HashSet<>(map2.keySet());
             setkey1.retainAll(setkey2);
             for (K k : setkey1) {
                 map.put(k, map1.get(k));
@@ -165,11 +206,17 @@ public class CollectionUtil {
 
     public static <K, V> Map<K, V> subtract(Map<K, V> map1, Map<K, V> map2) {
         Map<K, V> map = new HashMap<>();
-        map.putAll(map1);
-        if (ValidUtil.isValid(map2)) {
-            for (K k : map.keySet())
-                map.remove(k);
+        if (ValidUtil.isValid(map1, map2)) {
+            Set<K> setkey1 = new HashSet<>(map1.keySet());
+            Set<K> setkey2 = new HashSet<>(map2.keySet());
+            for (K k : setkey2) {
+                setkey1.remove(k);
+            }
+            for(K k:setkey1){
+                map.put(k,map1.get(k));
+            }
         }
         return map;
+
     }
 }
