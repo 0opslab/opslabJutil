@@ -8,13 +8,13 @@ import java.lang.reflect.Method;
 public class BeanStruct {
 
     //字段的名字
-    private String fieldName;
+    private String  fieldName;
     //字段的类型
-    private Object fieldType;
+    private Object  fieldType;
     //字段值读方法
-    private Method readMethod;
+    private Method  readMethod;
     //字段值写方法
-    private Method writeMethod;
+    private Method  writeMethod;
     private boolean isDeclared;
 
     public BeanStruct(String fieldName, Object fieldType, Method readMethod, Method writeMethod, boolean isDeclared) {

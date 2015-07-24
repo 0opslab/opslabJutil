@@ -24,8 +24,8 @@ public class DateUtil {
 
     //注意SimpleDateFormat不是线程安全的
     private static ThreadLocal<SimpleDateFormat> ThreadDateTime = new ThreadLocal<SimpleDateFormat>();
-    private static ThreadLocal<SimpleDateFormat> ThreadDate = new ThreadLocal<SimpleDateFormat>();
-    private static ThreadLocal<SimpleDateFormat> ThreadTime = new ThreadLocal<SimpleDateFormat>();
+    private static ThreadLocal<SimpleDateFormat> ThreadDate     = new ThreadLocal<SimpleDateFormat>();
+    private static ThreadLocal<SimpleDateFormat> ThreadTime     = new ThreadLocal<SimpleDateFormat>();
 
     private static SimpleDateFormat DateTimeInstance() {
         SimpleDateFormat df = ThreadDateTime.get();
@@ -437,7 +437,7 @@ public class DateUtil {
      * @return 月
      */
     public static int SubtractMonth(String date1, String date2) {
-        int result;
+        int      result;
         Calendar c1 = Calendar.getInstance();
         Calendar c2 = Calendar.getInstance();
         try {
@@ -467,14 +467,14 @@ public class DateUtil {
      * @return 月
      */
     public static int SubtractMonth(Date date1, Date date2) {
-        int result;
+        int      result;
         Calendar c1 = Calendar.getInstance();
         Calendar c2 = Calendar.getInstance();
         c1.setTime(date1);
         c2.setTime(date2);
-        int year1 = c1.get(Calendar.YEAR);
+        int year1  = c1.get(Calendar.YEAR);
         int month1 = c1.get(Calendar.MONTH);
-        int year2 = c2.get(Calendar.YEAR);
+        int year2  = c2.get(Calendar.YEAR);
         int month2 = c2.get(Calendar.MONTH);
         if (year1 == year2) {
             result = month2 - month1;
@@ -492,7 +492,7 @@ public class DateUtil {
      * @return 年
      */
     public static int SubtractYear(String date1, String date2) {
-        int result;
+        int      result;
         Calendar c1 = Calendar.getInstance();
         Calendar c2 = Calendar.getInstance();
         try {
@@ -516,7 +516,7 @@ public class DateUtil {
      * @return 年
      */
     public static int SubtractYear(Date date1, Date date2) {
-        int result;
+        int      result;
         Calendar c1 = Calendar.getInstance();
         Calendar c2 = Calendar.getInstance();
         c1.setTime(date1);
@@ -585,7 +585,7 @@ public class DateUtil {
      * @throws ParseException
      */
     public static int subDay(Date startTime, Date endTime) {
-        int days = 0;
+        int      days = 0;
         Calendar can1 = Calendar.getInstance();
         can1.setTime(startTime);
         Calendar can2 = Calendar.getInstance();
@@ -664,7 +664,7 @@ public class DateUtil {
      */
     public static long subtimeBurst(String startDate, String endDate, String timeBurst) throws ParseException {
         Date start = DateTimeInstance().parse(startDate);
-        Date end = DateTimeInstance().parse(endDate);
+        Date end   = DateTimeInstance().parse(endDate);
         return subtimeBurst(start, end, timeBurst);
     }
 
@@ -678,10 +678,10 @@ public class DateUtil {
      * @throws ParseException
      */
     public static long subtimeBurst(Date startDate, Date endDate, String timeBurst) throws ParseException {
-        long second = 0;
-        Pattern p = Pattern.compile("^\\d{2}:\\d{2}-\\d{2}:\\d{2}");
-        Matcher m = p.matcher(timeBurst);
-        boolean falg = false;
+        long    second = 0;
+        Pattern p      = Pattern.compile("^\\d{2}:\\d{2}-\\d{2}:\\d{2}");
+        Matcher m      = p.matcher(timeBurst);
+        boolean falg   = false;
         if (startDate.after(endDate)) {
             Date temp = startDate;
             startDate = endDate;
@@ -781,8 +781,8 @@ public class DateUtil {
      * @Suumary 指定的格式错误后返回原数据
      */
     public static Date calculate(Date date, int second, String timeBurst) {
-        Pattern p = Pattern.compile("^\\d{2}:\\d{2}-\\d{2}:\\d{2}");
-        Matcher m = p.matcher(timeBurst);
+        Pattern            p   = Pattern.compile("^\\d{2}:\\d{2}-\\d{2}:\\d{2}");
+        Matcher            m   = p.matcher(timeBurst);
         java.util.Calendar cal = java.util.Calendar.getInstance();
         if (m.matches()) {
             String[] a = timeBurst.split("-");

@@ -45,7 +45,7 @@ public class ProUtil {
      */
     public static String GetAllProperties(String filePath) throws IOException {
         Properties pps = new Properties();
-        String str = "";
+        String     str = "";
         try (InputStream in = new BufferedInputStream(new FileInputStream(filePath))) {
             pps.load(in);
             Enumeration en = pps.propertyNames();

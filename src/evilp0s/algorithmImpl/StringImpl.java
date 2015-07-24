@@ -9,11 +9,11 @@ import java.io.InputStream;
 public class StringImpl {
     //第一种实现方式
     private static String longestCommonSubstring(String strA, String strB) {
-        char[] chars_strA = strA.toCharArray();
-        char[] chars_strB = strB.toCharArray();
-        int m = chars_strA.length;
-        int n = chars_strB.length;
-        int[][] matrix = new int[m + 1][n + 1];
+        char[]  chars_strA = strA.toCharArray();
+        char[]  chars_strB = strB.toCharArray();
+        int     m          = chars_strA.length;
+        int     n          = chars_strB.length;
+        int[][] matrix     = new int[m + 1][n + 1];
         for (int i = 1; i <= m; i++) {
             for (int j = 1; j <= n; j++) {
                 if (chars_strA[i - 1] == chars_strB[j - 1])
@@ -22,8 +22,8 @@ public class StringImpl {
                     matrix[i][j] = Math.max(matrix[i][j - 1], matrix[i - 1][j]);
             }
         }
-        char[] result = new char[matrix[m][n]];
-        int currentIndex = result.length - 1;
+        char[] result       = new char[matrix[m][n]];
+        int    currentIndex = result.length - 1;
         while (matrix[m][n] != 0) {
             if (matrix[n] == matrix[n - 1])
                 n--;
@@ -40,10 +40,7 @@ public class StringImpl {
     }
 
     private static boolean charReg(char charValue) {
-        return (charValue >= 0x4E00 && charValue <= 0X9FA5)
-                || (charValue >= 'a' && charValue <= 'z')
-                || (charValue >= 'A' && charValue <= 'Z')
-                || (charValue >= '0' && charValue <= '9');
+        return (charValue >= 0x4E00 && charValue <= 0X9FA5) || (charValue >= 'a' && charValue <= 'z') || (charValue >= 'A' && charValue <= 'Z') || (charValue >= '0' && charValue <= '9');
     }
 
     private static String removeSign(String str) {
@@ -66,21 +63,21 @@ public class StringImpl {
     public static double SimilarDegree(String strA, String strB) {
         String newStrA = removeSign(strA);
         String newStrB = removeSign(strB);
-        int temp = Math.max(newStrA.length(), newStrB.length());
-        int temp2 = longestCommonSubstring(newStrA, newStrB).length();
+        int    temp    = Math.max(newStrA.length(), newStrB.length());
+        int    temp2   = longestCommonSubstring(newStrA, newStrB).length();
         return temp2 * 1.0 / temp;
     }
 
     //第二种实现方式
     private static int compare(String str, String target) {
-        int d[][]; // 矩阵
-        int n = str.length();
-        int m = target.length();
-        int i; // 遍历str的
-        int j; // 遍历target的
+        int  d[][]; // 矩阵
+        int  n = str.length();
+        int  m = target.length();
+        int  i; // 遍历str的
+        int  j; // 遍历target的
         char ch1; // str的
         char ch2; // target的
-        int temp; // 记录相同字符,在某个矩阵位置值的增量,不是0就是1
+        int  temp; // 记录相同字符,在某个矩阵位置值的增量,不是0就是1
         if (n == 0) {
             return m;
         }

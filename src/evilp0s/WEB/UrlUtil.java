@@ -46,12 +46,10 @@ public class UrlUtil {
 
     // Regex patterns that matches URIs. See RFC 3986, appendix B
 
-    private static final Pattern URI_PATTERN = Pattern.compile(
-            "^(" + SCHEME_PATTERN + ")?" + "(//(" + USERINFO_PATTERN + "@)?" + HOST_PATTERN + "(:" + PORT_PATTERN +
+    private static final Pattern URI_PATTERN = Pattern.compile("^(" + SCHEME_PATTERN + ")?" + "(//(" + USERINFO_PATTERN + "@)?" + HOST_PATTERN + "(:" + PORT_PATTERN +
                     ")?" + ")?" + PATH_PATTERN + "(\\?" + QUERY_PATTERN + ")?" + "(#" + LAST_PATTERN + ")?");
 
-    private static final Pattern HTTP_URL_PATTERN = Pattern.compile(
-            '^' + HTTP_PATTERN + "(//(" + USERINFO_PATTERN + "@)?" + HOST_PATTERN + "(:" + PORT_PATTERN + ")?" + ")?" +
+    private static final Pattern HTTP_URL_PATTERN = Pattern.compile('^' + HTTP_PATTERN + "(//(" + USERINFO_PATTERN + "@)?" + HOST_PATTERN + "(:" + PORT_PATTERN + ")?" + ")?" +
                     PATH_PATTERN + "(\\?" + LAST_PATTERN + ")?");
 
     /**
@@ -272,10 +270,8 @@ public class UrlUtil {
         throw new IllegalArgumentException("Invalid HTTP URL: " + httpUrl);
     }
 
-    private static String encodeUriComponents(
-            String scheme, String authority, String userInfo,
-            String host, String port, String path, String query,
-            String fragment, String encoding) {
+    private static String encodeUriComponents(String scheme, String authority, String userInfo, String host,
+            String port, String path, String query, String fragment, String encoding) {
 
         StringBuilder sb = new StringBuilder();
 
@@ -370,8 +366,8 @@ public class UrlUtil {
     }
 
     private static String decode(String source, String encoding, boolean decodePlus) {
-        int length = source.length();
-        ByteArrayOutputStream bos = new ByteArrayOutputStream(length);
+        int                   length = source.length();
+        ByteArrayOutputStream bos    = new ByteArrayOutputStream(length);
 
         boolean changed = false;
 
@@ -496,8 +492,8 @@ public class UrlUtil {
 
     public static class Builder {
         protected final StringBuilder url;
-        protected final String encoding;
-        protected boolean hasParams;
+        protected final String        encoding;
+        protected       boolean       hasParams;
 
         public Builder(String path, boolean encodePath, String encoding) {
             this.encoding = encoding;

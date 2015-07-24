@@ -28,14 +28,14 @@ public class StringUtil {
     /**
      * 把string array or list用给定的符号symbol连接成一个字符串
      *
-     * @param list  需要处理的列表
+     * @param list   需要处理的列表
      * @param symbol 链接的符号
      * @return 处理后的字符串
      */
     public static String joinString(List list, String symbol) {
         String result = "";
         if (list != null) {
-            for(Object o:list){
+            for (Object o : list) {
                 String temp = o.toString();
                 if (temp.trim().length() > 0)
                     result += (temp + symbol);
@@ -53,13 +53,12 @@ public class StringUtil {
      * @param str1 测试的字符串
      * @param str2 字符串数组(用,分割)
      * @return 是否包含
-     *
      */
     public static boolean requals(String str1, String str2) {
         if (str1 != null && str2 != null) {
             str2 = str2.replaceAll("\\s*", "");
             String[] arr = str2.split(",");
-            for(String t:arr){
+            for (String t : arr) {
                 if (t.equals(str1.trim())) {
                     return true;
                 }
@@ -80,7 +79,7 @@ public class StringUtil {
         if (str1 != null && str2 != null) {
             str2 = str2.replaceAll("\\s*", "");
             String[] arr = str2.split(split);
-            for(String t:arr){
+            for (String t : arr) {
                 if (t.equals(str1.trim())) {
                     return true;
                 }
@@ -95,7 +94,7 @@ public class StringUtil {
      * 字符串截取到指定长度size+...的形式
      *
      * @param subject 需要处理的字符串
-     * @param size 截取的长度
+     * @param size    截取的长度
      * @return 处理后的字符串
      */
     public static String subStringOmit(String subject, int size) {
@@ -109,13 +108,13 @@ public class StringUtil {
     /**
      * 截取字符串　超出的字符用symbol代替
      *
-     * @param str 需要处理的字符串
-     * @param len 字符串长度　
+     * @param str    需要处理的字符串
+     * @param len    字符串长度
      * @param symbol 最后拼接的字符串
      * @return 测试后的字符串
      */
     public static String subStringSymbol(String str, int len, String symbol) {
-        String temp="";
+        String temp = "";
         if (str != null && str.length() > len) {
             temp = str.substring(0, len) + symbol;
         }
@@ -126,14 +125,14 @@ public class StringUtil {
     /**
      * 把string array or list用给定的符号symbol连接成一个字符串
      *
-     * @param array 需要处理的字符串数组
+     * @param array  需要处理的字符串数组
      * @param symbol 链接的符号
      * @return 处理后的字符串
      */
     public static String joinString(String[] array, String symbol) {
         String result = "";
         if (array != null) {
-            for(String temp:array){
+            for (String temp : array) {
                 if (temp != null && temp.trim().length() > 0)
                     result += (temp + symbol);
             }
@@ -143,7 +142,6 @@ public class StringUtil {
         }
         return result;
     }
-
 
 
     /**
@@ -180,11 +178,11 @@ public class StringUtil {
      * 截取字符串左侧的Num位截取到末尾
      *
      * @param str1 处理的字符串
-     * @param num 开始位置
+     * @param num  开始位置
      * @return 截取后的字符串
      */
     public static String ltrim(String str1, int num) {
-        String tt="";
+        String tt = "";
         if (!isEmpty(str1) && str1.length() >= num) {
             tt = str1.substring(num, str1.length());
         }
@@ -209,15 +207,15 @@ public class StringUtil {
     /**
      * 根据指定的字符把源字符串分割成一个list
      *
-     * @param src 处理的字符串
+     * @param src     处理的字符串
      * @param pattern 分割字符串
      * @return 处理后的list
      */
-    public static List<String> parseString2List(String src,String pattern) {
+    public static List<String> parseString2List(String src, String pattern) {
         List<String> list = new ArrayList<>();
-        if (src != null){
-            String[] tt =src.split(pattern);
-            for(int i=0;i<tt.length;i++){
+        if (src != null) {
+            String[] tt = src.split(pattern);
+            for (int i = 0; i < tt.length; i++) {
                 list.add(tt[i]);
             }
         }
@@ -234,7 +232,6 @@ public class StringUtil {
         DecimalFormat df = new DecimalFormat(format);
         return df.format(f);
     }
-
 
 
     /**
@@ -319,11 +316,11 @@ public class StringUtil {
      * @return 替换后的字符串
      */
     public static String replaceAll(String s, String sf, String sb) {
-        int i = 0, j = 0;
-        int l = sf.length();
-        boolean b = true;
-        boolean o = true;
-        String str = "";
+        int     i   = 0, j = 0;
+        int     l   = sf.length();
+        boolean b   = true;
+        boolean o   = true;
+        String  str = "";
         do {
             j = i;
             i = s.indexOf(sf, j);
@@ -371,9 +368,9 @@ public class StringUtil {
      * @return map
      * @author sky
      */
-    public static Map<String, String> parseQuery(String query, char split1, char split2, String dupLink) {
+    public static Map<String,String> parseQuery(String query, char split1, char split2, String dupLink) {
         if (!isEmpty(query) && query.indexOf(split2) > 0) {
-            Map<String, String> result = new HashMap();
+            Map<String,String> result = new HashMap();
 
             String name = null;
             String value = null;
@@ -474,7 +471,7 @@ public class StringUtil {
      */
     public static String unicode2String(String unicode) {
         StringBuffer string = new StringBuffer();
-        String[] hex = unicode.split("\\\\u");
+        String[]     hex    = unicode.split("\\\\u");
         for (int i = 1; i < hex.length; i++) {
             int data = Integer.parseInt(hex[i], 16);
             string.append((char) data);
@@ -599,7 +596,7 @@ public class StringUtil {
      * @param sub substring to remove
      */
     public static String remove(String s, String sub) {
-        int c = 0;
+        int c      = 0;
         int sublen = sub.length();
         if (sublen == 0) {
             return s;

@@ -4,7 +4,6 @@ package evilp0s;
 import org.junit.Test;
 
 import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -23,10 +22,10 @@ public class StringUtilTest {
     }
 
     @Test
-    public void testformatDouble(){
+    public void testformatDouble() {
         double d = Double.valueOf("10.012034");
-        assertEquals("10.01",StringUtil.formatDouble(d, "##.00"));
-        assertEquals("10.0120",StringUtil.formatDouble(d, "##.0000"));
+        assertEquals("10.01", StringUtil.formatDouble(d, "##.00"));
+        assertEquals("10.0120", StringUtil.formatDouble(d, "##.0000"));
     }
 
     @Test
@@ -34,8 +33,8 @@ public class StringUtilTest {
         String[] arr = new String[]{"MySQL", "ORACLE", "MSSQL", "NOSQL"};
         assertEquals("MySQL/ORACLE/MSSQL/NOSQL", StringUtil.joinString(arr, "/"));
 
-        List<String> list = StringUtil.parseString2List(StringUtil.joinString(arr,"/"),"/");
-        assertEquals("MySQL:ORACLE:MSSQL:NOSQL",StringUtil.joinString(list,":"));
+        List<String> list = StringUtil.parseString2List(StringUtil.joinString(arr, "/"), "/");
+        assertEquals("MySQL:ORACLE:MSSQL:NOSQL", StringUtil.joinString(list, ":"));
 
     }
 
@@ -52,11 +51,11 @@ public class StringUtilTest {
 
     @Test
     public void testRequals() throws Exception {
-        assertEquals( true, StringUtil.requals("1", "1	,5,7,9,10,13,14"));
-        assertEquals( true, StringUtil.requals("7", "1,5, 7 ,9,10,13,14"));
-        assertEquals( true, StringUtil.requals("9", "1,5,7,9,10,13,14"));
-        assertEquals( false, StringUtil.requals("15", "1,5,7,9,10,13,14"));
-        assertEquals( true, StringUtil.requals("15", "15|7|9|10|13|14", "\\|"));
+        assertEquals(true, StringUtil.requals("1", "1	,5,7,9,10,13,14"));
+        assertEquals(true, StringUtil.requals("7", "1,5, 7 ,9,10,13,14"));
+        assertEquals(true, StringUtil.requals("9", "1,5,7,9,10,13,14"));
+        assertEquals(false, StringUtil.requals("15", "1,5,7,9,10,13,14"));
+        assertEquals(true, StringUtil.requals("15", "15|7|9|10|13|14", "\\|"));
     }
 
     @Test
@@ -72,9 +71,9 @@ public class StringUtilTest {
 
     @Test
     public void testString2Unicode() throws Exception {
-        String test = "网站地址:www.XXX.com";
+        String test    = "网站地址:www.XXX.com";
         String unicode = StringUtil.string2Unicode(test);
-        String string = StringUtil.unicode2String(unicode);
+        String string  = StringUtil.unicode2String(unicode);
         System.out.println(unicode);
         System.out.println(string);
     }

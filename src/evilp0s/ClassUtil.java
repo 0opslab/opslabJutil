@@ -26,7 +26,7 @@ public class ClassUtil {
      * @return
      */
     public static String[] getField(String className) throws ClassNotFoundException {
-        Class classz = Class.forName(className);
+        Class   classz = Class.forName(className);
         Field[] fields = classz.getFields();
         Field[] fieldz = classz.getDeclaredFields();
 
@@ -47,9 +47,9 @@ public class ClassUtil {
      * @return
      */
     public static String[] getMethod(String className) throws ClassNotFoundException {
-        Class classz = Class.forName(className);
-        Method[] methods = classz.getMethods();
-        Set<String> set = new HashSet<String>();
+        Class       classz  = Class.forName(className);
+        Method[]    methods = classz.getMethods();
+        Set<String> set     = new HashSet<String>();
         for (Method f : methods) {
             set.add(f.getName());
         }
@@ -104,7 +104,8 @@ public class ClassUtil {
      * @param value
      * @param type
      */
-    public static void setter(Object obj, String att, Object value, Class<?> type) throws InvocationTargetException, IllegalAccessException {
+    public static void setter(Object obj, String att, Object value,
+            Class<?> type) throws InvocationTargetException, IllegalAccessException {
         try {
             Method met = obj.getClass().getMethod("set" + initStr(att), type);
             met.invoke(obj, value);
@@ -135,10 +136,10 @@ public class ClassUtil {
     }
 
     public static List<String> getClassName(String packageName, boolean childPackage) {
-        List<String> fileNames = null;
-        ClassLoader loader = Thread.currentThread().getContextClassLoader();
-        String packagePath = packageName.replace(".", "/");
-        URL url = loader.getResource(packagePath);
+        List<String> fileNames   = null;
+        ClassLoader  loader      = Thread.currentThread().getContextClassLoader();
+        String       packagePath = packageName.replace(".", "/");
+        URL          url         = loader.getResource(packagePath);
         if (url != null) {
             String type = url.getProtocol();
             if (type.equals("file")) {
@@ -170,8 +171,8 @@ public class ClassUtil {
      */
     private static List<String> getClassNameByFile(String filePath, List<String> className, boolean childPackage) {
         List<String> myClassName = new ArrayList<String>();
-        File file = new File(filePath);
-        File[] childFiles = file.listFiles();
+        File         file        = new File(filePath);
+        File[]       childFiles  = file.listFiles();
         if (ValidUtil.isValid(childFiles)) {
             for (File childFile : childFiles) {
                 if (childFile.isDirectory()) {
@@ -200,10 +201,10 @@ public class ClassUtil {
      */
     private static List<String> getClassNameByJar(String jarPath, boolean childPackage) {
         List<String> myClassName = new ArrayList<String>();
-        String[] jarInfo = jarPath.split("!");
-        String jarFilePath = jarInfo[0].substring(jarInfo[0].indexOf("/"));
-        String packagePath = jarInfo[1].substring(1);
-        JarFile jarFile = null;
+        String[]     jarInfo     = jarPath.split("!");
+        String       jarFilePath = jarInfo[0].substring(jarInfo[0].indexOf("/"));
+        String       packagePath = jarInfo[1].substring(1);
+        JarFile      jarFile     = null;
         try {
             jarFile = new JarFile(jarFilePath);
             Enumeration<JarEntry> entrys = jarFile.entries();

@@ -52,7 +52,7 @@ public interface FTPUtil {
     public LinkedList<String> listDir(String direcotyr);
 
     //获取远程文件属性以Map形式返回
-    public Map<String, FileAttr> listFileAttr(String directory);
+    public Map<String,FileAttr> listFileAttr(String directory);
 
     //改变FTP连接的工作目录
     public boolean changeWorkDir(String directory);

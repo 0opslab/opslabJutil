@@ -337,7 +337,7 @@ public class FileUtil {
      */
     public static boolean createFiles(String filePath) {
         File file = new File(filePath);
-        File dir = file.getParentFile();
+        File dir  = file.getParentFile();
         if (!dir.exists()) {
             if (dir.mkdirs()) {
                 try {
@@ -444,8 +444,8 @@ public class FileUtil {
      * @return 返回文件列表
      */
     public static List<File> listFile(File path) {
-        List<File> list = new ArrayList<>();
-        File[] files = path.listFiles();
+        List<File> list  = new ArrayList<>();
+        File[]     files = path.listFiles();
         if (ValidUtil.isValid(files)) {
             for (File file : files) {
                 if (file.isDirectory()) {
@@ -465,8 +465,8 @@ public class FileUtil {
      * @return 返回文件列表
      */
     public static List<File> listFileAll(File path) {
-        List<File> list = new ArrayList<>();
-        File[] files = path.listFiles();
+        List<File> list  = new ArrayList<>();
+        File[]     files = path.listFiles();
         if (ValidUtil.isValid(files)) {
             for (File file : files) {
                 list.add(file);
@@ -486,8 +486,8 @@ public class FileUtil {
      * @return 返回文件列表
      */
     public static List<File> listFileFilter(File path, FilenameFilter filter) {
-        List<File> list = new ArrayList<>();
-        File[] files = path.listFiles();
+        List<File> list  = new ArrayList<>();
+        File[]     files = path.listFiles();
         if (ValidUtil.isValid(files)) {
             for (File file : files) {
                 if (file.isDirectory()) {
@@ -518,8 +518,8 @@ public class FileUtil {
             }
         };
         */
-        List<File> list = new ArrayList<File>();
-        File[] files = dirPath.listFiles();
+        List<File> list  = new ArrayList<File>();
+        File[]     files = dirPath.listFiles();
         if (ValidUtil.isValid(files)) {
             for (File file : files) {
                 if (file.isDirectory()) {
@@ -543,8 +543,8 @@ public class FileUtil {
      * @return 返回文件列表
      */
     public static List<File> searchFile(File dirPath, String fileName) {
-        List<File> list = new ArrayList<>();
-        File[] files = dirPath.listFiles();
+        List<File> list  = new ArrayList<>();
+        File[]     files = dirPath.listFiles();
         if (ValidUtil.isValid(files)) {
             for (File file : files) {
                 if (file.isDirectory()) {
@@ -568,8 +568,8 @@ public class FileUtil {
      * @return 返回文件列表
      */
     public static List<File> searchFileReg(File dirPath, String reg) {
-        List<File> list = new ArrayList<>();
-        File[] files = dirPath.listFiles();
+        List<File> list  = new ArrayList<>();
+        File[]     files = dirPath.listFiles();
         if (ValidUtil.isValid(files)) {
             for (File file : files) {
                 if (file.isDirectory()) {

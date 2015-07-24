@@ -24,20 +24,14 @@ public class ClassUtilTest {
         }
 
         System.out.println("============所有类================");
-        List<String> classNames = ClassUtil.getClassName(
-                "evilp0s",
-                true);
+        List<String> classNames = ClassUtil.getClassName("evilp0s", true);
         for (String str : classNames) {
             System.out.println(str);
         }
 
         System.out.println("============Setter和Getter================");
         BusinessLog log = new BusinessLog();
-        ClassUtil.setter(
-                log,
-                "operationName",
-                "setter-method-test",
-                String.class);
+        ClassUtil.setter(log, "operationName", "setter-method-test", String.class);
         System.out.println(log);
 
     }

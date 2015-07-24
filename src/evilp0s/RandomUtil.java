@@ -4,13 +4,13 @@ package evilp0s;
 import java.util.Random;
 
 public class RandomUtil {
-    public static final String ALLCHAR = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    public static final String ALLCHAR    = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     public static final String LETTERCHAR = "abcdefghijkllmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     public static final String NUMBERCHAR = "0123456789";
 
     public static String number(int length) {
-        StringBuffer sb = new StringBuffer();
-        Random random = new Random();
+        StringBuffer sb     = new StringBuffer();
+        Random       random = new Random();
         for (int i = 0; i < length; i++) {
             sb.append(NUMBERCHAR.charAt(random.nextInt(NUMBERCHAR.length())));
         }
@@ -24,8 +24,8 @@ public class RandomUtil {
      * @return 随机字符串
      */
     public static String String(int length) {
-        StringBuffer sb = new StringBuffer();
-        Random random = new Random();
+        StringBuffer sb     = new StringBuffer();
+        Random       random = new Random();
         for (int i = 0; i < length; i++) {
             sb.append(ALLCHAR.charAt(random.nextInt(ALLCHAR.length())));
         }
@@ -39,8 +39,8 @@ public class RandomUtil {
      * @return 随机字符串
      */
     public static String MixString(int length) {
-        StringBuffer sb = new StringBuffer();
-        Random random = new Random();
+        StringBuffer sb     = new StringBuffer();
+        Random       random = new Random();
         for (int i = 0; i < length; i++) {
             sb.append(ALLCHAR.charAt(random.nextInt(LETTERCHAR.length())));
         }
@@ -89,8 +89,8 @@ public class RandomUtil {
      * @return 定长的字符串
      */
     public static String toFixdLengthString(long num, int fixdlenth) {
-        StringBuffer sb = new StringBuffer();
-        String strNum = String.valueOf(num);
+        StringBuffer sb     = new StringBuffer();
+        String       strNum = String.valueOf(num);
         if (fixdlenth - strNum.length() >= 0) {
             sb.append(ZeroString(fixdlenth - strNum.length()));
         } else {
@@ -108,8 +108,8 @@ public class RandomUtil {
      * @return 定长的字符串
      */
     public static String toFixdLengthString(int num, int fixdlenth) {
-        StringBuffer sb = new StringBuffer();
-        String strNum = String.valueOf(num);
+        StringBuffer sb     = new StringBuffer();
+        String       strNum = String.valueOf(num);
         if (fixdlenth - strNum.length() >= 0) {
             sb.append(ZeroString(fixdlenth - strNum.length()));
         } else {

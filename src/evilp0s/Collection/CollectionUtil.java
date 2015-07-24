@@ -21,10 +21,10 @@ public class CollectionUtil {
     /**
      * 去重
      */
-    public static <T> List<T> removeDuplicate(List<T> list){
-        Set set = new HashSet();
+    public static <T> List<T> removeDuplicate(List<T> list) {
+        Set  set     = new HashSet();
         List newList = new ArrayList();
-        for (Iterator iter = list.iterator(); iter.hasNext();) {
+        for (Iterator iter = list.iterator(); iter.hasNext(); ) {
             Object element = iter.next();
             if (set.add(element))
                 newList.add(element);
@@ -33,17 +33,14 @@ public class CollectionUtil {
     }
 
 
-
-
-
     /**
      * 使用指定的Filter过滤集合
      */
-    public static <T> List<T> Filter(List<T> list,ListFilter filter){
+    public static <T> List<T> Filter(List<T> list, ListFilter filter) {
         List result = new ArrayList();
-        if(ValidUtil.isValid(list)){
-            for (T t:list){
-                if(filter.filter(t)){
+        if (ValidUtil.isValid(list)) {
+            for (T t : list) {
+                if (filter.filter(t)) {
                     result.add(t);
                 }
             }
@@ -51,11 +48,11 @@ public class CollectionUtil {
         return result;
     }
 
-    public static <T> Set<T> Filter(Set<T> set,SetFilter filter){
+    public static <T> Set<T> Filter(Set<T> set, SetFilter filter) {
         Set result = new HashSet();
-        if(ValidUtil.isValid(set)){
-            for(T t:set){
-                if(filter.filter(t)){
+        if (ValidUtil.isValid(set)) {
+            for (T t : set) {
+                if (filter.filter(t)) {
                     result.add(t);
                 }
             }
@@ -63,11 +60,11 @@ public class CollectionUtil {
         return result;
     }
 
-    public static <T> Queue Filter(Queue<T> queue,QueueFilter filter){
-        Queue  result = new LinkedList();
-        if(ValidUtil.isValid(queue)){
-            for(T t:queue){
-                if(filter.filter(t)){
+    public static <T> Queue Filter(Queue<T> queue, QueueFilter filter) {
+        Queue result = new LinkedList();
+        if (ValidUtil.isValid(queue)) {
+            for (T t : queue) {
+                if (filter.filter(t)) {
                     result.add(t);
                 }
             }
@@ -75,11 +72,11 @@ public class CollectionUtil {
         return result;
     }
 
-    public static <K,V> Map Filter(Map<K,V> map,MapFilter filter){
+    public static <K, V> Map Filter(Map<K,V> map, MapFilter filter) {
         Map result = new HashMap();
-        if(ValidUtil.isValid(map)){
-            for(Map.Entry<K, V> entry:map.entrySet()){
-                if(filter.filter(entry)){
+        if (ValidUtil.isValid(map)) {
+            for (Map.Entry<K,V> entry : map.entrySet()) {
+                if (filter.filter(entry)) {
                     result.put(entry.getKey(), entry.getValue());
                 }
             }
@@ -126,8 +123,8 @@ public class CollectionUtil {
      * @param <V>
      * @return
      */
-    public static <K, V> Map<K, V> intersection(Map<K, V> map1, Map<K, V> map2) {
-        Map<K, V> map = new HashMap<>();
+    public static <K, V> Map<K,V> intersection(Map<K,V> map1, Map<K,V> map2) {
+        Map<K,V> map = new HashMap<>();
         if (ValidUtil.isValid(map1, map2)) {
             Set<K> setkey1 = new HashSet<>(map1.keySet());
             Set<K> setkey2 = new HashSet<>(map2.keySet());
@@ -165,8 +162,8 @@ public class CollectionUtil {
         return queue;
     }
 
-    public static <K, V> Map<K, V> unicon(Map<K, V> map1, Map<K, V> map2) {
-        Map<K, V> map = new HashMap<>();
+    public static <K, V> Map<K,V> unicon(Map<K,V> map1, Map<K,V> map2) {
+        Map<K,V> map = new HashMap<>();
         map.putAll(map1);
         map.putAll(map2);
         return map;
@@ -204,16 +201,16 @@ public class CollectionUtil {
         return queue;
     }
 
-    public static <K, V> Map<K, V> subtract(Map<K, V> map1, Map<K, V> map2) {
-        Map<K, V> map = new HashMap<>();
+    public static <K, V> Map<K,V> subtract(Map<K,V> map1, Map<K,V> map2) {
+        Map<K,V> map = new HashMap<>();
         if (ValidUtil.isValid(map1, map2)) {
             Set<K> setkey1 = new HashSet<>(map1.keySet());
             Set<K> setkey2 = new HashSet<>(map2.keySet());
             for (K k : setkey2) {
                 setkey1.remove(k);
             }
-            for(K k:setkey1){
-                map.put(k,map1.get(k));
+            for (K k : setkey1) {
+                map.put(k, map1.get(k));
             }
         }
         return map;

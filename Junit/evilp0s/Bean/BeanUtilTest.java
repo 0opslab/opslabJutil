@@ -42,18 +42,30 @@ public class BeanUtilTest extends TestCase {
 
     @Test
     public void testGetProperties() throws InvocationTargetException, IllegalAccessException {
+        String      value = "Test BeanUtil getProperties Method";
+        BusinessLog bean  = new BusinessLog();
+        bean.setOperationName(value);
 
-        BusinessLog bean = new BusinessLog();
+        assertEquals(value, BeanUtil.getProperty(bean, "operationName"));
 
-        bean.setOperationName("Test BeanUtil getProperties Method");
-        PrintUtil.println("获取属性:" + BeanUtil.getProperty(bean, "operationName"));
-        PrintUtil.println("获取属性(忽略大小写):" + BeanUtil.getPropertyIgnoreCase(bean, "operationname"));
-        PrintUtil.println("获取属性(使用自定的过滤函数):" + BeanUtil.getPropertyFilter(bean, "operation_Name", new PropertyFilter() {
+        //获取属性(忽略大小写):
+        assertEquals(value, BeanUtil.getPropertyIgnoreCase(bean, "operationname"));
+
+        //平静的获取属性
+        assertEquals(value, BeanUtil.getPropertyPeaceful(bean, "operationName"));
+
+        //获取属性(使用自定的过滤函数):
+        assertEquals(value, BeanUtil.getPropertyFilter(bean, "operation_Name", new PropertyFilter() {
             @Override
             public String Properties(String pro) {
                 return StringUtil.remove(pro, "_").toLowerCase();
             }
         }));
+
+        //获取bean定义的属性
+        //PrintUtil.print(BeanUtil.getDeclaredPropertyPeaceful(bean, "operationName"));
+        //PrintUtil.print(BeanUtil.getPropertyIgnoreCasePeaceful(bean, "operationName"));
+
     }
 
     @Test
@@ -90,7 +102,7 @@ public class BeanUtilTest extends TestCase {
 
 
         Log2 bean4 = new Log2();
-        BeanUtil.copyPropertiesIgnoreCase(bean1,bean4);
+        BeanUtil.copyPropertiesIgnoreCase(bean1, bean4);
         PrintUtil.println(bean4);
     }
 
@@ -111,7 +123,7 @@ public class BeanUtilTest extends TestCase {
                 return StringUtil.remove(pro, "_").toLowerCase().replaceAll("yy", "ty");
             }
         });
-        PrintUtil.print("复制后:"+bean1);
+        PrintUtil.print("复制后:" + bean1);
         PrintUtil.print("复制后:" + bean2);
     }
 }

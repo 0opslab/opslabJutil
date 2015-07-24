@@ -8,7 +8,7 @@ public class WebUtilTest extends TestCase {
 
     @Test
     public void test() {
-        StringBuffer html = new StringBuffer();
+        StringBuffer html   = new StringBuffer();
         StringBuffer result = new StringBuffer();
 
         html.append("<div class=\"ipaddress\">服务器IP地址：</div>");
@@ -22,7 +22,7 @@ public class WebUtilTest extends TestCase {
         html.append("<span class=\"content\">②修改服务器IP，会导致所有的GameServer重启，以便重新加载配置</span>");
         html.append("</div>");
         String unescape = html.toString();
-        String escape = WebUtil.escape(unescape);
+        String escape   = WebUtil.escape(unescape);
         System.out.println(escape);
         unescape = WebUtil.unescape(escape);
         System.out.println(unescape);

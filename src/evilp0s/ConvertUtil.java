@@ -3,14 +3,14 @@ package evilp0s;
 
 public class ConvertUtil {
 
-    private static String hexStr =  "0123456789ABCDEF";
+    private static String hexStr = "0123456789ABCDEF";
 
     /**
      * @功能 短整型与字节的转换
      */
     public static byte[] shortToByte(short number) {
-        int temp = number;
-        byte[] b = new byte[2];
+        int    temp = number;
+        byte[] b    = new byte[2];
         for (int i = 0; i < b.length; i++) {
             b[i] = new Integer(temp & 0xff).byteValue();// 将最低位保存在最低位
             temp = temp >> 8; // 向右移8位
@@ -22,7 +22,7 @@ public class ConvertUtil {
      * @功能 字节的转换与短整型
      */
     public static short byteToShort(byte[] b) {
-        short s = 0;
+        short s  = 0;
         short s0 = (short) (b[0] & 0xff);// 最低位
         short s1 = (short) (b[1] & 0xff);
         s1 <<= 8;
@@ -44,14 +44,15 @@ public class ConvertUtil {
 
     /**
      * 整形数组转换为字节数组的转换
+     *
      * @param arr
      * @return
      */
-    public static byte[] intToByte(int[] arr){
+    public static byte[] intToByte(int[] arr) {
         byte[] bt = new byte[arr.length * 4];
-        for(int i=0;i<arr.length;i++){
+        for (int i = 0; i < arr.length; i++) {
             byte[] t = intToByte(arr[i]);
-            System.arraycopy(t,0,bt,i+4,4);
+            System.arraycopy(t, 0, bt, i + 4, 4);
         }
         return bt;
     }
@@ -71,8 +72,8 @@ public class ConvertUtil {
      * @方法功能 字节数组和长整型的转换
      */
     public static byte[] longToByte(long number) {
-        long temp = number;
-        byte[] b = new byte[8];
+        long   temp = number;
+        byte[] b    = new byte[8];
         for (int i = 0; i < b.length; i++) {
             b[i] = new Long(temp & 0xff).byteValue();
             // 将最低位保存在最低位
@@ -86,7 +87,7 @@ public class ConvertUtil {
      * @方法功能 字节数组和长整型的转换
      */
     public static long byteToLong(byte[] b) {
-        long s = 0;
+        long s  = 0;
         long s0 = b[0] & 0xff;// 最低位
         long s1 = b[1] & 0xff;
         long s2 = b[2] & 0xff;
@@ -106,44 +107,44 @@ public class ConvertUtil {
         return s;
     }
 
-    public static String HexStringtoBinarg(String hexStr){
-        hexStr = hexStr.replaceAll("\\s","").replaceAll("0x","");
-        char[] achar = hexStr.toCharArray();
-        String result ="";
+    public static String HexStringtoBinarg(String hexStr) {
+        hexStr = hexStr.replaceAll("\\s", "").replaceAll("0x", "");
+        char[] achar  = hexStr.toCharArray();
+        String result = "";
         for (int i = 0; i < achar.length; i++) {
-            result +=Integer.toBinaryString(Integer.valueOf(String.valueOf(achar[i]),16))+" ";
+            result += Integer.toBinaryString(Integer.valueOf(String.valueOf(achar[i]), 16)) + " ";
         }
         return result;
     }
 
     /**
-     *
      * @param bytes
      * @return 将二进制转换为十六进制字符输出
      */
-    public static String bytesToHexString(byte[] bytes){
+    public static String bytesToHexString(byte[] bytes) {
 
         String result = "";
-        String hex = "";
-        for(int i=0;i<bytes.length;i++){
+        String hex    = "";
+        for (int i = 0; i < bytes.length; i++) {
             //字节高4位
-            hex = String.valueOf(hexStr.charAt((bytes[i]&0xF0)>>4));
+            hex = String.valueOf(hexStr.charAt((bytes[i] & 0xF0) >> 4));
             //字节低4位
             hex += String.valueOf(hexStr.charAt(bytes[i] & 0x0F));
-            result +=hex+" ";
+            result += hex + " ";
         }
         return result;
     }
 
     /**
      * 把16进制字符串转换成字节数组
+     *
      * @param hexString
      * @return byte[]
      */
     public static byte[] hexStringToByte(String hexString) {
-        int len = (hexString.length() / 2);
+        int    len    = (hexString.length() / 2);
         byte[] result = new byte[len];
-        char[] achar = hexString.toCharArray();
+        char[] achar  = hexString.toCharArray();
         for (int i = 0; i < len; i++) {
             int pos = i * 2;
             result[i] = (byte) (toByte(achar[pos]) << 4 | toByte(achar[pos + 1]));

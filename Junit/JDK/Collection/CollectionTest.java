@@ -22,9 +22,9 @@ public class CollectionTest {
     @Test
     public void testDeepCopy() {
         List<User> list1 = new ArrayList<>();
-        User user1 = new User("111", "AAA");
-        User user2 = new User("222", "BBB");
-        User user3 = new User("333", "CCC");
+        User       user1 = new User("111", "AAA");
+        User       user2 = new User("222", "BBB");
+        User       user3 = new User("333", "CCC");
         list1.add(user1);
         list1.add(user2);
         list1.add(user3);
