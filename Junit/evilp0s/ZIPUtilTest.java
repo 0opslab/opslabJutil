@@ -10,12 +10,21 @@ public class ZIPUtilTest extends SupportTest {
     public void testDeCompress() throws Exception {
         String file = SysUtil.CURRENT_USER_DIR + "/Junit/model";
         String zipFile = SysUtil.CURRENT_USER_DIR + "/Junit/Resource/temp/test.zip";
-        ZIPUtil.deCompress(new File(file), zipFile);
+        File zfile = new File(zipFile);
+        if(zfile.exists()){
+            if(zfile.delete()){
+                ZIPUtil.deCompress(new File(file), zipFile);
+            }
+        }
+
     }
 
     @Test
     public void testUnCompress() throws Exception {
         String zipFile = SysUtil.CURRENT_USER_DIR + "/Junit/Resource/temp/test.zip";
+        if(!(new File(zipFile).exists())){
+            testDeCompress();
+        }
         ZIPUtil.unCompress(new File(zipFile), SysUtil.JVM_TEMPDIR);
     }
 }
