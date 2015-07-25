@@ -71,11 +71,10 @@ public class StringUtilTest {
 
     @Test
     public void testString2Unicode() throws Exception {
-        String test    = "网站地址:www.XXX.com";
-        String unicode = StringUtil.string2Unicode(test);
-        String string  = StringUtil.unicode2String(unicode);
-        System.out.println(unicode);
-        System.out.println(string);
+        String test    = "中文";
+        String unicode ="\\u4e2d\\u6587";
+        assertEquals(unicode, StringUtil.string2Unicode(test));
+        assertEquals(test, StringUtil.unicode2String(unicode));
     }
 
 
@@ -88,7 +87,7 @@ public class StringUtilTest {
 
     @Test
     public void testtrimPunct() {
-        String str1 = "鬼谷子是春秋战国著名的思想家、道家、谋略家，称得上是先秦最神秘的历史人物";
+        String str1 = "鬼谷子是春秋战国著名的思想家、道家、谋略家，称得上是先秦最神秘的历史人物。）】*&";
         System.out.println(StringUtil.trimPunct(str1));
     }
 
@@ -102,6 +101,12 @@ public class StringUtilTest {
         String input4 = "鬼谷子是春秋战国著名的思想家、道家、谋略家，称得上是先秦最神秘的历史人物";
         System.out.println(StringUtil.SimilarDegree(input3, input4));
         System.out.println(StringUtil.SimilarityRatio(input3, input4));
+    }
+
+    @Test
+    public void testcountSubStr(){
+        String str = "鬼谷子是春秋战国著名的思想家、鬼谷子是道家、鬼谷子谋略家，鬼谷子称得上是先秦最神秘的历史人物";
+        assertEquals(4, StringUtil.countSubStr(str, "鬼谷子"));
     }
 
 
@@ -119,5 +124,26 @@ public class StringUtilTest {
         assertEquals("1,2,3,4,5", StringUtil.replaceFirst(str1, ",", ""));
         assertEquals("1,2,3,4,5", StringUtil.replaceLast(str2, ",", ""));
         assertEquals("12345", StringUtil.remove(str1, ","));
+    }
+
+    @Test
+    public void testBracketStr(){
+        String str1="（全角）";
+        assertEquals("(全角)", StringUtil.full2Half(str1));
+        String str2="(全角)";
+        assertEquals("（全角）",StringUtil.Half2Full(str2));
+    }
+
+    @Test
+    public void testIsIn(){
+        String[] str1= new String[]{"method1","method2","method3","method4"};
+        assertEquals(true,StringUtil.isIn("method3",str1));
+    }
+
+    @Test
+    public void testreplaceBlank(){
+        String str1="鬼 谷子   是春秋战国著名\n的思想家、道家、谋略家，称得上是先秦最神秘的历史人物";
+        assertEquals("鬼谷子是春秋战国著名的思想家、道家、谋略家，称得上是先秦最神秘的历史人物",
+                StringUtil.replaceBlank(str1));
     }
 }
