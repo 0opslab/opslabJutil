@@ -11,8 +11,7 @@ public class FilePathUtil {
     /**
      * 判断是否符是合法的文件路径
      *
-     * @param path
-     * @return
+     * @param path 需要处理的文件路径
      */
     public static boolean legalFile(String path) {
         //下面的正则表达式有问题
@@ -24,38 +23,13 @@ public class FilePathUtil {
     /**
      * 返回一个通用的文件路径
      *
-     * @param file
+     * @param file 需要处理的文件路径
      * @return
-     * @Summary windows中路径分隔符是\在linux中是/但windows也支持/方式 故全部使用/
+     * Summary windows中路径分隔符是\在linux中是/但windows也支持/方式 故全部使用/
      */
     public static String commandPath(String file) {
         return file.replaceAll("\\\\", "/").replaceAll("//", "/");
     }
 
-    /**
-     * 返回相一个目录的对于本身的相对父目录
-     *
-     * @param file
-     * @return
-     * @exmaple 当进入目录test/test/时他本身的相对于当前目录的路径为../../
-     */
-    public static String getParentPath(String file) {
-        if (file.indexOf("/") != -1) {
-            String temp = null;
-            Pattern p = Pattern.compile("[/]+");
-            Matcher m = p.matcher(file);
-            int i = 0;
-            while (m.find()) {
-                temp = m.group(0);
-                i += temp.length();
-            }
-            String parent = "";
-            for (int j = 0; j < i; j++) {
-                parent += "../";
-            }
-            return parent;
-        } else {
-            return "./";
-        }
-    }
+
 }

@@ -79,20 +79,37 @@ public class BeanUtilTest extends TestCase {
 
     @Test
     public void testSetProperties() throws InvocationTargetException, IllegalAccessException {
+        String value ="Properties's value1";
         BusinessLog bean = new BusinessLog();
-        BeanUtil.setProperty(bean, "operationName", "Properties's value1");
 
-        
-        PrintUtil.println(bean);
-        BeanUtil.setPropertyIgnoreCase(bean, "operationname", "Properties's value2");
-        PrintUtil.println(bean);
-        BeanUtil.setPropertyFilter(bean, "operation_Name", "Properties's value3", new PropertyFilter() {
+        BeanUtil.setProperty(bean,"operationName", value);
+        assertEquals(value, bean.getOperationName());
+
+        BeanUtil.setPropertyPeaceful(bean, "operationName", value + "2");
+        assertEquals(value + "2", bean.getOperationName());
+
+
+        BeanUtil.setPropertyIgnoreCase(bean, "operationname", value + "3");
+        assertEquals(value + "3", bean.getOperationName());
+
+        BeanUtil.setPropertyIgnoreCasePeaceful(bean, "operationname", value + "5");
+        assertEquals(value + "5", bean.getOperationName());
+
+        BeanUtil.setPropertyFilter(bean, "operation_Name", value + "4", new PropertyFilter() {
             @Override
             public String Properties(String pro) {
                 return StringUtil.remove(pro, "_").toLowerCase();
             }
         });
-        PrintUtil.println(bean);
+        assertEquals(value + "4", bean.getOperationName());
+
+        BeanUtil.setPropertyFilterPeaceful(bean, "operation_Name", value + "6", new PropertyFilter() {
+            @Override
+            public String Properties(String pro) {
+                return StringUtil.remove(pro, "_").toLowerCase();
+            }
+        });
+        assertEquals(value + "6", bean.getOperationName());
     }
 
     @Test
@@ -114,6 +131,10 @@ public class BeanUtilTest extends TestCase {
 
         Log2 bean4 = new Log2();
         BeanUtil.copyPropertiesIgnoreCase(bean1, bean4);
+        PrintUtil.println(bean4);
+
+        Log bean5 = new Log();
+        BeanUtil.copyPropertyPeaceful(bean1, bean5, new String[]{"operationName"});
         PrintUtil.println(bean4);
     }
 

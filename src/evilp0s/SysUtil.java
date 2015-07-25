@@ -12,8 +12,7 @@ import java.util.Enumeration;
 import java.util.List;
 
 /**
- * @author:Neptune
- * @Description:SysUtil 提供些获取系统信息相关的工具方法
+ * 提供些获取系统信息相关的工具方法
  */
 public class SysUtil {
 
@@ -130,7 +129,6 @@ public class SysUtil {
     /**
      * 获取JVM内存总量
      *
-     * @return
      */
     public static long JVMtotalMem() {
         return Runtime.getRuntime().totalMemory() / kb;
@@ -139,7 +137,6 @@ public class SysUtil {
     /**
      * 虚拟机空闲内存量
      *
-     * @return
      */
     public static long JVMfreeMem() {
         return Runtime.getRuntime().freeMemory() / kb;
@@ -148,7 +145,6 @@ public class SysUtil {
     /**
      * 虚拟机使用最大内存量
      *
-     * @return
      */
     public static long JVMmaxMem() {
         return Runtime.getRuntime().maxMemory() / kb;
