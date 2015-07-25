@@ -178,42 +178,7 @@ public class BeanUtil {
         return result;
     }
 
-    /**
-     * 获取对象自定义的属性
-     *
-     * @param bean 操作的Bean
-     * @param pro  类型属性
-     * @return 返回属性的值如果发生异常返回空
-     */
-    public static Object getDeclaredPropertyPeaceful(Object bean,
-            String pro) throws InvocationTargetException, IllegalAccessException {
-        add(bean);
-        Object result = null;
-        if (hasDeclaredProperty(bean, pro)) {
-            result = readMethod(bean, getReadMethod(bean, pro));
-        }
-        return result;
-    }
 
-    /**
-     * 获取对象自定义的属性
-     *
-     * @param bean 操作的Bean
-     * @param pro  类型属性
-     * @return 返回属性的值如果发生异常返回空
-     */
-    public static Object getDeclaredProperty(Object bean, String pro) {
-        add(bean);
-        Object result = null;
-        if (hasDeclaredProperty(bean, pro)) {
-            try {
-                result = readMethod(bean, getReadMethod(bean, pro));
-            } catch (InvocationTargetException | IllegalAccessException e) {
-                e.printStackTrace();
-            }
-        }
-        return result;
-    }
 
 
     /**

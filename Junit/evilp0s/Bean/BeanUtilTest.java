@@ -54,6 +54,10 @@ public class BeanUtilTest extends TestCase {
         //平静的获取属性
         assertEquals(value, BeanUtil.getPropertyPeaceful(bean, "operationName"));
 
+        //获取属性(忽略大小写)平静:
+        assertEquals(value, BeanUtil.getPropertyIgnoreCasePeaceful(bean, "operationname"));
+
+
         //获取属性(使用自定的过滤函数):
         assertEquals(value, BeanUtil.getPropertyFilter(bean, "operation_Name", new PropertyFilter() {
             @Override
@@ -62,9 +66,14 @@ public class BeanUtilTest extends TestCase {
             }
         }));
 
-        //获取bean定义的属性
-        //PrintUtil.print(BeanUtil.getDeclaredPropertyPeaceful(bean, "operationName"));
-        //PrintUtil.print(BeanUtil.getPropertyIgnoreCasePeaceful(bean, "operationName"));
+        //获取属性(使用自定的过滤函数):
+        assertEquals(value, BeanUtil.getPropertyFilterPeaceful(bean, "operation_Name", new PropertyFilter() {
+            @Override
+            public String Properties(String pro) {
+                return StringUtil.remove(pro, "_").toLowerCase();
+            }
+        }));
+
 
     }
 
@@ -72,6 +81,8 @@ public class BeanUtilTest extends TestCase {
     public void testSetProperties() throws InvocationTargetException, IllegalAccessException {
         BusinessLog bean = new BusinessLog();
         BeanUtil.setProperty(bean, "operationName", "Properties's value1");
+
+        
         PrintUtil.println(bean);
         BeanUtil.setPropertyIgnoreCase(bean, "operationname", "Properties's value2");
         PrintUtil.println(bean);
