@@ -137,7 +137,7 @@ public class StringUtilTest {
     @Test
     public void testIsIn(){
         String[] str1= new String[]{"method1","method2","method3","method4"};
-        assertEquals(true,StringUtil.isIn("method3",str1));
+        assertEquals(true,StringUtil.isIn("method3", str1));
     }
 
     @Test
@@ -145,5 +145,12 @@ public class StringUtilTest {
         String str1="鬼 谷子   是春秋战国著名\n的思想家、道家、谋略家，称得上是先秦最神秘的历史人物";
         assertEquals("鬼谷子是春秋战国著名的思想家、道家、谋略家，称得上是先秦最神秘的历史人物",
                 StringUtil.replaceBlank(str1));
+    }
+
+    @Test
+    public void testFirstChar(){
+        String str = "OperationName";
+        assertEquals("operationName",StringUtil.lowerFirstChar(str));
+        assertEquals(str,StringUtil.upperFirstChar("operationName"));
     }
 }

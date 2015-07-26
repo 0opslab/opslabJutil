@@ -222,4 +222,63 @@ public class FileUtilTest extends SupportTest {
         List<File> files = FileUtil.searchFileReg(new File(path), reg);
         PrintUtil.print(files);
     }
+
+    @Test
+    public void testWriteFile(){
+        String path = System.getProperty("user.dir")+"/Junit/Resource/temp/";
+        String etemp ="Two roads diverged in a yellow wood,\n" +
+                "And sorry I could not travel both\n" +
+                "And be one traveler, long I stood\n" +
+                "And looked down one as far as I could\n" +
+                "To where it bent in the undergrowth;\n" +
+                "Then took the other, as just as fair,\n" +
+                "And having perhaps the better claim,\n" +
+                "Because it was grassy and wanted wear;\n" +
+                "Though as for that the passing there\n" +
+                "Had worn them really about the same,\n" +
+                "And both that morning equally layn" +
+                "In leaves no step had trodden black.\n" +
+                "Oh, I kept the first for another day!\n" +
+                "Yet knowing how way leads on to way,\n" +
+                "I doubted if I should ever come back.\n" +
+                "I shall be telling this with a sigh\n" +
+                "Somewhere ages and ages hence:\n" +
+                "Two roads diverged in a wood,and\n" +
+                "I took the one less traveled by,\n" +
+                "And that has made al lthe difference.";
+
+        String ctemp ="黄色的树林里分出两条路\n" +
+                "可惜我不能同时去涉足\n" +
+                "我在那路口久久伫立\n" +
+                "我向着一条路极目望去\n" +
+                "直到它消失在丛林深处\n" +
+                "但我却选择了另外一条路\n" +
+                "它荒草萋萋，十分幽寂 　　\n" +
+                "显得更诱人，更美丽　\n" +
+                "虽然在这两条小路上\n" +
+                "都很少留下旅人的足迹\n" +
+                "虽然那天清晨落叶满地\n" +
+                "两条路都未经脚印污染\n" +
+                "呵，留下一条路等改日再见\n" +
+                "但我知道路径延绵无尽头\n" +
+                "恐怕我难以再回返\n" +
+                "也许多少年后在某一个地方\n" +
+                "我将轻声叹息把往事回顾\n" +
+                " 一片森林里分出两条路\n" +
+                "而我却选择了人迹更少的一条\n" +
+                "从此决定了我一生的道路";
+        FileUtil.write(new File(path+"efile1.TXT"),etemp);
+        FileUtil.write(new File(path+"efile2.TXT"),etemp);
+        FileUtil.writeAppend(new File(path + "efile2.TXT"), etemp);
+        FileUtil.write(new File(path + "cfile1.TXT"), ctemp);
+        FileUtil.write(new File(path+"cfile2.TXT"),ctemp);
+        FileUtil.writeAppend(new File(path + "cfile2.TXT"), ctemp);
+
+        FileUtil.write(new File(path + "efile1_UTF8.TXT"), etemp, CharsetUtil.UTF_8);
+        FileUtil.write(new File(path+"efile2_UTF8.TXT"),etemp,CharsetUtil.UTF_8);
+        FileUtil.writeAppend(new File(path + "efile2_UTF8.TXT"), etemp,CharsetUtil.UTF_8);
+        FileUtil.write(new File(path + "cfile1_UTF8.TXT"), ctemp,CharsetUtil.UTF_8);
+        FileUtil.write(new File(path+"cfile2_UTF8.TXT"),ctemp,CharsetUtil.UTF_8);
+        FileUtil.writeAppend(new File(path + "cfile2_UTF8.TXT"), ctemp,CharsetUtil.UTF_8);
+    }
 }
