@@ -155,6 +155,7 @@ public class FileUtil {
             long fileLength = randomFile.length();
             randomFile.seek(fileLength);
             randomFile.writeBytes(lineSeparator + str);
+            return true;
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -177,6 +178,70 @@ public class FileUtil {
             long fileLength = randomFile.length();
             randomFile.seek(fileLength);
             randomFile.write((lineSeparator + str).getBytes(encoding));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    /**
+     * 将字符串写入到文件中
+     */
+    public static boolean write(File file,String str){
+        try (
+                RandomAccessFile randomFile = new RandomAccessFile(file, "rw")
+        ) {
+            randomFile.writeBytes(str);
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    /**
+     * 将字符串以追加的方式写入到文件中
+     */
+    public static boolean writeAppend(File file,String str){
+        try (
+                RandomAccessFile randomFile = new RandomAccessFile(file, "rw")
+        ) {
+            long fileLength = randomFile.length();
+            randomFile.seek(fileLength);
+            randomFile.writeBytes(str);
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    /**
+     * 将字符串以制定的编码写入到文件中
+     */
+    public static boolean write(File file,String str,String encoding){
+        try (
+                RandomAccessFile randomFile = new RandomAccessFile(file, "rw")
+        ) {
+            randomFile.write(str.getBytes(encoding));
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    /**
+     * 将字符串以追加的方式以制定的编码写入到文件中
+     */
+    public static boolean writeAppend(File file,String str,String encoding){
+        try (
+                RandomAccessFile randomFile = new RandomAccessFile(file, "rw")
+        ) {
+            long fileLength = randomFile.length();
+            randomFile.seek(fileLength);
+            randomFile.write(str.getBytes(encoding));
+            return true;
         } catch (IOException e) {
             e.printStackTrace();
         }
