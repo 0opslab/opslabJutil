@@ -64,7 +64,7 @@ public class FTPUtilImpl implements FTPUtil {
         log.setRemoteFile("");
         log.setReplyCode(replyCode);
         log.setReplyCodeDesc(FTPConstant.REPLYCODE.get(replyCode));
-        PrintUtil.println(log);
+        PrintUtil.print(log);
         return FTPReply.isPositiveCompletion(replyCode);
     }
 
@@ -77,7 +77,7 @@ public class FTPUtilImpl implements FTPUtil {
         log.setRemoteFile(remoteFile);
         log.setReplyCode(replyCode);
         log.setReplyCodeDesc(FTPConstant.REPLYCODE.get(replyCode));
-        PrintUtil.println(log);
+        PrintUtil.print(log);
         return FTPReply.isPositiveCompletion(replyCode);
     }
 

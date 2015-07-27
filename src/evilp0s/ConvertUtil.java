@@ -1,9 +1,6 @@
 package evilp0s;
 
 import java.io.ByteArrayOutputStream;
-import java.nio.ByteBuffer;
-import java.nio.CharBuffer;
-import java.nio.charset.Charset;
 
 /**
  * 常用类型转换
@@ -80,9 +77,9 @@ public class ConvertUtil {
     }
 
     /**
+     * bytes数组转char数组
      * bytes to chars
-     * @param bytes
-     * @return
+     * @param bytes bytes数组
      */
     public static char[] bytesToChars(byte[] bytes) {
         char[] chars = new char[]{};
@@ -96,7 +93,7 @@ public class ConvertUtil {
     }
 
     /**
-     * @方法功能 字节数组和整型的转换
+     * 字节数组和整型的转换
      */
     public static int bytesToInt(byte[] bytes) {
         int num = bytes[0] & 0xFF;
@@ -107,7 +104,7 @@ public class ConvertUtil {
     }
 
     /**
-     * @方法功能 字节数组和长整型的转换
+     * 字节数组和长整型的转换
      */
     public static byte[] longToByte(long number) {
         long   temp = number;
@@ -122,7 +119,7 @@ public class ConvertUtil {
     }
 
     /**
-     * @方法功能 字节数组和长整型的转换
+     * 字节数组和长整型的转换
      */
     public static long byteToLong(byte[] b) {
         long s  = 0;
@@ -147,7 +144,6 @@ public class ConvertUtil {
     /**
      * 将byte转换为对应的二进制字符串
      * @param src 要转换成二进制字符串的byte值
-     * @return
      */
     public static String byteToBinary(byte src) {
         StringBuilder result = new StringBuilder();
@@ -158,6 +154,10 @@ public class ConvertUtil {
         return result.reverse().toString();
     }
 
+    /**
+     * 将十六进制字符串转为二进制字符串
+     * @param hexStr 十六进制字符串
+     */
     public static String HexStringtoBinarg(String hexStr) {
         hexStr = hexStr.replaceAll("\\s", "").replaceAll("0x", "");
         char[] achar  = hexStr.toCharArray();
@@ -169,11 +169,10 @@ public class ConvertUtil {
     }
 
     /**
-     * @param bytes
-     * @return 将二进制转换为十六进制字符输出
+     * 将二进制转换为十六进制字符输出
+     * @param bytes bytes数组
      */
     public static String bytesToHexString(byte[] bytes) {
-
         String result = "";
         String hex    = "";
         for (int i = 0; i < bytes.length; i++) {
@@ -189,7 +188,7 @@ public class ConvertUtil {
     /**
      * 把16进制字符串转换成字节数组
      *
-     * @param hexString
+     * @param hexString 16进制字符串
      * @return byte[]
      */
     public static byte[] hexStringToByte(String hexString) {
@@ -204,7 +203,6 @@ public class ConvertUtil {
     }
 
     private static int toByte(char c) {
-        byte b = (byte) hexStr.indexOf(c);
-        return b;
+        return (byte) hexStr.indexOf(c);
     }
 }
