@@ -115,20 +115,7 @@ public class ClassUtil {
 
     }
 
-    /**
-     * 调用对象的getter方法
-     *
-     * @param obj
-     * @param att
-     */
-    public static void getter(Object obj, String att) {
-        try {
-            Method met = obj.getClass().getMethod("get" + initStr(att));
-            System.out.println(met.invoke(obj));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
+
 
     public static String initStr(String old) {
         String str = old.substring(0, 1).toUpperCase() + old.substring(1);
@@ -170,7 +157,7 @@ public class ClassUtil {
      * @return 类的完整名称
      */
     private static List<String> getClassNameByFile(String filePath, List<String> className, boolean childPackage) {
-        List<String> myClassName = new ArrayList<String>();
+        List<String> myClassName = new ArrayList<>();
         File         file        = new File(filePath);
         File[]       childFiles  = file.listFiles();
         if (ValidUtil.isValid(childFiles)) {

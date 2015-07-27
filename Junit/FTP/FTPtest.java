@@ -4,6 +4,8 @@ import evilp0s.FTP.FTPConstant;
 import evilp0s.FTP.FTPFactory;
 import evilp0s.FTP.FTPUtil;
 import evilp0s.PrintUtil;
+import org.apache.commons.net.ftp.FTPClient;
+import org.apache.commons.net.ftp.FTPFile;
 
 import java.io.IOException;
 
@@ -13,7 +15,7 @@ import java.io.IOException;
 public class FTPtest {
     public static void main(String[] args) throws IOException {
         FTPUtil ftp = FTPFactory.getInstance("FTPTest");
-        /*
+
         String remoteFile = "test/22.txt";
         ftp.downLoad(remoteFile);
 
@@ -39,11 +41,11 @@ public class FTPtest {
         System.out.println("删除远程目录:"+ftp.deleteDir(deleteDir));
 
 
-*/
+
         PrintUtil.print(FTPConstant.REPLYCODE);
         System.out.println("上传目录:" + ftp.putDir("C:\\Python27", "python27"));
         //test FTPClient
-   /*
+
         FTPClient client = ftp.client();
 
         System.out.println(client.makeDirectory("test"));
@@ -59,7 +61,7 @@ public class FTPtest {
 
         System.out.println("执行命令/" + client.sendCommand("mkdir testssss"));
         int ss = client.sendCommand("ls");
-        */
+
         ftp.destory();
     }
 

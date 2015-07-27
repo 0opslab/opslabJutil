@@ -1,4 +1,4 @@
-package evilp0s.crypt;
+package evilp0s.encrypt;
 
 import evilp0s.CharsetUtil;
 

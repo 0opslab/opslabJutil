@@ -175,7 +175,7 @@ public class FTPUtilImpl implements FTPUtil {
             }
             client.appendFile(new String(fileName.getBytes(vo.getRemoteEncoding()), "ISO-8859-1"), in);
             return reply("UPLOAD", file.getAbsoluteFile().toString(), remoteFileName);
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return false;
