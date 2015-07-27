@@ -178,42 +178,7 @@ public class BeanUtil {
         return result;
     }
 
-    /**
-     * 获取对象自定义的属性
-     *
-     * @param bean 操作的Bean
-     * @param pro  类型属性
-     * @return 返回属性的值如果发生异常返回空
-     */
-    public static Object getDeclaredPropertyPeaceful(Object bean,
-            String pro) throws InvocationTargetException, IllegalAccessException {
-        add(bean);
-        Object result = null;
-        if (hasDeclaredProperty(bean, pro)) {
-            result = readMethod(bean, getReadMethod(bean, pro));
-        }
-        return result;
-    }
 
-    /**
-     * 获取对象自定义的属性
-     *
-     * @param bean 操作的Bean
-     * @param pro  类型属性
-     * @return 返回属性的值如果发生异常返回空
-     */
-    public static Object getDeclaredProperty(Object bean, String pro) {
-        add(bean);
-        Object result = null;
-        if (hasDeclaredProperty(bean, pro)) {
-            try {
-                result = readMethod(bean, getReadMethod(bean, pro));
-            } catch (InvocationTargetException | IllegalAccessException e) {
-                e.printStackTrace();
-            }
-        }
-        return result;
-    }
 
 
     /**
@@ -335,40 +300,8 @@ public class BeanUtil {
     }
 
 
-    /**
-     * 设置对象的自定义属性
-     *
-     * @param bean  操作的Bean
-     * @param pro   类型属性
-     * @param value 设置属性的值
-     * @throws InvocationTargetException
-     * @throws IllegalAccessException
-     */
-    public static void setDeclaredProperty(Object bean, String pro,
-            Object value) throws InvocationTargetException, IllegalAccessException {
-        add(bean);
-        if (hasDeclaredProperty(bean, pro)) {
-            writeMethod(bean, getWriteMethod(bean, pro), value);
-        }
-    }
 
-    /**
-     * 设置对象的自定义属性
-     *
-     * @param bean  操作的Bean
-     * @param pro   类型属性
-     * @param value 设置属性的值
-     */
-    public static void setDeclaredPropertyPeaceful(Object bean, String pro, Object value) {
-        add(bean);
-        if (hasDeclaredProperty(bean, pro)) {
-            try {
-                writeMethod(bean, getWriteMethod(bean, pro), value);
-            } catch (InvocationTargetException | IllegalAccessException e) {
-                e.printStackTrace();
-            }
-        }
-    }
+
 
     /**
      * 设置对象的属性忽略大小写
@@ -490,7 +423,8 @@ public class BeanUtil {
         if (ValidUtil.isValid(pros)) {
             try {
                 for (String s : pros) {
-                    writeMethod(destBean, getWriteMethod(destBean, s), readMethod(srcBean, getReadMethod(srcBean, s)));
+                    Object value =readMethod(srcBean, getReadMethod(srcBean, s));
+                    writeMethod(destBean, getWriteMethod(destBean, s),value );
                 }
             } catch (InvocationTargetException | IllegalAccessException e) {
                 e.printStackTrace();

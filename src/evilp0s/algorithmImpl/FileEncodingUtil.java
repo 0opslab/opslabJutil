@@ -18,9 +18,8 @@ public class FileEncodingUtil {
      * @param fileName        要转换的文件
      * @param fromCharsetName 源文件的编码
      * @param toCharsetName   要转换的编码
-     * @throws Exception
      */
-    public static void convert(String fileName, String fromCharsetName, String toCharsetName) throws Exception {
+    public static void convert(String fileName, String fromCharsetName, String toCharsetName) {
         convert(new File(fileName), fromCharsetName, toCharsetName, null);
     }
 
@@ -30,9 +29,8 @@ public class FileEncodingUtil {
      * @param file            要转换的文件或目录
      * @param fromCharsetName 源文件的编码
      * @param toCharsetName   要转换的编码
-     * @throws Exception
      */
-    public static void convert(File file, String fromCharsetName, String toCharsetName) throws Exception {
+    public static void convert(File file, String fromCharsetName, String toCharsetName) {
         convert(file, fromCharsetName, toCharsetName, null);
     }
 
@@ -43,10 +41,8 @@ public class FileEncodingUtil {
      * @param fromCharsetName 源文件的编码
      * @param toCharsetName   要转换的编码
      * @param filter          文件名过滤器
-     * @throws Exception
      */
-    public static void convert(String fileName, String fromCharsetName, String toCharsetName,
-            FilenameFilter filter) throws Exception {
+    public static void convert(String fileName, String fromCharsetName, String toCharsetName, FilenameFilter filter) {
         convert(new File(fileName), fromCharsetName, toCharsetName, filter);
     }
 
@@ -57,17 +53,11 @@ public class FileEncodingUtil {
      * @param fromCharsetName 源文件的编码
      * @param toCharsetName   要转换的编码
      * @param filter          文件名过滤器
-     * @throws Exception
      */
-    public static void convert(File file, String fromCharsetName, String toCharsetName,
-            FilenameFilter filter) throws Exception {
+    public static void convert(File file, String fromCharsetName, String toCharsetName, FilenameFilter filter) {
         if (file.isDirectory()) {
-            List<File> list = null;
-            if (filter == null) {
-                list = FileUtil.listFile(file);
-            } else {
-                list = FileUtil.listFileFilter(file, filter);
-            }
+            List<File> list = ValidUtil.isValid(filter) ? FileUtil.listFileFilter(file, filter) :
+                    FileUtil.listFile(file);
             if (ValidUtil.isValid(list)) {
                 for (File f : list) {
                     convert(f, fromCharsetName, toCharsetName, filter);
@@ -86,8 +76,6 @@ public class FileEncodingUtil {
      *
      * @param file            要转换的文件
      * @param fromCharsetName 源文件的编码
-     * @return
-     * @throws Exception
      */
     public static String getFileContentFromCharset(File file, String fromCharsetName) {
         String str = "";
@@ -112,7 +100,6 @@ public class FileEncodingUtil {
      * @param file          要写入的文件
      * @param toCharsetName 要转换的编码
      * @param content       文件内容
-     * @throws Exception
      */
     public static void saveFile2Charset(File file, String toCharsetName, String content) {
         if (!Charset.isSupported(toCharsetName)) {
@@ -120,7 +107,7 @@ public class FileEncodingUtil {
         }
         try (
                 OutputStream outputStream = new FileOutputStream(file);
-                OutputStreamWriter outWrite = new OutputStreamWriter(outputStream, toCharsetName);
+                OutputStreamWriter outWrite = new OutputStreamWriter(outputStream, toCharsetName)
         ) {
             outWrite.write(content);
         } catch (IOException e) {

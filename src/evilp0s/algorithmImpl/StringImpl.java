@@ -2,6 +2,7 @@ package evilp0s.algorithmImpl;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
 
 /**
  * 对比俩个字符串的相似度
@@ -9,11 +10,11 @@ import java.io.InputStream;
 public class StringImpl {
     //第一种实现方式
     private static String longestCommonSubstring(String strA, String strB) {
-        char[]  chars_strA = strA.toCharArray();
-        char[]  chars_strB = strB.toCharArray();
-        int     m          = chars_strA.length;
-        int     n          = chars_strB.length;
-        int[][] matrix     = new int[m + 1][n + 1];
+        char[] chars_strA = strA.toCharArray();
+        char[] chars_strB = strB.toCharArray();
+        int m = chars_strA.length;
+        int n = chars_strB.length;
+        int[][] matrix = new int[m + 1][n + 1];
         for (int i = 1; i <= m; i++) {
             for (int j = 1; j <= n; j++) {
                 if (chars_strA[i - 1] == chars_strB[j - 1])
@@ -22,8 +23,8 @@ public class StringImpl {
                     matrix[i][j] = Math.max(matrix[i][j - 1], matrix[i - 1][j]);
             }
         }
-        char[] result       = new char[matrix[m][n]];
-        int    currentIndex = result.length - 1;
+        char[] result = new char[matrix[m][n]];
+        int currentIndex = result.length - 1;
         while (matrix[m][n] != 0) {
             if (matrix[n] == matrix[n - 1])
                 n--;
@@ -63,21 +64,21 @@ public class StringImpl {
     public static double SimilarDegree(String strA, String strB) {
         String newStrA = removeSign(strA);
         String newStrB = removeSign(strB);
-        int    temp    = Math.max(newStrA.length(), newStrB.length());
-        int    temp2   = longestCommonSubstring(newStrA, newStrB).length();
+        int temp = Math.max(newStrA.length(), newStrB.length());
+        int temp2 = longestCommonSubstring(newStrA, newStrB).length();
         return temp2 * 1.0 / temp;
     }
 
     //第二种实现方式
     private static int compare(String str, String target) {
-        int  d[][]; // 矩阵
-        int  n = str.length();
-        int  m = target.length();
-        int  i; // 遍历str的
-        int  j; // 遍历target的
+        int d[][]; // 矩阵
+        int n = str.length();
+        int m = target.length();
+        int i; // 遍历str的
+        int j; // 遍历target的
         char ch1; // str的
         char ch2; // target的
-        int  temp; // 记录相同字符,在某个矩阵位置值的增量,不是0就是1
+        int temp; // 记录相同字符,在某个矩阵位置值的增量,不是0就是1
         if (n == 0) {
             return m;
         }
@@ -130,7 +131,9 @@ public class StringImpl {
     /**
      * 获取字符串的编码
      *
-     * @Summary:改方法利用cpDetector概率探测故性能和准确率不是100%
+     * Summary:该方法利用cpDetector概率探测故性能和准确率不是100%
+     *
+     * @param str 需要处理的字符串
      */
     public static String encoding(String str) {
         java.nio.charset.Charset charset = null;
@@ -149,41 +152,43 @@ public class StringImpl {
     /**
      * 获取字符串编码
      *
-     * @param str
-     * @return
+     * @param str 需要处理的字符串
      */
     public static String simpleEncoding(String str) {
         String encode = "GB2312";
+
         try {
             if (str.equals(new String(str.getBytes(encode), encode))) {
-                String s = encode;
-                return s;
+                return encode;
             }
-        } catch (Exception exception) {
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
         }
+
         encode = "ISO-8859-1";
         try {
             if (str.equals(new String(str.getBytes(encode), encode))) {
-                String s1 = encode;
-                return s1;
+                return encode;
             }
-        } catch (Exception exception1) {
+        } catch (UnsupportedEncodingException exception1) {
+            exception1.printStackTrace();
         }
         encode = "UTF-8";
         try {
             if (str.equals(new String(str.getBytes(encode), encode))) {
-                String s2 = encode;
-                return s2;
+                return encode;
             }
-        } catch (Exception exception2) {
+        } catch (UnsupportedEncodingException exception1) {
+            exception1.printStackTrace();
         }
         encode = "GBK";
         try {
             if (str.equals(new String(str.getBytes(encode), encode))) {
-                String s3 = encode;
-                return s3;
+                return encode;
+
             }
-        } catch (Exception exception3) {
+        } catch (UnsupportedEncodingException exception1) {
+            exception1.printStackTrace();
         }
         return "";
     }
