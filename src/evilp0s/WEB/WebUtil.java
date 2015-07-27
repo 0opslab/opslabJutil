@@ -8,16 +8,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author:Neptune
- * @Description:WebUtil 提供Web相关的个工具类
+ *  提供Web相关的个工具类
  */
 public class WebUtil {
     /**
-     * @param request
-     * @Method:打印请求参数
+     * 打印请求参数
+     * @param request http请求
      */
     public static void print(HttpServletRequest request) {
-        Map         map        = new HashMap();
+        Map<String,String>  map        = new HashMap<>();
         Enumeration paramNames = request.getParameterNames();
         while (paramNames.hasMoreElements()) {
             String paramName = (String) paramNames.nextElement();
@@ -35,7 +34,7 @@ public class WebUtil {
     public static String escape(String src) {
         int          i;
         char         j;
-        StringBuffer tmp = new StringBuffer();
+        StringBuilder tmp = new StringBuilder();
         tmp.ensureCapacity(src.length() * 6);
         for (i = 0; i < src.length(); i++) {
             j = src.charAt(i);

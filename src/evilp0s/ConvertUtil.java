@@ -1,6 +1,8 @@
 package evilp0s;
 
-
+/**
+ * 常用类型转换
+ */
 public class ConvertUtil {
 
     private static String hexStr = "0123456789ABCDEF";

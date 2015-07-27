@@ -8,8 +8,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * @author:Neptune
- * @Description:DateUtil 提供一些常用的时间想法的方法
+ * 一些常用的安全相关的操作方法
  */
 public class SecUtil {
 

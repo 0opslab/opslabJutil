@@ -4,8 +4,7 @@ import java.util.Collection;
 import java.util.Map;
 
 /**
- * @author:Neptune
- * @Description:DateUtil 提供一些对象有效性校验的方法
+ * 提供一些对象有效性校验的方法
  */
 public class ValidUtil {
 

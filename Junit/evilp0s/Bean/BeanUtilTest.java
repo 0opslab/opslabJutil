@@ -14,8 +14,6 @@ public class BeanUtilTest extends TestCase {
 
     @Test
     public void testHasProperties() {
-        //全局执行添加一次
-
         BusinessLog bean = new BusinessLog();
 
         //Bean类是否有operationName属性

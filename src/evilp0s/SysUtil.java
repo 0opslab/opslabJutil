@@ -12,8 +12,7 @@ import java.util.Enumeration;
 import java.util.List;
 
 /**
- * @author:Neptune
- * @Description:SysUtil 提供些获取系统信息相关的工具方法
+ * 提供些获取系统信息相关的工具方法
  */
 public class SysUtil {
 

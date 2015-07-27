@@ -63,7 +63,7 @@ public class StreamUtil {
                 fos.write(buffer, 0, len);
             }
 
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
             throw new RuntimeException(e);
         }
