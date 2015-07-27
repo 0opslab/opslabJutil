@@ -1,12 +1,10 @@
 package evilp0s;
 
+import evilp0s.algorithmImpl.BCConvert;
 import evilp0s.algorithmImpl.StringImpl;
 
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -215,9 +213,7 @@ public class StringUtil {
         List<String> list = new ArrayList<>();
         if (src != null) {
             String[] tt = src.split(pattern);
-            for (int i = 0; i < tt.length; i++) {
-                list.add(tt[i]);
-            }
+            list.addAll(Arrays.asList(tt));
         }
         return list;
     }
@@ -255,7 +251,7 @@ public class StringUtil {
      * @param input 输入字符串
      * @param count 截取长度
      * @return 截取字符串
-     * @Summary 其他编码的有待测试
+     * Summary 其他编码的有待测试
      */
     public static String right(String input, int count) {
         if (isEmpty(input)) {
@@ -265,88 +261,38 @@ public class StringUtil {
         return input.substring(input.length() - count, input.length());
     }
 
-    /**
-     * 全角括号转为半角
-     *
-     * @param str
-     * @return
-     * @author shazao
-     * @date 2007-11-29
-     */
-    public static String replaceBracketStr(String str) {
-        if (str != null && str.length() > 0) {
-            str = str.replaceAll("（", "(");
-            str = str.replaceAll("）", ")");
-        }
-        return str;
-    }
+
 
     /**
      * 全角字符变半角字符
      *
-     * @param str
-     * @return
-     * @author shazao
-     * @date 2008-04-03
+     * @param str 需要处理的字符串
+     * @return 处理后的字符串
      */
     public static String full2Half(String str) {
-        if (str == null || "".equals(str))
+        if(isEmpty(str)){
             return "";
-        StringBuffer sb = new StringBuffer();
-
-        for (int i = 0; i < str.length(); i++) {
-            char c = str.charAt(i);
-
-            if (c >= 65281 && c < 65373)
-                sb.append((char) (c - 65248));
-            else
-                sb.append(str.charAt(i));
         }
-
-        return sb.toString();
-
+        return BCConvert.qj2bj(str);
     }
 
     /**
-     * 存文本替换
-     *
-     * @param s  源字符串
-     * @param sf 子字符串
-     * @param sb 替换字符串
-     * @return 替换后的字符串
+     * 半角字符变全角字符
+     * @param str 需要处理的字符串
+     * @return 处理后的字符串
      */
-    public static String replaceAll(String s, String sf, String sb) {
-        int     i   = 0, j = 0;
-        int     l   = sf.length();
-        boolean b   = true;
-        boolean o   = true;
-        String  str = "";
-        do {
-            j = i;
-            i = s.indexOf(sf, j);
-            if (i > j) {
-                str += s.substring(j, i);
-                str += sb;
-                i += l;
-                o = false;
-            } else {
-                str += s.substring(j);
-                b = false;
-            }
-        } while (b);
-        if (o) {
-            str = s;
+    public static String Half2Full(String str){
+        if(isEmpty(str)){
+            return "";
         }
-        return str;
+        return BCConvert.bj2qj(str);
     }
+
 
     /**
      * 页面中去除字符串中的空格、回车、换行符、制表符
      *
-     * @param str
-     * @return
-     * @author shazao
-     * @date 2007-08-17
+     * @param str 需要处理的字符串
      */
     public static String replaceBlank(String str) {
         if (str != null) {
@@ -355,79 +301,6 @@ public class StringUtil {
             str = m.replaceAll("");
         }
         return str;
-    }
-
-    /**
-     * 解析字符串返回map键值对(例：a=1&b=2 => a=1,b=2)
-     *
-     * @param query   源参数字符串
-     * @param split1  键值对之间的分隔符（例：&）
-     * @param split2  key与value之间的分隔符（例：=）
-     * @param dupLink 重复参数名的参数值之间的连接符，连接后的字符串作为该参数的参数值，可为null
-     *                null：不允许重复参数名出现，则靠后的参数值会覆盖掉靠前的参数值。
-     * @return map
-     * @author sky
-     */
-    public static Map<String,String> parseQuery(String query, char split1, char split2, String dupLink) {
-        if (!isEmpty(query) && query.indexOf(split2) > 0) {
-            Map<String,String> result = new HashMap();
-
-            String name = null;
-            String value = null;
-            String tempValue = "";
-            int len = query.length();
-            for (int i = 0; i < len; i++) {
-                char c = query.charAt(i);
-                if (c == split2) {
-                    value = "";
-                } else if (c == split1) {
-                    if (!isEmpty(name) && value != null) {
-                        if (dupLink != null) {
-                            tempValue = result.get(name);
-                            if (tempValue != null) {
-                                value += dupLink + tempValue;
-                            }
-                        }
-                        result.put(name, value);
-                    }
-                    name = null;
-                    value = null;
-                } else if (value != null) {
-                    value += c;
-                } else {
-                    name = (name != null) ? (name + c) : "" + c;
-                }
-            }
-
-            if (!isEmpty(name) && value != null) {
-                if (dupLink != null) {
-                    tempValue = result.get(name);
-                    if (tempValue != null) {
-                        value += dupLink + tempValue;
-                    }
-                }
-                result.put(name, value);
-            }
-
-            return result;
-        }
-        return null;
-    }
-
-    /**
-     * 从指定位置开始截取指定长度的字符串
-     *
-     * @param input 输入字符串
-     * @param index 截取位置，左侧第一个字符索引值是1
-     * @param count 截取长度
-     * @return 截取字符串
-     */
-    public static String middle(String input, int index, int count) {
-        if (isEmpty(input)) {
-            return "";
-        }
-        count = (count > input.length() - index + 1) ? input.length() - index + 1 : count;
-        return input.substring(index - 1, index + count - 1);
     }
 
 
@@ -439,12 +312,11 @@ public class StringUtil {
      * @return 包含则返回true，否则返回false
      */
     public static boolean isIn(String substring, String[] source) {
-        if (source == null || source.length == 0) {
+        if(isEmpty(substring) || !ValidUtil.isValid(source)){
             return false;
         }
-        for (int i = 0; i < source.length; i++) {
-            String aSource = source[i];
-            if (aSource.equals(substring)) {
+        for (String t:source) {
+            if (substring.equals(t)) {
                 return true;
             }
         }
@@ -453,40 +325,44 @@ public class StringUtil {
 
 
     /**
-     * @function:字符串转换unicode
-     * @实现native2ascii.exe类似的功能
+     * 字符串转换unicode.实现native2ascii.exe类似的功能
+     *
+     * @param string 需要处理的字符串
      */
     public static String string2Unicode(String string) {
-        StringBuffer unicode = new StringBuffer();
+        StringBuilder uni = new StringBuilder();
         for (int i = 0; i < string.length(); i++) {
-            char c = string.charAt(i);
-            unicode.append("\\u" + Integer.toHexString(c));
+            String temp ="\\u"+String.valueOf(Integer.toHexString(string.charAt(i)));
+            uni.append(temp);
         }
-        return unicode.toString();
+        return uni.toString();
     }
 
     /**
-     * @fuunction:unicode 转字符串
-     * @实现native2ascii.exe类似的功能
+     * 转字符串 实现native2ascii.exe类似的功能
+     *
+     * @param unicode 需要处理的字符串
      */
     public static String unicode2String(String unicode) {
-        StringBuffer string = new StringBuffer();
+        StringBuilder str = new StringBuilder();
         String[]     hex    = unicode.split("\\\\u");
         for (int i = 1; i < hex.length; i++) {
             int data = Integer.parseInt(hex[i], 16);
-            string.append((char) data);
+            str.append((char) data);
         }
-        return string.toString();
+        return str.toString();
     }
 
 
     /**
      * 删除所有的标点符号
      *
-     * @param str
-     * @return
+     * @param str 处理的字符串
      */
     public static String trimPunct(String str) {
+        if(isEmpty(str)){
+            return "";
+        }
         return str.replaceAll("[\\pP\\p{Punct}]", "");
     }
 
@@ -520,10 +396,12 @@ public class StringUtil {
     /**
      * 获取字符串的编码
      *
-     * @param str
-     * @return
+     * @param str 处理的字符串
      */
     public static String SimpleEncoding(String str) {
+        if(isEmpty(str)){
+            return "";
+        }
         return StringImpl.simpleEncoding(str);
     }
 
@@ -531,15 +409,17 @@ public class StringUtil {
      * 获取字符串的编码
      */
     public static String cpDetector(String str) {
+        if(isEmpty(str)){
+            return "";
+        }
         return StringImpl.encoding(str);
     }
 
     /**
      * 获取字符串str在String中出现的次数
      *
-     * @param string
-     * @param str
-     * @return
+     * @param string 处理的字符串
+     * @param str 子字符串
      */
     public static int countSubStr(String string, String str) {
         if ((str == null) || (str.length() == 0) || (string == null) || (string.length() == 0)) {
@@ -614,5 +494,36 @@ public class StringUtil {
             sb.append(s.substring(c, s.length()));
         }
         return sb.toString();
+    }
+
+    /**
+     * 将字符串首字母转大写
+     * @param str 需要处理的字符串
+     */
+    public static String upperFirstChar(String str){
+        if(isEmpty(str)){
+            return "";
+        }
+        char[] cs=str.toCharArray();
+        if((cs[0] >= 'a') && (cs[0] <= 'z')){
+            cs[0] -= (char) 0x20;
+        }
+        return String.valueOf(cs);
+    }
+
+    /**
+     * 将字符串首字母转小写
+     * @param str
+     * @return
+     */
+    public static String lowerFirstChar(String str){
+        if(isEmpty(str)){
+            return "";
+        }
+        char[] cs=str.toCharArray();
+        if((cs[0] >= 'A') && (cs[0] <= 'Z')){
+            cs[0] += (char) 0x20;
+        }
+        return String.valueOf(cs);
     }
 }
