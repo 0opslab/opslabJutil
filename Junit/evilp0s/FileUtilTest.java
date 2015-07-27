@@ -46,33 +46,33 @@ public class FileUtilTest extends SupportTest {
     public void testLines() {
         System.out.println("=====按List讲文件全部读入到List中======");
 
-        PrintUtil.println("全英文文件测试");
+        PrintUtil.print("全英文文件测试");
         String       efile = System.getProperty("user.dir") + "/Junit/Resource/English.txt";
         List<String> lines = FileUtil.lines(new File(efile));
         PrintUtil.print(lines);
-        PrintUtil.println("读取文件的前3行");
+        PrintUtil.print("读取文件的前3行");
         lines = FileUtil.lines(new File(efile), 3);
         PrintUtil.print(lines);
 
 
-        PrintUtil.println("GBK文件测试");
+        PrintUtil.print("GBK文件测试");
         String       gbkfile  = System.getProperty("user.dir") + "/Junit/Resource/GBK.txt";
         List<String> gbklines = FileUtil.lines(new File(gbkfile));
         PrintUtil.print(gbklines);
         gbklines = FileUtil.lines(new File(gbkfile), "GBK");
         PrintUtil.print(gbklines);
-        PrintUtil.println("读取文件的前3行");
+        PrintUtil.print("读取文件的前3行");
         lines = FileUtil.lines(new File(gbkfile), 3, "GBK");
         PrintUtil.print(lines);
 
 
-        PrintUtil.println("UTF8文件测试");
+        PrintUtil.print("UTF8文件测试");
         String       utf8file  = System.getProperty("user.dir") + "/Junit/Resource/UTF8.txt";
         List<String> utf8lines = FileUtil.lines(new File(utf8file));
         PrintUtil.print(utf8lines);
         utf8lines = FileUtil.lines(new File(utf8file), "UTF-8");
         PrintUtil.print(utf8lines);
-        PrintUtil.println("读取文件的前3行");
+        PrintUtil.print("读取文件的前3行");
         lines = FileUtil.lines(new File(utf8file), 3, "UTF-8");
         PrintUtil.print(lines);
 
