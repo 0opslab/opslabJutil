@@ -1,6 +1,7 @@
 package evilp0s;
 
 import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -14,7 +15,6 @@ import java.util.jar.JarFile;
  * <h6>Description:<h6>
  * <p>Java Class与反射相关的一些工具类</p>
  *
- * @date 2015-06-12.
  */
 public class ClassUtil {
 
@@ -22,87 +22,50 @@ public class ClassUtil {
     /**
      * 获取指定类的全部属性字段
      *
-     * @param className
-     * @return
+     * @param className 需要获取的类名
+     * @return  属性字段数组
      */
     public static String[] getField(String className) throws ClassNotFoundException {
         Class   classz = Class.forName(className);
         Field[] fields = classz.getFields();
         Field[] fieldz = classz.getDeclaredFields();
-
-        Set<String> set = new HashSet<String>();
+        Set<String> set = new HashSet<>();
         for (Field f : fields) {
             set.add(f.getName());
         }
         for (Field f : fieldz) {
             set.add(f.getName());
         }
-        return set.toArray(new String[]{});
+        return set.toArray(new String[set.size()]);
     }
 
     /**
      * 获取对象的全部方法
      *
-     * @param className
-     * @return
+     * @param className 需要获取的类名
+     * @return 方法名数组
      */
     public static String[] getMethod(String className) throws ClassNotFoundException {
         Class       classz  = Class.forName(className);
         Method[]    methods = classz.getMethods();
-        Set<String> set     = new HashSet<String>();
+        Set<String> set     = new HashSet<>();
         for (Method f : methods) {
             set.add(f.getName());
         }
-        return set.toArray(new String[]{});
+        return set.toArray(new String[set.size()]);
     }
 
-    /**
-     * 同名属性值复制
-     * 将对象obj内属性名同类型T内容有同名属性的值复制到类型T中，并返回一个类型T的对象
-     *
-     * @param obj
-     * @param type
-     * @param <T>
-     * @return
-     */
-    public static <T> T propertiesCopy(Object obj, Class<T> type) {
-        return null;
-    }
 
-    /**
-     * 同名属性值复制（忽略大小写）
-     * 将对象obj内属性名同类型T内容有同名属性的值复制到类型T中，并返回一个类型T的对象
-     *
-     * @param obj
-     * @param type
-     * @param <T>
-     * @return
-     */
-    public static <T> T propertiesCopyIgnore(Object obj, Class<T> type) {
-        return null;
-    }
 
-    /**
-     * 同名属性值复制（比较时忽略字符IgnoreStr的内容）
-     * 将对象obj内属性名同类型T内容有同名属性的值复制到类型T中，并返回一个类型T的对象
-     *
-     * @param obj
-     * @param type
-     * @param IgnoreStr
-     * @param <T>
-     * @return
-     */
-    public static <T> T propertiesCopyIgnoreFilter(Object obj, Class<T> type, String IgnoreStr) {
-        return null;
-    }
+
 
     /**
      * 调用对象的setter方法
      *
-     * @param obj
-     * @param att
-     * @param value
-     * @param type
+     * @param obj 对象
+     * @param att 属性名
+     * @param value 属性值
+     * @param type 属性类型
      */
     public static void setter(Object obj, String att, Object value,
             Class<?> type) throws InvocationTargetException, IllegalAccessException {
@@ -118,10 +81,14 @@ public class ClassUtil {
 
 
     public static String initStr(String old) {
-        String str = old.substring(0, 1).toUpperCase() + old.substring(1);
-        return str;
+        return old.substring(0, 1).toUpperCase() + old.substring(1);
     }
 
+    /**
+     * 获取指定包下所有的类名
+     * @param packageName 包名
+     * @param childPackage 是否获取子包
+     */
     public static List<String> getClassName(String packageName, boolean childPackage) {
         List<String> fileNames   = null;
         ClassLoader  loader      = Thread.currentThread().getContextClassLoader();
@@ -191,9 +158,7 @@ public class ClassUtil {
         String[]     jarInfo     = jarPath.split("!");
         String       jarFilePath = jarInfo[0].substring(jarInfo[0].indexOf("/"));
         String       packagePath = jarInfo[1].substring(1);
-        JarFile      jarFile     = null;
-        try {
-            jarFile = new JarFile(jarFilePath);
+        try(JarFile      jarFile = new JarFile(jarFilePath);) {
             Enumeration<JarEntry> entrys = jarFile.entries();
             while (entrys.hasMoreElements()) {
                 JarEntry jarEntry = entrys.nextElement();
@@ -219,14 +184,8 @@ public class ClassUtil {
                     }
                 }
             }
-        } catch (Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            try {
-                jarFile.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
         return myClassName;
     }
