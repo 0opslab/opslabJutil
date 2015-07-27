@@ -17,7 +17,7 @@ public class WebUtil {
      * 打印请求参数
      * @param request http请求
      */
-    public static void print(HttpServletRequest request) {
+    public static Map print(HttpServletRequest request) {
         Map<String,String>  map        = new HashMap<>();
         Enumeration paramNames = request.getParameterNames();
         while (paramNames.hasMoreElements()) {
@@ -26,11 +26,11 @@ public class WebUtil {
             if (paramValues.length == 1) {
                 String paramValue = paramValues[0];
                 if (paramValue.length() != 0) {
-                    System.out.println("\t\t->" + paramName + "=" + paramValue);
                     map.put(paramName, paramValue);
                 }
             }
         }
+        return map;
     }
 
     public static String escape(String src) {
@@ -183,8 +183,9 @@ public class WebUtil {
      * @return
      */
     public static String html(String content) {
-        if (content == null)
+        if(StringUtil.isEmpty(content)){
             return "";
+        }
         String html = content;
         html = html.replaceAll("'", "&apos;");
         html = html.replaceAll("\"", "&quot;");
@@ -248,5 +249,13 @@ public class WebUtil {
             return result;
         }
         return null;
+    }
+
+    public static Map<String,String> httpParseQuery(String queryUri){
+        Map<String,String> result = new HashMap<>();
+        if(!StringUtil.isEmpty(queryUri)){
+            result = parseQuery(queryUri,'&','=',",");
+        }
+        return result;
     }
 }
