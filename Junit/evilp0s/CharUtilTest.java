@@ -1,11 +1,8 @@
 package evilp0s;
 
-import junit.framework.TestCase;
 
-/**
- * Created by ps on 15-7-25.
- */
-public class CharUtilTest extends TestCase {
+
+public class CharUtilTest  {
 
     public void testToChar() throws Exception {
 

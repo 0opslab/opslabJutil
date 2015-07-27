@@ -6,7 +6,6 @@ import org.junit.Test;
 
 public class RegUtilTest extends TestCase {
 
-    @Test
     public void testIsMatche() {
         System.out.println(RegUtil.isMatche("1234", "\\d{4}"));
         System.out.println(RegUtil.isMatche("123as", "\\d{4}"));

@@ -1,18 +1,23 @@
 package evilp0s;
 
-import junit.framework.TestCase;
 import org.junit.Test;
 
 import java.io.UnsupportedEncodingException;
 
 
-public class ConvertUtilTest extends TestCase {
+public class ConvertUtilTest  {
 
+    @Test
+    public void testencodeBytes() throws UnsupportedEncodingException {
+        String str         = "中文";
+        PrintUtil.print(new String(ConvertUtil.encodeBytes(str.getBytes(CharsetUtil.GBK),' ')));
+        PrintUtil.print(new String(ConvertUtil.encodeBytes(str.getBytes(CharsetUtil.UTF_8),' ')));
+    }
 
     @Test
     public void testBytesToHexString() throws UnsupportedEncodingException {
         String str         = "中文";
-        String utf8_hexStr = ConvertUtil.bytesToHexString(str.getBytes());
+        String utf8_hexStr = ConvertUtil.bytesToHexString(str.getBytes(CharsetUtil.UTF_8));
         PrintUtil.print("utf8 hex:" + utf8_hexStr);
         String gbk_hexStr = ConvertUtil.bytesToHexString(str.getBytes(CharsetUtil.GBK));
         PrintUtil.print("gbk hex:" + gbk_hexStr);

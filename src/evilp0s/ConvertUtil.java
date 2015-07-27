@@ -1,5 +1,10 @@
 package evilp0s;
 
+import java.io.ByteArrayOutputStream;
+import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
+import java.nio.charset.Charset;
+
 /**
  * 常用类型转换
  */
@@ -59,6 +64,37 @@ public class ConvertUtil {
         return bt;
     }
 
+    public static byte[] encodeBytes(byte[] source,char split) {
+        ByteArrayOutputStream bos = new ByteArrayOutputStream(source.length);
+        for (byte b : source) {
+            if (b < 0) {
+                b += 256;
+            }
+            bos.write(split);
+            char hex1 = Character.toUpperCase(Character.forDigit((b >> 4) & 0xF, 16));
+            char hex2 = Character.toUpperCase(Character.forDigit(b & 0xF, 16));
+            bos.write(hex1);
+            bos.write(hex2);
+        }
+        return bos.toByteArray();
+    }
+
+    /**
+     * bytes to chars
+     * @param bytes
+     * @return
+     */
+    public static char[] bytesToChars(byte[] bytes) {
+        char[] chars = new char[]{};
+        if(ValidUtil.isValid(bytes)){
+            chars = new char[bytes.length];
+            for (int i = 0; i < bytes.length; i++) {
+                chars[i] = (char) bytes[i];
+            }
+        }
+        return chars;
+    }
+
     /**
      * @方法功能 字节数组和整型的转换
      */
@@ -107,6 +143,19 @@ public class ConvertUtil {
         s7 <<= 8 * 7;
         s = s0 | s1 | s2 | s3 | s4 | s5 | s6 | s7;
         return s;
+    }
+    /**
+     * 将byte转换为对应的二进制字符串
+     * @param src 要转换成二进制字符串的byte值
+     * @return
+     */
+    public static String byteToBinary(byte src) {
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < 8; i++) {
+            result.append(src%2 == 0 ? '0' : '1');
+            src = (byte)(src >>> 1);
+        }
+        return result.reverse().toString();
     }
 
     public static String HexStringtoBinarg(String hexStr) {

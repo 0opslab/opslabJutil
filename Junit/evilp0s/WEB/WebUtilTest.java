@@ -1,72 +1,37 @@
 package evilp0s.WEB;
 
+import evilp0s.CharsetUtil;
 import evilp0s.PrintUtil;
 import junit.framework.TestCase;
 import org.junit.Test;
 
-import java.util.Map;
+import java.io.UnsupportedEncodingException;
+
 
 public class WebUtilTest extends TestCase {
 
-
     @Test
-    public void testescape() {
-        StringBuffer html = new StringBuffer();
-        html.append("<div class=\"ipaddress\">服务器IP地址：</div>");
-        html.append("<div class=\"ipinput\">");
-        html.append("<input type=\"text\" value=\"127.0.5.5.0\" class=\"text\" />");
-        html.append("<input type=\"button\" value=\"修改\" class=\"button\" onclick=\"\"/>");
-        html.append("</div>");
-        html.append("<div class=\"iptip\">");
-        html.append("<span class=\"red\">说明：</span>");
-        html.append("<span class=\"content\">①该服务器IP为你租用的服务器IP地址,如果本机直接为127.0.0.1</span>");
-        html.append("<span class=\"content\">②修改服务器IP，会导致所有的GameServer重启，以便重新加载配置</span>");
-        html.append("</div>");
-        String unescape = html.toString();
-        String escape = WebUtil.escape(unescape);
-        System.out.println(escape);
-        unescape = WebUtil.unescape(escape);
-        System.out.println(unescape);
-        System.out.println(unescape.equals(html.toString()));
-        System.out.println(WebUtil.escape("123 123"));
+    public void testhtml(){
+        String html="<div class=\"ipaddress\">服务器IP地址：</div>";
+        PrintUtil.print(WebUtil.unhtml(html));
+        assertEquals(html,WebUtil.html(WebUtil.unhtml(html)));
     }
 
     @Test
-    public void testUrl(){
-        String url = "http://www.baidu.com/page.jsp?act=list&ad=12&redirect=true";
+    public void testescapeEncoding() throws UnsupportedEncodingException {
+        String unescape = "<div class=\"ipaddress\">服务器IP地址：</div>";
+        String gbk="%3C%64%69%76%20%63%6C%61%73%73%3D%22%69%70%61%64%64%72%65%73" +
+                "%73%22%3E%B7%FE%CE%F1%C6%F7%49%50%B5%D8%D6%B7%A3%BA%3C%2F%64%69%76%3E";
+        String utf8 ="%3C%64%69%76%20%63%6C%61%73%73%3D%22%69%70%61%64%64%72%65%73%" +
+                "73%22%3E%E6%9C%8D%E5%8A%A1%E5%99%A8%49%50%E5%9C%B0%E5%9D%80%EF%BC" +
+                "%9A%3C%2F%64%69%76%3E";
+        //GBK
+        assertEquals(gbk, WebUtil.escape(unescape, CharsetUtil.GBK));
+        assertEquals(unescape, WebUtil.unescape(gbk, CharsetUtil.GBK));
 
-        //设置参数
-        System.out.println(WebUtil.setParam(url, "act", "listnew"));
-
-        //移除单个参数
-        System.out.println(WebUtil.removeParam(url, "act"));
-
-        //移除多个参数
-        System.out.println(WebUtil.removeParam(url, "act", "ad", "redirect"));
-
-    }
-
-    @Test
-    public void testParseQuery(){
-        String query ="id=111&name=test&password=p0ssw0rd";
-        Map<String,String> queryMap = WebUtil.parseQuery(query, '&', '=', null);
-        PrintUtil.print(queryMap);
-        Map<String,String> httpQueryMap = WebUtil.httpParseQuery(query);
-        PrintUtil.print(httpQueryMap);
-
-        //数组解析
-        String query2 ="id=111&name=test&password[]=p0ssw0rd&password[]=123456";
-        Map<String,String> queryMap1 = WebUtil.parseQuery(query2, '&', '=', ",");
-        PrintUtil.print(queryMap1);
-        Map<String,String> httpQueryMap1 = WebUtil.httpParseQuery(query2);
-        PrintUtil.print(httpQueryMap1);
-
-        //"id=111&name=test&password=p0ssw0rd,=123456"
-        String query3 ="id=111&name=test&password=p0ssw0rd,123456";
-        Map<String,String> queryMap2 = WebUtil.parseQuery(query3, '&', '=', ",");
-        PrintUtil.print(queryMap2);
-        Map<String,String> httpQueryMap2 = WebUtil.httpParseQuery(query3);
-        PrintUtil.print(httpQueryMap2);
+        //utf8
+        assertEquals(utf8, WebUtil.escape(unescape, CharsetUtil.UTF_8));
+        assertEquals(unescape, WebUtil.unescape(utf8, CharsetUtil.UTF_8));
     }
 
 
