@@ -1,11 +1,15 @@
-package evilp0s;
+package evilp0s.FileUtilTest;
 
+import evilp0s.*;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Filter;
 
 import static org.junit.Assert.assertEquals;
 
@@ -15,7 +19,7 @@ public class FileUtilTest extends SupportTest {
     public void testCountLines() throws IOException {
 
         String file = System.getProperty("user.dir") + "/Junit/Resource/English.txt";
-        assertEquals("文件行数计算有误", 5, FileUtil.countLines(new File(file)));
+        Assert.assertEquals("文件行数计算有误", 5, FileUtil.countLines(new File(file)));
     }
 
     @Test
@@ -275,10 +279,22 @@ public class FileUtilTest extends SupportTest {
         FileUtil.writeAppend(new File(path + "cfile2.TXT"), ctemp);
 
         FileUtil.write(new File(path + "efile1_UTF8.TXT"), etemp, CharsetUtil.UTF_8);
-        FileUtil.write(new File(path+"efile2_UTF8.TXT"),etemp,CharsetUtil.UTF_8);
+        FileUtil.write(new File(path + "efile2_UTF8.TXT"), etemp, CharsetUtil.UTF_8);
         FileUtil.writeAppend(new File(path + "efile2_UTF8.TXT"), etemp,CharsetUtil.UTF_8);
         FileUtil.write(new File(path + "cfile1_UTF8.TXT"), ctemp,CharsetUtil.UTF_8);
         FileUtil.write(new File(path+"cfile2_UTF8.TXT"),ctemp,CharsetUtil.UTF_8);
-        FileUtil.writeAppend(new File(path + "cfile2_UTF8.TXT"), ctemp,CharsetUtil.UTF_8);
+        FileUtil.writeAppend(new File(path + "cfile2_UTF8.TXT"), ctemp, CharsetUtil.UTF_8);
+    }
+
+    @Test
+    public void testListLine() throws ParseException {
+        File file = new File(System.getProperty("user.dir") + "/Junit/Resource/time.txt");
+        List<String>  lines = FileUtil.lines(file);
+        int count=0;
+        for(String line :lines){
+            String[] tt = line.split("/");
+            count += DateUtil.subtimeBurst(tt[0], tt[1], "08:00-19:30");
+        }
+        System.out.println("===>"+count/60/60);
     }
 }

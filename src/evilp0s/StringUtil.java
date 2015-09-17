@@ -141,7 +141,25 @@ public class StringUtil {
         return result;
     }
 
-
+    /**
+     * 把array or list用给定的符号symbol连接成一个字符串
+     *
+     * @param array  需要处理的字符串数组
+     * @param symbol 链接的符号
+     * @return 处理后的字符串
+     */
+    public static String joinString(Object[] array, String symbol) {
+        String result = "";
+        if (array != null) {
+            for (Object temp : array) {
+                result += (temp.toString() + symbol);
+            }
+            if (result.length() > 1 && ValidUtil.isValid(symbol)) {
+                result = result.substring(0, result.length() - symbol.length());
+            }
+        }
+        return result;
+    }
     /**
      * 隐藏邮件地址前缀。
      *
