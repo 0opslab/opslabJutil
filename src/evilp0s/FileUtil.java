@@ -8,6 +8,7 @@ import java.net.FileNameMap;
 import java.net.MalformedURLException;
 import java.net.URLConnection;
 import java.nio.ByteBuffer;
+import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.ArrayList;
 import java.util.Date;
@@ -138,6 +139,76 @@ public class FileUtil {
             e.printStackTrace();
         }
         return list;
+    }
+
+    /**
+     * 以字节的方式读取文件
+     * @param file
+     * @return
+     */
+    public byte[] readAsByte(File file){
+        byte[] res = new byte[0];
+        try(FileInputStream fs = new FileInputStream(file);
+            FileChannel channel = fs.getChannel()) {
+            ByteBuffer byteBuffer = ByteBuffer.allocate((int) channel.size());
+            while ((channel.read(byteBuffer)) > 0) {
+                // do nothing
+            }
+            res = byteBuffer.array();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return res;
+    }
+
+    /**
+     * 以字节的方式读取较大的文件
+     * @param file
+     * @return
+     */
+    public byte[] readAsByteWithBigFile(File file){
+        byte[] res = new byte[0];
+        try(FileChannel fc = new RandomAccessFile(file, "r").getChannel();) {
+            MappedByteBuffer byteBuffer = fc.map(FileChannel.MapMode.READ_ONLY, 0, fc.size()).load();
+            res = new byte[(int) fc.size()];
+            if (byteBuffer.remaining() > 0) {
+                // System.out.println("remain");
+                byteBuffer.get(res, 0, byteBuffer.remaining());
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return res;
+    }
+
+    /**
+     * 以字符串的方式读取文件
+     * @param file
+     * @param encoding
+     * @return
+     */
+    public String readAsString(File file,String encoding){
+        String res ="";
+        try {
+            res =  new String(readAsByte(file),encoding);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return res;
+    }
+
+    /**
+     * 以字符串的方式读取大文件
+     */
+    public String readAsStringWithBigFile(File file,String encoding){
+        String res ="";
+        try {
+            res =  new String(readAsByteWithBigFile(file),encoding);
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return res;
     }
 
     /**
