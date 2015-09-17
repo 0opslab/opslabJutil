@@ -19,6 +19,7 @@ public class SupportTest {
     @After
     public void after() {
         Date end = new Date();
-        System.out.println("函数执行完成->耗时" + DateUtil.Subtract(start, end) + "[" + DateUtil.DateTime(start) + "/" + DateUtil.DateTime(end) + "]");
+        System.out.println("函数执行完成->耗时" + DateUtil.Subtract(start, end) + "[" + DateUtil.DateTime(start) +
+                "/" + DateUtil.DateTime(end) + "]");
     }
 }
