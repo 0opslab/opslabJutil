@@ -146,7 +146,7 @@ public class FileUtil {
      * @param file
      * @return
      */
-    public byte[] readAsByte(File file){
+    public static byte[] readAsByte(File file){
         byte[] res = new byte[0];
         try(FileInputStream fs = new FileInputStream(file);
             FileChannel channel = fs.getChannel()) {
@@ -166,7 +166,7 @@ public class FileUtil {
      * @param file
      * @return
      */
-    public byte[] readAsByteWithBigFile(File file){
+    public static byte[] readAsByteWithBigFile(File file){
         byte[] res = new byte[0];
         try(FileChannel fc = new RandomAccessFile(file, "r").getChannel();) {
             MappedByteBuffer byteBuffer = fc.map(FileChannel.MapMode.READ_ONLY, 0, fc.size()).load();
@@ -188,7 +188,7 @@ public class FileUtil {
      * @param encoding
      * @return
      */
-    public String readAsString(File file,String encoding){
+    public static String readAsString(File file,String encoding){
         String res ="";
         try {
             res =  new String(readAsByte(file),encoding);
@@ -201,7 +201,7 @@ public class FileUtil {
     /**
      * 以字符串的方式读取大文件
      */
-    public String readAsStringWithBigFile(File file,String encoding){
+    public static String readAsStringWithBigFile(File file,String encoding){
         String res ="";
         try {
             res =  new String(readAsByteWithBigFile(file),encoding);
