@@ -45,7 +45,7 @@
     │  │          evilp0s-util.jar
     │
     └─src
-        └─evilp0s
+        └─com.opslab
             │  CharsetUtil.java     #字符串相关的工具类
             │  ClassUtil.java       #Java Class与反射相关的一些工具类
             │  ChinesUtil.java      #中文相关的工具类

@@ -1,5 +1,6 @@
 junit-4.7.jar
-out/
+out/production
+out/test
 .idea/
 utils.iml
 .gitignore
