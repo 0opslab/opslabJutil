@@ -1,4 +1,4 @@
-package Demo.File;
+package com.opslab.filetest;
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
