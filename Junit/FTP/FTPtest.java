@@ -1,9 +1,9 @@
 package FTP;
 
-import evilp0s.FTP.FTPConstant;
-import evilp0s.FTP.FTPFactory;
-import evilp0s.FTP.FTPUtil;
-import evilp0s.PrintUtil;
+import com.opslab.FTP.FTPConstant;
+import com.opslab.FTP.FTPFactory;
+import com.opslab.FTP.FTPUtil;
+import com.opslab.PrintUtil;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
 
