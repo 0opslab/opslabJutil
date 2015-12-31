@@ -1,6 +1,6 @@
-package com.opslab.Bean;
+package com.opslab.bean;
 
-import com.opslab.Collection.CollectionUtil;
+import com.opslab.collection.CollectionUtil;
 import com.opslab.ValidUtil;
 
 import java.beans.IntrospectionException;

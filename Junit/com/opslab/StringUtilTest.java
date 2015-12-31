@@ -93,6 +93,53 @@ public class StringUtilTest {
 
     @Test
     public void testStringSimilar() {
+        //英文测试
+        String en1 ="# Summary\n" +
+                "* [SSH简介](README.md)\n" +
+                "* [Hibernate](chapter2/README.md)\n" +
+                "* [Hibernate](chapter2/hibernate.md)\n" +
+                "* [Struts2](chapter3/README.md)\n" +
+                "* [Spring整合Hibernate](ssh2/README.md)\n" +
+                "* [Chapter](chapter/README)\n" +
+                "* [Chapter](chapter/README)\n" +
+                "* [Chapter7](chapter7/README)\n" +
+                "* [Chapter8](chapter8/README)\n" +
+                "* [Chapter9](chapter9/README)\n" +
+                "* [Chapter11](chapter11/README)\n" +
+                "* [Chapter12](chapter12/README)\n" +
+                "* [Chapter13](chapter13/README)\n" +
+                "* [Chapter14](chapter14/README)\n" +
+                "* [Chapter15](chapter15/README)\n" +
+                "* [Chapter16](chapter16/README)\n" +
+                "* [Chapter17](chapter17/README)\n" +
+                "* [Chapter18](chapter18/README)\n" +
+                "* [Chapter19](chapter19/README)\n" +
+                "* [Chapter20](chapter20/README)\n" +
+                "* [Chapter20](chapter20/README)\n";
+        String en2 ="$ Summary\n" +
+                "> [SSH简介](README.md)\n" +
+                "> [Hibernate](chapter2/README.md)\n" +
+                "> [Hibernate](chapter2/hibernate.md)\n" +
+                "> [Struts2](chapter3/README.md)\n" +
+                "> [Spring整合Hibernate](ssh2/README.md)\n" +
+                "> [Chapter](chapter/README)\n" +
+                "> [Chapter](chapter/README)\n" +
+                "> [Chapter7](chapter7/README)\n" +
+                "> [Chapter8](chapter8/README)\n" +
+                "* [Chapter9](chapter9/README)\n" +
+                "* [Chapter11](chapter11/README)\n" +
+                "* [Chapter12](chapter12/README)\n" +
+                "* [Chapter13](chapter13/README)\n" +
+                "* [Chapter14](chapter14/README)\n" +
+                "* [Chapter15](chapter15/README)\n" +
+                "* [Chapter16](chapter16/README)\n" +
+                "* [Chapter17](chapter17/README)\n" +
+                "* [Chapter18](chapter18/README)\n" +
+                "* [Chapter19](chapter19/README)\n" +
+                "* [Chapter20](chapter20/README)\n" +
+                "* [Chapter20](chapter20/README)\n";
+        System.out.println(StringUtil.SimilarDegree(en1,en2));
+        //中文测试
         String input1 = "每样东西都有根本有枝末，每件事情都有开始有终结。明白了这本末始终的道理，就接近事物发展的规律了。";
         String input2 = "物品有基础也有末路，事情有开始也有终结。知道先与后，就近乎得道了。";
         System.out.println(StringUtil.SimilarDegree(input1, input2));
@@ -101,6 +148,7 @@ public class StringUtilTest {
         String input4 = "鬼谷子是春秋战国著名的思想家、道家、谋略家，称得上是先秦最神秘的历史人物";
         System.out.println(StringUtil.SimilarDegree(input3, input4));
         System.out.println(StringUtil.SimilarityRatio(input3, input4));
+
     }
 
     @Test

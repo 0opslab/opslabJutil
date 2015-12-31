@@ -1,4 +1,4 @@
-package com.opslab.Bean;
+package com.opslab.bean;
 
 import com.opslab.ValidUtil;
 

@@ -1,4 +1,4 @@
-package com.opslab.Bean;
+package com.opslab.bean;
 
 /**
  * 属性过滤接口

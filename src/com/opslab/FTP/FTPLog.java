@@ -1,4 +1,4 @@
-package com.opslab.FTP;
+package com.opslab.ftp;
 
 import com.opslab.DateUtil;
 

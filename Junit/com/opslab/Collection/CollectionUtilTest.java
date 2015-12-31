@@ -1,4 +1,4 @@
-package com.opslab.Collection;
+package com.opslab.collection;
 
 import com.opslab.PrintUtil;
 import junit.framework.TestCase;

@@ -1,4 +1,4 @@
-package com.opslab.Bean;
+package com.opslab.bean;
 
 import java.lang.reflect.Method;
 
