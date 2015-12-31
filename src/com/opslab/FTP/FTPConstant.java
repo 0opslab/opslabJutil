@@ -1,4 +1,4 @@
-package com.opslab.FTP;
+package com.opslab.ftp;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,8 +1,8 @@
 package FTP;
 
-import com.opslab.FTP.FTPConstant;
-import com.opslab.FTP.FTPFactory;
-import com.opslab.FTP.FTPUtil;
+import com.opslab.ftp.FTPConstant;
+import com.opslab.ftp.FTPFactory;
+import com.opslab.ftp.FTPUtil;
 import com.opslab.PrintUtil;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;

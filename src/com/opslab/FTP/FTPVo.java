@@ -1,4 +1,4 @@
-package com.opslab.FTP;
+package com.opslab.ftp;
 
 /**
  * 用于包装FTP的相关的信息

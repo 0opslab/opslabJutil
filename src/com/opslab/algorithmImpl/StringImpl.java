@@ -1,5 +1,10 @@
 package com.opslab.algorithmImpl;
 
+import com.opslab.CharUtil;
+import com.opslab.CharsetUtil;
+import com.opslab.StringUtil;
+import com.opslab.SysUtil;
+
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
@@ -46,20 +51,21 @@ public class StringImpl {
 
     private static String removeSign(String str) {
         StringBuffer sb = new StringBuffer();
-        for (char item : str.toCharArray())
+        for (char item : str.toCharArray()){
             if (charReg(item)) {
                 sb.append(item);
             }
+        }
         return sb.toString();
     }
 
     /**
      * 快速比较俩个字符串的相似度
      *
-     * @param strA
-     * @param strB
-     * @return
-     * @summary:讲长的字符串放到前面有助于提交效率
+     * @param strA 较长的字符串
+     * @param strB 较短的字符串
+     * @return 俩个字符串的相似度
+     * <p>summary</p>:较长的字符串放到前面有助于提交效率
      */
     public static double SimilarDegree(String strA, String strB) {
         String newStrA = removeSign(strA);
@@ -130,7 +136,7 @@ public class StringImpl {
 
     /**
      * 获取字符串的编码
-     *
+     * <p/>
      * Summary:该方法利用cpDetector概率探测故性能和准确率不是100%
      *
      * @param str 需要处理的字符串
@@ -155,6 +161,21 @@ public class StringImpl {
      * @param str 需要处理的字符串
      */
     public static String simpleEncoding(String str) {
+        try{
+            byte[] bs = str.getBytes(SysUtil.JVM_ENCODING);
+            if(str.equals(new String(bs,CharsetUtil.UTF_8))){
+                return CharsetUtil.UTF_8;
+            }
+            if(str.equals(new String(bs,CharsetUtil.GBK))){
+                return CharsetUtil.GBK;
+            }
+            if(str.equals(new String(bs,"ISO-8859-1"))){
+                return "ISO-8859-1";
+            }
+        }catch(UnsupportedEncodingException e) {
+            System.out.println("111111111");
+            e.printStackTrace();
+        }
         String encode = "GB2312";
 
         try {

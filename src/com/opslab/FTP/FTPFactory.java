@@ -1,4 +1,4 @@
-package com.opslab.FTP;
+package com.opslab.ftp;
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;

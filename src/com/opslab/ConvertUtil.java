@@ -10,24 +10,27 @@ public class ConvertUtil {
     private static String hexStr = "0123456789ABCDEF";
 
     /**
-     * @功能 短整型与字节的转换
+     * 短整型与字节的转换
      */
     public static byte[] shortToByte(short number) {
-        int    temp = number;
-        byte[] b    = new byte[2];
+        int temp = number;
+        byte[] b = new byte[2];
         for (int i = 0; i < b.length; i++) {
-            b[i] = new Integer(temp & 0xff).byteValue();// 将最低位保存在最低位
-            temp = temp >> 8; // 向右移8位
+            // 将最低位保存在最低位
+            b[i] = new Integer(temp & 0xff).byteValue();
+            // 向右移8位
+            temp = temp >> 8;
         }
         return b;
     }
 
     /**
-     * @功能 字节的转换与短整型
+     * 字节的转换与短整型
      */
     public static short byteToShort(byte[] b) {
-        short s  = 0;
-        short s0 = (short) (b[0] & 0xff);// 最低位
+        short s;
+        // 最低位
+        short s0 = (short) (b[0] & 0xff);
         short s1 = (short) (b[1] & 0xff);
         s1 <<= 8;
         s = (short) (s0 | s1);
@@ -35,7 +38,7 @@ public class ConvertUtil {
     }
 
     /**
-     * @方法功能 整型与字节数组的转换
+     * 整型与字节数组的转换
      */
     public static byte[] intToByte(int i) {
         byte[] bt = new byte[4];
@@ -47,10 +50,9 @@ public class ConvertUtil {
     }
 
     /**
-     * 整形数组转换为字节数组的转换
+     * 整型数组转换为字节数组的转换
      *
-     * @param arr
-     * @return
+     * @param arr 整型数组
      */
     public static byte[] intToByte(int[] arr) {
         byte[] bt = new byte[arr.length * 4];
@@ -61,7 +63,7 @@ public class ConvertUtil {
         return bt;
     }
 
-    public static byte[] encodeBytes(byte[] source,char split) {
+    public static byte[] encodeBytes(byte[] source, char split) {
         ByteArrayOutputStream bos = new ByteArrayOutputStream(source.length);
         for (byte b : source) {
             if (b < 0) {
@@ -79,11 +81,12 @@ public class ConvertUtil {
     /**
      * bytes数组转char数组
      * bytes to chars
+     *
      * @param bytes bytes数组
      */
     public static char[] bytesToChars(byte[] bytes) {
         char[] chars = new char[]{};
-        if(ValidUtil.isValid(bytes)){
+        if (ValidUtil.isValid(bytes)) {
             chars = new char[bytes.length];
             for (int i = 0; i < bytes.length; i++) {
                 chars[i] = (char) bytes[i];
@@ -107,8 +110,8 @@ public class ConvertUtil {
      * 字节数组和长整型的转换
      */
     public static byte[] longToByte(long number) {
-        long   temp = number;
-        byte[] b    = new byte[8];
+        long temp = number;
+        byte[] b = new byte[8];
         for (int i = 0; i < b.length; i++) {
             b[i] = new Long(temp & 0xff).byteValue();
             // 将最低位保存在最低位
@@ -122,7 +125,7 @@ public class ConvertUtil {
      * 字节数组和长整型的转换
      */
     public static long byteToLong(byte[] b) {
-        long s  = 0;
+        long s;
         long s0 = b[0] & 0xff;// 最低位
         long s1 = b[1] & 0xff;
         long s2 = b[2] & 0xff;
@@ -141,45 +144,50 @@ public class ConvertUtil {
         s = s0 | s1 | s2 | s3 | s4 | s5 | s6 | s7;
         return s;
     }
+
     /**
      * 将byte转换为对应的二进制字符串
+     *
      * @param src 要转换成二进制字符串的byte值
      */
     public static String byteToBinary(byte src) {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < 8; i++) {
-            result.append(src%2 == 0 ? '0' : '1');
-            src = (byte)(src >>> 1);
+            result.append(src % 2 == 0 ? '0' : '1');
+            src = (byte) (src >>> 1);
         }
         return result.reverse().toString();
     }
 
     /**
      * 将十六进制字符串转为二进制字符串
+     *
      * @param hexStr 十六进制字符串
      */
-    public static String HexStringtoBinarg(String hexStr) {
+    public static String hexStringtoBinarg(String hexStr) {
         hexStr = hexStr.replaceAll("\\s", "").replaceAll("0x", "");
-        char[] achar  = hexStr.toCharArray();
+        char[] achar = hexStr.toCharArray();
         String result = "";
-        for (int i = 0; i < achar.length; i++) {
-            result += Integer.toBinaryString(Integer.valueOf(String.valueOf(achar[i]), 16)) + " ";
+        for (char a : achar) {
+            result += Integer.toBinaryString(
+                    Integer.valueOf(String.valueOf(a), 16)) + " ";
         }
         return result;
     }
 
     /**
      * 将二进制转换为十六进制字符输出
+     *
      * @param bytes bytes数组
      */
     public static String bytesToHexString(byte[] bytes) {
         String result = "";
-        String hex    = "";
-        for (int i = 0; i < bytes.length; i++) {
+        String hex;
+        for (byte b : bytes) {
             //字节高4位
-            hex = String.valueOf(hexStr.charAt((bytes[i] & 0xF0) >> 4));
+            hex = String.valueOf(hexStr.charAt((b & 0xF0) >> 4));
             //字节低4位
-            hex += String.valueOf(hexStr.charAt(bytes[i] & 0x0F));
+            hex += String.valueOf(hexStr.charAt(b & 0x0F));
             result += hex + " ";
         }
         return result;
@@ -192,9 +200,9 @@ public class ConvertUtil {
      * @return byte[]
      */
     public static byte[] hexStringToByte(String hexString) {
-        int    len    = (hexString.length() / 2);
+        int len = (hexString.length() / 2);
         byte[] result = new byte[len];
-        char[] achar  = hexString.toCharArray();
+        char[] achar = hexString.toCharArray();
         for (int i = 0; i < len; i++) {
             int pos = i * 2;
             result[i] = (byte) (toByte(achar[pos]) << 4 | toByte(achar[pos + 1]));

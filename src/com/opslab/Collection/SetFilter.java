@@ -1,4 +1,4 @@
-package com.opslab.Collection;
+package com.opslab.collection;
 
 /**
  * <h6>Description:Set过滤接口<h6>

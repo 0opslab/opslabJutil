@@ -1,4 +1,4 @@
-package com.opslab.WEB;
+package com.opslab.web;
 
 import com.opslab.CharUtil;
 import com.opslab.CharsetUtil;
