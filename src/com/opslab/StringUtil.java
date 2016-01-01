@@ -393,17 +393,7 @@ public class StringUtil {
         }
     }
 
-    /**
-     * 获取字符串的编码
-     *
-     * @param str 处理的字符串
-     */
-    public static String SimpleEncoding(String str) {
-        if(isEmpty(str)){
-            return "";
-        }
-        return StringImpl.simpleEncoding(str);
-    }
+
 
     /**
      * 获取字符串的编码

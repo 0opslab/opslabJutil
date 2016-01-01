@@ -8,16 +8,17 @@ import java.util.*;
 @SuppressWarnings("all")
 public class PrintUtil {
     /**
+     * 待时间的打印主要用于Junit测试
      * @param str
      * @Function:带时间的打印
      */
     public static void print(String str) {
-        System.out.println(DateUtil.DateTime() + " -> " + str);
+        System.out.println(DateUtil.DateTime() + " - " + str);
     }
 
     public static void print(Object obj) {
         if (obj != null) {
-            System.out.print(DateUtil.DateTime() + " -> "+obj.toString());
+            System.out.print(DateUtil.DateTime() + " - " + obj.toString());
         }
     }
 
@@ -73,33 +74,33 @@ public class PrintUtil {
     /**
      * 打印基础类型的数组
      */
-    public static void print(int[] ints){
-        if(ints != null && ints.length > 0){
-            StringBuffer sbuf= new StringBuffer("[");
-            for(int i:ints){
+    public static void print(int[] ints) {
+        if (ints != null && ints.length > 0) {
+            StringBuffer sbuf = new StringBuffer("[");
+            for (int i : ints) {
                 sbuf.append(i + ",");
             }
-            System.out.println(StringUtil.replaceLast(sbuf.toString(),",","]"));
+            System.out.println(StringUtil.replaceLast(sbuf.toString(), ",", "]"));
         }
     }
 
-    public static void print(char[] chars){
-        if(chars != null && chars.length >= 0){
+    public static void print(char[] chars) {
+        if (chars != null && chars.length >= 0) {
             StringBuilder sbuf = new StringBuilder("[");
-            for(char c:chars){
-                sbuf.append(c+",");
+            for (char c : chars) {
+                sbuf.append(c + ",");
             }
             System.out.print(StringUtil.replaceLast(sbuf.toString(), ",", "]"));
         }
     }
 
-    public static void print(byte[] bytes){
-        if(bytes != null && bytes.length >0){
+    public static void print(byte[] bytes) {
+        if (bytes != null && bytes.length > 0) {
             StringBuilder sbuf = new StringBuilder("[");
-            for(byte b:bytes){
-                sbuf.append(b+",");
+            for (byte b : bytes) {
+                sbuf.append(b + ",");
             }
-            System.out.print(StringUtil.replaceLast(sbuf.toString(),",","]"));
+            System.out.print(StringUtil.replaceLast(sbuf.toString(), ",", "]"));
         }
     }
 }

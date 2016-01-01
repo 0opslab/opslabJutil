@@ -11,3 +11,13 @@
 #RegUtil
     RegUtil.countSubStrReg
     原函数有BUG导致统计数据的错误
+    
+    
+#brach
+    release1
+        主要目的写着玩的因此结构比较混乱
+        
+    release2
+        有几个朋友已经在项目中使用 但是因为之前的包名不够规范 所以在这个版本中进行了调整
+        
+    
