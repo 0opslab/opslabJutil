@@ -7,7 +7,14 @@ import java.nio.charset.CharacterCodingException;
 import java.nio.charset.Charset;
 
 
-public class CharsetTest {
+public class CharsetUtilTest {
+    @Test
+    public void testCpDetector() throws UnsupportedEncodingException {
+        String str = "中文的字符串,编码结果会应项目的编译和JVM的运行环境有所影响";
+
+        System.out.println(StringUtil.cpDetector(str));
+        System.out.println(StringUtil.cpDetector(CharsetUtil.toGBK(str)));
+    }
 
 
     @Test
@@ -18,9 +25,8 @@ public class CharsetTest {
         System.out.println("Default Charset=" + Charset.defaultCharset());
         System.out.println("Default Charset in Use=" + CharsetUtil.getDefaultCharSet());
         System.out.println("JVM_ENCODING ->" + SysUtil.JVM_ENCODING);
-        String str = "中文的字符串,编码结果会应项目的编译和JVM的运行环境不痛有所影响";
-        System.out.println("str: " + str + "字符串的编码:" + StringUtil.SimpleEncoding(str));
-        System.out.println("str: " + str + "字符串的编码:" + StringUtil.cpDetector(str));
+        String str = "中文的字符串,编码结果会应项目的编译和JVM的运行环境有所影响";
+        System.out.println("str: " + str + "\t字符串的编码:" + StringUtil.cpDetector(str));
         String gbk = CharsetUtil.toGBK(str);
         System.out.println("转换成GBK码: " + gbk);
         String ascii = CharsetUtil.toASCII(str);
