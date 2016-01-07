@@ -641,7 +641,7 @@ public class FileUtil {
                     list.addAll(searchFile(file, reg));
                 } else {
                     String Name = file.getName();
-                    if (RegUtil.isMatche(Name, reg)) {
+                    if (RegUtil.matcher(Name, reg)) {
                         list.add(file);
                     }
                 }
