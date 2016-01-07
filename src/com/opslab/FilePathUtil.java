@@ -14,7 +14,7 @@ public class FilePathUtil {
         //下面的正则表达式有问题
         String regex = "[a-zA-Z]:(?:[/][^/:*?\"<>|.][^/:*?\"<>|]{0,254})+";
         //String regex ="^([a-zA-z]:)|(^\\.{0,2}/)|(^\\w*)\\w([^:?*\"><|]){0,250}";
-        return RegUtil.isMatche(commandPath(path), regex);
+        return RegUtil.matcher(commandPath(path), regex);
     }
 
     /**
