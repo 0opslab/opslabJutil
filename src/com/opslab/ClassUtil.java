@@ -107,8 +107,9 @@ public class ClassUtil {
         if (null != fileNames) {
             List<String> temp = new ArrayList<String>();
             for (String t : fileNames) {
-                t = t.substring(t.indexOf(packageName), t.length());
-                temp.add(t);
+                t = t.substring(t.indexOf(packagePath), t.length());
+                temp.add(t.replaceAll("/","."));
+
             }
             fileNames = temp;
         }
