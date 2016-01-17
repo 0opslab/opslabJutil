@@ -4,7 +4,9 @@ package com.opslab;
 import org.junit.Test;
 
 import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 
@@ -31,10 +33,10 @@ public class StringUtilTest {
     @Test
     public void testjoinString() {
         String[] arr = new String[]{"MySQL", "ORACLE", "MSSQL", "NOSQL"};
-        assertEquals("MySQL/ORACLE/MSSQL/NOSQL", StringUtil.joinString(arr, "/"));
+        assertEquals("MySQL/ORACLE/MSSQL/NOSQL", StringUtil.join(arr, "/"));
 
-        List<String> list = StringUtil.parseString2List(StringUtil.joinString(arr, "/"), "/");
-        assertEquals("MySQL:ORACLE:MSSQL:NOSQL", StringUtil.joinString(list, ":"));
+        List<String> list = StringUtil.parseString2List(StringUtil.join(arr, "/"), "/");
+        assertEquals("MySQL:ORACLE:MSSQL:NOSQL", StringUtil.join(list, ":"));
 
     }
 
@@ -175,11 +177,22 @@ public class StringUtilTest {
     }
 
     @Test
+    public void testJoin(){
+        Map<String,String> map = new HashMap<String,String>();
+        map.put("AAA", "AAA1");
+        map.put("BBB", "BBB1");
+        map.put("CCC", "CCC1");
+        map.put("DDD", "DDD1");
+
+        PrintUtil.print(StringUtil.join(map));
+    }
+
+    @Test
     public void testBracketStr(){
         String str1="（全角）";
         assertEquals("(全角)", StringUtil.full2Half(str1));
         String str2="(全角)";
-        assertEquals("（全角）",StringUtil.Half2Full(str2));
+        assertEquals("（全角）",StringUtil.half2Full(str2));
     }
 
     @Test
