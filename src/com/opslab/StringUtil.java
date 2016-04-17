@@ -30,7 +30,7 @@ public class StringUtil {
      * @param symbol 链接的符号
      * @return 处理后的字符串
      */
-    public static String join(List list, String symbol) {
+    public static String joinString(List list, String symbol) {
         String result = "";
         if (list != null) {
             for (Object o : list) {
@@ -119,77 +119,27 @@ public class StringUtil {
         return temp;
     }
 
-    /**
-     * 将数组对象链接成字符串
-     * @param arr
-     * @return
-     */
-    public static String join(Object[] arr){
-        if(arr == null || arr.length == 0){
-            return "";
-        }
-        StringBuffer result = new StringBuffer();
-        for (int i = 0; i < arr.length; i++) {
-            result.append( arr[i] );
-        }
-        return result.toString();
-    }
 
     /**
-     * 将集合对象转成字符串
-     * list/queue -> item:item
+     * 把string array or list用给定的符号symbol连接成一个字符串
      *
-     * @return
+     * @param array  需要处理的字符串数组
+     * @param symbol 链接的符号
+     * @return 处理后的字符串
      */
-    public static  String join(List<?> list){
-        if(list == null || list.size() == 0){
-            return "";
+    public static String joinString(String[] array, String symbol) {
+        String result = "";
+        if (array != null) {
+            for (String temp : array) {
+                if (temp != null && temp.trim().length() > 0)
+                    result += (temp + symbol);
+            }
+            if (result.length() > 1 && ValidUtil.isValid(symbol)) {
+                result = result.substring(0, result.length() - symbol.length());
+            }
         }
-        StringBuffer result = new StringBuffer();
-        for(Object obj:list){
-            result.append(obj.toString());
-        }
-        return result.toString();
+        return result;
     }
-
-    /**
-     * 将集合对象转成字符串
-     * map/ -> key(vale):key(vale)
-     * @param map
-     * @return
-     */
-    public static String join(Map<?,?> map){
-        if(map == null || map.size() == 0){
-            return "";
-        }
-        StringBuffer result = new StringBuffer();
-        for (Map.Entry<?,?> entry : map.entrySet()) {
-            result.append(entry.getKey() + "(" + entry.getValue() + "):");
-        }
-        result.delete(result.length() - 1, result.length());
-        return result.toString();
-    }
-
-    /**
-     * 将数组对象链接成字符串
-     * @param arr
-     * @param jion
-     * @return
-     */
-    public static String join(Object[] arr,String jion){
-        if(arr == null || arr.length == 0){
-            return "";
-        }
-        StringBuffer result = new StringBuffer();
-        for (int i = 0; i < arr.length; i++) {
-            result.append( arr[i] );
-            result.append(jion);
-        }
-        result.delete(result.length() - jion.length(), result.length());
-        return result.toString();
-    }
-
-
 
 
     /**
@@ -331,7 +281,7 @@ public class StringUtil {
      * @param str 需要处理的字符串
      * @return 处理后的字符串
      */
-    public static String half2Full(String str){
+    public static String Half2Full(String str){
         if(isEmpty(str)){
             return "";
         }
@@ -565,5 +515,27 @@ public class StringUtil {
             cs[0] += (char) 0x20;
         }
         return String.valueOf(cs);
+    }
+
+    /**
+     * 判读俩个字符串右侧的length个字符串是否一样
+     * @param str1
+     * @param str2
+     * @param length
+     * @return
+     */
+    public static boolean rigthEquals(String str1,String str2,int length){
+        return right(str1,length).equals(right(str2,length));
+    }
+
+    /**
+     * 判读俩个字符串左侧的length个字符串是否一样
+     * @param str1
+     * @param str2
+     * @param length
+     * @return
+     */
+    public static boolean leftEquals(String str1,String str2,int length){
+        return left(str1,length).equals(left(str2,length));
     }
 }

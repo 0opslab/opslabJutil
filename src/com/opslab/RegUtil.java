@@ -169,11 +169,10 @@ public class RegUtil {
      * @param reg 正则
      * @return 是否匹配
      */
-    public static boolean matcher(String str, String reg) {
-        if(str == null || "".equals(str)){
-            return false;
-        }
-        return Pattern.compile(reg).matcher(str).matches();
+    public static boolean isMatche(String str, String reg) {
+        Pattern pattern = Pattern.compile(reg);
+        Matcher isNum   = pattern.matcher(str);
+        return isNum.matches();
     }
 
     /**

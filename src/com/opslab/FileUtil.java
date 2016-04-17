@@ -456,16 +456,6 @@ public class FileUtil {
         return cleanFile(file) && file.delete();
     }
 
-    /**
-     * 罗列指定路径下的全部文件
-     *
-     * @param path 需要处理的文件
-     * @return 包含所有文件的的list
-     */
-    public static List<File> listFile(String path) {
-        File file = new File(path);
-        return listFile(file);
-    }
 
     /**
      * 复制目录
@@ -506,6 +496,28 @@ public class FileUtil {
      * 罗列指定路径下的全部文件
      *
      * @param path 需要处理的文件
+     * @return 包含所有文件的的list
+     */
+    public static List<File> listFile(String path) {
+        File file = new File(path);
+        return listFile(file);
+    }
+
+    /**
+     * 罗列指定路径下的全部文件
+     * @param path 需要处理的文件
+     * @param child 是否罗列子文件
+     * @return 包含所有文件的的list
+     */
+    public static List<File> listFile(String path,boolean child){
+        return listFile(new File(path),child);
+    }
+
+
+    /**
+     * 罗列指定路径下的全部文件
+     *
+     * @param path 需要处理的文件
      * @return 返回文件列表
      */
     public static List<File> listFile(File path) {
@@ -514,6 +526,27 @@ public class FileUtil {
         if (ValidUtil.isValid(files)) {
             for (File file : files) {
                 if (file.isDirectory()) {
+                    list.addAll(listFile(file));
+                } else {
+                    list.add(file);
+                }
+            }
+        }
+        return list;
+    }
+
+    /**
+     * 罗列指定路径下的全部文件
+     * @param path 指定的路径
+     * @param child 是否罗列子目录
+     * @return
+     */
+    public static List<File> listFile(File path,boolean child){
+        List<File> list = new ArrayList<>();
+        File[] files = path.listFiles();
+        if (ValidUtil.isValid(files)) {
+            for (File file : files) {
+                if (child && file.isDirectory()) {
                     list.addAll(listFile(file));
                 } else {
                     list.add(file);
@@ -641,7 +674,7 @@ public class FileUtil {
                     list.addAll(searchFile(file, reg));
                 } else {
                     String Name = file.getName();
-                    if (RegUtil.matcher(Name, reg)) {
+                    if (RegUtil.isMatche(Name, reg)) {
                         list.add(file);
                     }
                 }

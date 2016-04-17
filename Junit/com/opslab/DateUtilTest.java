@@ -249,6 +249,12 @@ public class DateUtilTest {
         assertEquals("计算有误", DateUtil.subtimeBurst("2015-01-05 20:59:02", "2015-01-06 21:00:00", "08:00-21:00"), 58L + (21 - 8) * 60 * 60);
 
         assertEquals("计算有误", DateUtil.subtimeBurst("2015-01-05 20:59:02", "2015-01-07 08:00:57", "08:00-21:00"), (21 - 8) * 3600 + 115L);
+        assertEquals("计算有误",DateUtil.subtimeBurst("2016-03-08 14:37:03","2016-03-09 09:37:03","08:30-17:30"),16 *60 * 60);
+    }
+
+    @Test
+    public void testCalculate23(){
+        System.out.println(DateUtil.DateTime(DateUtil.calculate("2016-03-08 14:38:23", 2*3600, "08:30-17:30")));
     }
 
     @Test
@@ -261,6 +267,7 @@ public class DateUtilTest {
 
         assertEquals("计算有误", DateUtil.DateTime(DateUtil.calculate("2015-01-29 08:32:00", -35, "08:00-21:00")), "2015-01-29 08:31:25");
         assertEquals("计算有误", DateUtil.DateTime(DateUtil.calculate("2015-01-29 08:00:30", -35, "08:00-21:00")), "2015-01-28 20:59:55");
+        assertEquals("计算有误", DateUtil.DateTime(DateUtil.calculate("2016-03-08 14:37:03", 16 * 60 * 60, "08:30-17:30")), "2015-01-28 20:59:55");
         assertEquals("计算有误", DateUtil.DateTime(DateUtil.calculate("2015-01-29 08:00:30", Integer.parseInt("-" + (35 + 3600 * 13)), "08:00-21:00")), "2015-01-27 20:59:55");
         assertEquals("计算有误", DateUtil.DateTime(DateUtil.calculate("2015-01-29 21:30:30", 35 + 3600 * 14, "08:00-21:00")), "2015-01-31 09:00:35");
         assertEquals("计算有误", DateUtil.DateTime(DateUtil.calculate("2015-01-29 08:32:00", 3600 * 14, "08:00-21:00")), "2015-01-30 09:32:00");

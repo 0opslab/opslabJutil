@@ -14,7 +14,7 @@ public class FilePathUtil {
         //下面的正则表达式有问题
         String regex = "[a-zA-Z]:(?:[/][^/:*?\"<>|.][^/:*?\"<>|]{0,254})+";
         //String regex ="^([a-zA-z]:)|(^\\.{0,2}/)|(^\\w*)\\w([^:?*\"><|]){0,250}";
-        return RegUtil.matcher(commandPath(path), regex);
+        return RegUtil.isMatche(commandPath(path), regex);
     }
 
     /**
@@ -25,7 +25,7 @@ public class FilePathUtil {
      * Summary windows中路径分隔符是\在linux中是/但windows也支持/方式 故全部使用/
      */
     public static String commandPath(String file) {
-        return file.replaceAll("\\\\", "/").replaceAll("//", "/");
+        return file.replaceAll("\\\\{1,}", "/").replaceAll("\\/{2,}", "/");
     }
 
 

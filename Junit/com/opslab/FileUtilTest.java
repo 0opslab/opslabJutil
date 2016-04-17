@@ -191,6 +191,16 @@ public class FileUtilTest extends SupportTest {
     }
 
     @Test
+    public void testListFile1(){
+        String     path  = System.getProperty("user.dir") + "/Junit/Resource/temp/";
+        List<File> files = FileUtil.listFile(path, false);
+        PrintUtil.print(files);
+        System.out.println("=============");
+        files = FileUtil.listFile(path,true);
+        PrintUtil.print(files);
+    }
+
+    @Test
     public void testCopyDirs() {
         System.out.println("复制文件夹");
         String path = System.getProperty("user.dir") + "/Junit/Resource/temp";
