@@ -17,8 +17,10 @@ public class FilePathUtilTest {
 
     @org.junit.Test
     public void testCommandPath() throws Exception {
-        Assert.assertEquals("路径计算错误", FilePathUtil.commandPath("//home/scott"), "/home/scott");
+        assertEquals("路径计算错误", FilePathUtil.commandPath("//home/scott"), "/home/scott");
+        assertEquals("路径计算错误", FilePathUtil.commandPath("///home/scott"), "/home/scott");
         assertEquals("路径计算错误", FilePathUtil.commandPath("c:\\home\\scott"), "c:/home/scott");
+        assertEquals("路径计算错误", FilePathUtil.commandPath("c:\\\\\\home\\scott"), "c:/home/scott");
     }
 
 

@@ -4,9 +4,7 @@ package com.opslab;
 import org.junit.Test;
 
 import java.io.UnsupportedEncodingException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import static org.junit.Assert.assertEquals;
 
@@ -33,21 +31,29 @@ public class StringUtilTest {
     @Test
     public void testjoinString() {
         String[] arr = new String[]{"MySQL", "ORACLE", "MSSQL", "NOSQL"};
-        assertEquals("MySQL/ORACLE/MSSQL/NOSQL", StringUtil.join(arr, "/"));
+        assertEquals("MySQL/ORACLE/MSSQL/NOSQL", StringUtil.joinString(arr, "/"));
 
-        List<String> list = StringUtil.parseString2List(StringUtil.join(arr, "/"), "/");
-        assertEquals("MySQL:ORACLE:MSSQL:NOSQL", StringUtil.join(list, ":"));
+        List<String> list = StringUtil.parseString2List(StringUtil.joinString(arr, "/"), "/");
+        assertEquals("MySQL:ORACLE:MSSQL:NOSQL", StringUtil.joinString(list, ":"));
 
     }
 
     @Test
     public void testLeftRigth() throws UnsupportedEncodingException {
+        //正常字符串测试
         String str1 = "java-utils.jar";
         assertEquals("jar", StringUtil.right(str1, 3));
         assertEquals("java", StringUtil.left(str1, 4));
-        String str2 = "每样东西都有根本有枝末，每件事情都有开始有终结。明白了这本末始终的道理，就接近事物发展的规律了。";
-        assertEquals("每样东西都有根本有枝末", StringUtil.left(str2, 11));
-        assertEquals("每样东西都有根本有枝末，", StringUtil.left(str2, 12));
+
+        //非正常测试
+        String str2 = "ar";
+        PrintUtil.print(StringUtil.right(str2, 3));
+        PrintUtil.print(StringUtil.left(str2, 4));
+
+
+        String str3 = "每样东西都有根本有枝末，每件事情都有开始有终结。明白了这本末始终的道理，就接近事物发展的规律了。";
+        assertEquals("每样东西都有根本有枝末", StringUtil.left(str3, 11));
+        assertEquals("每样东西都有根本有枝末，", StringUtil.left(str3, 12));
 
     }
 
@@ -177,22 +183,11 @@ public class StringUtilTest {
     }
 
     @Test
-    public void testJoin(){
-        Map<String,String> map = new HashMap<String,String>();
-        map.put("AAA", "AAA1");
-        map.put("BBB", "BBB1");
-        map.put("CCC", "CCC1");
-        map.put("DDD", "DDD1");
-
-        PrintUtil.print(StringUtil.join(map));
-    }
-
-    @Test
     public void testBracketStr(){
         String str1="（全角）";
         assertEquals("(全角)", StringUtil.full2Half(str1));
         String str2="(全角)";
-        assertEquals("（全角）",StringUtil.half2Full(str2));
+        assertEquals("（全角）",StringUtil.Half2Full(str2));
     }
 
     @Test
@@ -213,5 +208,17 @@ public class StringUtilTest {
         String str = "OperationName";
         assertEquals("operationName",StringUtil.lowerFirstChar(str));
         assertEquals(str,StringUtil.upperFirstChar("operationName"));
+    }
+
+    @Test
+    public void testRigthEquals() throws Exception {
+
+        assertEquals(true, StringUtil.rigthEquals("utils/StringUtil.java", "utils/StringUtil.java", 5));
+
+    }
+
+    @Test
+    public void testLeftEquals() throws Exception {
+        assertEquals(true, StringUtil.leftEquals("utils/StringUtil", "utils/EmailUitl", 6));
     }
 }

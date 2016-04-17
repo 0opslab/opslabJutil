@@ -27,6 +27,13 @@ public class ClassUtilTest {
         }
     }
 
+
+    @Test
+    public void testgetClassNameByFile(){
+        String file = System.getProperty("user.dir")+"/out/production/utils";
+        List<String> classNames = ClassUtil.getClassNameByFile(file, true);
+        PrintUtil.print(classNames);
+    }
     @Test
     public void testGetClass() {
         System.out.println("============所有类================");
@@ -34,7 +41,11 @@ public class ClassUtilTest {
         for (String str : classNames) {
             System.out.println(str);
         }
+
+
     }
+
+
 
     @Test
     public void testGetterAndSetter() throws InvocationTargetException, IllegalAccessException {
@@ -44,6 +55,36 @@ public class ClassUtilTest {
         ClassUtil.setter(log, "operationName", "setter-method-test", String.class);
         System.out.println(log);
 
+    }
+
+    /**
+     * 测试从jar包中获取到类名字
+     */
+    @Test
+    public void testGetClassByJar(){
+        String jarPath = System.getProperty("user.dir")+"/lib/mail.jar";
+        List<String> classNameList = ClassUtil.getClassNameByJar(jarPath);
+        PrintUtil.print(classNameList);
+    }
+
+    /**
+     * 获取jar包中的所有的资源文件
+     */
+    @Test
+    public void testGetResourceByJar(){
+        String jarPath = System.getProperty("user.dir")+"/lib/mail.jar";
+        List<String> resourceNames = ClassUtil.getResourceNameByJar(jarPath);
+        PrintUtil.print(resourceNames);
+    }
+
+    /**
+     * 获取jar包中的自定类型的资源
+     */
+    @Test
+    public void testGetResourceByJar1(){
+        String jarPath = System.getProperty("user.dir")+"/lib/mail.jar";
+        List<String> resourceNames = ClassUtil.getResourceNameByJar(jarPath,".xml");
+        PrintUtil.print(resourceNames);
     }
 
 }

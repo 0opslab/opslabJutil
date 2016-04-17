@@ -13,6 +13,33 @@ import java.util.Map;
  * 对DateUtil的测试实例的引用
  */
 public class DateUtilUsagesTest {
+
+    @Test
+    public void testList(){
+        File file = new File(System.getProperty("user.dir") + "/Junit/Resource/TimeCount.txt");
+        List<String> lines = FileUtil.lines(file);
+        Map<String,Integer> group = new HashMap<String,Integer>();
+        String key ="";
+        for(String line:lines) {
+            line = line.replaceAll("^\\t","").replaceAll("\\t",":");
+            String[] tt = line.split(":");
+
+            if(tt.length == 2){
+                key = tt[0];
+                if(!group.containsKey(key)){
+                    group.put(key,0);
+                }
+                int count = Integer.parseInt(tt[1]) + group.get(key);
+                group.put(key,count);
+            }else{
+                int count = Integer.parseInt(tt[0]) + group.get(key);
+                group.put(key,count);
+            }
+        }
+        PrintUtil.print(group);
+    }
+
+
     @Test
     public void testListLine() throws ParseException {
         File file = new File(System.getProperty("user.dir") + "/Junit/Resource/time.txt");
