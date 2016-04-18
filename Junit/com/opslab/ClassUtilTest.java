@@ -17,14 +17,46 @@ public class ClassUtilTest {
             System.out.println(f);
         }
     }
+    @Test
+    public void testProtectedMetod() throws ClassNotFoundException {
+        System.out.println("=============获取自定义的Protected类型的方法==========");
+        String[] methods = ClassUtil.getProtectedMethod("com.opslab.bean.BeanUtil", false);
+        for (String m : methods) {
+            System.out.println(m);
+        }
+        System.out.println("=============获取自定义的和继承的Protected类型的方法==========");
+        methods = ClassUtil.getProtectedMethod("com.opslab.bean.BeanUtil", true);
+        for (String m : methods) {
+            System.out.println(m);
+        }
+    }
+    @Test
+    public void testPublicMetod() throws ClassNotFoundException {
+        System.out.println("=============获取自定义的public类型的方法==========");
+        String[] methods = ClassUtil.getPublicMethod("com.opslab.bean.BeanUtil", false);
+        for (String m : methods) {
+            System.out.println(m);
+        }
+        System.out.println("=============获取自定义的和继承的public类型的方法==========");
+        methods = ClassUtil.getPublicMethod("com.opslab.bean.BeanUtil", true);
+        for (String m : methods) {
+            System.out.println(m);
+        }
+    }
 
     @Test
     public void testMetod() throws ClassNotFoundException, InvocationTargetException, IllegalAccessException {
         System.out.println("============所有方法================");
-        String[] methods = ClassUtil.getMethod("com.opslab.StringUtil");
+        String[] methods = ClassUtil.getMethod("com.opslab.StringUtil",false);
         for (String m : methods) {
             System.out.println(m);
         }
+        System.out.println("=========自定义的方法和继承来的方法===========");
+        methods = ClassUtil.getMethod("com.opslab.StringUtil",true);
+        for (String m : methods) {
+            System.out.println(m);
+        }
+
     }
 
 

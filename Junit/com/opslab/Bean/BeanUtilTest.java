@@ -120,20 +120,20 @@ public class BeanUtilTest extends TestCase {
         Log bean2 = new Log();
 
         BeanUtil.copyProperty(bean1, bean2, new String[]{"operationName"});
-        PrintUtil.print(bean2);
+        System.out.println(bean2);
 
         Log bean3 = new Log();
         BeanUtil.copyProperties(bean1, bean3);
-        PrintUtil.print(bean3);
+        System.out.println(bean3);
 
 
         Log2 bean4 = new Log2();
         BeanUtil.copyPropertiesIgnoreCase(bean1, bean4);
-        PrintUtil.print(bean4);
+        System.out.println(bean4);
 
         Log bean5 = new Log();
         BeanUtil.copyPropertyPeaceful(bean1, bean5, new String[]{"operationName"});
-        PrintUtil.print(bean4);
+        System.out.println(bean4);
     }
 
     @Test
