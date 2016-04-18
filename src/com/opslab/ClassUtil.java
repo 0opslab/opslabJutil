@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.net.URL;
 import java.util.*;
 import java.util.jar.JarEntry;
@@ -38,17 +39,108 @@ public class ClassUtil {
     }
 
     /**
+     * 获取对象的全部public类型方法
+     *
+     * @param className 需要获取的类名
+     * @param extendsMethod 是否获取继承来的方法
+     * @return 方法名数组
+     * @throws ClassNotFoundException
+     */
+    public static String[] getPublicMethod(String className,boolean extendsMethod)throws ClassNotFoundException {
+        Class classz = Class.forName(className);
+        Method[] methods;
+        if(extendsMethod){
+            methods = classz.getMethods();
+        }else{
+            methods  = classz.getDeclaredMethods();
+        }
+        Set<String> set = new HashSet<>();
+        if(methods != null){
+            for (Method f : methods) {
+                String modifier = Modifier.toString(f.getModifiers());
+                if(modifier.startsWith("public ")){
+                    set.add(f.getName());
+                }
+            }
+        }
+        return set.toArray(new String[set.size()]);
+    }
+    /**
+     * 获取对象的全部protected类型方法
+     *
+     * @param className 需要获取的类名
+     * @param extendsMethod 是否获取继承来的方法
+     * @return 方法名数组
+     * @throws ClassNotFoundException
+     */
+    public static String[] getProtectedMethod(String className,boolean extendsMethod)throws ClassNotFoundException {
+        Class classz = Class.forName(className);
+        Method[] methods;
+        if(extendsMethod){
+            methods = classz.getMethods();
+        }else{
+            methods  = classz.getDeclaredMethods();
+        }
+        Set<String> set = new HashSet<>();
+        if(methods != null){
+            for (Method f : methods) {
+                String modifier = Modifier.toString(f.getModifiers());
+                if(modifier.startsWith("protected ")){
+                    set.add(f.getName());
+                }
+            }
+        }
+        return set.toArray(new String[set.size()]);
+    }
+    /**
+     * 获取对象的全部private类型方法
+     *
+     * @param className 需要获取的类名
+     * @param extendsMethod 是否获取继承来的方法
+     * @return 方法名数组
+     * @throws ClassNotFoundException
+     */
+    public static String[] getPrivateMethod(String className,boolean extendsMethod)throws ClassNotFoundException {
+        Class classz = Class.forName(className);
+        Method[] methods;
+        if(extendsMethod){
+            methods = classz.getMethods();
+        }else{
+            methods  = classz.getDeclaredMethods();
+        }
+        Set<String> set = new HashSet<>();
+        if(methods != null){
+            for (Method f : methods) {
+                String modifier = Modifier.toString(f.getModifiers());
+                if(modifier.startsWith("private ")){
+                    set.add(f.getName());
+                }
+            }
+        }
+        return set.toArray(new String[set.size()]);
+    }
+
+    /**
      * 获取对象的全部方法
      *
      * @param className 需要获取的类名
+     * @param extendsMethod 是否获取继承来的方法
      * @return 方法名数组
+     * @throws ClassNotFoundException
      */
-    public static String[] getMethod(String className) throws ClassNotFoundException {
+    public static String[] getMethod(String className,boolean extendsMethod) throws ClassNotFoundException {
         Class classz = Class.forName(className);
-        Method[] methods = classz.getMethods();
+        Method[] methods;
+        if(extendsMethod){
+            methods = classz.getMethods();
+        }else{
+            methods  = classz.getDeclaredMethods();
+        }
         Set<String> set = new HashSet<>();
-        for (Method f : methods) {
-            set.add(f.getName());
+        if(methods != null){
+            for (Method f : methods) {
+                set.add(f.getName());
+            }
         }
         return set.toArray(new String[set.size()]);
     }
