@@ -125,12 +125,15 @@ public class BeanUtilTest extends TestCase {
         Log bean3 = new Log();
         BeanUtil.copyProperties(bean1, bean3);
         System.out.println(bean3);
+        BeanUtil.copyPropertiesPeaceful(bean1, bean3);
+        System.out.println(bean3);
 
 
         Log2 bean4 = new Log2();
         BeanUtil.copyPropertiesIgnoreCase(bean1, bean4);
         System.out.println(bean4);
-
+        BeanUtil.copyPropertiesIgnoreCasePeaceful(bean1, bean4);
+        System.out.println(bean4);
         Log bean5 = new Log();
         BeanUtil.copyPropertyPeaceful(bean1, bean5, new String[]{"operationName"});
         System.out.println(bean4);
@@ -148,6 +151,12 @@ public class BeanUtilTest extends TestCase {
         PrintUtil.print("复制前:" + bean1);
         PrintUtil.print("复制前:" + bean2);
         BeanUtil.copyProperties(bean1, bean2, new PropertyFilter() {
+            @Override
+            public String Properties(String pro) {
+                return StringUtil.remove(pro, "_").toLowerCase().replaceAll("yy", "ty");
+            }
+        });
+        BeanUtil.copyPropertiesPeaceful(bean1, bean2, new PropertyFilter() {
             @Override
             public String Properties(String pro) {
                 return StringUtil.remove(pro, "_").toLowerCase().replaceAll("yy", "ty");

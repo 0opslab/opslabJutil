@@ -455,6 +455,33 @@ public class BeanUtil {
     }
 
     /**
+     * 复制同名属性
+     *
+     * @param srcBean  源Bean
+     * @param destBean 目标Bean
+     */
+    public static void copyPropertiesPeaceful(Object srcBean, Object destBean) {
+        add(srcBean);
+        add(destBean);
+        Map<String,BeanStruct> srcMap       = simpleProperties(srcBean);
+        Map<String,BeanStruct> dstMap       = simpleProperties(destBean);
+        Map<String,BeanStruct> intersection = CollectionUtil.intersection(srcMap, dstMap);
+        for (Map.Entry<String,BeanStruct> entry : intersection.entrySet()) {
+            String key = entry.getKey();
+            try{
+                //为什么会将try写在里面而不是foreach的外面？
+                //如果你想尽可能多的复制属性的话你可以
+                Object value = readMethod(srcBean, getReadMethod(srcBean, key));
+                writeMethod(destBean, getWriteMethod(destBean, key), value);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InvocationTargetException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    /**
      * 复制同名属性(忽略大小写)
      *
      * @param srcBean  原Bean
@@ -473,6 +500,33 @@ public class BeanUtil {
             String key = (String) entry.getKey();
             Object value = readMethod(srcBean, getReadMethodIgnore(srcBean, key));
             writeMethod(destBean, getWriteMethodIgnore(destBean, key), value);
+        }
+    }
+
+    /**
+     * 复制同名属性(忽略大小写)
+     *
+     * @param srcBean  原Bean
+     * @param destBean 目标Bean
+     */
+    public static void copyPropertiesIgnoreCasePeaceful(Object srcBean, Object destBean)  {
+        add(srcBean);
+        add(destBean);
+        Map<String,BeanStruct> srcMap       = simplePropertiesIgnore(srcBean);
+        Map<String,BeanStruct> dstMap       = simplePropertiesIgnore(destBean);
+        Map<String,BeanStruct> intersection = CollectionUtil.intersection(srcMap, dstMap);
+        for (Map.Entry entry : intersection.entrySet()) {
+            String key = (String) entry.getKey();
+            Object value = null;
+            try {
+                value = readMethod(srcBean, getReadMethodIgnore(srcBean, key));
+                writeMethod(destBean, getWriteMethodIgnore(destBean, key), value);
+            } catch (InvocationTargetException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+
         }
     }
 
@@ -509,6 +563,47 @@ public class BeanUtil {
                     String dstKey = dstMapFilter.get(key);
                     Object value = readMethod(srcBean, getReadMethod(srcBean, srcKey));
                     writeMethod(destBean, getWriteMethod(destBean, dstKey), value);
+                }
+            }
+        }
+    }
+
+    /**
+     * 使用自定义的属性过滤函数
+     *
+     * @param srcBean  原Bean
+     * @param destBean 目标bean
+     * @param filter   自定义的过滤函数
+     */
+    public static void copyPropertiesPeaceful(Object srcBean, Object destBean, PropertyFilter filter)  {
+        add(srcBean);
+        add(destBean);
+        Map<String,BeanStruct> srcMap = simpleProperties(srcBean);
+        Map<String,BeanStruct> dstMap = simpleProperties(destBean);
+        if (ValidUtil.isValid(srcMap, dstMap)) {
+            Map<String,String> srcMapFilter = new HashMap<>();
+            Map<String,String> dstMapFilter = new HashMap<>();
+            for (Map.Entry<String,BeanStruct> entry : srcMap.entrySet()) {
+                srcMapFilter.put(filter.Properties(entry.getKey()), entry.getKey());
+            }
+            for (Map.Entry<String,BeanStruct> entry : dstMap.entrySet()) {
+                dstMapFilter.put(filter.Properties(entry.getKey()), entry.getKey());
+            }
+            Map<String,String> intersection = CollectionUtil.intersection(srcMapFilter, dstMapFilter);
+            if (ValidUtil.isValid(intersection)) {
+                for (Map.Entry<String,String> entry : intersection.entrySet()) {
+                    String key = entry.getKey();
+                    String srcKey = srcMapFilter.get(key);
+                    String dstKey = dstMapFilter.get(key);
+                    try {
+                        Object value = readMethod(srcBean, getReadMethod(srcBean, srcKey));
+                        writeMethod(destBean, getWriteMethod(destBean, dstKey), value);
+                    } catch (InvocationTargetException e) {
+                        e.printStackTrace();
+                    } catch (IllegalAccessException e) {
+                        e.printStackTrace();
+                    }
+
                 }
             }
         }
