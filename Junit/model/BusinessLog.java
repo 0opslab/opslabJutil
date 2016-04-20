@@ -7,6 +7,10 @@ public class BusinessLog extends Log {
 
     private String operation_type;
 
+    public String operationUser;
+
+    protected String result;
+
     public String getOperationName() {
         return operationName;
     }

@@ -12,8 +12,40 @@ public class ClassUtilTest {
     @Test
     public void testField() throws ClassNotFoundException, InvocationTargetException, IllegalAccessException {
         System.out.println("=============所有字段===============");
-        String[] fields = ClassUtil.getField("com.opslab.RegUtil");
+        String[] fields = ClassUtil.getField("model.BusinessLog",true);
         for (String f : fields) {
+            System.out.println(f);
+        }
+    }
+
+    @Test
+    public void testPublicField() throws ClassNotFoundException {
+        System.out.println("=============获取类中的全部public属性包括继承的==========");
+        String[] fields = ClassUtil.getPublicField("model.BusinessLog", true);
+        for(String f:fields){
+            System.out.println(f);
+        }
+        System.out.println("=============获取类中的自定义public属性包括继承的==========");
+        String[] fieldz = ClassUtil.getPublicField("model.BusinessLog", false);
+        for(String f:fieldz){
+            System.out.println(f);
+        }
+    }
+
+    @Test
+    public void testProtectedField() throws ClassNotFoundException {
+        System.out.println("=============获取类中自定义的protected类型的属性==============");
+        String[] field = ClassUtil.getProtectedField("model.BusinessLog");
+        for(String f:field){
+            System.out.println(f);
+        }
+    }
+
+    @Test
+    public void testPrivateField() throws ClassNotFoundException {
+        System.out.println("=============获取类中自定义的private类型的属性==============");
+        String[] field = ClassUtil.getPrivateField("model.BusinessLog");
+        for(String f:field){
             System.out.println(f);
         }
     }
