@@ -1,7 +1,7 @@
 package model;
 
 
-public class BusinessLog extends Log {
+public class BusinessLog extends Log implements interfaces{
 
     private String operationName;
 
