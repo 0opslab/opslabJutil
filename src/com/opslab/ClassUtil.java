@@ -22,22 +22,99 @@ public class ClassUtil {
      * 获取指定类的全部属性字段
      *
      * @param className 需要获取的类名
+     * @param extendsField 是否获取接口或父类中的公共属性
      * @return 属性字段数组
      */
-    public static String[] getField(String className) throws ClassNotFoundException {
+    public static String[] getField(String className,boolean extendsField) throws ClassNotFoundException {
         Class classz = Class.forName(className);
         Field[] fields = classz.getFields();
-        Field[] fieldz = classz.getDeclaredFields();
         Set<String> set = new HashSet<>();
-        for (Field f : fields) {
-            set.add(f.getName());
+        if(fields != null){
+            for (Field f : fields) {
+                set.add(f.getName());
+            }
         }
-        for (Field f : fieldz) {
-            set.add(f.getName());
+        if(extendsField){
+            Field[] fieldz = classz.getDeclaredFields();
+            if(fieldz != null){
+                for (Field f : fieldz) {
+                    set.add(f.getName());
+                }
+            }
         }
         return set.toArray(new String[set.size()]);
     }
 
+    /**
+     * 获取类中的公共属性
+     * @param className 需要获取的类名
+     * @param extendsField 是否获取接口或父类中的公共属性
+     * @return 属性字段数组
+     */
+    public static String[] getPublicField(String className,boolean extendsField)throws ClassNotFoundException {
+        Class classz = Class.forName(className);
+        Set<String> set = new HashSet<>();
+        Field[] fields = classz.getDeclaredFields();
+        if(fields != null){
+            for (Field f : fields) {
+                String modifier = Modifier.toString(f.getModifiers());
+                if(modifier.startsWith("public")){
+                    set.add(f.getName());
+                }
+            }
+        }
+        if(extendsField){
+            Field[] fieldz = classz.getFields();
+            if(fieldz != null){
+                for (Field f : fieldz) {
+                    set.add(f.getName());
+                }
+            }
+        }
+        return set.toArray(new String[set.size()]);
+    }
+
+    /**
+     * 获取类中定义的protected类型的属性字段
+     * @param className 需要获取的类名
+     * @return
+     * @throws ClassNotFoundException
+     */
+    public static String[] getProtectedField(String className) throws ClassNotFoundException {
+        Class classz = Class.forName(className);
+        Set<String> set = new HashSet<>();
+        Field[] fields = classz.getDeclaredFields();
+        if(fields != null){
+            for (Field f : fields) {
+                String modifier = Modifier.toString(f.getModifiers());
+                if(modifier.startsWith("protected")){
+                    set.add(f.getName());
+                }
+            }
+        }
+        return set.toArray(new String[set.size()]);
+    }
+
+    /**
+     * 获取类中定义的private类型的属性字段
+     * @param className 需要获取的类名
+     * @return
+     * @throws ClassNotFoundException
+     */
+    public static String[] getPrivateField(String className) throws ClassNotFoundException {
+        Class classz = Class.forName(className);
+        Set<String> set = new HashSet<>();
+        Field[] fields = classz.getDeclaredFields();
+        if(fields != null){
+            for (Field f : fields) {
+                String modifier = Modifier.toString(f.getModifiers());
+                if(modifier.startsWith("private")){
+                    set.add(f.getName());
+                }
+            }
+        }
+        return set.toArray(new String[set.size()]);
+    }
     /**
      * 获取对象的全部public类型方法
      *
@@ -58,13 +135,15 @@ public class ClassUtil {
         if(methods != null){
             for (Method f : methods) {
                 String modifier = Modifier.toString(f.getModifiers());
-                if(modifier.startsWith("public ")){
+                if(modifier.startsWith("public")){
                     set.add(f.getName());
                 }
             }
         }
         return set.toArray(new String[set.size()]);
     }
+
+
     /**
      * 获取对象的全部protected类型方法
      *
@@ -85,7 +164,7 @@ public class ClassUtil {
         if(methods != null){
             for (Method f : methods) {
                 String modifier = Modifier.toString(f.getModifiers());
-                if(modifier.startsWith("protected ")){
+                if(modifier.startsWith("protected")){
                     set.add(f.getName());
                 }
             }
@@ -112,7 +191,7 @@ public class ClassUtil {
         if(methods != null){
             for (Method f : methods) {
                 String modifier = Modifier.toString(f.getModifiers());
-                if(modifier.startsWith("private ")){
+                if(modifier.startsWith("private")){
                     set.add(f.getName());
                 }
             }

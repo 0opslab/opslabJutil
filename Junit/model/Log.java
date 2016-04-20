@@ -4,11 +4,21 @@ package model;
 public class Log {
     private Integer logId;
 
-    private String logType;
+    public String logType;
 
     private String operationName;
 
     private String operation_type;
+
+    protected String startTime;
+
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
 
     public String getOperationName() {
         return operationName;
