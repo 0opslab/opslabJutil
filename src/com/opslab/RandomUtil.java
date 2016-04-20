@@ -2,6 +2,7 @@ package com.opslab;
 
 
 import java.util.Random;
+import java.util.UUID;
 
 public class RandomUtil {
     public static final String ALLCHAR    = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -156,4 +157,23 @@ public class RandomUtil {
         return result;
     }
 
+    /**
+     * 返回一个UUID
+     * @return 小写的UUID
+     */
+    public static String uuid(){
+        UUID uuid = UUID.randomUUID();
+        String s = uuid.toString();
+        return s.substring(0,8)+s.substring(9,13)+s.substring(14,18)+s.substring(19,23)+s.substring(24);
+    }
+    /**
+     * 返回一个UUID
+     * @return 大写的UUID
+     */
+    public static String UUID(){
+        UUID uuid = UUID.randomUUID();
+        String s = uuid.toString();
+        String temp =s.substring(0,8)+s.substring(9,13)+s.substring(14,18)+s.substring(19,23)+s.substring(24);
+        return temp.toUpperCase();
+    }
 }
