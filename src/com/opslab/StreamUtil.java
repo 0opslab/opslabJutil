@@ -9,7 +9,7 @@ public class StreamUtil {
     /**
      * Read an input stream into a string
      */
-    static public String streamToString(InputStream in) throws IOException {
+    public static String streamToString(InputStream in) throws IOException {
         StringBuffer out = new StringBuffer();
         byte[]       b   = new byte[4096];
         for (int n; (n = in.read(b)) != -1; ) {
@@ -18,6 +18,9 @@ public class StreamUtil {
         return out.toString();
     }
 
+    /**
+     * Read an input stream into a byte[]
+     */
     public static byte[] stream2Byte(InputStream is) throws IOException {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         int                   len  = 0;
