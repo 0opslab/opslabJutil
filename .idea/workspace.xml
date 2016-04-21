@@ -7,8 +7,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5983b844-cf7f-4406-bcfb-7ade5ee3e903" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/JDK/JVM/JvmParamerters.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/validTest.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/junit/Resource/EnglishWrite.txt" afterPath="$PROJECT_DIR$/junit/Resource/EnglishWrite.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/junit/Resource/GBKTOUTF8.txt" afterPath="$PROJECT_DIR$/junit/Resource/GBKTOUTF8.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/junit/Resource/GBKWrite.txt" afterPath="$PROJECT_DIR$/junit/Resource/GBKWrite.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/junit/Resource/Test.properties" afterPath="$PROJECT_DIR$/junit/Resource/Test.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/junit/Resource/UTF8Write.txt" afterPath="$PROJECT_DIR$/junit/Resource/UTF8Write.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/junit/com/opslab/validTest.java" afterPath="$PROJECT_DIR$/junit/com/opslab/validTest.java" />
     </list>
     <ignored path="utils.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -115,8 +119,8 @@
       <file leaf-file-name="validTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/junit/com/opslab/validTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.87323946">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.32081378">
+              <caret line="29" column="38" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -203,7 +207,6 @@
         <option value="$PROJECT_DIR$/src/com/opslab/web/WebUtil.java" />
         <option value="$PROJECT_DIR$/changelog.md" />
         <option value="$PROJECT_DIR$/src/com/opslab/valid.java" />
-        <option value="$PROJECT_DIR$/junit/com/opslab/validTest.java" />
         <option value="$PROJECT_DIR$/src/com/opslab/constant.java" />
         <option value="$PROJECT_DIR$/src/com/opslab/bean/BeanFactory.java" />
         <option value="$PROJECT_DIR$/src/com/opslab/SysUtil.java" />
@@ -218,6 +221,7 @@
         <option value="$PROJECT_DIR$/src/com/opslab/bean/BeanUtil.java" />
         <option value="$PROJECT_DIR$/junit/com/opslab/ValidUtilTest.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/junit/com/opslab/validTest.java" />
       </list>
     </option>
   </component>
@@ -508,38 +512,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="junit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="junit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="opslab" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1229,7 +1201,7 @@
       <workItem from="1461221837126" duration="8000" />
       <workItem from="1461222019554" duration="13000" />
       <workItem from="1461222438515" duration="47000" />
-      <workItem from="1461222510652" duration="1560000" />
+      <workItem from="1461222510652" duration="2071000" />
     </task>
     <servers />
   </component>
@@ -1238,6 +1210,9 @@
       <configuration name="All in utils (1)" configurationId="JUnit" />
     </history-entry>
     <history-entry file="All_in_utils_(1) - 2016.04.21 at 15h 33m 48s.xml">
+      <configuration name="All in utils (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="All_in_utils_(1) - 2016.04.21 at 15h 42m 58s.xml">
       <configuration name="All in utils (1)" configurationId="JUnit" />
     </history-entry>
     <history-entry file="All_in_utils_(2) - 2016.04.21 at 15h 26m 23s.xml">
@@ -1252,9 +1227,6 @@
     <history-entry file="validTest - 2016.04.21 at 15h 14m 00s.xml">
       <configuration name="validTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="validTest_testIsValid1 - 2016.03.20 at 21h 24m 04s.xml">
-      <configuration name="validTest.testIsValid1" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="validTest_testIsValid1 - 2016.03.20 at 21h 24m 18s.xml">
       <configuration name="validTest.testIsValid1" configurationId="JUnit" />
     </history-entry>
@@ -1266,11 +1238,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62259000" />
+    <option name="totallyTimeSpent" value="62770000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1280,7 +1252,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32912722" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30416667" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30416667" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17217484" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1728,8 +1700,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/junit/com/opslab/validTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.87323946">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.32081378">
+          <caret line="29" column="38" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
           <folding />
         </state>
       </provider>
