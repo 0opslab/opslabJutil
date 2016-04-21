@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="opslab_utils">
-    <output-path>$PROJECT_DIR$/out/artifacts/opslab_utils</output-path>
-    <root id="archive" name="opslab_utils.jar">
-      <element id="module-output" name="utils" />
-    </root>
-  </artifact>
-</component>
