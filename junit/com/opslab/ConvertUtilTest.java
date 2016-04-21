@@ -11,8 +11,8 @@ public class ConvertUtilTest {
     @Test
     public void testencodeBytes() throws UnsupportedEncodingException {
         String str = "中文";
-        PrintUtil.print(new String(ConvertUtil.encodeBytes(str.getBytes(CharsetUtil.GBK), ' ')));
-        PrintUtil.print(new String(ConvertUtil.encodeBytes(str.getBytes(CharsetUtil.UTF_8), ' ')));
+        System.out.println(new String(ConvertUtil.encodeBytes(str.getBytes(CharsetUtil.GBK), ' ')));
+        System.out.println(new String(ConvertUtil.encodeBytes(str.getBytes(CharsetUtil.UTF_8), ' ')));
     }
 
     @Test
@@ -20,12 +20,12 @@ public class ConvertUtilTest {
         String str = "中文";
         byte[] uft8_bytes = str.getBytes(CharsetUtil.UTF_8);
         String utf8_hexStr = ConvertUtil.bytesToHexString(uft8_bytes);
-        PrintUtil.print("UTF-8 BYTE:"+ Arrays.toString(uft8_bytes));
-        PrintUtil.print("UTF-8 HEX: " + utf8_hexStr);
+        System.out.println("UTF-8 BYTE:"+ Arrays.toString(uft8_bytes));
+        System.out.println("UTF-8 HEX: " + utf8_hexStr);
         byte[] gbk_bytes = str.getBytes(CharsetUtil.GBK);
         String gbk_hexStr = ConvertUtil.bytesToHexString(str.getBytes(CharsetUtil.GBK));
-        PrintUtil.print("GBK BYTE:" + Arrays.toString(gbk_bytes));
-        PrintUtil.print("GBK HEX: " + gbk_hexStr);
+        System.out.println("GBK BYTE:" + Arrays.toString(gbk_bytes));
+        System.out.println("GBK HEX: " + gbk_hexStr);
 
         //用UTF-8数字新建字符串
         System.out.println(new String(uft8_bytes));
@@ -57,8 +57,8 @@ public class ConvertUtilTest {
     @Test
     public void testHex() {
         String hexStr = "E4 B8 AD E6 96 87";
-        PrintUtil.print(ConvertUtil.hexStringtoBinarg(hexStr));
-        PrintUtil.print(Arrays.toString(ConvertUtil.hexStringToByte(hexStr)));
+        System.out.println(ConvertUtil.hexStringtoBinarg(hexStr));
+        System.out.println(Arrays.toString(ConvertUtil.hexStringToByte(hexStr)));
         for(byte b:ConvertUtil.hexStringToByte(hexStr)){
             System.out.print(ConvertUtil.byteToBinary(b)+" ");
         }
@@ -69,12 +69,12 @@ public class ConvertUtilTest {
 
     @Test
     public void testLong(){
-        PrintUtil.print(Arrays.toString(ConvertUtil.longToByte(1L)));
+        System.out.println(Arrays.toString(ConvertUtil.longToByte(1L)));
 
-        PrintUtil.print(ConvertUtil.byteToBinary(ConvertUtil.longToByte(1L)[0]));
+        System.out.println(ConvertUtil.byteToBinary(ConvertUtil.longToByte(1L)[0]));
 
-        PrintUtil.print(Arrays.toString(ConvertUtil.longToByte(10L)));
+        System.out.println(Arrays.toString(ConvertUtil.longToByte(10L)));
 
-        PrintUtil.print(ConvertUtil.byteToBinary(ConvertUtil.longToByte(10L)[0]));
+        System.out.println(ConvertUtil.byteToBinary(ConvertUtil.longToByte(10L)[0]));
     }
 }

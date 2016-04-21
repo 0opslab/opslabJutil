@@ -1,6 +1,5 @@
 package JDK.Collection;
 
-import com.opslab.PrintUtil;
 import model.User;
 import org.junit.Test;
 
@@ -28,18 +27,18 @@ public class CollectionTest {
         list1.add(user1);
         list1.add(user2);
         list1.add(user3);
-        PrintUtil.print("list:" + list1);
+        System.out.println("list:" + list1);
         user1.setUserId("444");
-        PrintUtil.print("list" + list1);
+        System.out.println("list" + list1);
 
         Set<User> set = new HashSet<>(list1);
-        PrintUtil.print("Set:" + set);
+        System.out.println("Set:" + set);
 
-        PrintUtil.print("==============");
+        System.out.println("==============");
         user2.setUserId("5555");
         list1.add(new User("666", "EEE"));
-        PrintUtil.print("list" + list1);
-        PrintUtil.print("Set:" + set);
+        System.out.println("list" + list1);
+        System.out.println("Set:" + set);
 
 
     }

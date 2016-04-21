@@ -36,7 +36,7 @@ public class DateUtilUsagesTest {
                 group.put(key,count);
             }
         }
-        PrintUtil.print(group);
+        System.out.println(group);
     }
 
 

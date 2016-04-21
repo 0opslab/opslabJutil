@@ -35,4 +35,9 @@ public class validTest extends TestCase {
                 "yyyy-MM-dd HH:mm:ss"));
     }
 
+    public void testSwith(){
+        System.out.println(valid.valid(new Object()));
+        System.out.println(valid.valid(""));
+    }
+
 }

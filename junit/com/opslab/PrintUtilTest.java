@@ -12,7 +12,7 @@ public class PrintUtilTest {
         list.add("test1");
         list.add("test2");
         list.add("test3");
-        PrintUtil.print(list);
+        System.out.println(list);
 
 
         Map<String,String> map = new HashMap<>();
@@ -20,26 +20,26 @@ public class PrintUtilTest {
         map.put("2", "test2");
         map.put("3", "test3");
         map.put("4", "test4");
-        PrintUtil.print(map);
+        System.out.println(map);
 
         Vector<String> all = new Vector<>();
         all.add("hello");
         all.add("world");
-        PrintUtil.print(all);
-        PrintUtil.print(all.elements());
+        System.out.println(all);
+        System.out.println(all.elements());
     }
 
 
     @Test
     public void testArr(){
         byte[] bytes = new byte[]{1,2,3};
-        PrintUtil.print(bytes);
+        System.out.println(bytes);
         char[] chars = new char[]{'a','b','中','文'};
-        PrintUtil.print(chars);
+        System.out.println(chars);
         int[] ints = new int[]{1,2,34,};
-        PrintUtil.print(ints);
+        System.out.println(ints);
         User[] users = new User[]{new User("11","aa"),new User("22","bb")};
-        PrintUtil.print(users);
+        System.out.println(users);
     }
 
 

@@ -8,6 +8,7 @@ import java.util.Map;
 /**
  * 提供一些对象有效性校验的方法
  */
+@SuppressWarnings("rawtypes")
 public class valid {
 
     /**
@@ -34,6 +35,11 @@ public class valid {
         return !(src == null || "".equals(src.trim()));
     }
 
+    /**
+     * 判断一组字符串是否有效
+     * @param src
+     * @return
+     */
     public static boolean valid(String... src) {
         for (String s : src) {
             if (!valid(s)) {
@@ -51,7 +57,12 @@ public class valid {
         return !(null == obj);
     }
 
-    public static boolean valid(Object[] objs) {
+    /**
+     * 判断一组对象是否有效
+     * @param objs
+     * @return
+     */
+    public static boolean valid(Object... objs) {
         if (objs != null && objs.length != 0) {
             return true;
         }
@@ -61,11 +72,15 @@ public class valid {
     /**
      * 判断集合的有效性
      */
-    @SuppressWarnings("rawtypes")
     public static boolean valid(Collection col) {
         return !(col == null || col.isEmpty());
     }
 
+    /**
+     * 判断一组集合是否有效
+     * @param cols
+     * @return
+     */
     public static boolean valid(Collection... cols) {
         for (Collection c : cols) {
             if (!valid(c)) {
@@ -75,11 +90,20 @@ public class valid {
         return true;
     }
 
-
+    /**
+     * 判断map是否有效
+     * @param map
+     * @return
+     */
     public static boolean valid(Map map) {
         return !(map == null || map.isEmpty());
     }
 
+    /**
+     * 判断一组map是否有效
+     * @param maps 需要判断map
+     * @return 是否全部有效
+     */
     public static boolean valid(Map... maps) {
         for (Map m : maps) {
             if (!valid(m)) {
