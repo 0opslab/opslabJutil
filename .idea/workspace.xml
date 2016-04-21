@@ -7,32 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5983b844-cf7f-4406-bcfb-7ade5ee3e903" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/PrintUtil.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/junit/com/opslab/Collection/CollectionUtilTest.java" afterPath="$PROJECT_DIR$/junit/com/opslab/collection/CollectionUtilTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Readme.md" afterPath="$PROJECT_DIR$/Readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/junit/FTP/FTPtest.java" afterPath="$PROJECT_DIR$/junit/FTP/FTPtest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/junit/JDK/Collection/CollectionTest.java" afterPath="$PROJECT_DIR$/junit/JDK/Collection/CollectionTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/junit/Resource/EnglishWrite.txt" afterPath="$PROJECT_DIR$/junit/Resource/EnglishWrite.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/junit/Resource/GBKTOUTF8.txt" afterPath="$PROJECT_DIR$/junit/Resource/GBKTOUTF8.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/junit/Resource/GBKWrite.txt" afterPath="$PROJECT_DIR$/junit/Resource/GBKWrite.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/junit/Resource/Test.properties" afterPath="$PROJECT_DIR$/junit/Resource/Test.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/junit/Resource/UTF8Write.txt" afterPath="$PROJECT_DIR$/junit/Resource/UTF8Write.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/junit/com/opslab/Bean/BeanUtilTest.java" afterPath="$PROJECT_DIR$/junit/com/opslab/Bean/BeanUtilTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/junit/com/opslab/ClassUtilTest.java" afterPath="$PROJECT_DIR$/junit/com/opslab/ClassUtilTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/junit/com/opslab/ConvertUtilTest.java" afterPath="$PROJECT_DIR$/junit/com/opslab/ConvertUtilTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/junit/com/opslab/DateUtilThreadSafeTest.java" afterPath="$PROJECT_DIR$/junit/com/opslab/DateUtilThreadSafeTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/junit/com/opslab/DateUtilUsagesTest.java" afterPath="$PROJECT_DIR$/junit/com/opslab/DateUtilUsagesTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/junit/com/opslab/FileUtilTest.java" afterPath="$PROJECT_DIR$/junit/com/opslab/FileUtilTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/junit/com/opslab/PrintUtilTest.java" afterPath="$PROJECT_DIR$/junit/com/opslab/PrintUtilTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/junit/com/opslab/StringUtilTest.java" afterPath="$PROJECT_DIR$/junit/com/opslab/StringUtilTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/junit/com/opslab/WEB/UrlUtilTest.java" afterPath="$PROJECT_DIR$/junit/com/opslab/WEB/UrlUtilTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/junit/com/opslab/WEB/WebUtilTest.java" afterPath="$PROJECT_DIR$/junit/com/opslab/WEB/WebUtilTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/junit/com/opslab/filetest/FileUtilTest.java" afterPath="$PROJECT_DIR$/junit/com/opslab/filetest/FileUtilTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/junit/com/opslab/validTest.java" afterPath="$PROJECT_DIR$/junit/com/opslab/validTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/opslab/ftp/FTPUtilImpl.java" afterPath="$PROJECT_DIR$/src/com/opslab/ftp/FTPUtilImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/opslab/valid.java" afterPath="$PROJECT_DIR$/src/com/opslab/valid.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/opslab/StreamUtil.java" afterPath="$PROJECT_DIR$/src/com/opslab/StreamUtil.java" />
     </list>
     <ignored path="utils.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,38 +41,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="BeanUtilTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/junit/com/opslab/bean/BeanUtilTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0">
-              <caret line="0" column="8" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="8" />
-              <folding>
-                <element signature="e#5185#5393#0" expanded="true" />
-                <element signature="e#5392#5393#0" expanded="true" />
-                <element signature="e#5450#5658#0" expanded="true" />
-                <element signature="e#5657#5658#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CollectionUtilTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/junit/com/opslab/collection/CollectionUtilTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-88.79661">
-              <caret line="172" column="26" selection-start-line="172" selection-start-column="26" selection-end-line="172" selection-end-column="26" />
-              <folding>
-                <element signature="e#2046#2205#0" expanded="true" />
-                <element signature="e#2204#2205#0" expanded="true" />
-                <element signature="e#3687#3846#0" expanded="true" />
-                <element signature="e#3845#3846#0" expanded="true" />
-                <element signature="e#5535#5780#0" expanded="true" />
-                <element signature="e#5779#5780#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="FileUtilTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/junit/com/opslab/filetest/FileUtilTest.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -170,11 +113,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StringUtilTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="StringUtilTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/junit/com/opslab/StringUtilTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.30125523">
-              <caret line="50" column="26" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StreamUtilTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/junit/com/opslab/StreamUtilTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StreamUtil.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/opslab/StreamUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.47938144">
+              <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -201,7 +164,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Junit/evilp0s/StringUtilTest.java" />
         <option value="$PROJECT_DIR$/Junit/evilp0s/SupportTest.java" />
         <option value="$PROJECT_DIR$/src/evilp0s/RandomUtil.java" />
         <option value="$PROJECT_DIR$/Junit/evilp0s/RandomUtilTest.java" />
@@ -252,6 +214,7 @@
         <option value="$PROJECT_DIR$/junit/com/opslab/DateUtilUsagesTest.java" />
         <option value="$PROJECT_DIR$/junit/com/opslab/PrintUtilTest.java" />
         <option value="$PROJECT_DIR$/junit/com/opslab/StringUtilTest.java" />
+        <option value="$PROJECT_DIR$/src/com/opslab/StreamUtil.java" />
       </list>
     </option>
   </component>
@@ -542,6 +505,56 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="opslab" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="junit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="junit" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="opslab" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1236,7 +1249,7 @@
       <workItem from="1461221837126" duration="8000" />
       <workItem from="1461222019554" duration="13000" />
       <workItem from="1461222438515" duration="47000" />
-      <workItem from="1461222510652" duration="3934000" />
+      <workItem from="1461222510652" duration="4600000" />
     </task>
     <servers />
   </component>
@@ -1273,11 +1286,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64633000" />
+    <option name="totallyTimeSpent" value="65299000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1287,7 +1300,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32912722" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16145833" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16145833" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17217484" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1358,20 +1371,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/junit/com/opslab/filetest/FilePathUtilTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/junit/com/opslab/ProUtilTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5748691">
-          <caret line="30" column="27" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/opslab/FilePathUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1765,8 +1764,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/junit/com/opslab/StringUtilTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.30125523">
-          <caret line="50" column="26" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/junit/com/opslab/StreamUtilTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/opslab/StreamUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47938144">
+          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
           <folding />
         </state>
       </provider>
