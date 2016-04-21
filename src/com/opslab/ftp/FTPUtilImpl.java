@@ -2,7 +2,7 @@ package com.opslab.ftp;
 
 import com.opslab.FileUtil;
 import com.opslab.PrintUtil;
-import com.opslab.ValidUtil;
+import com.opslab.valid;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
 import org.apache.commons.net.ftp.FTPReply;
@@ -323,7 +323,7 @@ public class FTPUtilImpl implements FTPUtil {
 
     @Override
     public void destory() {
-        if (ValidUtil.isValid(client)) {
+        if (valid.valid(client)) {
             try {
                 client.disconnect();
             } catch (IOException e) {

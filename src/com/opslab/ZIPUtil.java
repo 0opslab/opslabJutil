@@ -28,7 +28,7 @@ public class ZIPUtil {
     public static void zipFile(File inFile, ZipOutputStream zos, String dir) throws IOException {
         if (inFile.isDirectory()) {
             File[] files = inFile.listFiles();
-            if (ValidUtil.isValid(files)) {
+            if (valid.valid(files)) {
                 for (File file : files) {
                     String name = inFile.getName();
                     if (!"".equals(dir)) {

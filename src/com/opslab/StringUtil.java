@@ -134,7 +134,7 @@ public class StringUtil {
                 if (temp != null && temp.trim().length() > 0)
                     result += (temp + symbol);
             }
-            if (result.length() > 1 && ValidUtil.isValid(symbol)) {
+            if (result.length() > 1 && valid.valid(symbol)) {
                 result = result.substring(0, result.length() - symbol.length());
             }
         }
@@ -312,7 +312,7 @@ public class StringUtil {
      * @return 包含则返回true，否则返回false
      */
     public static boolean isIn(String substring, String[] source) {
-        if(isEmpty(substring) || !ValidUtil.isValid(source)){
+        if(isEmpty(substring) || !valid.valid(source)){
             return false;
         }
         for (String t:source) {
