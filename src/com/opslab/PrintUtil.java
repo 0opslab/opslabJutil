@@ -26,7 +26,7 @@ public class PrintUtil {
      * 遍历打印遍历List集合
      */
     public static void print(List<?> list) {
-        if (ValidUtil.isValid(list)) {
+        if (valid.valid(list)) {
             Iterator<?> iter = list.iterator();
             while (iter.hasNext()) {
                 print(iter.next().toString());
@@ -38,7 +38,7 @@ public class PrintUtil {
      * 遍历打印Map集合
      */
     public static void print(Map map) {
-        if (ValidUtil.isValid(map)) {
+        if (valid.valid(map)) {
             Set set = map.entrySet();
             Iterator<Map.Entry> iter = set.iterator();
             while (iter.hasNext()) {
@@ -52,7 +52,7 @@ public class PrintUtil {
      * 遍历打印Enumeration
      */
     public static void print(Enumeration enums) {
-        if (ValidUtil.isValid(enums)) {
+        if (valid.valid(enums)) {
             while (enums.hasMoreElements()) {
                 print(enums.nextElement() + "~");
             }
@@ -64,7 +64,7 @@ public class PrintUtil {
      * 遍历打印数组
      */
     public static void print(Object[] arr) {
-        if (ValidUtil.isValid(arr)) {
+        if (valid.valid(arr)) {
             for (Object a : arr) {
                 print(a.toString());
             }

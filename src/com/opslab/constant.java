@@ -4,9 +4,6 @@ package com.opslab;
  * 一些常用的常量
  */
 public class constant {
-
-
-    String JODD              = "jodd";
     String AMPERSAND         = "&";
     String AND               = "and";
     String AT                = "@";

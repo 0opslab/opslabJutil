@@ -433,7 +433,7 @@ public class FileUtil {
      */
     public static boolean deleteDir(File file) {
         List<File> files = listFileAll(file);
-        if (ValidUtil.isValid(files)) {
+        if (valid.valid(files)) {
             for (File f : files) {
                 if (f.isDirectory()) {
                     deleteDir(f);
@@ -480,7 +480,7 @@ public class FileUtil {
             createPaths(targetPath);
         }
         File[] files = filePath.listFiles();
-        if (ValidUtil.isValid(files)) {
+        if (valid.valid(files)) {
             for (File file : files) {
                 String path = file.getName();
                 if (file.isDirectory()) {
@@ -523,7 +523,7 @@ public class FileUtil {
     public static List<File> listFile(File path) {
         List<File> list = new ArrayList<>();
         File[] files = path.listFiles();
-        if (ValidUtil.isValid(files)) {
+        if (valid.valid(files)) {
             for (File file : files) {
                 if (file.isDirectory()) {
                     list.addAll(listFile(file));
@@ -544,7 +544,7 @@ public class FileUtil {
     public static List<File> listFile(File path,boolean child){
         List<File> list = new ArrayList<>();
         File[] files = path.listFiles();
-        if (ValidUtil.isValid(files)) {
+        if (valid.valid(files)) {
             for (File file : files) {
                 if (child && file.isDirectory()) {
                     list.addAll(listFile(file));
@@ -565,7 +565,7 @@ public class FileUtil {
     public static List<File> listFileAll(File path) {
         List<File> list = new ArrayList<>();
         File[] files = path.listFiles();
-        if (ValidUtil.isValid(files)) {
+        if (valid.valid(files)) {
             for (File file : files) {
                 list.add(file);
                 if (file.isDirectory()) {
@@ -586,7 +586,7 @@ public class FileUtil {
     public static List<File> listFileFilter(File path, FilenameFilter filter) {
         List<File> list = new ArrayList<>();
         File[] files = path.listFiles();
-        if (ValidUtil.isValid(files)) {
+        if (valid.valid(files)) {
             for (File file : files) {
                 if (file.isDirectory()) {
                     list.addAll(listFileFilter(file, filter));
@@ -618,7 +618,7 @@ public class FileUtil {
         */
         List<File> list = new ArrayList<File>();
         File[] files = dirPath.listFiles();
-        if (ValidUtil.isValid(files)) {
+        if (valid.valid(files)) {
             for (File file : files) {
                 if (file.isDirectory()) {
                     list.addAll(listFileFilter(file, postfixs));
@@ -643,7 +643,7 @@ public class FileUtil {
     public static List<File> searchFile(File dirPath, String fileName) {
         List<File> list = new ArrayList<>();
         File[] files = dirPath.listFiles();
-        if (ValidUtil.isValid(files)) {
+        if (valid.valid(files)) {
             for (File file : files) {
                 if (file.isDirectory()) {
                     list.addAll(searchFile(file, fileName));
@@ -668,7 +668,7 @@ public class FileUtil {
     public static List<File> searchFileReg(File dirPath, String reg) {
         List<File> list = new ArrayList<>();
         File[] files = dirPath.listFiles();
-        if (ValidUtil.isValid(files)) {
+        if (valid.valid(files)) {
             for (File file : files) {
                 if (file.isDirectory()) {
                     list.addAll(searchFile(file, reg));

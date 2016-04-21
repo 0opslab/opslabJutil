@@ -1,7 +1,7 @@
 package com.opslab.algorithmImpl;
 
 import com.opslab.FileUtil;
-import com.opslab.ValidUtil;
+import com.opslab.valid;
 
 import java.io.*;
 import java.nio.charset.Charset;
@@ -56,9 +56,9 @@ public class FileEncodingUtil {
      */
     public static void convert(File file, String fromCharsetName, String toCharsetName, FilenameFilter filter) {
         if (file.isDirectory()) {
-            List<File> list = ValidUtil.isValid(filter) ? FileUtil.listFileFilter(file, filter) :
+            List<File> list = valid.valid(filter) ? FileUtil.listFileFilter(file, filter) :
                     FileUtil.listFile(file);
-            if (ValidUtil.isValid(list)) {
+            if (valid.valid(list)) {
                 for (File f : list) {
                     convert(f, fromCharsetName, toCharsetName, filter);
                 }

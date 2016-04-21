@@ -1,7 +1,5 @@
-junit-4.7.jar
-out/production
-out/test
-.idea/
-utils.iml
-.gitignore
-Junit/Resource/temp/
+lib/lombok.jar
+lib/log4j-1.2.17.jar
+lib/servlet-api.jar
+out/
+junit/Resource/temp/

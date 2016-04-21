@@ -11,7 +11,9 @@
 #RegUtil
     RegUtil.countSubStrReg
     原函数有BUG导致统计数据的错误
-    
+
+#ValidUtil
+    该工具类作为一些简单的校验，因此使用的比较多,因此命名越简单越好！因此重名为valid
     
 #brach
     release1
