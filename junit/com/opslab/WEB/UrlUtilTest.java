@@ -1,7 +1,6 @@
 package com.opslab.web;
 
 import com.opslab.CharsetUtil;
-import com.opslab.PrintUtil;
 import junit.framework.TestCase;
 import org.junit.Test;
 
@@ -139,30 +138,30 @@ public class UrlUtilTest extends TestCase {
                 "&mainSheet.dealContent=1\n" +
                 "&textfield23=4004\n" +
                 "&textfield23=%CD%B6%CB%DF%B4%A6%C0%ED%D6%D0%D0%C4%D7%E9";
-        PrintUtil.print(UrlUtil.decodeQuery(http_request,CharsetUtil.GBK));
+        System.out.println(UrlUtil.decodeQuery(http_request,CharsetUtil.GBK));
     }
 
     @Test
     public void testParseQuery(){
         String query ="id=111&name=test&password=p0ssw0rd";
         Map<String,String> queryMap = UrlUtil.parseQuery(query, '&', '=', null);
-        PrintUtil.print(queryMap);
+        System.out.println(queryMap);
         Map<String,String> httpQueryMap = UrlUtil.httpParseQuery(query);
-        PrintUtil.print(httpQueryMap);
+        System.out.println(httpQueryMap);
 
         //数组解析
         String query2 ="id=111&name=test&password[]=p0ssw0rd&password[]=123456";
         Map<String,String> queryMap1 = UrlUtil.parseQuery(query2, '&', '=', ",");
-        PrintUtil.print(queryMap1);
+        System.out.println(queryMap1);
         Map<String,String> httpQueryMap1 = UrlUtil.httpParseQuery(query2);
-        PrintUtil.print(httpQueryMap1);
+        System.out.println(httpQueryMap1);
 
         //"id=111&name=test&password=p0ssw0rd,=123456"
         String query3 ="id=111&name=test&password=p0ssw0rd,123456";
         Map<String,String> queryMap2 = UrlUtil.parseQuery(query3, '&', '=', ",");
-        PrintUtil.print(queryMap2);
+        System.out.println(queryMap2);
         Map<String,String> httpQueryMap2 = UrlUtil.httpParseQuery(query3);
-        PrintUtil.print(httpQueryMap2);
+        System.out.println(httpQueryMap2);
     }
 
 }

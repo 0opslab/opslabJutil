@@ -1,11 +1,11 @@
 package com.opslab.ftp;
 
 import com.opslab.FileUtil;
-import com.opslab.PrintUtil;
 import com.opslab.valid;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
 import org.apache.commons.net.ftp.FTPReply;
+import org.apache.log4j.Logger;
 
 import java.io.*;
 import java.util.*;
@@ -16,6 +16,7 @@ import java.util.regex.Pattern;
  * FTP工具类的实现
  */
 public class FTPUtilImpl implements FTPUtil {
+    private Logger logger = Logger.getLogger(FTPUtilImpl.class);
     private FTPClient client;
     private FTPVo     vo;
 
@@ -64,7 +65,7 @@ public class FTPUtilImpl implements FTPUtil {
         log.setRemoteFile("");
         log.setReplyCode(replyCode);
         log.setReplyCodeDesc(FTPConstant.REPLYCODE.get(replyCode));
-        PrintUtil.print(log);
+        logger.info(log);
         return FTPReply.isPositiveCompletion(replyCode);
     }
 
@@ -77,7 +78,7 @@ public class FTPUtilImpl implements FTPUtil {
         log.setRemoteFile(remoteFile);
         log.setReplyCode(replyCode);
         log.setReplyCodeDesc(FTPConstant.REPLYCODE.get(replyCode));
-        PrintUtil.print(log);
+        logger.info(log);
         return FTPReply.isPositiveCompletion(replyCode);
     }
 

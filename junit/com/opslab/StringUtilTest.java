@@ -47,8 +47,8 @@ public class StringUtilTest {
 
         //非正常测试
         String str2 = "ar";
-        PrintUtil.print(StringUtil.right(str2, 3));
-        PrintUtil.print(StringUtil.left(str2, 4));
+        System.out.println(StringUtil.right(str2, 3));
+        System.out.println(StringUtil.left(str2, 4));
 
 
         String str3 = "每样东西都有根本有枝末，每件事情都有开始有终结。明白了这本末始终的道理，就接近事物发展的规律了。";

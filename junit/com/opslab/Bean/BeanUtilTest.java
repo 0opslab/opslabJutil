@@ -1,6 +1,5 @@
 package com.opslab.bean;
 
-import com.opslab.PrintUtil;
 import com.opslab.StringUtil;
 import junit.framework.TestCase;
 import model.BusinessLog;
@@ -148,8 +147,8 @@ public class BeanUtilTest extends TestCase {
 
         Log2 bean2 = new Log2();
 
-        PrintUtil.print("复制前:" + bean1);
-        PrintUtil.print("复制前:" + bean2);
+        System.out.println("复制前:" + bean1);
+        System.out.println("复制前:" + bean2);
         BeanUtil.copyProperties(bean1, bean2, new PropertyFilter() {
             @Override
             public String Properties(String pro) {
@@ -162,7 +161,7 @@ public class BeanUtilTest extends TestCase {
                 return StringUtil.remove(pro, "_").toLowerCase().replaceAll("yy", "ty");
             }
         });
-        PrintUtil.print("复制后:" + bean1);
-        PrintUtil.print("复制后:" + bean2);
+        System.out.println("复制后:" + bean1);
+        System.out.println("复制后:" + bean2);
     }
 }

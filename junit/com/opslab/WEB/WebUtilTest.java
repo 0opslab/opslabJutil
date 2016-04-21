@@ -1,7 +1,6 @@
 package com.opslab.web;
 
 import com.opslab.CharsetUtil;
-import com.opslab.PrintUtil;
 import junit.framework.TestCase;
 import org.junit.Test;
 
@@ -13,7 +12,7 @@ public class WebUtilTest extends TestCase {
     @Test
     public void testhtml(){
         String html="<div class=\"ipaddress\">服务器IP地址：</div>";
-        PrintUtil.print(WebUtil.unhtml(html));
+        System.out.println(WebUtil.unhtml(html));
         assertEquals(html,WebUtil.html(WebUtil.unhtml(html)));
     }
 

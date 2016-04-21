@@ -46,35 +46,35 @@ public class FileUtilTest extends SupportTest {
     public void testLines() {
         System.out.println("=====按List讲文件全部读入到List中======");
 
-        PrintUtil.print("全英文文件测试");
+        System.out.println("全英文文件测试");
         String       efile = System.getProperty("user.dir") + "/Junit/Resource/English.txt";
         List<String> lines = FileUtil.lines(new File(efile));
-        PrintUtil.print(lines);
-        PrintUtil.print("读取文件的前3行");
+        System.out.println(lines);
+        System.out.println("读取文件的前3行");
         lines = FileUtil.lines(new File(efile), 3);
-        PrintUtil.print(lines);
+        System.out.println(lines);
 
 
-        PrintUtil.print("GBK文件测试");
+        System.out.println("GBK文件测试");
         String       gbkfile  = System.getProperty("user.dir") + "/Junit/Resource/GBK.txt";
         List<String> gbklines = FileUtil.lines(new File(gbkfile));
-        PrintUtil.print(gbklines);
+        System.out.println(gbklines);
         gbklines = FileUtil.lines(new File(gbkfile), "GBK");
-        PrintUtil.print(gbklines);
-        PrintUtil.print("读取文件的前3行");
+        System.out.println(gbklines);
+        System.out.println("读取文件的前3行");
         lines = FileUtil.lines(new File(gbkfile), 3, "GBK");
-        PrintUtil.print(lines);
+        System.out.println(lines);
 
 
-        PrintUtil.print("UTF8文件测试");
+        System.out.println("UTF8文件测试");
         String       utf8file  = System.getProperty("user.dir") + "/Junit/Resource/UTF8.txt";
         List<String> utf8lines = FileUtil.lines(new File(utf8file));
-        PrintUtil.print(utf8lines);
+        System.out.println(utf8lines);
         utf8lines = FileUtil.lines(new File(utf8file), "UTF-8");
-        PrintUtil.print(utf8lines);
-        PrintUtil.print("读取文件的前3行");
+        System.out.println(utf8lines);
+        System.out.println("读取文件的前3行");
         lines = FileUtil.lines(new File(utf8file), 3, "UTF-8");
-        PrintUtil.print(lines);
+        System.out.println(lines);
 
     }
 
@@ -185,19 +185,19 @@ public class FileUtilTest extends SupportTest {
         System.out.println("罗列指定目录下的所有文件");
         String     path  = System.getProperty("user.dir") + "/Junit/Resource/temp/";
         List<File> files = FileUtil.listFile(new File(path));
-        PrintUtil.print(files);
+        System.out.println(files);
         List<File> files1 = FileUtil.listFile(path);
-        PrintUtil.print(files1);
+        System.out.println(files1);
     }
 
     @Test
     public void testListFile1(){
         String     path  = System.getProperty("user.dir") + "/Junit/Resource/temp/";
         List<File> files = FileUtil.listFile(path, false);
-        PrintUtil.print(files);
+        System.out.println(files);
         System.out.println("=============");
         files = FileUtil.listFile(path,true);
-        PrintUtil.print(files);
+        System.out.println(files);
     }
 
     @Test
@@ -212,7 +212,7 @@ public class FileUtilTest extends SupportTest {
         System.out.println("罗列指定目录下的特定后缀的文件");
         String     path  = System.getProperty("user.dir") + "/Junit/Resource/";
         List<File> files = FileUtil.listFileFilter(new File(path), ".txt");
-        PrintUtil.print(files);
+        System.out.println(files);
     }
 
     @Test
@@ -220,7 +220,7 @@ public class FileUtilTest extends SupportTest {
         System.out.println("在指定的目录下搜索指定的文件");
         String     path  = System.getProperty("user.dir") + "/Junit/Resource/";
         List<File> files = FileUtil.searchFile(new File(path), "GBK.txt");
-        PrintUtil.print(files);
+        System.out.println(files);
     }
 
     @Test
@@ -230,7 +230,7 @@ public class FileUtilTest extends SupportTest {
         String     reg   = "\\w{1,}\\.png$";
         String     path  = System.getProperty("user.dir") + "/Junit/Resource/";
         List<File> files = FileUtil.searchFileReg(new File(path), reg);
-        PrintUtil.print(files);
+        System.out.println(files);
     }
 
     @Test

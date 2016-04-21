@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 public class DateUtilThreadSafeTest extends Thread {
 
     public static void main(String[] args) {
-        PrintUtil.print("线程安全测试");
+        System.out.println("线程安全测试");
         for (int i = 0; i < 5; i++) {
             (new DateUtilThreadSafeTest()).start();
         }
@@ -29,7 +29,7 @@ public class DateUtilThreadSafeTest extends Thread {
             }
             try {
                 Date date = DateUtil.DateTime("2013-05-24 06:02:20");
-                //PrintUtil.print(this.getName()+":"+DateUtil.DateTime(date));
+                //System.out.println(this.getName()+":"+DateUtil.DateTime(date));
                 assertEquals("计算有误", "2013-05-24 06:02:20", DateUtil.DateTime(date));
 
             } catch (ParseException e) {

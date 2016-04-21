@@ -106,7 +106,7 @@ public class ClassUtilTest {
     public void testgetClassNameByFile(){
         String file = System.getProperty("user.dir")+"/out/production/utils";
         List<String> classNames = ClassUtil.getClassNameByFile(file, true);
-        PrintUtil.print(classNames);
+        System.out.println(classNames);
     }
     @Test
     public void testGetClass() {
@@ -138,7 +138,7 @@ public class ClassUtilTest {
     public void testGetClassByJar(){
         String jarPath = System.getProperty("user.dir")+"/lib/mail.jar";
         List<String> classNameList = ClassUtil.getClassNameByJar(jarPath);
-        PrintUtil.print(classNameList);
+        System.out.println(classNameList);
     }
 
     /**
@@ -148,7 +148,7 @@ public class ClassUtilTest {
     public void testGetResourceByJar(){
         String jarPath = System.getProperty("user.dir")+"/lib/mail.jar";
         List<String> resourceNames = ClassUtil.getResourceNameByJar(jarPath);
-        PrintUtil.print(resourceNames);
+        System.out.println(resourceNames);
     }
 
 
@@ -160,7 +160,7 @@ public class ClassUtilTest {
     public void testGetResourceByJar1(){
         String jarPath = System.getProperty("user.dir")+"/lib/mail.jar";
         List<String> resourceNames = ClassUtil.getResourceNameByJar(jarPath,".xml");
-        PrintUtil.print(resourceNames);
+        System.out.println(resourceNames);
     }
 
     @Test
