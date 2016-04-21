@@ -4,7 +4,7 @@ import org.junit.Test;
 
 import java.nio.charset.Charset;
 
-public class ProUtilTest {
+public class PropertiesUtilTest {
 
     @Test
     public void testmain() {
@@ -20,20 +20,20 @@ public class ProUtilTest {
     @Test
     public void testKey() throws Exception {
         System.out.println(System.getProperties());
-        System.out.println(ProUtil.key("user.name"));
-        System.out.println(ProUtil.key("file.encoding"));
+        System.out.println(PropertiesUtil.key("user.name"));
+        System.out.println(PropertiesUtil.key("file.encoding"));
     }
 
     @Test
     public void testPro() throws Exception {
-        String path = ProUtil.key("user.dir") + "/Junit/Resource/Test.properties";
-        System.out.println(ProUtil.key("user.dir"));
-        System.out.println(ProUtil.GetValueByKey(path, "test"));
-        System.out.println(ProUtil.GetAllProperties(path));
-        ProUtil.WriteProperties(path, "long", "212");
-        ProUtil.WriteProperties(path, "test", "212");
-        ProUtil.WriteProperties(path, "test2", "中文测试");
-        ProUtil.WriteProperties(path, "test3", "中文测试1");
-        System.out.println(ProUtil.GetAllProperties(path));
+        String path = PropertiesUtil.key("user.dir") + "/Junit/Resource/Test.properties";
+        System.out.println(PropertiesUtil.key("user.dir"));
+        System.out.println(PropertiesUtil.GetValueByKey(path, "test"));
+        System.out.println(PropertiesUtil.GetAllProperties(path));
+        PropertiesUtil.WriteProperties(path, "long", "212");
+        PropertiesUtil.WriteProperties(path, "test", "212");
+        PropertiesUtil.WriteProperties(path, "test2", "中文测试");
+        PropertiesUtil.WriteProperties(path, "test3", "中文测试1");
+        System.out.println(PropertiesUtil.GetAllProperties(path));
     }
 }

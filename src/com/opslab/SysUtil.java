@@ -19,15 +19,15 @@ public class SysUtil {
     /**
      * JVM的版本
      */
-    public static final String JVM_VERSION     = ProUtil.key("java.version");
+    public static final String JVM_VERSION     = PropertiesUtil.key("java.version");
     /**
      * JVM的编码
      */
-    public static final String JVM_ENCODING    = ProUtil.key("file.encoding");
+    public static final String JVM_ENCODING    = PropertiesUtil.key("file.encoding");
     /**
      * JVM默认的临时目录
      */
-    public static final String JVM_TEMPDIR     = ProUtil.key("java.io.tmpdir");
+    public static final String JVM_TEMPDIR     = PropertiesUtil.key("java.io.tmpdir");
     public static final String HTTP_PROXY_HOST = "http.proxyHost";
     public static final String HTTP_PROXY_PORT = "http.proxyPort";
     ;
@@ -45,34 +45,34 @@ public class SysUtil {
     /**
      * 主机架构
      */
-    public static String OS_ARCH           = ProUtil.key("os.arch");
+    public static String OS_ARCH           = PropertiesUtil.key("os.arch");
     /**
      * 主机类型
      */
-    public static String OS_NAME           = ProUtil.key("os.name");
+    public static String OS_NAME           = PropertiesUtil.key("os.name");
     /**
      * 主机类型版本
      */
-    public static String OS_VERSION        = ProUtil.key("os.version");
+    public static String OS_VERSION        = PropertiesUtil.key("os.version");
     /**
      * 操作系统类型
      */
-    public static String SUN_DESKTOP       = ProUtil.key("sun.desktop");
+    public static String SUN_DESKTOP       = PropertiesUtil.key("sun.desktop");
     /**
      * 当前用户
      */
-    public static String CURRENT_USER      = ProUtil.key("user.name");
+    public static String CURRENT_USER      = PropertiesUtil.key("user.name");
     /**
      * 当前用户的家目录
      */
-    public static String CURRENT_USER_HOME = ProUtil.key("user.home");
+    public static String CURRENT_USER_HOME = PropertiesUtil.key("user.home");
     /**
      * 当用用户的工作目录
      */
-    public static String CURRENT_USER_DIR  = ProUtil.key("user.dir");
-    public static String FILE_SEPARATOR    = ProUtil.key("file.separator");
-    public static String PATH_SEPARATOR    = ProUtil.key("path.separator");
-    public static String LINE_SEPARATOR    = ProUtil.key("line.separator");
+    public static String CURRENT_USER_DIR  = PropertiesUtil.key("user.dir");
+    public static String FILE_SEPARATOR    = PropertiesUtil.key("file.separator");
+    public static String PATH_SEPARATOR    = PropertiesUtil.key("path.separator");
+    public static String LINE_SEPARATOR    = PropertiesUtil.key("line.separator");
     /**
      * 总的物理内存
      */
