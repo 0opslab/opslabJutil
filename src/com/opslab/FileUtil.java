@@ -22,6 +22,15 @@ public class FileUtil {
      */
     private static Integer BUFFER_SIZE = 1024 * 1024 * 10;
 
+    /**
+     * 获取文件后缀名
+     * @param file
+     * @return
+     */
+    public static String suffix(File file){
+        String fileName=file.getName();
+        return fileName.substring(fileName.indexOf(".")+1);
+    }
 
     /**
      * 获取文件的行数
