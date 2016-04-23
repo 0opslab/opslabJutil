@@ -3,5 +3,6 @@ lib/log4j-1.2.17.jar
 lib/servlet-api.jar
 out/
 junit/Resource/temp/
+junit/Resource/image/temp/
 .idea/
-utils.iml/
+utils.iml
