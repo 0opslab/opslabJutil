@@ -14,6 +14,7 @@ import java.util.Arrays;
 public class OperateImageTest extends TestCase {
 
     private String path =System.getProperty("user.dir") + "/Junit/Resource/image/";
+    private String path_temp =System.getProperty("user.dir") + "/Junit/Resource/image/temp/";
     /**
      * 剪切图片
      * @throws Exception
@@ -34,16 +35,20 @@ public class OperateImageTest extends TestCase {
                 writeImageFormat);
     }
 
+    /**
+     * 按照倍率缩小图片
+     * @throws Exception
+     */
     public void testReduceImageByRatio() throws Exception {
         String file = path +"1.jpg";
-        BufferedImage img = ImageIO.read(new File(file));
-        System.out.println(img.getWidth()+":"+img.getHeight());
         //按倍率缩小图片
-        OperateImage.reduceImageByRatio(file,path+"reduceImageByRatio1X1.jpg",1,1);
-        OperateImage.reduceImageByRatio(file, path + "reduceImageByRatio2X2.jpg", 2, 2);
-        OperateImage.reduceImageByRatio(file, path + "reduceImageByRatio5X5.jpg", 5, 5);
-        OperateImage.reduceImageByRatio(file, path + "reduceImageByRatio10X10.jpg", 10, 10);
-        OperateImage.reduceImageByRatio(file, path + "reduceImageByRatio100X100.jpg", 100, 100);
+        for(int i=0;i<= 50;i+=10){
+            String tempName =String.format(path_temp+"按倍率%dx%d缩小-.jpg",i,i);
+            OperateImage.reduceImageByRatio(file,tempName,i,i);
+        }
+
+
+
     }
 
     public void testReduceImageEqualProportion() throws Exception {
@@ -120,9 +125,12 @@ public class OperateImageTest extends TestCase {
     public void testMergeBothImage() throws Exception {
         String file1 = path+"1.jpg";
         String file3 = path+"4.jpg";
-        String dstFile = path +"MergeBothImage-01.jpg";
-        OperateImage.mergeBothImage(file1, file3, 0, 0, dstFile);
+        OperateImage.mergeBothImage(file1, file3,"jpg",0, 0,
+                path_temp +"MergeBothImage-01.jpg");
+        OperateImage.mergeBothImage(file1, file3,"jpg",30, 30,
+                path_temp +"MergeBothImage-02.jpg");
     }
+
 
     public void testMergeImageList() throws Exception {
         String file1 = path+"1.jpg";

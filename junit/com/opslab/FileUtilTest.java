@@ -12,6 +12,14 @@ import static org.junit.Assert.assertEquals;
 public class FileUtilTest extends SupportTest {
 
     @Test
+    public void testSuffix(){
+        String file = System.getProperty("user.dir") + "/Junit/Resource/English.txt";
+        System.out.println(FileUtil.suffix(new File(file)));
+        file = System.getProperty("user.dir") + "/Junit/Resource/English.tar.gz";
+        System.out.println(FileUtil.suffix(new File(file)));
+    }
+
+    @Test
     public void testCountLines() throws IOException {
 
         String file = System.getProperty("user.dir") + "/Junit/Resource/English.txt";
