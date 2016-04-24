@@ -1,7 +1,6 @@
 package com.opslab.image;
 
-import com.sun.image.codec.jpeg.JPEGCodec;
-import com.sun.image.codec.jpeg.JPEGImageEncoder;
+import com.opslab.FileUtil;
 
 import javax.imageio.ImageIO;
 import javax.imageio.ImageReadParam;
@@ -80,27 +79,18 @@ public class OperateImage {
      * @throws IOException
      */
     public static void reduceImageByRatio(String srcImagePath, String toImagePath, int widthRatio, int heightRatio) throws IOException {
-        FileOutputStream out = null;
-        try {
+        File file = new File(srcImagePath);
+        try(FileOutputStream out = new FileOutputStream(toImagePath)) {
             //读入文件
-            File file = new File(srcImagePath);
+
+            String prefix= FileUtil.suffix(file);
             // 构造Image对象
-            BufferedImage src = javax.imageio.ImageIO.read(file);
-            int width = src.getWidth();
-            int height = src.getHeight();
-            // 缩小边长
-            BufferedImage tag = new BufferedImage(width / widthRatio, height / heightRatio, BufferedImage.TYPE_INT_RGB);
-            // 绘制 缩小  后的图片
-            tag.getGraphics().drawImage(src, 0, 0, width / widthRatio, height / heightRatio, null);
-            out = new FileOutputStream(toImagePath);
-            JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(out);
-            encoder.encode(tag);
+            BufferedImage srcBuffer = ImageIO.read(file);
+            // 按比例缩减图像
+            BufferedImage imageBuffer = ImageUtil.imageShrinkRatio(srcBuffer, widthRatio, heightRatio);
+            ImageIO.write(imageBuffer,prefix,out);
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            if (out != null) {
-                out.close();
-            }
         }
     }
 
@@ -113,27 +103,17 @@ public class OperateImage {
      * @throws IOException
      */
     public static void reduceImageEqualProportion(String srcImagePath, String toImagePath, int ratio) throws IOException {
-        FileOutputStream out = null;
-        try {
+        File file = new File(srcImagePath);
+        try(FileOutputStream out = new FileOutputStream(toImagePath)) {
             //读入文件
-            File file = new File(srcImagePath);
+            String prefix= FileUtil.suffix(file);
             // 构造Image对象
-            BufferedImage src = javax.imageio.ImageIO.read(file);
-            int width = src.getWidth();
-            int height = src.getHeight();
-            // 缩小边长
-            BufferedImage tag = new BufferedImage(width / ratio, height / ratio, BufferedImage.TYPE_INT_RGB);
-            // 绘制 缩小  后的图片
-            tag.getGraphics().drawImage(src, 0, 0, width / ratio, height / ratio, null);
-            out = new FileOutputStream(toImagePath);
-            JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(out);
-            encoder.encode(tag);
+            BufferedImage srcBuffer = ImageIO.read(file);
+            // 按比例缩减图像
+            BufferedImage imageBuffer = ImageUtil.imageShrinkRatio(srcBuffer, ratio, ratio);
+            ImageIO.write(imageBuffer,prefix,out);
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            if (out != null) {
-                out.close();
-            }
         }
     }
 
@@ -147,27 +127,17 @@ public class OperateImage {
      * @throws IOException
      */
     public static void enlargementImageByRatio(String srcImagePath, String toImagePath, int widthRatio, int heightRatio) throws IOException {
-        FileOutputStream out = null;
-        try {
+        File file = new File(srcImagePath);
+        try(FileOutputStream out = new FileOutputStream(toImagePath)) {
             //读入文件
-            File file = new File(srcImagePath);
+            String prefix= FileUtil.suffix(file);
             // 构造Image对象
-            BufferedImage src = javax.imageio.ImageIO.read(file);
-            int width = src.getWidth();
-            int height = src.getHeight();
-            // 放大边长
-            BufferedImage tag = new BufferedImage(width * widthRatio, height * heightRatio, BufferedImage.TYPE_INT_RGB);
-            //绘制放大后的图片
-            tag.getGraphics().drawImage(src, 0, 0, width * widthRatio, height * heightRatio, null);
-            out = new FileOutputStream(toImagePath);
-            JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(out);
-            encoder.encode(tag);
+            BufferedImage srcBuffer = ImageIO.read(file);
+            // 按比例缩减图像
+            BufferedImage imageBuffer = ImageUtil.imageMagnifyRatio(srcBuffer, widthRatio, heightRatio);
+            ImageIO.write(imageBuffer, prefix, out);
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            if (out != null) {
-                out.close();
-            }
         }
     }
 
@@ -181,59 +151,41 @@ public class OperateImage {
      * @throws IOException
      */
     public static void enlargementImageEqualProportion(String srcImagePath, String toImagePath, int ratio) throws IOException {
-        FileOutputStream out = null;
-        try {
+        File file = new File(srcImagePath);
+        try(FileOutputStream out = new FileOutputStream(toImagePath)) {
             //读入文件
-            File file = new File(srcImagePath);
+            String prefix= FileUtil.suffix(file);
             // 构造Image对象
-            BufferedImage src = javax.imageio.ImageIO.read(file);
-            int width = src.getWidth();
-            int height = src.getHeight();
-            // 放大边长
-            BufferedImage tag = new BufferedImage(width * ratio, height * ratio, BufferedImage.TYPE_INT_RGB);
-            //绘制放大后的图片
-            tag.getGraphics().drawImage(src, 0, 0, width * ratio, height * ratio, null);
-            out = new FileOutputStream(toImagePath);
-            JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(out);
-            encoder.encode(tag);
+            BufferedImage srcBuffer = ImageIO.read(file);
+            // 按比例缩减图像
+            BufferedImage imageBuffer = ImageUtil.imageMagnifyRatio(srcBuffer, ratio, ratio);
+            ImageIO.write(imageBuffer, prefix, out);
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            if (out != null) {
-                out.close();
-            }
         }
     }
 
     /**
      * 重置图形的边长大小
      *
-     * @param srcImagePath
-     * @param toImagePath
-     * @param width
-     * @param height
+     * @param srcImagePath 原图像
+     * @param toImagePath 新生产的图像
+     * @param width 图像宽度
+     * @param height 图像高度
      * @throws IOException
      */
     public static void resizeImage(String srcImagePath, String toImagePath, int width, int height) throws IOException {
-        FileOutputStream out = null;
-        try {
+        File file = new File(srcImagePath);
+        try(FileOutputStream out = new FileOutputStream(toImagePath)) {
             //读入文件
-            File file = new File(srcImagePath);
+            String prefix= FileUtil.suffix(file);
             // 构造Image对象
-            BufferedImage src = javax.imageio.ImageIO.read(file);
-            // 放大边长
-            BufferedImage tag = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
-            //绘制放大后的图片
-            tag.getGraphics().drawImage(src, 0, 0, width, height, null);
-            out = new FileOutputStream(toImagePath);
-            JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(out);
-            encoder.encode(tag);
+            BufferedImage srcBuffer = ImageIO.read(file);
+            // 按比例缩减图像
+            BufferedImage imageBuffer = ImageUtil.imageResize(srcBuffer, width, height);
+            ImageIO.write(imageBuffer, prefix, out);
         } catch (Exception e) {
             e.printStackTrace();
-        } finally {
-            if (out != null) {
-                out.close();
-            }
         }
     }
 
@@ -449,7 +401,7 @@ public class OperateImage {
      * @param toPath            图片写入路径
      * @throws IOException
      */
-    public static void mergeBothImage(String negativeImagePath, String additionImagePath, int x, int y, String toPath) throws IOException {
+    public static void mergeBothImage(String negativeImagePath, String additionImagePath,String iamgeFromat, int x, int y, String toPath) throws IOException {
         InputStream is = null;
         InputStream is2 = null;
         OutputStream os = null;
@@ -461,8 +413,7 @@ public class OperateImage {
             Graphics g = image.getGraphics();
             g.drawImage(image2, x, y, null);
             os = new FileOutputStream(toPath);
-            JPEGImageEncoder enc = JPEGCodec.createJPEGEncoder(os);
-            enc.encode(image);
+            ImageIO.write(image, iamgeFromat, os);//写图片
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -496,7 +447,6 @@ public class OperateImage {
             BufferedImage image = ImageIO.read(is);
             //Graphics g=image.getGraphics();
             Graphics2D g = image.createGraphics();
-            ;
             BufferedImage image2 = null;
             if (additionImageList != null) {
                 for (int i = 0; i < additionImageList.size(); i++) {
