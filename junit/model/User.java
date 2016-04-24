@@ -1,14 +1,12 @@
 package model;
 
 
-import lombok.Getter;
-import lombok.Setter;
 
 public class User {
 
-    @Getter @Setter private String userId;
+    private String userId;
 
-    @Getter @Setter private String userName;
+    private String userName;
 
     public User() {
     }
@@ -24,6 +22,22 @@ public class User {
                 "userId='" + userId + '\'' +
                 ", userName='" + userName + '\'' +
                 '}';
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     @Override
