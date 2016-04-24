@@ -5,3 +5,4 @@ out/
 junit/Resource/temp/
 .idea/
 utils.iml/
+*.xml

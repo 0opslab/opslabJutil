@@ -3,16 +3,12 @@
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
       <artifact name="opslab_utils" />
+      <artifact name="opslab_utils_all:jar" />
+      <artifact name="opslab_utils_source" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5983b844-cf7f-4406-bcfb-7ade5ee3e903" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/junit/com/opslab/ProUtilTest.java" afterPath="$PROJECT_DIR$/junit/com/opslab/PropertiesUtilTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/opslab/ProUtil.java" afterPath="$PROJECT_DIR$/src/com/opslab/PropertiesUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Readme.md" afterPath="$PROJECT_DIR$/Readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/opslab/SysUtil.java" afterPath="$PROJECT_DIR$/src/com/opslab/SysUtil.java" />
-    </list>
+    <list default="true" id="5983b844-cf7f-4406-bcfb-7ade5ee3e903" name="Default" comment="" />
     <ignored path="utils.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -1251,7 +1247,7 @@
       <workItem from="1461221837126" duration="8000" />
       <workItem from="1461222019554" duration="13000" />
       <workItem from="1461222438515" duration="47000" />
-      <workItem from="1461222510652" duration="5974000" />
+      <workItem from="1461222510652" duration="6271000" />
     </task>
     <servers />
   </component>
@@ -1288,7 +1284,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66673000" />
+    <option name="totallyTimeSpent" value="66970000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
