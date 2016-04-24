@@ -4,12 +4,11 @@
 另外希望身为Java牛牛的你们一起测试和完善 一起封装和完成常用的Java代码。
 节约撸码时间以方便有更多的时间去把妹子～<br>
 
-#me
+#me [新浪微博](http://weibo.com/5204661479)
 ---
-<p align = "center">[新浪微博](http://weibo.com/5204661479)</p>
 <p align = "center">少侠请老夫喝杯咖啡慢慢骚聊</p>
-<img src="http://0opslab.com/0opslab%20util_files/90f1d25e7a6c3a956bf59bb8fb66318e.png"
- height="150" width="150" alt="少侠请老夫喝杯咖啡慢慢骚聊"/>
+<div  align = "center"><img src="http://0opslab.com/0opslab%20util_files/90f1d25e7a6c3a956bf59bb8fb66318e.png"
+ height="150" width="150"/><div>
 
 
 #API-DOC
