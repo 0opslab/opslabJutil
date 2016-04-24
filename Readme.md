@@ -6,8 +6,7 @@
 
 #me
 [新浪微博](http://weibo.com/5204661479/)
-![center]少侠请老夫喝杯咖啡慢慢骚聊<br>
-![center](http://0opslab.com/0opslab%20util_files/90f1d25e7a6c3a956bf59bb8fb66318e.png)
+
 
 #API-DOC
 [DOC](http://0opslab.com/0opslabutil.html)
