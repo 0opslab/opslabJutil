@@ -1,12 +1,4 @@
-lib/lombok.jar
-lib/log4j-1.2.17.jar
-lib/servlet-api.jar
-out/
-junit/Resource/temp/
-junit/Resource/image/temp/
+target/
+src/test/resource/temp/
 .idea/
-utils.iml
-utils.iml
-.idea/workspace.xml
-
-.idea/workspace.xml
+utils.iml/
