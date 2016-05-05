@@ -6,164 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5983b844-cf7f-4406-bcfb-7ade5ee3e903" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/resource/lib/cpdetector.jar" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/lib__2_.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/lib__3_.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/conf/configFTP.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/conf/ftp.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/conf/mail.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/FTP/FTPtest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/JDK/Collection/CollectionTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/JDK/String/StringTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/English.tar.gz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/English.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/EnglishWrite.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/GBK.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/GBKTOUTF8.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/GBKWrite.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/Test.properties" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/TimeCount.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/UTF8.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/UTF8Write.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/ali.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/cmdexe" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/image/1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/image/1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/image/2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/image/3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/image/4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/indexhtml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/tge.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/tgepng" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/time.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/times.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/Bean/BeanUtilTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/CharUtilTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/CharsetUtilTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/ChinesUtilTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/ClassUtilTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/ConvertUtilTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/DateUtilTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/DateUtilThreadSafeTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/DateUtilUsagesTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/EmailUtilTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/FilePathUtilTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/FileUtilTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/PrintUtilTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/PropertiesUtilTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/RandomUtilTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/RegUtilTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/SecUtilTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/StreamUtilTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/StringUtilTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/SupportTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/SysUtilTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/WEB/UrlUtilTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/WEB/WebUtilTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/ZIPUtilTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/algorithmImpl/FileEncodingUtilTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/algorithmImpl/FileImplTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/algorithmImpl/FileTypeImplTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/collection/CollectionUtilTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/coordinates/CoordinateUtilTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/encrypt/Base32Test.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/encrypt/Base64Test.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/filetest/FileDemo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/filetest/FilePathUtilTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/filetest/FileUtilTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/image/ColorUtilTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/image/ImageCaptchaTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/image/ImageIOTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/image/OperateImageTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/validTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/model/BusinessLog.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/model/Log.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/model/Log2.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/model/User.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/model/interfaces.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/antlr-2.7.4.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/chardet-1.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/commons-net-1.4.1.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/cpdetector.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/hamcrest-core-1.3.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/jakarta-oro-2.0.8.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/jargs-1.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/jchardet-1.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/mail.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/pinyin4j-2.5.0.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/CharUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/CharsetUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/ChinesUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/ClassUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/ConvertUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/DateUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/EmailUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/FilePathUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/FileUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/PropertiesUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/RandomUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/RegUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/SecUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/StreamUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/StringUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/SysUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/ZIPUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/algorithmImpl/BCConvert.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/algorithmImpl/FileEncodingUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/algorithmImpl/FileImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/algorithmImpl/FileReadImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/algorithmImpl/FileTypeImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/algorithmImpl/StringImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/algorithmImpl/cpDetector.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/bean/BeanFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/bean/BeanStruct.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/bean/BeanUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/bean/PropertyFilter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/collection/CollectionUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/collection/ListFilter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/collection/MapFilter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/collection/QueueFilter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/collection/SetFilter.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/constant.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/coordinates/CoordinateUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/encrypt/Base32.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/encrypt/Base64.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/ftp/FTPConstant.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/ftp/FTPFactory.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/ftp/FTPLog.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/ftp/FTPUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/ftp/FTPUtilImpl.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/ftp/FTPVo.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/ftp/FileAttr.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/image/CaptchaUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/image/ColorUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/image/GIF/Encoder.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/image/GIF/GifEncoder.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/image/GIF/Quant.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/image/ImageCaptcha.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/image/ImageUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/image/OperateImage.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/valid.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/web/UrlUtil.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/web/WebUtil.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/ps.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/ps.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/findbugs-idea.xml" afterPath="$PROJECT_DIR$/.idea/findbugs-idea.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Readme.md" afterPath="$PROJECT_DIR$/Readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils.iml" afterPath="$PROJECT_DIR$/utils.iml" />
-    </list>
+    <list default="true" id="5983b844-cf7f-4406-bcfb-7ade5ee3e903" name="Default" comment="" />
     <ignored path="utils.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
@@ -1436,7 +1279,7 @@
       <workItem from="1462433924475" duration="2763000" />
       <workItem from="1462436810973" duration="1431000" />
       <workItem from="1462438271859" duration="1741000" />
-      <workItem from="1462454505244" duration="3665000" />
+      <workItem from="1462454505244" duration="3919000" />
     </task>
     <servers />
   </component>
@@ -1473,11 +1316,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83381000" />
+    <option name="totallyTimeSpent" value="83635000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1490,7 +1333,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.271875" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20948827" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20948827" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="BPMNPalette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42291668" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
