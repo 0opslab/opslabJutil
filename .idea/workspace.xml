@@ -3,16 +3,172 @@
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
       <artifact name="opslab_utils" />
-      <artifact name="opslab_utils_all:jar" />
-      <artifact name="opslab_utils_source" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5983b844-cf7f-4406-bcfb-7ade5ee3e903" name="Default" comment="" />
+    <list default="true" id="5983b844-cf7f-4406-bcfb-7ade5ee3e903" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/resource/lib/cpdetector.jar" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/lib__2_.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/lib__3_.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/conf/configFTP.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/conf/ftp.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/conf/mail.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/FTP/FTPtest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/JDK/Collection/CollectionTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/JDK/String/StringTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/English.tar.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/English.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/EnglishWrite.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/GBK.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/GBKTOUTF8.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/GBKWrite.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/Test.properties" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/TimeCount.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/UTF8.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/UTF8Write.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/ali.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/cmdexe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/image/1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/image/1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/image/2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/image/3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/image/4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/indexhtml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/tge.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/tgepng" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/time.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/Resource/times.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/Bean/BeanUtilTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/CharUtilTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/CharsetUtilTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/ChinesUtilTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/ClassUtilTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/ConvertUtilTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/DateUtilTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/DateUtilThreadSafeTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/DateUtilUsagesTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/EmailUtilTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/FilePathUtilTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/FileUtilTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/PrintUtilTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/PropertiesUtilTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/RandomUtilTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/RegUtilTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/SecUtilTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/StreamUtilTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/StringUtilTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/SupportTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/SysUtilTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/WEB/UrlUtilTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/WEB/WebUtilTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/ZIPUtilTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/algorithmImpl/FileEncodingUtilTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/algorithmImpl/FileImplTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/algorithmImpl/FileTypeImplTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/collection/CollectionUtilTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/coordinates/CoordinateUtilTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/encrypt/Base32Test.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/encrypt/Base64Test.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/filetest/FileDemo.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/filetest/FilePathUtilTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/filetest/FileUtilTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/image/ColorUtilTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/image/ImageCaptchaTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/image/ImageIOTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/image/OperateImageTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/com/opslab/validTest.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/model/BusinessLog.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/model/Log.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/model/Log2.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/model/User.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/junit/model/interfaces.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/antlr-2.7.4.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/chardet-1.0.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/commons-net-1.4.1.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/cpdetector.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/hamcrest-core-1.3.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/jakarta-oro-2.0.8.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/jargs-1.0.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/jchardet-1.0.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/mail.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/pinyin4j-2.5.0.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/CharUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/CharsetUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/ChinesUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/ClassUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/ConvertUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/DateUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/EmailUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/FilePathUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/FileUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/PropertiesUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/RandomUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/RegUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/SecUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/StreamUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/StringUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/SysUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/ZIPUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/algorithmImpl/BCConvert.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/algorithmImpl/FileEncodingUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/algorithmImpl/FileImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/algorithmImpl/FileReadImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/algorithmImpl/FileTypeImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/algorithmImpl/StringImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/algorithmImpl/cpDetector.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/bean/BeanFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/bean/BeanStruct.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/bean/BeanUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/bean/PropertyFilter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/collection/CollectionUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/collection/ListFilter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/collection/MapFilter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/collection/QueueFilter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/collection/SetFilter.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/constant.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/coordinates/CoordinateUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/encrypt/Base32.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/encrypt/Base64.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/ftp/FTPConstant.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/ftp/FTPFactory.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/ftp/FTPLog.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/ftp/FTPUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/ftp/FTPUtilImpl.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/ftp/FTPVo.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/ftp/FileAttr.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/image/CaptchaUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/image/ColorUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/image/GIF/Encoder.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/image/GIF/GifEncoder.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/image/GIF/Quant.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/image/ImageCaptcha.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/image/ImageUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/image/OperateImage.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/valid.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/web/UrlUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/com/opslab/web/WebUtil.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/ps.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/ps.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/findbugs-idea.xml" afterPath="$PROJECT_DIR$/.idea/findbugs-idea.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Readme.md" afterPath="$PROJECT_DIR$/Readme.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils.iml" afterPath="$PROJECT_DIR$/utils.iml" />
+    </list>
     <ignored path="utils.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path=".idea/dataSources.local.xml" />
+    <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,101 +197,101 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="UrlUtilTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/junit/com/opslab/web/UrlUtilTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.220339">
-              <caret line="163" column="26" selection-start-line="163" selection-start-column="26" selection-end-line="163" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WebUtilTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/junit/com/opslab/web/WebUtilTest.java">
+      <file leaf-file-name="CharsetUtilTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/opslab/CharsetUtilTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConvertUtilTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/junit/com/opslab/ConvertUtilTest.java">
+      <file leaf-file-name="EmailUtilTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/opslab/EmailUtilTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-36.76271">
-              <caret line="77" column="26" selection-start-line="77" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DateUtilThreadSafeTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/junit/com/opslab/DateUtilThreadSafeTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.593221">
-              <caret line="31" column="36" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="DateUtilUsagesTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/junit/com/opslab/DateUtilUsagesTest.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/opslab/DateUtilUsagesTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="38" column="26" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
+              <caret line="65" column="11" selection-start-line="65" selection-start-column="11" selection-end-line="65" selection-end-column="11" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PrintUtilTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/junit/com/opslab/PrintUtilTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-17.322035">
-              <caret line="41" column="26" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="StringUtilTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/junit/com/opslab/StringUtilTest.java">
+      <file leaf-file-name="CharUtilTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/opslab/CharUtilTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+              <caret line="172" column="9" selection-start-line="172" selection-start-column="9" selection-end-line="172" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StreamUtilTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/junit/com/opslab/StreamUtilTest.java">
+      <file leaf-file-name="DateUtilThreadSafe.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/opslab/DateUtilThreadSafe.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+              <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StreamUtil.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/opslab/StreamUtil.java">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Readme.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Readme.md">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.31958762">
-              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.14761905">
+              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileUtilTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/opslab/filetest/FileUtilTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileUtilTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/opslab/FileUtilTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ZIPUtilTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/opslab/ZIPUtilTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -162,27 +318,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Junit/evilp0s/SupportTest.java" />
-        <option value="$PROJECT_DIR$/src/evilp0s/RandomUtil.java" />
-        <option value="$PROJECT_DIR$/Junit/evilp0s/RandomUtilTest.java" />
-        <option value="$PROJECT_DIR$/Junit/demo/time/TestWorkTime.java" />
-        <option value="$PROJECT_DIR$/Junit/com/opslab/RandomUtilTest.java" />
-        <option value="$PROJECT_DIR$/Junit/com/opslab/ClassUtilTest.java" />
-        <option value="$PROJECT_DIR$/Junit/com/opslab/filetest/FilePathUtilTest.java" />
-        <option value="$PROJECT_DIR$/Junit/com/opslab/filetest/FileTest.java" />
-        <option value="$PROJECT_DIR$/Junit/com/opslab/filetest/FileUtilTest.java" />
-        <option value="$PROJECT_DIR$/Junit/Resource/time.txt" />
-        <option value="$PROJECT_DIR$/src/com/opslab/RegUtil.java" />
-        <option value="$PROJECT_DIR$/src/com/opslab/FilePathUtil.java" />
-        <option value="$PROJECT_DIR$/Junit/com/opslab/StringUtilTest.java" />
-        <option value="$PROJECT_DIR$/Junit/JDK/JVM/JvmParamerters.java" />
-        <option value="$PROJECT_DIR$/Junit/com/opslab/RegUtilTest.java" />
-        <option value="$PROJECT_DIR$/Junit/com/opslab/validTest.java" />
-        <option value="$PROJECT_DIR$/src/com/opslab/ClassUtil.java" />
-        <option value="$PROJECT_DIR$/src/com/opslab/web/WebUtil.java" />
-        <option value="$PROJECT_DIR$/changelog.md" />
-        <option value="$PROJECT_DIR$/src/com/opslab/constant.java" />
-        <option value="$PROJECT_DIR$/src/com/opslab/bean/BeanFactory.java" />
         <option value="$PROJECT_DIR$/src/com/opslab/SysUtil.java" />
         <option value="$PROJECT_DIR$/src/com/opslab/algorithmImpl/FileEncodingUtil.java" />
         <option value="$PROJECT_DIR$/src/com/opslab/StringUtil.java" />
@@ -193,12 +328,10 @@
         <option value="$PROJECT_DIR$/src/com/opslab/ZIPUtil.java" />
         <option value="$PROJECT_DIR$/src/com/opslab/bean/BeanUtil.java" />
         <option value="$PROJECT_DIR$/junit/com/opslab/ValidUtilTest.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/junit/com/opslab/validTest.java" />
         <option value="$PROJECT_DIR$/src/com/opslab/valid.java" />
         <option value="$PROJECT_DIR$/junit/FTP/FTPtest.java" />
         <option value="$PROJECT_DIR$/src/com/opslab/ftp/FTPUtilImpl.java" />
-        <option value="$PROJECT_DIR$/junit/com/opslab/ClassUtilTest.java" />
         <option value="$PROJECT_DIR$/junit/JDK/Collection/CollectionTest.java" />
         <option value="$PROJECT_DIR$/junit/com/opslab/FileUtilTest.java" />
         <option value="$PROJECT_DIR$/junit/com/opslab/Bean/BeanUtilTest.java" />
@@ -213,6 +346,29 @@
         <option value="$PROJECT_DIR$/junit/com/opslab/StringUtilTest.java" />
         <option value="$PROJECT_DIR$/src/com/opslab/StreamUtil.java" />
         <option value="$PROJECT_DIR$/Readme.md" />
+        <option value="$PROJECT_DIR$/junit/com/opslab/ClassUtilTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/opslab/image/OperateImage.java" />
+        <option value="$PROJECT_DIR$/src/test/java/model/User.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/opslab/image/OperateImageTest.java.bak" />
+        <option value="$PROJECT_DIR$/src/test/java/test/TestUtil.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/opslab/algorithmImpl/FileTypeImplTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/info/monitorenter/cpdetector/io/parser/EncodingParser.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/test/java/com/opslab/algorithmImpl/FileEncodingUtilTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/opslab/algorithmImpl/FileImplTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/opslab/ClassUtilTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/opslab/PropertiesUtilTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/opslab/SecUtilTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/opslab/StreamUtilTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/opslab/SupportTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/opslab/ZIPUtilTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/opslab/filetest/FileUtilTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/opslab/FileUtilTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/opslab/EmailUtilTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/opslab/DateUtilUsagesTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/opslab/CharUtilTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/opslab/DateUtilThreadSafe.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -224,9 +380,32 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="Bundled (Maven 3)" />
+        <option name="mavenHome" value="C:/Java/maven" />
+        <option name="userSettingsFile" value="C:\Java\maven\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <PATH>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="0opslab-Util" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
+        </PATH_ELEMENT>
+        <PATH_ELEMENT>
+          <option name="myItemId" value="Lifecycle" />
+          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$LifecycleNode" />
+        </PATH_ELEMENT>
+      </PATH>
+    </treeState>
+  </component>
+  <component name="MavenRunner">
+    <option name="jreName" value="1.7" />
+    <option name="vmOptions" value="-Dfile.encoding=UTF-8" />
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
@@ -488,6 +667,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -506,68 +686,17 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="opslab" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="junit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="junit" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="opslab" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gant" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="dynamic.classpath" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
@@ -584,42 +713,30 @@
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="FullScreen" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
       <recent name="evilp0s" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\workspace\utils\src\main\resources" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="junit.framework.TestCase" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\workspace\utils\src\test\resource\lib" />
+      <recent name="E:\workspace\utils\src\main\java" />
       <recent name="C:\workspace\utils\junit\com\opslab" />
       <recent name="C:\workspace\utils\lib" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.All in utils (2)">
-    <configuration default="false" name="All in utils (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="utils" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="package" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="validTest.testSwith" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.CharsetUtilTest.testCpDetector">
+    <configuration default="false" name="FileUtilTest.testSimpleEncoding" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.opslab.*" />
@@ -630,8 +747,8 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.opslab" />
-      <option name="MAIN_CLASS_NAME" value="com.opslab.validTest" />
-      <option name="METHOD_NAME" value="testSwith" />
+      <option name="MAIN_CLASS_NAME" value="com.opslab.FileUtilTest" />
+      <option name="METHOD_NAME" value="testSimpleEncoding" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -645,15 +762,20 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="All in utils (4)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+    <configuration default="false" name="ZIPUtilTest.testUnCompress" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.opslab.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <module name="utils" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="PACKAGE_NAME" value="com.opslab" />
+      <option name="MAIN_CLASS_NAME" value="com.opslab.ZIPUtilTest" />
+      <option name="METHOD_NAME" value="testUnCompress" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -666,15 +788,20 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="All in utils" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+    <configuration default="false" name="StreamUtilTest.testInputStream2Byte" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.opslab.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <module name="utils" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="PACKAGE_NAME" value="com.opslab" />
+      <option name="MAIN_CLASS_NAME" value="com.opslab.StreamUtilTest" />
+      <option name="METHOD_NAME" value="testInputStream2Byte" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -687,15 +814,46 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="All in utils (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+    <configuration default="false" name="StreamUtilTest.testByte2InputStream" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.opslab.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <module name="utils" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="PACKAGE_NAME" value="com.opslab" />
+      <option name="MAIN_CLASS_NAME" value="com.opslab.StreamUtilTest" />
+      <option name="METHOD_NAME" value="testByte2InputStream" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="CharsetUtilTest.testCpDetector" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.opslab.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="utils" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.opslab" />
+      <option name="MAIN_CLASS_NAME" value="com.opslab.CharsetUtilTest" />
+      <option name="METHOD_NAME" value="testCpDetector" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -994,7 +1152,7 @@
     </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/opslab_common_utils_jar/utils.jar" />
+      <option name="JAR_PATH" value="$PROJECT_DIR$/lib/jargs-1.0.jar" />
       <envs />
       <method />
     </configuration>
@@ -1040,6 +1198,28 @@
       <option name="workingDirectory" />
       <option name="isAlternativeJrePathEnabled" value="false" />
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list />
+            </option>
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
       <method />
     </configuration>
     <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" working-dir="">
@@ -1149,19 +1329,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.All in utils (1)" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.validTest.testSwith" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.All in utils (4)" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.All in utils" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.All in utils (2)" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.FileUtilTest.testSimpleEncoding" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.ZIPUtilTest.testUnCompress" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.StreamUtilTest.testInputStream2Byte" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.StreamUtilTest.testByte2InputStream" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.CharsetUtilTest.testCpDetector" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.All in utils (2)" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.All in utils (1)" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.All in utils" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.All in utils (4)" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.validTest.testSwith" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.CharsetUtilTest.testCpDetector" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.StreamUtilTest.testByte2InputStream" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.StreamUtilTest.testInputStream2Byte" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.ZIPUtilTest.testUnCompress" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.FileUtilTest.testSimpleEncoding" />
       </list>
     </recent_temporary>
   </component>
@@ -1247,34 +1427,43 @@
       <workItem from="1461221837126" duration="8000" />
       <workItem from="1461222019554" duration="13000" />
       <workItem from="1461222438515" duration="47000" />
-      <workItem from="1461222510652" duration="6271000" />
+      <workItem from="1461222510652" duration="5974000" />
+      <workItem from="1461292700052" duration="112000" />
+      <workItem from="1461384797251" duration="2423000" />
+      <workItem from="1461387261715" duration="1467000" />
+      <workItem from="1461388751781" duration="1966000" />
+      <workItem from="1461391259904" duration="1140000" />
+      <workItem from="1462433924475" duration="2763000" />
+      <workItem from="1462436810973" duration="1431000" />
+      <workItem from="1462438271859" duration="1741000" />
+      <workItem from="1462454505244" duration="3665000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_utils_(1) - 2016.04.21 at 15h 11m 00s.xml">
-      <configuration name="All in utils (1)" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_utils_(1) - 2016.04.21 at 15h 33m 48s.xml">
-      <configuration name="All in utils (1)" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_utils_(1) - 2016.04.21 at 15h 42m 58s.xml">
-      <configuration name="All in utils (1)" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_utils_(1) - 2016.04.21 at 16h 32m 09s.xml">
-      <configuration name="All in utils (1)" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_utils_(2) - 2016.04.21 at 15h 26m 23s.xml">
-      <configuration name="All in utils (2)" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_utils_(2) - 2016.04.21 at 16h 32m 17s.xml">
-      <configuration name="All in utils (2)" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="All_in_utils_(3) - 2016.04.21 at 15h 26m 53s.xml">
-      <configuration name="All in utils (3)" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="All_in_utils_(5) - 2016.04.21 at 15h 22m 23s.xml">
       <configuration name="All in utils (5)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CharsetUtilTest_testCpDetector - 2016.05.05 at 22h 17m 23s.xml">
+      <configuration name="CharsetUtilTest.testCpDetector" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StreamUtilTest_testByte2InputStream - 2016.05.05 at 22h 00m 27s.xml">
+      <configuration name="StreamUtilTest.testByte2InputStream" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StreamUtilTest_testByte2InputStream - 2016.05.05 at 22h 01m 35s.xml">
+      <configuration name="StreamUtilTest.testByte2InputStream" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StreamUtilTest_testInputStream2Byte - 2016.05.05 at 21h 59m 06s.xml">
+      <configuration name="StreamUtilTest.testInputStream2Byte" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StreamUtilTest_testInputStream2Byte - 2016.05.05 at 22h 00m 33s.xml">
+      <configuration name="StreamUtilTest.testInputStream2Byte" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StreamUtilTest_testInputStream2Byte - 2016.05.05 at 22h 00m 42s.xml">
+      <configuration name="StreamUtilTest.testInputStream2Byte" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="ZIPUtilTest_testUnCompress - 2016.05.05 at 21h 58m 03s.xml">
+      <configuration name="ZIPUtilTest.testUnCompress" configurationId="JUnit" />
     </history-entry>
     <history-entry file="validTest - 2016.04.21 at 15h 14m 00s.xml">
       <configuration name="validTest" configurationId="JUnit" />
@@ -1284,27 +1473,28 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66970000" />
+    <option name="totallyTimeSpent" value="83381000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1066" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37565583" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42395833" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.290625" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12793177" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32912722" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16145833" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.271875" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17217484" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20948827" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14872068" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="BPMNPalette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.42291668" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14787701" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -1351,7 +1541,7 @@
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/opslab/ClassUtil.java</url>
+          <url>file://$PROJECT_DIR$/src/main/java/com/opslab/ClassUtil.java</url>
           <line>117</line>
           <properties />
           <option name="timeStamp" value="7" />
@@ -1369,127 +1559,42 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/opslab/FilePathUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/opslab/algorithmImpl/cpDetector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Java/jdk1.7.0_67/src.zip!/java/text/DateFormat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="325" column="33" selection-start-line="325" selection-start-column="33" selection-end-line="325" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/opslab/RegUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="185" column="36" selection-start-line="185" selection-start-column="22" selection-end-line="185" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/junit/com/opslab/RegUtilTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="20" column="60" selection-start-line="20" selection-start-column="60" selection-end-line="20" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Java/jdk1.7.0_67/src.zip!/java/text/SimpleDateFormat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="574" column="11" selection-start-line="574" selection-start-column="11" selection-end-line="574" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/opslab/DateUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="123" column="31" selection-start-line="123" selection-start-column="31" selection-end-line="123" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/opslab/ClassUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="7" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/opslab/CharsetUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/opslab/encrypt/Base32.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/opslab/ftp/FTPConstant.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/opslab/ftp/FTPConstant.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.26609442">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/opslab/ftp/FTPFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/opslab/ftp/FTPFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.39914164">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/opslab/ftp/FTPUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/opslab/ftp/FTPUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33261803">
           <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/opslab/coordinates/CoordinateUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/opslab/coordinates/CoordinateUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="30" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/junit/com/opslab/coordinates/CoordinateUtilTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="12" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/opslab/image/ColorUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/opslab/image/ColorUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/opslab/image/OperateImage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/opslab/web/WebUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/opslab/web/WebUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.033261802">
           <caret line="5" column="44" selection-start-line="5" selection-start-column="44" selection-end-line="5" selection-end-column="44" />
@@ -1500,286 +1605,342 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-16.607143">
           <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/opslab/constant.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/opslab/constant.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/opslab/bean/BeanFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="63" column="25" selection-start-line="63" selection-start-column="25" selection-end-line="63" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/opslab/SysUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="122" column="33" selection-start-line="122" selection-start-column="33" selection-end-line="122" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/opslab/algorithmImpl/FileEncodingUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="60" column="27" selection-start-line="60" selection-start-column="27" selection-end-line="60" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/opslab/StringUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/opslab/StringUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="142" column="0" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/opslab/collection/CollectionUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/opslab/collection/CollectionUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="108" column="12" selection-start-line="108" selection-start-column="12" selection-end-line="108" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/opslab/FileUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/opslab/FileUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="588" column="23" selection-start-line="588" selection-start-column="23" selection-end-line="588" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/opslab/ConvertUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/opslab/ConvertUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="88" column="23" selection-start-line="88" selection-start-column="23" selection-end-line="88" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/opslab/ZIPUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/opslab/ZIPUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="30" column="27" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/opslab/bean/BeanUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/opslab/bean/BeanUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="592" column="16" selection-start-line="592" selection-start-column="16" selection-end-line="592" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/opslab/StreamUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="39" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Readme.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.3685848">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/opslab/ftp/FTPUtilImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/opslab/algorithmImpl/cpDetector.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32824427">
+          <caret line="11" column="134" selection-start-line="11" selection-start-column="57" selection-end-line="11" selection-end-column="134" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/opslab/algorithmImpl/BCConvert.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/configFTP.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3918575">
+          <caret line="7" column="22" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/cpdetector/io/parser/EncodingLexer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/model/BusinessLog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/model/Log.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/model/Log2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="13" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/model/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/opslab/algorithmImpl/FileEncodingUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3340858">
+          <caret line="84" column="12" selection-start-line="84" selection-start-column="12" selection-end-line="84" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/opslab/web/UrlUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/opslab/SysUtil.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+          <caret line="70" column="7" selection-start-line="70" selection-start-column="7" selection-end-line="70" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="false" />
+            <element signature="e#3872#3873#0" expanded="false" />
+            <element signature="e#3934#3935#0" expanded="false" />
+            <element signature="e#4012#4013#0" expanded="false" />
+            <element signature="e#4073#4074#0" expanded="false" />
+            <element signature="e#4152#4153#0" expanded="false" />
+            <element signature="e#4212#4213#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/opslab/image/OperateImageTest.java.bak">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/opslab/bean/BeanFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="95" selection-start-line="23" selection-start-column="95" selection-end-line="23" selection-end-column="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/opslab/algorithmImpl/FileTypeImplTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/opslab/web/UrlUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.23958333">
           <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/src/main/java/info/monitorenter/cpdetector/io/parser/EncodingParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.29107982">
-          <caret line="6" column="10" selection-start-line="6" selection-start-column="10" selection-end-line="6" selection-end-column="10" />
+        <state vertical-scroll-proportion="1.4292344">
+          <caret line="44" column="73" selection-start-line="44" selection-start-column="73" selection-end-line="44" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/info/monitorenter/cpdetector/io/parser/EncodingLexer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5260417">
+          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/test/TestUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25101215">
+          <caret line="4" column="26" selection-start-line="4" selection-start-column="24" selection-end-line="4" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/junit/com/opslab/validTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/opslab/PropertiesUtilTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <caret line="29" column="39" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/opslab/valid.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/opslab/algorithmImpl/FileEncodingUtilTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="104" column="21" selection-start-line="104" selection-start-column="21" selection-end-line="104" selection-end-column="21" />
-          <folding>
-            <element signature="e#167#196#0" expanded="true" />
-            <element signature="e#710#711#0" expanded="true" />
-            <element signature="e#772#773#0" expanded="true" />
-            <element signature="e#1113#1114#0" expanded="true" />
-            <element signature="e#1150#1151#0" expanded="true" />
-            <element signature="e#1896#1897#0" expanded="true" />
-            <element signature="e#1950#1951#0" expanded="true" />
-          </folding>
+          <caret line="26" column="35" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/junit/FTP/FTPtest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/opslab/ClassUtilTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="8.346154">
+          <caret line="139" column="62" selection-start-line="139" selection-start-column="62" selection-end-line="139" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/opslab/algorithmImpl/FileImplTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="4" />
+          <caret line="20" column="77" selection-start-line="20" selection-start-column="77" selection-end-line="20" selection-end-column="77" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/opslab/ftp/FTPUtilImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/opslab/SecUtilTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="80" column="19" selection-start-line="80" selection-start-column="19" selection-end-line="80" selection-end-column="19" />
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/junit/com/opslab/ClassUtilTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/opslab/StreamUtilTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="162" column="26" selection-start-line="162" selection-start-column="26" selection-end-line="162" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/junit/JDK/Collection/CollectionTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="40" column="26" selection-start-line="40" selection-start-column="26" selection-end-line="40" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/junit/com/opslab/FileUtilTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6271186">
-          <caret line="51" column="8" selection-start-line="51" selection-start-column="8" selection-end-line="51" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/junit/com/opslab/bean/BeanUtilTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="8" selection-start-line="0" selection-start-column="8" selection-end-line="0" selection-end-column="8" />
-          <folding>
-            <element signature="e#5185#5393#0" expanded="true" />
-            <element signature="e#5392#5393#0" expanded="true" />
-            <element signature="e#5450#5658#0" expanded="true" />
-            <element signature="e#5657#5658#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/junit/com/opslab/collection/CollectionUtilTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-88.79661">
-          <caret line="172" column="26" selection-start-line="172" selection-start-column="26" selection-end-line="172" selection-end-column="26" />
-          <folding>
-            <element signature="e#2046#2205#0" expanded="true" />
-            <element signature="e#2204#2205#0" expanded="true" />
-            <element signature="e#3687#3846#0" expanded="true" />
-            <element signature="e#3845#3846#0" expanded="true" />
-            <element signature="e#5535#5780#0" expanded="true" />
-            <element signature="e#5779#5780#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/junit/com/opslab/filetest/FileUtilTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-94.55932">
-          <caret line="226" column="26" selection-start-line="226" selection-start-column="26" selection-end-line="226" selection-end-column="26" />
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/junit/com/opslab/web/UrlUtilTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.220339">
-          <caret line="163" column="26" selection-start-line="163" selection-start-column="26" selection-end-line="163" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/junit/com/opslab/web/WebUtilTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/opslab/ZIPUtilTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="26" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+          <caret line="7" column="25" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/junit/com/opslab/ConvertUtilTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-36.76271">
-          <caret line="77" column="26" selection-start-line="77" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/junit/com/opslab/DateUtilThreadSafeTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.593221">
-          <caret line="31" column="36" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/junit/com/opslab/DateUtilUsagesTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/opslab/FileUtilTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="26" selection-start-line="38" selection-start-column="26" selection-end-line="38" selection-end-column="26" />
+          <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/junit/com/opslab/PrintUtilTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-17.322035">
-          <caret line="41" column="26" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/junit/com/opslab/StringUtilTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/opslab/filetest/FileUtilTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="13" column="9" selection-start-line="13" selection-start-column="9" selection-end-line="13" selection-end-column="9" />
+          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/junit/com/opslab/StreamUtilTest.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/opslab/CharsetUtilTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="5" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/opslab/StreamUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/opslab/EmailUtilTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Readme.md">
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/opslab/DateUtilUsagesTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31958762">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="65" column="11" selection-start-line="65" selection-start-column="11" selection-end-line="65" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/opslab/CharUtilTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="172" column="9" selection-start-line="172" selection-start-column="9" selection-end-line="172" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/opslab/DateUtilThreadSafe.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="3" selection-start-line="8" selection-start-column="3" selection-end-line="8" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14761905">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1844,6 +2005,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>
