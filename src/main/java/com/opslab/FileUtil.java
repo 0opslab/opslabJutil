@@ -683,4 +683,14 @@ public class FileUtil {
         return list;
     }
 
+
+    /**
+     * 获取文件后缀名
+     * @param file
+     * @return
+     */
+    public static String suffix(File file){
+        String fileName=file.getName();
+        return fileName.substring(fileName.indexOf(".")+1);
+    }
 }
