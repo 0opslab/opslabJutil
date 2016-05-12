@@ -1,5 +1,5 @@
 target/
 src/test/resource/temp/
 .idea/
-utils.iml/
-.idea/
+utils.iml
+
