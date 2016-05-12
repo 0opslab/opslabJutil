@@ -1,3 +1,8 @@
+#maven deploy
+    2016-05-12 成功发布至maven中心仓库
+    release 1.0.0
+
+
 #DateUtil
 
     
