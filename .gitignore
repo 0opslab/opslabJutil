@@ -2,4 +2,4 @@ target/
 src/test/resource/temp/
 .idea/
 utils.iml/
-.idea/workspace.xml
+.idea/
