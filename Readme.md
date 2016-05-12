@@ -10,7 +10,14 @@
 <div  align = "center"><img src="http://0opslab.com/0opslab%20util_files/90f1d25e7a6c3a956bf59bb8fb66318e.png"
  height="150" width="150"/></div>
 
-
+#usage
+```xml
+<dependency>
+    <groupId>com.0opslab</groupId>
+    <artifactId>0opslab-utils</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
 #API-DOC
 [DOC](http://0opslab.com/0opslabutil.html)
 
