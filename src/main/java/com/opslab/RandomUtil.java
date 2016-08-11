@@ -158,6 +158,14 @@ public class RandomUtil {
     }
 
     /**
+     * 从指定的数组中随机数组中的某个元素
+     */
+    public static Object randomItem(Object[] param) {
+        int index = integer(0,param.length)
+        return param[index];
+    }
+
+    /**
      * 返回一个UUID
      * @return 小写的UUID
      */
