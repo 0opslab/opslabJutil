@@ -15,13 +15,16 @@ import java.util.regex.Pattern;
  * 一些中文相关的操作方法
  */
 public class ChinesUtil {
+    private ChinesUtil(){
+
+    }
     /**
      * 将字符串中的中文转化为拼音,其他字符不变
      *
      * @param inputString
      * @return
      */
-    public static String getPingYin(String inputString) {
+    public static final String getPingYin(String inputString) {
         HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
         format.setCaseType(HanyuPinyinCaseType.LOWERCASE);
         format.setToneType(HanyuPinyinToneType.WITHOUT_TONE);
@@ -50,7 +53,7 @@ public class ChinesUtil {
      * @param chinese 汉字串
      * @return 汉语拼音首字母
      */
-    public static String getFirstSpell(String chinese) {
+    public final static String getFirstSpell(String chinese) {
         StringBuffer            pybf          = new StringBuffer();
         char[]                  arr           = chinese.toCharArray();
         HanyuPinyinOutputFormat defaultFormat = new HanyuPinyinOutputFormat();
