@@ -17,6 +17,13 @@
     <artifactId>0opslab-utils</artifactId>
     <version>1.0.0</version>
 </dependency>
+
+<!--1.0.2-->
+<dependency>
+    <groupId>com.0opslab</groupId>
+    <artifactId>0opslab-utils</artifactId>
+    <version>1.0.2</version>
+</dependency>
 ```
 #API-DOC
 [DOC](http://0opslab.com/0opslabutil.html)
