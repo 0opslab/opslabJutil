@@ -173,5 +173,31 @@ public class CollectionUtilTest extends TestCase {
         System.out.println("原map1:" + map1);
     }
 
+    @Test
+    public void testJoin(){
+        List<String> list1 = new ArrayList<>();
+        list1.add("AAA");
+        list1.add("BBB");
+        list1.add("CCC");
+        list1.add("AAA");
+
+        System.out.println(CollectionUtil.join(list1,"-"));
+
+        Set<String> set1 = new HashSet<>();
+        set1.add("AAA");
+        set1.add("BBB");
+        set1.add("CCC");
+
+        System.out.println(CollectionUtil.join(set1,"-"));
+
+        Map<String,String> map = new HashMap();
+        map.put("AAA", "AAA1");
+        map.put("BBB", "BBB1");
+        map.put("CCC", "CCC1");
+        map.put("DDD", "DDD1");
+
+        System.out.println(CollectionUtil.keyJoin(map,"="));
+        System.out.println(CollectionUtil.valueJoin(map,"="));
+    }
 
 }

@@ -22,7 +22,7 @@ public class CollectionUtil {
      * 去重
      */
     public static <T> List<T> removeDuplicate(List<T> list) {
-        Set  set     = new HashSet();
+        Set set = new HashSet();
         List newList = new ArrayList();
         for (Iterator iter = list.iterator(); iter.hasNext(); ) {
             Object element = iter.next();
@@ -72,10 +72,10 @@ public class CollectionUtil {
         return result;
     }
 
-    public static <K, V> Map Filter(Map<K,V> map, MapFilter filter) {
+    public static <K, V> Map Filter(Map<K, V> map, MapFilter filter) {
         Map result = new HashMap();
         if (valid.valid(map)) {
-            for (Map.Entry<K,V> entry : map.entrySet()) {
+            for (Map.Entry<K, V> entry : map.entrySet()) {
                 if (filter.filter(entry)) {
                     result.put(entry.getKey(), entry.getValue());
                 }
@@ -123,8 +123,8 @@ public class CollectionUtil {
      * @param <V>
      * @return
      */
-    public static <K, V> Map<K,V> intersection(Map<K,V> map1, Map<K,V> map2) {
-        Map<K,V> map = new HashMap<>();
+    public static <K, V> Map<K, V> intersection(Map<K, V> map1, Map<K, V> map2) {
+        Map<K, V> map = new HashMap<>();
         if (valid.valid(map1, map2)) {
             Set<K> setkey1 = new HashSet<>(map1.keySet());
             Set<K> setkey2 = new HashSet<>(map2.keySet());
@@ -162,8 +162,8 @@ public class CollectionUtil {
         return queue;
     }
 
-    public static <K, V> Map<K,V> unicon(Map<K,V> map1, Map<K,V> map2) {
-        Map<K,V> map = new HashMap<>();
+    public static <K, V> Map<K, V> unicon(Map<K, V> map1, Map<K, V> map2) {
+        Map<K, V> map = new HashMap<>();
         map.putAll(map1);
         map.putAll(map2);
         return map;
@@ -201,8 +201,8 @@ public class CollectionUtil {
         return queue;
     }
 
-    public static <K, V> Map<K,V> subtract(Map<K,V> map1, Map<K,V> map2) {
-        Map<K,V> map = new HashMap<>();
+    public static <K, V> Map<K, V> subtract(Map<K, V> map1, Map<K, V> map2) {
+        Map<K, V> map = new HashMap<>();
         if (valid.valid(map1, map2)) {
             Set<K> setkey1 = new HashSet<>(map1.keySet());
             Set<K> setkey2 = new HashSet<>(map2.keySet());
@@ -215,5 +215,83 @@ public class CollectionUtil {
         }
         return map;
 
+    }
+
+    /**
+     * 将List以separator链接并以字符串的形式返回
+     * @param list
+     * @param separator
+     * @param <T>
+     * @return
+     */
+    public final static <T> String join(List<T> list, String separator) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < list.size(); i++) {
+            sb.append(list.get(i).toString()).append(separator);
+        }
+        return sb.toString().substring(0, sb.toString().length() - 1);
+    }
+
+    /**
+     * 将queue以separator链接并以字符串的形式返回
+     * @param queue
+     * @param separator
+     * @param <T>
+     * @return
+     */
+    public final static <T> String join(Queue<T> queue,String separator){
+        StringBuilder sb = new StringBuilder();
+        for(T t : queue){
+            sb.append(t.toString()).append(separator);
+        }
+        return sb.toString().substring(0, sb.toString().length() - 1);
+    }
+
+    /**
+     * 将set以separator链接并以字符串的形式返回
+     * @param set
+     * @param separator
+     * @param <T>
+     * @return
+     */
+    public final static <T> String join(Set<T> set,String separator){
+        StringBuilder sb = new StringBuilder();
+        for(T t : set){
+            sb.append(t.toString()).append(separator);
+        }
+        return sb.toString().substring(0, sb.toString().length() - 1);
+    }
+
+    /**
+     * 将map的key以separator链接并以字符串的形式返回
+     * @param map
+     * @param separator
+     * @param <K>
+     * @param <V>
+     * @return
+     */
+    public final static <K,V> String keyJoin(Map<K,V> map,String separator){
+        StringBuilder sb = new StringBuilder();
+        for (Map.Entry<K, V> entry : map.entrySet()) {
+            sb.append(String.valueOf(entry.getKey())).append(separator);
+        }
+        return sb.toString().substring(0, sb.toString().length() - 1);
+    }
+
+    /**
+     * 将map的value以separator链接并以字符串的形式返回
+     * @param map
+     * @param separator
+     * @param <K>
+     * @param <V>
+     * @return
+     */
+    public final static <K,V> String valueJoin(Map<K,V> map,String separator){
+        StringBuilder sb = new StringBuilder();
+
+        for (Map.Entry<K, V> entry : map.entrySet()) {
+            sb.append(String.valueOf(entry.getValue())).append(separator);
+        }
+        return sb.toString().substring(0, sb.toString().length() - 1);
     }
 }
