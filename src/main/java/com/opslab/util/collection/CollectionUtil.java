@@ -244,7 +244,7 @@ public class CollectionUtil {
         for(T t : queue){
             sb.append(t.toString()).append(separator);
         }
-        return sb.toString().substring(0, sb.toString().length() - 1);
+        return sb.toString().substring(0, sb.toString().length() - separator.length());
     }
 
     /**
@@ -259,7 +259,7 @@ public class CollectionUtil {
         for(T t : set){
             sb.append(t.toString()).append(separator);
         }
-        return sb.toString().substring(0, sb.toString().length() - 1);
+        return sb.toString().substring(0, sb.toString().length() - separator.length());
     }
 
     /**
@@ -275,7 +275,7 @@ public class CollectionUtil {
         for (Map.Entry<K, V> entry : map.entrySet()) {
             sb.append(String.valueOf(entry.getKey())).append(separator);
         }
-        return sb.toString().substring(0, sb.toString().length() - 1);
+        return sb.toString().substring(0, sb.toString().length() - separator.length());
     }
 
     /**
@@ -292,6 +292,6 @@ public class CollectionUtil {
         for (Map.Entry<K, V> entry : map.entrySet()) {
             sb.append(String.valueOf(entry.getValue())).append(separator);
         }
-        return sb.toString().substring(0, sb.toString().length() - 1);
+        return sb.toString().substring(0, sb.toString().length() - separator.length());
     }
 }
