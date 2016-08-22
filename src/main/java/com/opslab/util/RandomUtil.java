@@ -16,7 +16,7 @@ public class RandomUtil {
      * @param scoeMax
      * @return
      */
-    public static int integer(int scopeMin,int scoeMax){
+    public final static int integer(int scopeMin,int scoeMax){
         Random random = new Random();
         return (random.nextInt(scoeMax)%(scoeMax-scopeMin+1) + scopeMin);
     }
@@ -25,7 +25,7 @@ public class RandomUtil {
      * @param length
      * @return
      */
-    public static String number(int length) {
+    public final static String number(int length) {
         StringBuffer sb     = new StringBuffer();
         Random       random = new Random();
         for (int i = 0; i < length; i++) {
@@ -40,7 +40,7 @@ public class RandomUtil {
      * @param length 随机字符串长度
      * @return 随机字符串
      */
-    public static String String(int length) {
+    public final static String String(int length) {
         StringBuffer sb     = new StringBuffer();
         Random       random = new Random();
         for (int i = 0; i < length; i++) {
@@ -55,7 +55,7 @@ public class RandomUtil {
      * @param length 随机字符串长度
      * @return 随机字符串
      */
-    public static String MixString(int length) {
+    public final static String MixString(int length) {
         StringBuffer sb     = new StringBuffer();
         Random       random = new Random();
         for (int i = 0; i < length; i++) {
@@ -70,7 +70,7 @@ public class RandomUtil {
      * @param length 随机字符串长度
      * @return 随机字符串
      */
-    public static String LowerString(int length) {
+    public final static String LowerString(int length) {
         return MixString(length).toLowerCase();
     }
 
@@ -80,7 +80,7 @@ public class RandomUtil {
      * @param length 随机字符串长度
      * @return 随机字符串
      */
-    public static String UpperString(int length) {
+    public final static String UpperString(int length) {
         return MixString(length).toUpperCase();
     }
 
@@ -90,7 +90,7 @@ public class RandomUtil {
      * @param length 字符串长度
      * @return 纯0字符串
      */
-    public static String ZeroString(int length) {
+    public final static String ZeroString(int length) {
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < length; i++) {
             sb.append('0');
@@ -105,7 +105,7 @@ public class RandomUtil {
      * @param fixdlenth 字符串长度
      * @return 定长的字符串
      */
-    public static String toFixdLengthString(long num, int fixdlenth) {
+    public final static String toFixdLengthString(long num, int fixdlenth) {
         StringBuffer sb     = new StringBuffer();
         String       strNum = String.valueOf(num);
         if (fixdlenth - strNum.length() >= 0) {
@@ -124,7 +124,7 @@ public class RandomUtil {
      * @param fixdlenth 字符串长度
      * @return 定长的字符串
      */
-    public static String toFixdLengthString(int num, int fixdlenth) {
+    public final static String toFixdLengthString(int num, int fixdlenth) {
         StringBuffer sb     = new StringBuffer();
         String       strNum = String.valueOf(num);
         if (fixdlenth - strNum.length() >= 0) {
@@ -142,7 +142,7 @@ public class RandomUtil {
      * @param param
      * @return 定长的数字
      */
-    public static int getNotSimple(int[] param, int len) {
+    public final static int getNotSimple(int[] param, int len) {
         Random rand = new Random();
         for (int i = param.length; i > 1; i--) {
             int index = rand.nextInt(i);
@@ -160,7 +160,7 @@ public class RandomUtil {
     /**
      * 从指定的数组中随机数组中的某个元素
      */
-    public static Object randomItem(Object[] param) {
+    public final static Object randomItem(Object[] param) {
         int index = integer(0,param.length);
         return param[index];
     }
@@ -169,7 +169,7 @@ public class RandomUtil {
      * 返回一个UUID
      * @return 小写的UUID
      */
-    public static String uuid(){
+    public final static String uuid(){
         UUID uuid = UUID.randomUUID();
         String s = uuid.toString();
         return s.substring(0,8)+s.substring(9,13)+s.substring(14,18)+s.substring(19,23)+s.substring(24);
@@ -178,7 +178,7 @@ public class RandomUtil {
      * 返回一个UUID
      * @return 大写的UUID
      */
-    public static String UUID(){
+    public final static String UUID(){
         UUID uuid = UUID.randomUUID();
         String s = uuid.toString();
         String temp =s.substring(0,8)+s.substring(9,13)+s.substring(14,18)+s.substring(19,23)+s.substring(24);

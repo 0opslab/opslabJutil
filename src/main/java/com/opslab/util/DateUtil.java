@@ -27,7 +27,7 @@ public class DateUtil {
     private static ThreadLocal<SimpleDateFormat> ThreadDate     = new ThreadLocal<SimpleDateFormat>();
     private static ThreadLocal<SimpleDateFormat> ThreadTime     = new ThreadLocal<SimpleDateFormat>();
 
-    private static SimpleDateFormat DateTimeInstance() {
+    private final static SimpleDateFormat DateTimeInstance() {
         SimpleDateFormat df = ThreadDateTime.get();
         if (df == null) {
             df = new SimpleDateFormat(DATETIME_FORMAT);
@@ -36,7 +36,7 @@ public class DateUtil {
         return df;
     }
 
-    private static SimpleDateFormat DateInstance() {
+    private final static SimpleDateFormat DateInstance() {
         SimpleDateFormat df = ThreadDate.get();
         if (df == null) {
             df = new SimpleDateFormat(DATE_FORMAT);
@@ -45,7 +45,7 @@ public class DateUtil {
         return df;
     }
 
-    private static SimpleDateFormat TimeInstance() {
+    private final static SimpleDateFormat TimeInstance() {
         SimpleDateFormat df = ThreadTime.get();
         if (df == null) {
             df = new SimpleDateFormat(TIME_FORMAT);
@@ -60,7 +60,7 @@ public class DateUtil {
      *
      * @return 返回当前时间的字符串值
      */
-    public static String DateTime() {
+    public final static String currentDateTime() {
         return DateTimeInstance().format(new Date());
     }
 
@@ -70,7 +70,7 @@ public class DateUtil {
      * @param date
      * @return
      */
-    public static String DateTime(Date date) {
+    public final static String dateTime(Date date) {
         return DateTimeInstance().format(date);
     }
 
@@ -81,7 +81,7 @@ public class DateUtil {
      * @return
      * @throws ParseException
      */
-    public static Date DateTime(String datestr) throws ParseException {
+    public final static Date dateTime(String datestr) throws ParseException {
         return DateTimeInstance().parse(datestr);
     }
 
@@ -90,7 +90,7 @@ public class DateUtil {
      *
      * @return
      */
-    public static String Date() {
+    public final static String currentDate() {
         return DateInstance().format(new Date());
     }
 
@@ -100,7 +100,7 @@ public class DateUtil {
      * @param date
      * @return
      */
-    public static String Date(Date date) {
+    public final static String date(Date date) {
         return DateInstance().format(date);
     }
 
@@ -111,7 +111,7 @@ public class DateUtil {
      * @return
      * @throws ParseException
      */
-    public static Date Date(String dateStr) throws ParseException {
+    public final static Date date(String dateStr) throws ParseException {
         return DateInstance().parse(dateStr);
     }
 
@@ -120,7 +120,7 @@ public class DateUtil {
      *
      * @return
      */
-    public static String Time() {
+    public final static String currentTime() {
         return TimeInstance().format(new Date());
     }
 
@@ -130,7 +130,7 @@ public class DateUtil {
      * @param date
      * @return
      */
-    public static String Time(Date date) {
+    public final static String time(Date date) {
         return TimeInstance().format(date);
     }
 
@@ -141,7 +141,7 @@ public class DateUtil {
      * @return
      * @throws ParseException
      */
-    public static Date Time(String dateStr) throws ParseException {
+    public final static Date time(String dateStr) throws ParseException {
         return TimeInstance().parse(dateStr);
     }
 
@@ -152,7 +152,7 @@ public class DateUtil {
      * @param year
      * @return
      */
-    public static Date year(int year) {
+    public final static Date year(int year) {
         java.util.Calendar Cal = java.util.Calendar.getInstance();
         Cal.setTime(new Date());
         Cal.add(Calendar.YEAR, year);
@@ -166,7 +166,7 @@ public class DateUtil {
      * @param year
      * @return
      */
-    public static Date year(Date date, int year) {
+    public final static Date year(Date date, int year) {
         java.util.Calendar Cal = java.util.Calendar.getInstance();
         Cal.setTime(date);
         Cal.add(java.util.Calendar.YEAR, year);
@@ -179,7 +179,7 @@ public class DateUtil {
      * @param month
      * @return
      */
-    public static Date month(int month) {
+    public final static Date month(int month) {
         java.util.Calendar Cal = java.util.Calendar.getInstance();
         Cal.setTime(new Date());
         Cal.add(Calendar.MONTH, month);
@@ -193,7 +193,7 @@ public class DateUtil {
      * @param month
      * @return
      */
-    public static Date month(Date date, int month) {
+    public final static Date month(Date date, int month) {
         java.util.Calendar Cal = java.util.Calendar.getInstance();
         Cal.setTime(date);
         Cal.add(java.util.Calendar.MONTH, month);
@@ -206,7 +206,7 @@ public class DateUtil {
      * @param day
      * @return
      */
-    public static Date day(int day) {
+    public final static Date day(int day) {
         java.util.Calendar Cal = java.util.Calendar.getInstance();
         Cal.setTime(new Date());
         Cal.add(Calendar.DAY_OF_YEAR, day);
@@ -220,7 +220,7 @@ public class DateUtil {
      * @param day
      * @return
      */
-    public static Date day(Date date, int day) {
+    public final static Date day(Date date, int day) {
         java.util.Calendar Cal = java.util.Calendar.getInstance();
         Cal.setTime(date);
         Cal.add(java.util.Calendar.DAY_OF_YEAR, day);
@@ -233,7 +233,7 @@ public class DateUtil {
      * @param hour
      * @return
      */
-    public static Date hour(float hour) {
+    public final static Date hour(float hour) {
         java.util.Calendar Cal = java.util.Calendar.getInstance();
         Cal.setTime(new Date());
         Cal.add(java.util.Calendar.MINUTE, (int) (hour * 60));
@@ -247,7 +247,7 @@ public class DateUtil {
      * @param hour
      * @return
      */
-    public static Date hour(Date date, float hour) {
+    public final static Date hour(Date date, float hour) {
         java.util.Calendar Cal = java.util.Calendar.getInstance();
         Cal.setTime(date);
         Cal.add(java.util.Calendar.MINUTE, (int) (hour * 60));
@@ -260,7 +260,7 @@ public class DateUtil {
      * @param minute
      * @return
      */
-    public static Date Minute(int minute) {
+    public final static Date Minute(int minute) {
         java.util.Calendar Cal = java.util.Calendar.getInstance();
         Cal.setTime(new Date());
         Cal.add(java.util.Calendar.MINUTE, minute);
@@ -274,7 +274,7 @@ public class DateUtil {
      * @param minute
      * @return
      */
-    public static Date Minute(Date date, int minute) {
+    public final static Date Minute(Date date, int minute) {
         java.util.Calendar Cal = java.util.Calendar.getInstance();
         Cal.setTime(date);
         Cal.add(java.util.Calendar.MINUTE, minute);
@@ -288,7 +288,7 @@ public class DateUtil {
      * @param date 日期字符串
      * @return true or false
      */
-    public static boolean isDate(String date) {
+    public final static boolean isDate(String date) {
         try {
             DateTimeInstance().parse(date);
             return true;
@@ -306,7 +306,7 @@ public class DateUtil {
      * @param date2
      * @return 秒
      */
-    public static long Subtract(Date date1, Date date2) {
+    public final static long Subtract(Date date1, Date date2) {
         long cha = (date2.getTime() - date1.getTime()) / 1000;
         return cha;
     }
@@ -318,7 +318,7 @@ public class DateUtil {
      * @param date2
      * @return 秒
      */
-    public static long Subtract(String date1, String date2) {
+    public final static long Subtract(String date1, String date2) {
         long rs = 0;
         try {
             Date start = DateTimeInstance().parse(date1);
@@ -339,7 +339,7 @@ public class DateUtil {
      * @param date2
      * @return 分钟
      */
-    public static int SubtractMinute(String date1, String date2) {
+    public final static int SubtractMinute(String date1, String date2) {
         int rs = 0;
         try {
             Date start = DateTimeInstance().parse(date1);
@@ -359,7 +359,7 @@ public class DateUtil {
      * @param date2
      * @return 分钟
      */
-    public static int SubtractMinute(Date date1, Date date2) {
+    public final static int SubtractMinute(Date date1, Date date2) {
         long cha = date2.getTime() - date1.getTime();
         return (int) cha / (1000 * 60);
     }
@@ -371,7 +371,7 @@ public class DateUtil {
      * @param date2
      * @return 小时
      */
-    public static int SubtractHour(Date date1, Date date2) {
+    public final static int SubtractHour(Date date1, Date date2) {
         long cha = (date2.getTime() - date1.getTime()) / 1000;
         return (int) cha / (60 * 60);
     }
@@ -383,7 +383,7 @@ public class DateUtil {
      * @param date2
      * @return 小时
      */
-    public static int SubtractHour(String date1, String date2) {
+    public final static int SubtractHour(String date1, String date2) {
         int rs = 0;
         try {
             Date start = DateTimeInstance().parse(date1);
@@ -404,7 +404,7 @@ public class DateUtil {
      * @param date2
      * @return 天
      */
-    public static int SubtractDay(String date1, String date2) {
+    public final static int SubtractDay(String date1, String date2) {
         int rs = 0;
         try {
             Date start = DateTimeInstance().parse(date1);
@@ -424,7 +424,7 @@ public class DateUtil {
      * @param date2
      * @return 天
      */
-    public static int SubtractDay(Date date1, Date date2) {
+    public final static int SubtractDay(Date date1, Date date2) {
         long cha = date2.getTime() - date1.getTime();
         return (int) cha / (1000 * 60 * 60 * 24);
     }
@@ -436,7 +436,7 @@ public class DateUtil {
      * @param date2
      * @return 月
      */
-    public static int SubtractMonth(String date1, String date2) {
+    public final static int SubtractMonth(String date1, String date2) {
         int      result;
         Calendar c1 = Calendar.getInstance();
         Calendar c2 = Calendar.getInstance();
@@ -466,7 +466,7 @@ public class DateUtil {
      * @param date2
      * @return 月
      */
-    public static int SubtractMonth(Date date1, Date date2) {
+    public final static int SubtractMonth(Date date1, Date date2) {
         int      result;
         Calendar c1 = Calendar.getInstance();
         Calendar c2 = Calendar.getInstance();
@@ -491,7 +491,7 @@ public class DateUtil {
      * @param date2
      * @return 年
      */
-    public static int SubtractYear(String date1, String date2) {
+    public final static int SubtractYear(String date1, String date2) {
         int      result;
         Calendar c1 = Calendar.getInstance();
         Calendar c2 = Calendar.getInstance();
@@ -515,7 +515,7 @@ public class DateUtil {
      * @param date2
      * @return 年
      */
-    public static int SubtractYear(Date date1, Date date2) {
+    public final static int SubtractYear(Date date1, Date date2) {
         int      result;
         Calendar c1 = Calendar.getInstance();
         Calendar c2 = Calendar.getInstance();
@@ -535,7 +535,7 @@ public class DateUtil {
      * @return 几小时:几分钟:几秒钟
      * @Summary:此处可以讲计算结果包装成一个结构体返回便于格式化
      */
-    public static String SubtractTime(String date1, String date2) {
+    public final static String SubtractTime(String date1, String date2) {
         String result = "";
         try {
             Date start = DateTimeInstance().parse(date1);
@@ -559,7 +559,7 @@ public class DateUtil {
      * @return 几天-几小时:几分钟:几秒钟
      * @Summary:此处可以讲计算结果包装成一个结构体返回便于格式化
      */
-    public static String SubtractDate(String date1, String date2) {
+    public final static String SubtractDate(String date1, String date2) {
         String result = "";
         try {
             Date start = DateTimeInstance().parse(date1);
@@ -584,7 +584,7 @@ public class DateUtil {
      * @return
      * @throws ParseException
      */
-    public static int subDay(Date startTime, Date endTime) {
+    public final static int subDay(Date startTime, Date endTime) {
         int      days = 0;
         Calendar can1 = Calendar.getInstance();
         can1.setTime(startTime);
@@ -619,7 +619,7 @@ public class DateUtil {
      * @return
      * @throws ParseException
      */
-    public static int subDay(String startTime, String endTime) {
+    public final static int subDay(String startTime, String endTime) {
         int days = 0;
         try {
             Date date1 = DateInstance().parse(DateInstance().format(DateTimeInstance().parse(startTime)));
@@ -662,7 +662,7 @@ public class DateUtil {
      * @throws ParseException
      * @summary 格式错误返回0
      */
-    public static long subtimeBurst(String startDate, String endDate, String timeBurst) throws ParseException {
+    public final static long subtimeBurst(String startDate, String endDate, String timeBurst) throws ParseException {
         Date start = DateTimeInstance().parse(startDate);
         Date end   = DateTimeInstance().parse(endDate);
         return subtimeBurst(start, end, timeBurst);
@@ -677,7 +677,7 @@ public class DateUtil {
      * @return 计算后的秒数
      * @throws ParseException
      */
-    public static long subtimeBurst(Date startDate, Date endDate, String timeBurst) throws ParseException {
+    public final static long subtimeBurst(Date startDate, Date endDate, String timeBurst) throws ParseException {
         long    second = 0;
         Pattern p      = Pattern.compile("^\\d{2}:\\d{2}-\\d{2}:\\d{2}");
         Matcher m      = p.matcher(timeBurst);
@@ -760,7 +760,7 @@ public class DateUtil {
      * @return 计算后的时间
      * @Suumary 指定的格式错误后返回原数据
      */
-    public static Date calculate(String date, int second, String timeBurst) {
+    public final static Date calculate(String date, int second, String timeBurst) {
         Date start = null;
         try {
             start = DateTimeInstance().parse(date);
@@ -780,7 +780,7 @@ public class DateUtil {
      * @return 计算后的时间
      * @Suumary 指定的格式错误后返回原数据
      */
-    public static Date calculate(Date date, int second, String timeBurst) {
+    public final static Date calculate(Date date, int second, String timeBurst) {
         Pattern            p   = Pattern.compile("^\\d{2}:\\d{2}-\\d{2}:\\d{2}");
         Matcher            m   = p.matcher(timeBurst);
         java.util.Calendar cal = java.util.Calendar.getInstance();

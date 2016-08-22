@@ -28,9 +28,9 @@ public class DateUtilThreadSafe extends Thread {
                 e1.printStackTrace();
             }
             try {
-                Date date = DateUtil.DateTime("2013-05-24 06:02:20");
+                Date date = DateUtil.dateTime("2013-05-24 06:02:20");
                 //System.out.println(this.getName()+":"+DateUtil.DateTime(date));
-                assertEquals("计算有误", "2013-05-24 06:02:20", DateUtil.DateTime(date));
+                assertEquals("计算有误", "2013-05-24 06:02:20", DateUtil.dateTime(date));
 
             } catch (ParseException e) {
                 e.printStackTrace();

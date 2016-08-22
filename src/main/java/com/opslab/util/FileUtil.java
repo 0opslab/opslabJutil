@@ -4,11 +4,14 @@ import com.opslab.util.algorithmImpl.FileTypeImpl;
 import com.opslab.util.algorithmImpl.FileImpl;
 
 import java.io.*;
+import java.math.BigInteger;
 import java.net.FileNameMap;
 import java.net.MalformedURLException;
 import java.net.URLConnection;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -22,14 +25,50 @@ public class FileUtil {
      */
     private static Integer BUFFER_SIZE = 1024 * 1024 * 10;
 
+    public static MessageDigest MD5 = null;
 
+    static {
+        try {
+            MD5 = MessageDigest.getInstance("MD5");
+        } catch (NoSuchAlgorithmException ne) {
+            ne.printStackTrace();
+        }
+    }
+
+    /**
+     * 获取文件的md5
+     * @param file
+     * @return
+     */
+    public static String fileMD5(File file) {
+        FileInputStream fileInputStream = null;
+        try {
+            fileInputStream = new FileInputStream(file);
+            byte[] buffer = new byte[8192];
+            int length;
+            while ((length = fileInputStream.read(buffer)) != -1) {
+                MD5.update(buffer, 0, length);
+            }
+            return new BigInteger(1, MD5.digest()).toString(16);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            try {
+                if (fileInputStream != null)
+                    fileInputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
     /**
      * 获取文件的行数
      *
      * @param file 统计的文件
      * @return 文件行数
      */
-    public static int countLines(File file) {
+    public final static int countLines(File file) {
         int count = 0;
         try (
                 InputStream is = new BufferedInputStream(new FileInputStream(file))
@@ -54,7 +93,7 @@ public class FileUtil {
      * @param file 需要出来的文件
      * @return 包含所有行的list
      */
-    public static List<String> lines(File file) {
+    public final static List<String> lines(File file) {
         List<String> list = new ArrayList<>();
         try (
                 BufferedReader reader = new BufferedReader(new FileReader(file))
@@ -76,7 +115,7 @@ public class FileUtil {
      * @param encoding 指定读取文件的编码
      * @return 包含所有行的list
      */
-    public static List<String> lines(File file, String encoding) {
+    public final static List<String> lines(File file, String encoding) {
         List<String> list = new ArrayList<>();
         try (
                 BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), encoding))
@@ -98,7 +137,7 @@ public class FileUtil {
      * @param lines 需要读取的行数
      * @return 包含制定行的list
      */
-    public static List<String> lines(File file, int lines) {
+    public final static List<String> lines(File file, int lines) {
         List<String> list = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String line;
@@ -122,7 +161,7 @@ public class FileUtil {
      * @param encoding 指定读取文件的编码
      * @return 包含制定行的list
      */
-    public static List<String> lines(File file, int lines, String encoding) {
+    public final static List<String> lines(File file, int lines, String encoding) {
         List<String> list = new ArrayList<>();
         try (
                 BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), encoding))
@@ -147,7 +186,7 @@ public class FileUtil {
      * @param str  添加的子字符串
      * @return 是否成功
      */
-    public static boolean appendLine(File file, String str) {
+    public final static boolean appendLine(File file, String str) {
         String lineSeparator = System.getProperty("line.separator", "\n");
         try (
                 RandomAccessFile randomFile = new RandomAccessFile(file, "rw")
@@ -170,7 +209,7 @@ public class FileUtil {
      * @param encoding 指定写入的编码
      * @return 是否成功
      */
-    public static boolean appendLine(File file, String str, String encoding) {
+    public final static boolean appendLine(File file, String str, String encoding) {
         String lineSeparator = System.getProperty("line.separator", "\n");
         try (
                 RandomAccessFile randomFile = new RandomAccessFile(file, "rw")
@@ -187,7 +226,7 @@ public class FileUtil {
     /**
      * 将字符串写入到文件中
      */
-    public static boolean write(File file, String str) {
+    public final static boolean write(File file, String str) {
         try (
                 RandomAccessFile randomFile = new RandomAccessFile(file, "rw")
         ) {
@@ -202,7 +241,7 @@ public class FileUtil {
     /**
      * 将字符串以追加的方式写入到文件中
      */
-    public static boolean writeAppend(File file, String str) {
+    public final static boolean writeAppend(File file, String str) {
         try (
                 RandomAccessFile randomFile = new RandomAccessFile(file, "rw")
         ) {
@@ -219,7 +258,7 @@ public class FileUtil {
     /**
      * 将字符串以制定的编码写入到文件中
      */
-    public static boolean write(File file, String str, String encoding) {
+    public final static boolean write(File file, String str, String encoding) {
         try (
                 RandomAccessFile randomFile = new RandomAccessFile(file, "rw")
         ) {
@@ -234,7 +273,7 @@ public class FileUtil {
     /**
      * 将字符串以追加的方式以制定的编码写入到文件中
      */
-    public static boolean writeAppend(File file, String str, String encoding) {
+    public final static boolean writeAppend(File file, String str, String encoding) {
         try (
                 RandomAccessFile randomFile = new RandomAccessFile(file, "rw")
         ) {
@@ -254,7 +293,7 @@ public class FileUtil {
      * @param file 需要处理的文件
      * @return 是否成功
      */
-    public static boolean cleanFile(File file) {
+    public final static boolean cleanFile(File file) {
         try (
                 FileWriter fw = new FileWriter(file)
         ) {
@@ -273,7 +312,7 @@ public class FileUtil {
      * @return 返回文件的mime类型
      * @throws java.io.IOException
      */
-    public static String mimeType(String file) throws java.io.IOException {
+    public final static String mimeType(String file) throws java.io.IOException {
         FileNameMap fileNameMap = URLConnection.getFileNameMap();
         return fileNameMap.getContentTypeFor(file);
     }
@@ -286,7 +325,7 @@ public class FileUtil {
      * @param file 需要处理的文件
      * @return 文件类型
      */
-    public static String fileType(File file) {
+    public final static String fileType(File file) {
         return FileTypeImpl.getFileType(file);
     }
 
@@ -296,19 +335,11 @@ public class FileUtil {
      * @param file 需要处理的文件
      * @return 返回文件的修改时间
      */
-    public static Date modifyTime(File file) {
+    public final static Date modifyTime(File file) {
         return new Date(file.lastModified());
     }
 
-    /**
-     * 获取文件的Hash
-     *
-     * @param file 需要处理的文件
-     * @return 返回文件的hash值
-     */
-    public static String hash(File file) {
-        return SecUtil.FileMD5(file);
-    }
+
 
 
     /**
@@ -318,7 +349,7 @@ public class FileUtil {
      * @param targetPath   目标文件
      * @return 是否成功
      */
-    public static boolean copy(String resourcePath, String targetPath) {
+    public final static boolean copy(String resourcePath, String targetPath) {
         File file = new File(resourcePath);
         return copy(file, targetPath);
     }
@@ -331,7 +362,7 @@ public class FileUtil {
      * @param targetFile 目标文件
      * @return 是否成功
      */
-    public static boolean copy(File file, String targetFile) {
+    public final static boolean copy(File file, String targetFile) {
         try (
                 FileInputStream fin = new FileInputStream(file);
                 FileOutputStream fout = new FileOutputStream(new File(targetFile))
@@ -359,7 +390,7 @@ public class FileUtil {
      * @param file 需要处理的文件
      * @return 文件的编码
      */
-    public static String cpdetector(File file) {
+    public final static String cpdetector(File file) {
         try {
             return FileImpl.cpdetector(file.toURL());
         } catch (MalformedURLException e) {
@@ -374,7 +405,7 @@ public class FileUtil {
      * @param file 需要处理的文件
      * @return UTF-8 Unicode UTF-16BE GBK
      */
-    public static String simpleEncoding(String file) {
+    public final static String simpleEncoding(String file) {
         try {
             return FileImpl.simpleEncoding(file);
         } catch (Exception e) {
@@ -389,7 +420,7 @@ public class FileUtil {
      * @param paths 需要创建的目录
      * @return 是否成功
      */
-    public static boolean createPaths(String paths) {
+    public final static boolean createPaths(String paths) {
         File dir = new File(paths);
         return !dir.exists() && dir.mkdir();
     }
@@ -400,7 +431,7 @@ public class FileUtil {
      * @param filePath 需要创建的文件
      * @return 是否成功
      */
-    public static boolean createFiles(String filePath) {
+    public final static boolean createFiles(String filePath) {
         File file = new File(filePath);
         File dir = file.getParentFile();
         if (!dir.exists()) {
@@ -421,7 +452,7 @@ public class FileUtil {
      * @param file 需要处理的文件
      * @return 是否成功
      */
-    public static boolean deleteFile(File file) {
+    public final static boolean deleteFile(File file) {
         return file.delete();
     }
 
@@ -431,7 +462,7 @@ public class FileUtil {
      * @param file 需要处理的文件
      * @return 是否成功
      */
-    public static boolean deleteDir(File file) {
+    public final static boolean deleteDir(File file) {
         List<File> files = listFileAll(file);
         if (valid.valid(files)) {
             for (File f : files) {
@@ -452,7 +483,7 @@ public class FileUtil {
      * @param file 需要处理的文件
      * @return 是否成功
      */
-    public static boolean deleteBigFile(File file) {
+    public final static boolean deleteBigFile(File file) {
         return cleanFile(file) && file.delete();
     }
 
@@ -463,7 +494,7 @@ public class FileUtil {
      * @param filePath   需要处理的文件
      * @param targetPath 目标文件
      */
-    public static void copyDir(String filePath, String targetPath) {
+    public final static void copyDir(String filePath, String targetPath) {
         File file = new File(filePath);
         copyDir(file, targetPath);
     }
@@ -474,7 +505,7 @@ public class FileUtil {
      * @param filePath   需要处理的文件
      * @param targetPath 目标文件
      */
-    public static void copyDir(File filePath, String targetPath) {
+    public final static void copyDir(File filePath, String targetPath) {
         File targetFile = new File(targetPath);
         if (!targetFile.exists()) {
             createPaths(targetPath);
@@ -498,7 +529,7 @@ public class FileUtil {
      * @param path 需要处理的文件
      * @return 包含所有文件的的list
      */
-    public static List<File> listFile(String path) {
+    public final static List<File> listFile(String path) {
         File file = new File(path);
         return listFile(file);
     }
@@ -509,7 +540,7 @@ public class FileUtil {
      * @param child 是否罗列子文件
      * @return 包含所有文件的的list
      */
-    public static List<File> listFile(String path,boolean child){
+    public final static List<File> listFile(String path,boolean child){
         return listFile(new File(path),child);
     }
 
@@ -520,7 +551,7 @@ public class FileUtil {
      * @param path 需要处理的文件
      * @return 返回文件列表
      */
-    public static List<File> listFile(File path) {
+    public final static List<File> listFile(File path) {
         List<File> list = new ArrayList<>();
         File[] files = path.listFiles();
         if (valid.valid(files)) {
@@ -541,7 +572,7 @@ public class FileUtil {
      * @param child 是否罗列子目录
      * @return
      */
-    public static List<File> listFile(File path,boolean child){
+    public final static List<File> listFile(File path,boolean child){
         List<File> list = new ArrayList<>();
         File[] files = path.listFiles();
         if (valid.valid(files)) {
@@ -562,7 +593,7 @@ public class FileUtil {
      * @param path 需要处理的文件
      * @return 返回文件列表
      */
-    public static List<File> listFileAll(File path) {
+    public final static List<File> listFileAll(File path) {
         List<File> list = new ArrayList<>();
         File[] files = path.listFiles();
         if (valid.valid(files)) {
@@ -583,7 +614,7 @@ public class FileUtil {
      * @param filter 处理文件的filter
      * @return 返回文件列表
      */
-    public static List<File> listFileFilter(File path, FilenameFilter filter) {
+    public final static List<File> listFileFilter(File path, FilenameFilter filter) {
         List<File> list = new ArrayList<>();
         File[] files = path.listFiles();
         if (valid.valid(files)) {
@@ -607,7 +638,7 @@ public class FileUtil {
      * @param postfixs 文件后缀
      * @return 返回文件列表
      */
-    public static List<File> listFileFilter(File dirPath, final String postfixs) {
+    public final static List<File> listFileFilter(File dirPath, final String postfixs) {
         /*
         如果在当前目录中使用Filter讲只罗列当前目录下的文件不会罗列孙子目录下的文件
         FilenameFilter filefilter = new FilenameFilter() {
@@ -640,7 +671,7 @@ public class FileUtil {
      * @param fileName 搜索的文件名
      * @return 返回文件列表
      */
-    public static List<File> searchFile(File dirPath, String fileName) {
+    public final static List<File> searchFile(File dirPath, String fileName) {
         List<File> list = new ArrayList<>();
         File[] files = dirPath.listFiles();
         if (valid.valid(files)) {
@@ -665,7 +696,7 @@ public class FileUtil {
      * @param reg     正则表达式
      * @return 返回文件列表
      */
-    public static List<File> searchFileReg(File dirPath, String reg) {
+    public final static List<File> searchFileReg(File dirPath, String reg) {
         List<File> list = new ArrayList<>();
         File[] files = dirPath.listFiles();
         if (valid.valid(files)) {
@@ -689,7 +720,7 @@ public class FileUtil {
      * @param file
      * @return
      */
-    public static String suffix(File file){
+    public final static String suffix(File file){
         String fileName=file.getName();
         return fileName.substring(fileName.indexOf(".")+1);
     }

@@ -9,7 +9,7 @@ public class StreamUtil {
     /**
      * Read an input stream into a string
      */
-    public static String streamToString(InputStream in) throws IOException {
+    public final static String streamToString(InputStream in) throws IOException {
         StringBuffer out = new StringBuffer();
         byte[]       b   = new byte[4096];
         for (int n; (n = in.read(b)) != -1; ) {
@@ -21,7 +21,7 @@ public class StreamUtil {
     /**
      * Read an input stream into a byte[]
      */
-    public static byte[] stream2Byte(InputStream is) throws IOException {
+    public final static byte[] stream2Byte(InputStream is) throws IOException {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         int                   len  = 0;
         byte[]                b    = new byte[1024];
@@ -35,7 +35,7 @@ public class StreamUtil {
     /**
      * @方法功能 InputStream 转为 byte
      */
-    public static byte[] inputStream2Byte(InputStream inStream) throws Exception {
+    public final static byte[] inputStream2Byte(InputStream inStream) throws Exception {
         int count = 0;
         while (count == 0) {
             count = inStream.available();
@@ -50,7 +50,7 @@ public class StreamUtil {
      * @throws Exception
      * @方法功能 byte 转为 InputStream
      */
-    public static InputStream byte2InputStream(byte[] b) throws Exception {
+    public final static InputStream byte2InputStream(byte[] b) throws Exception {
         InputStream is = new ByteArrayInputStream(b);
         return is;
     }
@@ -58,7 +58,7 @@ public class StreamUtil {
     /**
      * 将流另存为文件
      */
-    public void streamSaveAsFile(InputStream is, File outfile) {
+    public final static void streamSaveAsFile(InputStream is, File outfile) {
         try (FileOutputStream fos = new FileOutputStream(outfile)) {
             byte[] buffer = new byte[1024];
             int len;

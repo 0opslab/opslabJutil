@@ -47,14 +47,14 @@ public class CharsetUtil {
     /**
      * 将字符编码转换成US-ASCII码
      */
-    public static String toASCII(String str) throws UnsupportedEncodingException {
+    public final static String toASCII(String str) throws UnsupportedEncodingException {
         return changeCharset(str, US_ASCII);
     }
 
     /**
      * 将字符编码转换成ISO-8859-1码
      */
-    public static String toISO_8859_1(String str) throws UnsupportedEncodingException {
+    public final static String toISO_8859_1(String str) throws UnsupportedEncodingException {
         return changeCharset(str, ISO_8859_1);
     }
 
@@ -68,28 +68,28 @@ public class CharsetUtil {
     /**
      * 将字符编码转换成UTF-16BE码
      */
-    public static String toUTF_16BE(String str) throws UnsupportedEncodingException {
+    public final static String toUTF_16BE(String str) throws UnsupportedEncodingException {
         return changeCharset(str, UTF_16BE);
     }
 
     /**
      * 将字符编码转换成UTF-16LE码
      */
-    public static String toUTF_16LE(String str) throws UnsupportedEncodingException {
+    public final static String toUTF_16LE(String str) throws UnsupportedEncodingException {
         return changeCharset(str, UTF_16LE);
     }
 
     /**
      * 将字符编码转换成UTF-16码
      */
-    public static String toUTF_16(String str) throws UnsupportedEncodingException {
+    public final static String toUTF_16(String str) throws UnsupportedEncodingException {
         return changeCharset(str, UTF_16);
     }
 
     /**
      * 将字符编码转换成GBK码
      */
-    public static String toGBK(String str) throws UnsupportedEncodingException {
+    public final static String toGBK(String str) throws UnsupportedEncodingException {
         return changeCharset(str, GBK);
     }
 
@@ -101,7 +101,7 @@ public class CharsetUtil {
      * @return
      * @throws UnsupportedEncodingException
      */
-    public static String changeCharset(String str, String newCharset) throws UnsupportedEncodingException {
+    public final static String changeCharset(String str, String newCharset) throws UnsupportedEncodingException {
         if (str != null) {
             // 用默认字符编码解码字符串。
             byte[] bs = str.getBytes();
@@ -111,7 +111,7 @@ public class CharsetUtil {
         return null;
     }
 
-    public static String getDefaultCharSet() throws UnsupportedEncodingException {
+    public final static String getDefaultCharSet() throws UnsupportedEncodingException {
         OutputStreamWriter writer = new OutputStreamWriter(new ByteArrayOutputStream(), CharsetUtil.UTF_8);
         String             enc    = writer.getEncoding();
         return enc;
@@ -126,7 +126,7 @@ public class CharsetUtil {
      * @return
      * @throws UnsupportedEncodingException
      */
-    public static String changeCharset(String str, String oldCharset,
+    public final static String changeCharset(String str, String oldCharset,
             String newCharset) throws UnsupportedEncodingException {
         if (str != null) {
             // 用旧的字符编码解码字符串。解码可能会出现异常。
@@ -143,7 +143,7 @@ public class CharsetUtil {
      * @param input 待转换字符串
      * @return 转换完成字符串
      */
-    public static String toGBKWithUTF8(String input) throws UnsupportedEncodingException {
+    public final static String toGBKWithUTF8(String input) throws UnsupportedEncodingException {
         if (StringUtil.isEmpty(input)) {
             return "";
         } else {
@@ -159,7 +159,7 @@ public class CharsetUtil {
      * @param input 待转换字符串
      * @return 转换完成字符串
      */
-    public static String toUnicodeWithGBK(String input) throws UnsupportedEncodingException {
+    public final static String toUnicodeWithGBK(String input) throws UnsupportedEncodingException {
         if (StringUtil.isEmpty(input)) {
             return "";
         } else {

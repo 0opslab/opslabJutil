@@ -119,7 +119,7 @@ public class SysUtil {
     /**
      * 已使用的物理内存
      */
-    public static long usedMemory() {
+    public final static long usedMemory() {
         if (valid.valid(osmxb)) {
             return (osmxb.getTotalPhysicalMemorySize() - osmxb.getFreePhysicalMemorySize()) / kb;
         }
@@ -130,7 +130,7 @@ public class SysUtil {
      * 获取JVM内存总量
      *
      */
-    public static long JVMtotalMem() {
+    public final static long JVMtotalMem() {
         return Runtime.getRuntime().totalMemory() / kb;
     }
 
@@ -138,7 +138,7 @@ public class SysUtil {
      * 虚拟机空闲内存量
      *
      */
-    public static long JVMfreeMem() {
+    public final static long JVMfreeMem() {
         return Runtime.getRuntime().freeMemory() / kb;
     }
 
@@ -146,14 +146,14 @@ public class SysUtil {
      * 虚拟机使用最大内存量
      *
      */
-    public static long JVMmaxMem() {
+    public final static long JVMmaxMem() {
         return Runtime.getRuntime().maxMemory() / kb;
     }
 
     /**
      * Sets HTTP proxy settings.
      */
-    public static void setHttpProxy(String host, String port, String username, String password) {
+    public final static void setHttpProxy(String host, String port, String username, String password) {
         System.getProperties().put(HTTP_PROXY_HOST, host);
         System.getProperties().put(HTTP_PROXY_PORT, port);
         System.getProperties().put(HTTP_PROXY_USER, username);
@@ -163,7 +163,7 @@ public class SysUtil {
     /**
      * Sets HTTP proxy settings.
      */
-    public static void setHttpProxy(String host, String port) {
+    public final static void setHttpProxy(String host, String port) {
         System.getProperties().put(HTTP_PROXY_HOST, host);
         System.getProperties().put(HTTP_PROXY_PORT, port);
     }

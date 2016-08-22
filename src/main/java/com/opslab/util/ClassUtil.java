@@ -26,7 +26,7 @@ public class ClassUtil {
      * @param extendsField 是否获取接口或父类中的公共属性
      * @return 属性字段数组
      */
-    public static String[] getField(String className,boolean extendsField) {
+    public final static String[] getField(String className,boolean extendsField) {
         Class classz = loadClass(className);
         Field[] fields = classz.getFields();
         Set<String> set = new HashSet<>();
@@ -52,7 +52,7 @@ public class ClassUtil {
      * @param extendsField 是否获取接口或父类中的公共属性
      * @return 属性字段数组
      */
-    public static String[] getPublicField(String className,boolean extendsField){
+    public final static String[] getPublicField(String className,boolean extendsField){
         Class classz = loadClass(className);
         Set<String> set = new HashSet<>();
         Field[] fields = classz.getDeclaredFields();
@@ -80,7 +80,7 @@ public class ClassUtil {
      * @param className 需要获取的类名
      * @return protected类型的属性字段数组
      */
-    public static String[] getProtectedField(String className){
+    public final static String[] getProtectedField(String className){
         Class classz = loadClass(className);
         Set<String> set = new HashSet<>();
         Field[] fields = classz.getDeclaredFields();
@@ -100,7 +100,7 @@ public class ClassUtil {
      * @param className 需要获取的类名
      * @return private类型的属性字段数组
      */
-    public static String[] getPrivateField(String className) {
+    public final static String[] getPrivateField(String className) {
         Class classz = loadClass(className);
         Set<String> set = new HashSet<>();
         Field[] fields = classz.getDeclaredFields();
@@ -121,7 +121,7 @@ public class ClassUtil {
      * @param extendsMethod 是否获取继承来的方法
      * @return 方法名数组
      */
-    public static String[] getPublicMethod(String className,boolean extendsMethod){
+    public final static String[] getPublicMethod(String className,boolean extendsMethod){
         Class classz = loadClass(className);
         Method[] methods;
         if(extendsMethod){
@@ -149,7 +149,7 @@ public class ClassUtil {
      * @param extendsMethod 是否获取继承来的方法
      * @return 方法名数组
      */
-    public static String[] getProtectedMethod(String className,boolean extendsMethod) {
+    public final static String[] getProtectedMethod(String className,boolean extendsMethod) {
         Class classz = loadClass(className);
         Method[] methods;
         if(extendsMethod){
@@ -174,7 +174,7 @@ public class ClassUtil {
      * @param className 需要获取的类名
      * @return 方法名数组
      */
-    public static String[] getPrivateMethod(String className){
+    public final static String[] getPrivateMethod(String className){
         Class classz = loadClass(className);
         Method[] methods  = classz.getDeclaredMethods();
         Set<String> set = new HashSet<>();
@@ -196,7 +196,7 @@ public class ClassUtil {
      * @param extendsMethod 是否获取继承来的方法
      * @return 方法名数组
      */
-    public static String[] getMethod(String className,boolean extendsMethod){
+    public final static String[] getMethod(String className,boolean extendsMethod){
         Class classz = loadClass(className);
         Method[] methods;
         if(extendsMethod){
@@ -222,7 +222,7 @@ public class ClassUtil {
      * @param value 属性值
      * @param type  属性类型
      */
-    public static void setter(Object obj, String att, Object value, Class<?> type)
+    public final static void setter(Object obj, String att, Object value, Class<?> type)
             throws InvocationTargetException, IllegalAccessException {
         try {
             String name = att.substring(0, 1).toUpperCase() + att.substring(1);
@@ -241,7 +241,7 @@ public class ClassUtil {
      * @param path  包名
      * @param childPackage 是否获取子包
      */
-    public static List<String> getClassName(String path, boolean childPackage) {
+    public final static List<String> getClassName(String path, boolean childPackage) {
         List<String> fileNames = new ArrayList<>();
         if(path.endsWith(".jar")){
             fileNames.addAll(getClassNameByJar(path));
@@ -258,7 +258,7 @@ public class ClassUtil {
      * @param childPackage 是否遍历子包
      * @return 类的完整名称
      */
-    public static List<String> getClassNameByFile(String filePath, boolean childPackage) {
+    public final static List<String> getClassNameByFile(String filePath, boolean childPackage) {
         List<String> myClassName = new ArrayList<>();
         List<File> files = FileUtil.listFile(filePath, childPackage);
         for(File file:files){
@@ -278,7 +278,7 @@ public class ClassUtil {
      * @param jarPath      jar文件路径
      * @return 类的完整名称
      */
-    public static List<String> getClassNameByJar(String jarPath) {
+    public final static List<String> getClassNameByJar(String jarPath) {
         List<String> myClassName = new ArrayList<>();
         try (JarFile jarFile = new JarFile(jarPath)) {
             Enumeration<JarEntry> entrys = jarFile.entries();
@@ -304,7 +304,7 @@ public class ClassUtil {
      * @param className 需要加载的类
      * @return 加载后的类
      */
-    public static Class loadClass(String className){
+    public final static Class loadClass(String className){
         Class theClass = null;
         try {
             theClass = Class.forName(className);
@@ -321,7 +321,7 @@ public class ClassUtil {
      * @param jarPath jar文件路径
      * @return 返回资源名称数组
      */
-    public static List<String> getResourceNameByJar(String jarPath) {
+    public final static List<String> getResourceNameByJar(String jarPath) {
         List<String> resource = new ArrayList<>();
         try (JarFile jarFile = new JarFile(jarPath)) {
             Enumeration<JarEntry> entrys = jarFile.entries();
@@ -345,7 +345,7 @@ public class ClassUtil {
      * @param suffix 后缀名称
      * @return 返回资源名称数组
      */
-    public static List<String> getResourceNameByJar(String jarPath, String suffix) {
+    public final static List<String> getResourceNameByJar(String jarPath, String suffix) {
         List<String> resource = new ArrayList<>();
         try (JarFile jarFile = new JarFile(jarPath)) {
             Enumeration<JarEntry> entrys = jarFile.entries();
@@ -357,7 +357,7 @@ public class ClassUtil {
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(ExceptionUtil.stackTraceToString(e, UtilConstant.APP_PACKAGE));
         }
         return resource;
     }
@@ -367,7 +367,7 @@ public class ClassUtil {
      * @param className 需要获取的类
      * @return 父类的名称
      */
-    public static String getSuperClass(String className) {
+    public final static String getSuperClass(String className) {
         Class classz = loadClass(className);
         Class superclass = classz.getSuperclass();
         return superclass.getName();
@@ -378,7 +378,7 @@ public class ClassUtil {
      * @param className 需要获取的类
      * @return 继承类名的数组
      */
-    public static String[] getSuperClassChian(String className)  {
+    public final static String[] getSuperClassChian(String className)  {
         Class classz = loadClass(className);
         List<String> list = new ArrayList<>();
         Class superclass = classz.getSuperclass();
@@ -399,7 +399,7 @@ public class ClassUtil {
      *                          因此就多除了这参数
      * @return 实现接口名称的数组
      */
-    public static String[] getInterfaces(String className,boolean extendsInterfaces) {
+    public final static String[] getInterfaces(String className,boolean extendsInterfaces) {
         Class classz = loadClass(className);
         List<String> list = new ArrayList<>();
         Class[] interfaces = classz.getInterfaces();

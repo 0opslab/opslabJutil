@@ -17,7 +17,7 @@ public class ZIPUtil {
      * @param dest 压缩后的文件名称
      * @throws Exception
      */
-    public static void deCompress(File file, String dest) throws Exception {
+    public final static void deCompress(File file, String dest) throws Exception {
         try (ZipOutputStream zos = new ZipOutputStream(new FileOutputStream(dest))) {
             zipFile(file, zos, "");
         } catch (IOException e) {
@@ -25,7 +25,7 @@ public class ZIPUtil {
         }
     }
 
-    public static void zipFile(File inFile, ZipOutputStream zos, String dir) throws IOException {
+    public final static void zipFile(File inFile, ZipOutputStream zos, String dir) throws IOException {
         if (inFile.isDirectory()) {
             File[] files = inFile.listFiles();
             if (valid.valid(files)) {
@@ -63,7 +63,7 @@ public class ZIPUtil {
      * @param source 需要解压缩的文档名称
      * @param path   需要解压缩的路径
      */
-    public static void unCompress(File source, String path) throws IOException {
+    public final static void unCompress(File source, String path) throws IOException {
         ZipEntry zipEntry = null;
         FileUtil.createPaths(path);
         //实例化ZipFile，每一个zip压缩文件都可以表示为一个ZipFile

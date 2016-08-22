@@ -7,12 +7,12 @@ import java.io.ByteArrayOutputStream;
  */
 public class ConvertUtil {
 
-    private static String hexStr = "0123456789ABCDEF";
+    private final static String hexStr = "0123456789ABCDEF";
 
     /**
      * 短整型与字节的转换
      */
-    public static byte[] shortToByte(short number) {
+    public final static byte[] shortToByte(short number) {
         int temp = number;
         byte[] b = new byte[2];
         for (int i = 0; i < b.length; i++) {
@@ -27,7 +27,7 @@ public class ConvertUtil {
     /**
      * 字节的转换与短整型
      */
-    public static short byteToShort(byte[] b) {
+    public final static short byteToShort(byte[] b) {
         short s;
         // 最低位
         short s0 = (short) (b[0] & 0xff);
@@ -40,7 +40,7 @@ public class ConvertUtil {
     /**
      * 整型与字节数组的转换
      */
-    public static byte[] intToByte(int i) {
+    public final static byte[] intToByte(int i) {
         byte[] bt = new byte[4];
         bt[0] = (byte) (0xff & i);
         bt[1] = (byte) ((0xff00 & i) >> 8);
@@ -54,7 +54,7 @@ public class ConvertUtil {
      *
      * @param arr 整型数组
      */
-    public static byte[] intToByte(int[] arr) {
+    public final static byte[] intToByte(int[] arr) {
         byte[] bt = new byte[arr.length * 4];
         for (int i = 0; i < arr.length; i++) {
             byte[] t = intToByte(arr[i]);
@@ -63,7 +63,7 @@ public class ConvertUtil {
         return bt;
     }
 
-    public static byte[] encodeBytes(byte[] source, char split) {
+    public final static byte[] encodeBytes(byte[] source, char split) {
         ByteArrayOutputStream bos = new ByteArrayOutputStream(source.length);
         for (byte b : source) {
             if (b < 0) {
@@ -84,7 +84,7 @@ public class ConvertUtil {
      *
      * @param bytes bytes数组
      */
-    public static char[] bytesToChars(byte[] bytes) {
+    public final static char[] bytesToChars(byte[] bytes) {
         char[] chars = new char[]{};
         if (valid.valid(bytes)) {
             chars = new char[bytes.length];
@@ -98,7 +98,7 @@ public class ConvertUtil {
     /**
      * 字节数组和整型的转换
      */
-    public static int bytesToInt(byte[] bytes) {
+    public final static int bytesToInt(byte[] bytes) {
         int num = bytes[0] & 0xFF;
         num |= ((bytes[1] << 8) & 0xFF00);
         num |= ((bytes[2] << 16) & 0xFF0000);
@@ -109,7 +109,7 @@ public class ConvertUtil {
     /**
      * 字节数组和长整型的转换
      */
-    public static byte[] longToByte(long number) {
+    public final static byte[] longToByte(long number) {
         long temp = number;
         byte[] b = new byte[8];
         for (int i = 0; i < b.length; i++) {
@@ -124,7 +124,7 @@ public class ConvertUtil {
     /**
      * 字节数组和长整型的转换
      */
-    public static long byteToLong(byte[] b) {
+    public final static long byteToLong(byte[] b) {
         long s;
         long s0 = b[0] & 0xff;// 最低位
         long s1 = b[1] & 0xff;
@@ -150,7 +150,7 @@ public class ConvertUtil {
      *
      * @param src 要转换成二进制字符串的byte值
      */
-    public static String byteToBinary(byte src) {
+    public final static String byteToBinary(byte src) {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < 8; i++) {
             result.append(src % 2 == 0 ? '0' : '1');
@@ -164,7 +164,7 @@ public class ConvertUtil {
      *
      * @param hexStr 十六进制字符串
      */
-    public static String hexStringtoBinarg(String hexStr) {
+    public final static String hexStringtoBinarg(String hexStr) {
         hexStr = hexStr.replaceAll("\\s", "").replaceAll("0x", "");
         char[] achar = hexStr.toCharArray();
         String result = "";
@@ -180,7 +180,7 @@ public class ConvertUtil {
      *
      * @param bytes bytes数组
      */
-    public static String bytesToHexString(byte[] bytes) {
+    public final static String bytesToHexString(byte[] bytes) {
         String result = "";
         String hex;
         for (byte b : bytes) {
@@ -199,7 +199,7 @@ public class ConvertUtil {
      * @param hexString 16进制字符串
      * @return byte[]
      */
-    public static byte[] hexStringToByte(String hexString) {
+    public final static byte[] hexStringToByte(String hexString) {
         int len = (hexString.length() / 2);
         byte[] result = new byte[len];
         char[] achar = hexString.toCharArray();
@@ -210,7 +210,7 @@ public class ConvertUtil {
         return result;
     }
 
-    private static int toByte(char c) {
+    private final static int toByte(char c) {
         return (byte) hexStr.indexOf(c);
     }
 }
