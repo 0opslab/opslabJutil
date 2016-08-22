@@ -14,7 +14,7 @@ public class Password {
     /**
      * 字符串加密函数MD5实现
      */
-    public static String md5(String password){
+    public final static String md5(String password){
         MessageDigest md;
         try {
             // 生成一个MD5加密计算摘要

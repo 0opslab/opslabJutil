@@ -24,7 +24,7 @@ public class ChinesUtil {
      * @param inputString
      * @return
      */
-    public static final String getPingYin(String inputString) {
+    public final static String getPingYin(String inputString) {
         HanyuPinyinOutputFormat format = new HanyuPinyinOutputFormat();
         format.setCaseType(HanyuPinyinCaseType.LOWERCASE);
         format.setToneType(HanyuPinyinToneType.WITHOUT_TONE);
@@ -82,7 +82,7 @@ public class ChinesUtil {
      * @param chinese 汉字串
      * @return 汉语拼音
      */
-    public static String getFullSpell(String chinese) {
+    public final static String getFullSpell(String chinese) {
         StringBuffer            pybf          = new StringBuffer();
         char[]                  arr           = chinese.toCharArray();
         HanyuPinyinOutputFormat defaultFormat = new HanyuPinyinOutputFormat();
@@ -104,7 +104,7 @@ public class ChinesUtil {
 
 
     // 只能判断部分CJK字符（CJK统一汉字）
-    public static boolean isChineseByREG(String str) {
+    public final static boolean isChineseByREG(String str) {
         if (str == null) {
             return false;
         }
@@ -113,7 +113,7 @@ public class ChinesUtil {
     }
 
     // 只能判断部分CJK字符（CJK统一汉字）
-    public static boolean isChineseByName(String str) {
+    public final static boolean isChineseByName(String str) {
         if (str == null) {
             return false;
         }
@@ -126,7 +126,7 @@ public class ChinesUtil {
 
 
     // 完整的判断中文汉字和符号
-    public static boolean isChinese(String strName) {
+    public final static boolean isChinese(String strName) {
         char[] ch = strName.toCharArray();
         for (int i = 0; i < ch.length; i++) {
             char c = ch[i];
@@ -143,7 +143,7 @@ public class ChinesUtil {
      * @param c
      * @return
      */
-    public static boolean isChinese(char c) {
+    public final static boolean isChinese(char c) {
         Character.UnicodeBlock ub = Character.UnicodeBlock.of(c);
         if (ub == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS || ub == Character.UnicodeBlock.CJK_COMPATIBILITY_IDEOGRAPHS || ub == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A || ub == Character.UnicodeBlock.GENERAL_PUNCTUATION || ub == Character.UnicodeBlock.CJK_SYMBOLS_AND_PUNCTUATION || ub == Character.UnicodeBlock.HALFWIDTH_AND_FULLWIDTH_FORMS) {
             return true;
@@ -154,7 +154,7 @@ public class ChinesUtil {
     /**
      * 获取一个字符串中中文字符的个数
      */
-    public static int ChineseLength(String str) {
+    public final static int ChineseLength(String str) {
         Pattern p = Pattern.compile("[\u4E00-\u9FA5]+");
         Matcher m = p.matcher(str);
         int     i = 0;
@@ -171,7 +171,7 @@ public class ChinesUtil {
      * @param strName
      * @return
      */
-    public static boolean isMessyCode(String strName) {
+    public final static boolean isMessyCode(String strName) {
         Pattern p        = Pattern.compile("\\s*|\t*|\r*|\n*");
         Matcher m        = p.matcher(strName);
         String  after    = m.replaceAll("");

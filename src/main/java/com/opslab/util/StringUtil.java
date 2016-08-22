@@ -19,7 +19,7 @@ public class StringUtil {
      * @param str 判断的字符串
      * @return 是否有效
      */
-    public static boolean isEmpty(String str) {
+    public final static boolean isEmpty(String str) {
         return str == null || str.equals("");
     }
 
@@ -30,7 +30,7 @@ public class StringUtil {
      * @param symbol 链接的符号
      * @return 处理后的字符串
      */
-    public static String joinString(List list, String symbol) {
+    public final static String joinString(List list, String symbol) {
         String result = "";
         if (list != null) {
             for (Object o : list) {
@@ -52,7 +52,7 @@ public class StringUtil {
      * @param str2 字符串数组(用,分割)
      * @return 是否包含
      */
-    public static boolean requals(String str1, String str2) {
+    public final static boolean requals(String str1, String str2) {
         if (str1 != null && str2 != null) {
             str2 = str2.replaceAll("\\s*", "");
             String[] arr = str2.split(",");
@@ -73,7 +73,7 @@ public class StringUtil {
      * @param split str2字符串的分隔符
      * @return 是否包含
      */
-    public static boolean requals(String str1, String str2, String split) {
+    public final static boolean requals(String str1, String str2, String split) {
         if (str1 != null && str2 != null) {
             str2 = str2.replaceAll("\\s*", "");
             String[] arr = str2.split(split);
@@ -95,7 +95,7 @@ public class StringUtil {
      * @param size    截取的长度
      * @return 处理后的字符串
      */
-    public static String subStringOmit(String subject, int size) {
+    public final static String subStringOmit(String subject, int size) {
         if (subject != null && subject.length() > size) {
             subject = subject.substring(0, size) + "...";
         }
@@ -111,7 +111,7 @@ public class StringUtil {
      * @param symbol 最后拼接的字符串
      * @return 测试后的字符串
      */
-    public static String subStringSymbol(String str, int len, String symbol) {
+    public final static String subStringSymbol(String str, int len, String symbol) {
         String temp = "";
         if (str != null && str.length() > len) {
             temp = str.substring(0, len) + symbol;
@@ -127,7 +127,7 @@ public class StringUtil {
      * @param symbol 链接的符号
      * @return 处理后的字符串
      */
-    public static String joinString(String[] array, String symbol) {
+    public final static String joinString(String[] array, String symbol) {
         String result = "";
         if (array != null) {
             for (String temp : array) {
@@ -148,7 +148,7 @@ public class StringUtil {
      * @param email - EMail邮箱地址 例如: ssss@koubei.com 等等...
      * @return 返回已隐藏前缀邮件地址, 如 *********@koubei.com.
      */
-    public static String getHideEmailPrefix(String email) {
+    public final static String getHideEmailPrefix(String email) {
         if (null != email) {
             int index = email.lastIndexOf('@');
             if (index > 0) {
@@ -165,7 +165,7 @@ public class StringUtil {
      * @param num - 重复生成次数
      * @return 返回已生成的重复字符串
      */
-    public static String repeat(String src, int num) {
+    public final static String repeat(String src, int num) {
         StringBuilder s = new StringBuilder();
         for (int i = 0; i < num; i++)
             s.append(src);
@@ -179,7 +179,7 @@ public class StringUtil {
      * @param num  开始位置
      * @return 截取后的字符串
      */
-    public static String ltrim(String str1, int num) {
+    public final static String ltrim(String str1, int num) {
         String tt = "";
         if (!isEmpty(str1) && str1.length() >= num) {
             tt = str1.substring(num, str1.length());
@@ -195,7 +195,7 @@ public class StringUtil {
      * @param num 截取的位置
      * @return 截取后的字符串
      */
-    public static String rtrim(String str, int num) {
+    public final static String rtrim(String str, int num) {
         if (!isEmpty(str) && str.length() > num) {
             str = str.substring(0, str.length() - num);
         }
@@ -209,7 +209,7 @@ public class StringUtil {
      * @param pattern 分割字符串
      * @return 处理后的list
      */
-    public static List<String> parseString2List(String src, String pattern) {
+    public final static List<String> parseString2List(String src, String pattern) {
         List<String> list = new ArrayList<>();
         if (src != null) {
             String[] tt = src.split(pattern);
@@ -224,7 +224,7 @@ public class StringUtil {
      * @param format 要格式化成的格式 such as #.00, #.#
      * @return 格式化后的字符串
      */
-    public static String formatDouble(double f, String format) {
+    public final static String formatDouble(double f, String format) {
         DecimalFormat df = new DecimalFormat(format);
         return df.format(f);
     }
@@ -237,7 +237,7 @@ public class StringUtil {
      * @param count 截取长度
      * @return 截取字符串
      */
-    public static String left(String input, int count) {
+    public final static String left(String input, int count) {
         if (isEmpty(input)) {
             return "";
         }
@@ -253,7 +253,7 @@ public class StringUtil {
      * @return 截取字符串
      * Summary 其他编码的有待测试
      */
-    public static String right(String input, int count) {
+    public final static String right(String input, int count) {
         if (isEmpty(input)) {
             return "";
         }
@@ -269,7 +269,7 @@ public class StringUtil {
      * @param str 需要处理的字符串
      * @return 处理后的字符串
      */
-    public static String full2Half(String str) {
+    public final static String full2Half(String str) {
         if(isEmpty(str)){
             return "";
         }
@@ -281,7 +281,7 @@ public class StringUtil {
      * @param str 需要处理的字符串
      * @return 处理后的字符串
      */
-    public static String Half2Full(String str){
+    public final static String Half2Full(String str){
         if(isEmpty(str)){
             return "";
         }
@@ -294,7 +294,7 @@ public class StringUtil {
      *
      * @param str 需要处理的字符串
      */
-    public static String replaceBlank(String str) {
+    public final static String replaceBlank(String str) {
         if (str != null) {
             Pattern p = Pattern.compile("\\s*|\t|\r|\n");
             Matcher m = p.matcher(str);
@@ -311,7 +311,7 @@ public class StringUtil {
      * @param source    源字符串数组
      * @return 包含则返回true，否则返回false
      */
-    public static boolean isIn(String substring, String[] source) {
+    public final static boolean isIn(String substring, String[] source) {
         if(isEmpty(substring) || !valid.valid(source)){
             return false;
         }
@@ -329,7 +329,7 @@ public class StringUtil {
      *
      * @param string 需要处理的字符串
      */
-    public static String string2Unicode(String string) {
+    public final static String string2Unicode(String string) {
         StringBuilder uni = new StringBuilder();
         for (int i = 0; i < string.length(); i++) {
             String temp ="\\u"+String.valueOf(Integer.toHexString(string.charAt(i)));
@@ -343,7 +343,7 @@ public class StringUtil {
      *
      * @param unicode 需要处理的字符串
      */
-    public static String unicode2String(String unicode) {
+    public final static String unicode2String(String unicode) {
         StringBuilder str = new StringBuilder();
         String[]     hex    = unicode.split("\\\\u");
         for (int i = 1; i < hex.length; i++) {
@@ -359,7 +359,7 @@ public class StringUtil {
      *
      * @param str 处理的字符串
      */
-    public static String trimPunct(String str) {
+    public final static String trimPunct(String str) {
         if(isEmpty(str)){
             return "";
         }
@@ -369,7 +369,7 @@ public class StringUtil {
     /**
      * 字符串相似度比较(速度较快)
      */
-    public static double SimilarityRatio(String str1, String str2) {
+    public final static double SimilarityRatio(String str1, String str2) {
         str1 = StringUtil.trimPunct(str1);
         str2 = StringUtil.trimPunct(str2);
         if (str1.length() > str2.length()) {
@@ -383,7 +383,7 @@ public class StringUtil {
     /**
      * 字符串相似度比较(速度较快)
      */
-    public static double SimilarDegree(String str1, String str2) {
+    public final static double SimilarDegree(String str1, String str2) {
         str1 = StringUtil.trimPunct(str1);
         str2 = StringUtil.trimPunct(str2);
         if (str1.length() > str2.length()) {
@@ -398,7 +398,7 @@ public class StringUtil {
     /**
      * 获取字符串的编码
      */
-    public static String cpDetector(String str) {
+    public final static String cpDetector(String str) {
         if(isEmpty(str)){
             return "";
         }
@@ -411,7 +411,7 @@ public class StringUtil {
      * @param string 处理的字符串
      * @param str 子字符串
      */
-    public static int countSubStr(String string, String str) {
+    public final static int countSubStr(String string, String str) {
         if ((str == null) || (str.length() == 0) || (string == null) || (string.length() == 0)) {
             return 0;
         }
@@ -432,7 +432,7 @@ public class StringUtil {
      * @param sub  substring to replace
      * @param with substring to replace with
      */
-    public static String replaceFirst(String s, String sub, String with) {
+    public final static String replaceFirst(String s, String sub, String with) {
         int i = s.indexOf(sub);
         if (i == -1) {
             return s;
@@ -449,7 +449,7 @@ public class StringUtil {
      * @param sub  substring to replace
      * @param with substring to replace with
      */
-    public static String replaceLast(String s, String sub, String with) {
+    public final static String replaceLast(String s, String sub, String with) {
         int i = s.lastIndexOf(sub);
         if (i == -1) {
             return s;
@@ -465,7 +465,7 @@ public class StringUtil {
      * @param s   source string
      * @param sub substring to remove
      */
-    public static String remove(String s, String sub) {
+    public final static String remove(String s, String sub) {
         int c      = 0;
         int sublen = sub.length();
         if (sublen == 0) {
@@ -490,7 +490,7 @@ public class StringUtil {
      * 将字符串首字母转大写
      * @param str 需要处理的字符串
      */
-    public static String upperFirstChar(String str){
+    public final static String upperFirstChar(String str){
         if(isEmpty(str)){
             return "";
         }
@@ -506,7 +506,7 @@ public class StringUtil {
      * @param str
      * @return
      */
-    public static String lowerFirstChar(String str){
+    public final static String lowerFirstChar(String str){
         if(isEmpty(str)){
             return "";
         }
@@ -524,7 +524,7 @@ public class StringUtil {
      * @param length
      * @return
      */
-    public static boolean rigthEquals(String str1,String str2,int length){
+    public final static boolean rigthEquals(String str1,String str2,int length){
         return right(str1,length).equals(right(str2,length));
     }
 
@@ -535,7 +535,7 @@ public class StringUtil {
      * @param length
      * @return
      */
-    public static boolean leftEquals(String str1,String str2,int length){
+    public final static boolean leftEquals(String str1,String str2,int length){
         return left(str1,length).equals(left(str2,length));
     }
 }

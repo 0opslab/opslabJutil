@@ -1,6 +1,7 @@
 package com.opslab.util.collection;
 
 import com.opslab.util.valid;
+import org.apache.log4j.Logger;
 
 import java.util.*;
 
@@ -17,13 +18,19 @@ import java.util.*;
  * Map<--HashMap
  */
 public class CollectionUtil {
+    private static Logger logger = Logger.getLogger(CollectionUtil.class);
 
     /**
      * 去重
      */
     public static <T> List<T> removeDuplicate(List<T> list) {
-        Set set = new HashSet();
+
         List newList = new ArrayList();
+        if (!valid.valid(list)) {
+            logger.error("list is empty or is null");
+            return newList;
+        }
+        Set set = new HashSet();
         for (Iterator iter = list.iterator(); iter.hasNext(); ) {
             Object element = iter.next();
             if (set.add(element))
@@ -36,37 +43,43 @@ public class CollectionUtil {
     /**
      * 使用指定的Filter过滤集合
      */
-    public static <T> List<T> Filter(List<T> list, ListFilter filter) {
+    public static <T> List<T> filter(List<T> list, ListFilter filter) {
         List result = new ArrayList();
-        if (valid.valid(list)) {
-            for (T t : list) {
-                if (filter.filter(t)) {
-                    result.add(t);
-                }
+        if (!valid.valid(list)) {
+            logger.error("list is empty or is null");
+            return result;
+        }
+        for (T t : list) {
+            if (filter.filter(t)) {
+                result.add(t);
             }
         }
         return result;
     }
 
-    public static <T> Set<T> Filter(Set<T> set, SetFilter filter) {
+    public static <T> Set<T> filter(Set<T> set, SetFilter filter) {
         Set result = new HashSet();
         if (valid.valid(set)) {
-            for (T t : set) {
-                if (filter.filter(t)) {
-                    result.add(t);
-                }
+            logger.error("list is empty or is null");
+            return result;
+        }
+        for (T t : set) {
+            if (filter.filter(t)) {
+                result.add(t);
             }
         }
         return result;
     }
 
-    public static <T> Queue Filter(Queue<T> queue, QueueFilter filter) {
+    public static <T> Queue filter(Queue<T> queue, QueueFilter filter) {
         Queue result = new LinkedList();
         if (valid.valid(queue)) {
-            for (T t : queue) {
-                if (filter.filter(t)) {
-                    result.add(t);
-                }
+            logger.error("queue is empty or is null");
+            return result;
+        }
+        for (T t : queue) {
+            if (filter.filter(t)) {
+                result.add(t);
             }
         }
         return result;
@@ -75,10 +88,12 @@ public class CollectionUtil {
     public static <K, V> Map Filter(Map<K, V> map, MapFilter filter) {
         Map result = new HashMap();
         if (valid.valid(map)) {
-            for (Map.Entry<K, V> entry : map.entrySet()) {
-                if (filter.filter(entry)) {
-                    result.put(entry.getKey(), entry.getValue());
-                }
+            logger.error("map is empty or is null");
+            return result;
+        }
+        for (Map.Entry<K, V> entry : map.entrySet()) {
+            if (filter.filter(entry)) {
+                result.put(entry.getKey(), entry.getValue());
             }
         }
         return result;
@@ -219,6 +234,7 @@ public class CollectionUtil {
 
     /**
      * 将List以separator链接并以字符串的形式返回
+     *
      * @param list
      * @param separator
      * @param <T>
@@ -234,14 +250,15 @@ public class CollectionUtil {
 
     /**
      * 将queue以separator链接并以字符串的形式返回
+     *
      * @param queue
      * @param separator
      * @param <T>
      * @return
      */
-    public final static <T> String join(Queue<T> queue,String separator){
+    public final static <T> String join(Queue<T> queue, String separator) {
         StringBuilder sb = new StringBuilder();
-        for(T t : queue){
+        for (T t : queue) {
             sb.append(t.toString()).append(separator);
         }
         return sb.toString().substring(0, sb.toString().length() - separator.length());
@@ -249,14 +266,15 @@ public class CollectionUtil {
 
     /**
      * 将set以separator链接并以字符串的形式返回
+     *
      * @param set
      * @param separator
      * @param <T>
      * @return
      */
-    public final static <T> String join(Set<T> set,String separator){
+    public final static <T> String join(Set<T> set, String separator) {
         StringBuilder sb = new StringBuilder();
-        for(T t : set){
+        for (T t : set) {
             sb.append(t.toString()).append(separator);
         }
         return sb.toString().substring(0, sb.toString().length() - separator.length());
@@ -264,13 +282,14 @@ public class CollectionUtil {
 
     /**
      * 将map的key以separator链接并以字符串的形式返回
+     *
      * @param map
      * @param separator
      * @param <K>
      * @param <V>
      * @return
      */
-    public final static <K,V> String keyJoin(Map<K,V> map,String separator){
+    public final static <K, V> String keyJoin(Map<K, V> map, String separator) {
         StringBuilder sb = new StringBuilder();
         for (Map.Entry<K, V> entry : map.entrySet()) {
             sb.append(String.valueOf(entry.getKey())).append(separator);
@@ -280,13 +299,14 @@ public class CollectionUtil {
 
     /**
      * 将map的value以separator链接并以字符串的形式返回
+     *
      * @param map
      * @param separator
      * @param <K>
      * @param <V>
      * @return
      */
-    public final static <K,V> String valueJoin(Map<K,V> map,String separator){
+    public final static <K, V> String valueJoin(Map<K, V> map, String separator) {
         StringBuilder sb = new StringBuilder();
 
         for (Map.Entry<K, V> entry : map.entrySet()) {

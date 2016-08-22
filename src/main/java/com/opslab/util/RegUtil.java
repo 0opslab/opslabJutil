@@ -116,7 +116,7 @@ public class RegUtil {
      * @param src 源字符串
      * @return 是否数字的标志
      */
-    public static boolean isNumeric(String src) {
+    public final static boolean isNumeric(String src) {
         boolean return_value = false;
         if (src != null && src.length() > 0) {
             Matcher m = numericPattern.matcher(src);
@@ -133,7 +133,7 @@ public class RegUtil {
      * @param src 源字符串
      * @return 是否纯字母组合的标志
      */
-    public static boolean isABC(String src) {
+    public final static boolean isABC(String src) {
         boolean return_value = false;
         if (src != null && src.length() > 0) {
             Matcher m = abcPattern.matcher(src);
@@ -151,7 +151,7 @@ public class RegUtil {
      * @param src 源字符串
      * @return 是否数字的标志
      */
-    public static boolean isFloatNumeric(String src) {
+    public final static boolean isFloatNumeric(String src) {
         boolean return_value = false;
         if (src != null && src.length() > 0) {
             Matcher m = floatNumericPattern.matcher(src);
@@ -169,7 +169,7 @@ public class RegUtil {
      * @param reg 正则
      * @return 是否匹配
      */
-    public static boolean isMatche(String str, String reg) {
+    public final static boolean isMatche(String str, String reg) {
         Pattern pattern = Pattern.compile(reg);
         Matcher isNum   = pattern.matcher(str);
         return isNum.matches();
@@ -182,7 +182,7 @@ public class RegUtil {
      * @param reg 正则
      * @return 出现的次数
      */
-    public static int countSubStrReg(String str, String reg) {
+    public final static int countSubStrReg(String str, String reg) {
         Pattern p = Pattern.compile(reg);
         Matcher m = p.matcher(str);
         int     i = 0;
@@ -199,7 +199,7 @@ public class RegUtil {
      * @param email 判断的字符串
      * @return 是否是符合的邮箱
      */
-    public static boolean isEmail(String email) {
+    public final static boolean isEmail(String email) {
         if (email == null || email.length() < 1 || email.length() > 256) {
             return false;
         }
