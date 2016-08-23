@@ -25,7 +25,7 @@ public class FileUtilTest  {
     @Test
     public void testHash() {
         String file = TestUtil.path + "ali.gif";
-        assertEquals("文件Hash校验错误", "4FE6FF69F7257F2E8C36B0752B5393BF", FileUtil.hash(new File(file)).toUpperCase());
+        assertEquals("文件Hash校验错误", "4FE6FF69F7257F2E8C36B0752B5393BF", FileUtil.fileMD5(new File(file)).toUpperCase());
     }
 
     @Test

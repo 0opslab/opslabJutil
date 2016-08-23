@@ -60,7 +60,7 @@ public class CollectionUtilTest extends TestCase {
         //过滤函数
         System.out.println("====================");
         System.out.println("过滤前的原list" + list1);
-        List<String> filter = CollectionUtil.Filter(list1, new ListFilter() {
+        List<String> filter = CollectionUtil.filter(list1, new ListFilter() {
             @Override
             public boolean filter(Object o) {
                 return "AAA".equals((String) o);
@@ -108,7 +108,7 @@ public class CollectionUtilTest extends TestCase {
 
         System.out.println("====================");
         System.out.println("过滤前:" + set1);
-        Set<String> filter = CollectionUtil.Filter(set, new SetFilter() {
+        Set<String> filter = CollectionUtil.filter(set, new SetFilter() {
             @Override
             public boolean filter(Object o) {
                 return !"AAA".equals((String) o);

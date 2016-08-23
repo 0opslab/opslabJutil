@@ -12,7 +12,7 @@ public class FTPLog {
     private String localFile;
     private String remoteFile;
     private String ReplyCodeDesc;
-    private String createTime = DateUtil.DateTime();
+    private String createTime = DateUtil.currentDateTime();
 
     public String getHost() {
         return host;
