@@ -22,17 +22,17 @@ public class DateUtilTest {
 
     @org.junit.Test
     public void testGetDateTime() throws Exception {
-        System.out.println(DateUtil.DateTime());
+        System.out.println(DateUtil.currentDateTime());
     }
 
     @org.junit.Test
     public void testGetDate() throws Exception {
-        System.out.println(DateUtil.Date());
+        System.out.println(DateUtil.currentDate());
     }
 
     @org.junit.Test
     public void testGetTime() throws Exception {
-        System.out.println(DateUtil.Time());
+        System.out.println(DateUtil.currentTime());
     }
 
 
@@ -84,8 +84,8 @@ public class DateUtilTest {
     @Test
     public void testHour() throws Exception {
         String str1 = "2015-02-23 18:54:00";
-        Date   date = DateUtil.hour(DateUtil.DateTime(str1), -0.5F);
-        String rs   = DateUtil.DateTime(date);
+        Date   date = DateUtil.hour(DateUtil.dateTime(str1), -0.5F);
+        String rs   = DateUtil.dateTime(date);
         assertEquals("转换有误", "2015-02-23 18:24:00", rs);
     }
 
@@ -255,23 +255,23 @@ public class DateUtilTest {
 
     @Test
     public void testCalculate23(){
-        System.out.println(DateUtil.DateTime(DateUtil.calculate("2016-03-08 14:38:23", 2*3600, "08:30-17:30")));
+        System.out.println(DateUtil.dateTime(DateUtil.calculate("2016-03-08 14:38:23", 2 * 3600, "08:30-17:30")));
     }
 
     @Test
     public void testCalculate() throws ParseException {
-        assertEquals("计算有误", DateUtil.DateTime(DateUtil.calculate("2015-01-29 20:59:50", 9, "08:00-21:00")), "2015-01-29 20:59:59");
-        assertEquals("计算有误", DateUtil.DateTime(DateUtil.calculate("2015-01-29 20:59:50", 11, "08:00-21:00")), "2015-01-30 08:00:01");
-        assertEquals("计算有误", DateUtil.DateTime(DateUtil.calculate("2015-01-29 20:59:50", (3600 * 13 + 1), "08:00-21:00")), "2015-01-30 20:59:51");
-        assertEquals("计算有误", DateUtil.DateTime(DateUtil.calculate("2015-01-29 20:59:50", (3600 * 13 * 3 + 1), "08:00-21:00")), "2015-02-01 20:59:51");
-        assertEquals("计算有误", DateUtil.DateTime(DateUtil.calculate("2015-01-29 20:59:50", (3600 * 13 * 3 + 11), "08:00-21:00")), "2015-02-02 08:00:01");
+        assertEquals("计算有误", DateUtil.dateTime(DateUtil.calculate("2015-01-29 20:59:50", 9, "08:00-21:00")), "2015-01-29 20:59:59");
+        assertEquals("计算有误", DateUtil.dateTime(DateUtil.calculate("2015-01-29 20:59:50", 11, "08:00-21:00")), "2015-01-30 08:00:01");
+        assertEquals("计算有误", DateUtil.dateTime(DateUtil.calculate("2015-01-29 20:59:50", (3600 * 13 + 1), "08:00-21:00")), "2015-01-30 20:59:51");
+        assertEquals("计算有误", DateUtil.dateTime(DateUtil.calculate("2015-01-29 20:59:50", (3600 * 13 * 3 + 1), "08:00-21:00")), "2015-02-01 20:59:51");
+        assertEquals("计算有误", DateUtil.dateTime(DateUtil.calculate("2015-01-29 20:59:50", (3600 * 13 * 3 + 11), "08:00-21:00")), "2015-02-02 08:00:01");
 
-        assertEquals("计算有误", DateUtil.DateTime(DateUtil.calculate("2015-01-29 08:32:00", -35, "08:00-21:00")), "2015-01-29 08:31:25");
-        assertEquals("计算有误", DateUtil.DateTime(DateUtil.calculate("2015-01-29 08:00:30", -35, "08:00-21:00")), "2015-01-28 20:59:55");
-        assertEquals("计算有误", DateUtil.DateTime(DateUtil.calculate("2016-03-08 14:37:03", 16 * 60 * 60, "08:00-21:00")), "2016-03-09 17:37:03");
-        assertEquals("计算有误", DateUtil.DateTime(DateUtil.calculate("2015-01-29 08:00:30", Integer.parseInt("-" + (35 + 3600 * 13)), "08:00-21:00")), "2015-01-27 20:59:55");
-        assertEquals("计算有误", DateUtil.DateTime(DateUtil.calculate("2015-01-29 21:30:30", 35 + 3600 * 14, "08:00-21:00")), "2015-01-31 09:00:35");
-        assertEquals("计算有误", DateUtil.DateTime(DateUtil.calculate("2015-01-29 08:32:00", 3600 * 14, "08:00-21:00")), "2015-01-30 09:32:00");
+        assertEquals("计算有误", DateUtil.dateTime(DateUtil.calculate("2015-01-29 08:32:00", -35, "08:00-21:00")), "2015-01-29 08:31:25");
+        assertEquals("计算有误", DateUtil.dateTime(DateUtil.calculate("2015-01-29 08:00:30", -35, "08:00-21:00")), "2015-01-28 20:59:55");
+        assertEquals("计算有误", DateUtil.dateTime(DateUtil.calculate("2016-03-08 14:37:03", 16 * 60 * 60, "08:00-21:00")), "2016-03-09 17:37:03");
+        assertEquals("计算有误", DateUtil.dateTime(DateUtil.calculate("2015-01-29 08:00:30", Integer.parseInt("-" + (35 + 3600 * 13)), "08:00-21:00")), "2015-01-27 20:59:55");
+        assertEquals("计算有误", DateUtil.dateTime(DateUtil.calculate("2015-01-29 21:30:30", 35 + 3600 * 14, "08:00-21:00")), "2015-01-31 09:00:35");
+        assertEquals("计算有误", DateUtil.dateTime(DateUtil.calculate("2015-01-29 08:32:00", 3600 * 14, "08:00-21:00")), "2015-01-30 09:32:00");
 
     }
 }
