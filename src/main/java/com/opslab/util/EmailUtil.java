@@ -13,7 +13,7 @@ import java.util.Properties;
  * Description
  * 封装Email相关的操作
  */
-public class EmailUtil {
+public final class EmailUtil {
     private static String CONFIG_FILE;
 
     static {

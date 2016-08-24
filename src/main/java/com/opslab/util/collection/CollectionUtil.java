@@ -17,13 +17,13 @@ import java.util.*;
  * Map<--SortedMap<--TreeMap
  * Map<--HashMap
  */
-public class CollectionUtil {
+public final class CollectionUtil {
     private static Logger logger = Logger.getLogger(CollectionUtil.class);
 
     /**
      * 去重
      */
-    public static <T> List<T> removeDuplicate(List<T> list) {
+    public final static <T> List<T> removeDuplicate(List<T> list) {
 
         List newList = new ArrayList();
         if (!valid.valid(list)) {
@@ -43,7 +43,7 @@ public class CollectionUtil {
     /**
      * 使用指定的Filter过滤集合
      */
-    public static <T> List<T> filter(List<T> list, ListFilter filter) {
+    public final static <T> List<T> filter(List<T> list, ListFilter filter) {
         List result = new ArrayList();
         if (!valid.valid(list)) {
             logger.error("list is empty or is null");
@@ -57,7 +57,7 @@ public class CollectionUtil {
         return result;
     }
 
-    public static <T> Set<T> filter(Set<T> set, SetFilter filter) {
+    public final static <T> Set<T> filter(Set<T> set, SetFilter filter) {
         Set result = new HashSet();
         if (valid.valid(set)) {
             logger.error("list is empty or is null");
@@ -71,7 +71,7 @@ public class CollectionUtil {
         return result;
     }
 
-    public static <T> Queue filter(Queue<T> queue, QueueFilter filter) {
+    public final static <T> Queue filter(Queue<T> queue, QueueFilter filter) {
         Queue result = new LinkedList();
         if (valid.valid(queue)) {
             logger.error("queue is empty or is null");
@@ -85,7 +85,7 @@ public class CollectionUtil {
         return result;
     }
 
-    public static <K, V> Map Filter(Map<K, V> map, MapFilter filter) {
+    public final static <K, V> Map Filter(Map<K, V> map, MapFilter filter) {
         Map result = new HashMap();
         if (valid.valid(map)) {
             logger.error("map is empty or is null");
@@ -102,7 +102,7 @@ public class CollectionUtil {
     /**
      * 求俩个集合的交集
      */
-    public static <T> List<T> intersection(List<T> list1, List<T> list2) {
+    public final  static <T> List<T> intersection(List<T> list1, List<T> list2) {
         if (valid.valid(list1, list2)) {
             Set<T> set = new HashSet<>(list1);
             set.retainAll(list2);
@@ -111,7 +111,7 @@ public class CollectionUtil {
         return new ArrayList<T>();
     }
 
-    public static <T> Set<T> intersection(Set<T> set1, Set<T> set2) {
+    public final static <T> Set<T> intersection(Set<T> set1, Set<T> set2) {
         if (valid.valid(set1, set2)) {
             List<T> list = new ArrayList<T>(set1);
             list.retainAll(set2);
@@ -120,7 +120,7 @@ public class CollectionUtil {
         return new HashSet<T>();
     }
 
-    public static <T> Queue<T> intersection(Queue<T> queue1, Queue<T> queue2) {
+    public final static <T> Queue<T> intersection(Queue<T> queue1, Queue<T> queue2) {
         if (valid.valid(queue1, queue2)) {
             Set<T> set = new HashSet<T>(queue1);
             set.retainAll(queue2);
@@ -138,7 +138,7 @@ public class CollectionUtil {
      * @param <V>
      * @return
      */
-    public static <K, V> Map<K, V> intersection(Map<K, V> map1, Map<K, V> map2) {
+    public final static <K, V> Map<K, V> intersection(Map<K, V> map1, Map<K, V> map2) {
         Map<K, V> map = new HashMap<>();
         if (valid.valid(map1, map2)) {
             Set<K> setkey1 = new HashSet<>(map1.keySet());
@@ -156,28 +156,28 @@ public class CollectionUtil {
     /**
      * 求俩个集合的并集
      */
-    public static <T> List<T> unicon(List<T> list1, List<T> list2) {
+    public final static <T> List<T> unicon(List<T> list1, List<T> list2) {
         List<T> list = new ArrayList();
         list.addAll(list1);
         list.addAll(list2);
         return list;
     }
 
-    public static <T> Set<T> unicon(Set<T> set1, Set<T> set2) {
+    public final static <T> Set<T> unicon(Set<T> set1, Set<T> set2) {
         Set<T> set = new HashSet<>();
         set = set1;
         set.addAll(set2);
         return set;
     }
 
-    public static <T> Queue<T> unicon(Queue<T> queue1, Queue<T> queue2) {
+    public final static <T> Queue<T> unicon(Queue<T> queue1, Queue<T> queue2) {
         Queue queue = new LinkedList();
         queue.addAll(queue1);
         queue.addAll(queue2);
         return queue;
     }
 
-    public static <K, V> Map<K, V> unicon(Map<K, V> map1, Map<K, V> map2) {
+    public final static <K, V> Map<K, V> unicon(Map<K, V> map1, Map<K, V> map2) {
         Map<K, V> map = new HashMap<>();
         map.putAll(map1);
         map.putAll(map2);
@@ -189,7 +189,7 @@ public class CollectionUtil {
     /**
      * 求俩个集合的差集
      */
-    public static <T> List<T> subtract(List<T> list1, List<T> list2) {
+    public final static <T> List<T> subtract(List<T> list1, List<T> list2) {
         List<T> list = new ArrayList<>();
         if (valid.valid(list1)) {
             list.addAll(list1);
@@ -198,7 +198,7 @@ public class CollectionUtil {
         return list;
     }
 
-    public static <T> Set<T> subtract(Set<T> set1, Set<T> set2) {
+    public final static <T> Set<T> subtract(Set<T> set1, Set<T> set2) {
         Set<T> set = new HashSet<>();
         if (valid.valid(set1)) {
             set.addAll(set1);
@@ -207,7 +207,7 @@ public class CollectionUtil {
         return set;
     }
 
-    public static <T> Queue<T> subtract(Queue<T> queue1, Queue<T> queue2) {
+    public final static <T> Queue<T> subtract(Queue<T> queue1, Queue<T> queue2) {
         Queue<T> queue = new LinkedList<>();
         if (valid.valid(queue1)) {
             queue.addAll(queue1);
@@ -216,7 +216,7 @@ public class CollectionUtil {
         return queue;
     }
 
-    public static <K, V> Map<K, V> subtract(Map<K, V> map1, Map<K, V> map2) {
+    public final static <K, V> Map<K, V> subtract(Map<K, V> map1, Map<K, V> map2) {
         Map<K, V> map = new HashMap<>();
         if (valid.valid(map1, map2)) {
             Set<K> setkey1 = new HashSet<>(map1.keySet());

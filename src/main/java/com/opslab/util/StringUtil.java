@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 /**
  * 提供些常用的字符串相关的工具方法
  */
-public class StringUtil {
+public final class StringUtil {
 
     /**
      * 判断是否是空字符串 null和"" 都返回 true

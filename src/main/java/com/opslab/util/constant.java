@@ -3,7 +3,7 @@ package com.opslab.util;
 /**
  * 一些常用的常量
  */
-public class constant {
+public final class constant {
     String AMPERSAND         = "&";
     String AND               = "and";
     String AT                = "@";

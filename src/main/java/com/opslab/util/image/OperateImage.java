@@ -18,7 +18,7 @@ import java.util.List;
  * 图片相关的操作
  * @author adam.胡升阳
  */
-public class OperateImage {
+public final class OperateImage {
     // 图形交换格式
     public static String IMAGE_TYPE_GIF = "gif";
     // 联合照片专家组

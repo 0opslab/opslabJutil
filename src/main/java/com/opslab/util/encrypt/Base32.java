@@ -3,7 +3,7 @@ package com.opslab.util.encrypt;
 /**
  * Base32的编码和解码
  */
-public class Base32 {
+public final class Base32 {
     private static final String ERR_CANONICAL = "Invalid Base32 string";
 
     private static final char[] CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567".toCharArray();

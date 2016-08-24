@@ -6,7 +6,7 @@ import java.io.StringWriter;
 /**
  * 异常处理的工具类
  */
-public class ExceptionUtil {
+public final class ExceptionUtil {
     /**
      * 只返回指定包中的异常堆栈信息
      *

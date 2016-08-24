@@ -4,7 +4,7 @@ import java.awt.Color;
 /**
  * 颜色相关的工具类
  */
-public class ColorUtil {
+public final class ColorUtil {
     /**
      * 16进制转Color对象
      *      color:RGB颜色

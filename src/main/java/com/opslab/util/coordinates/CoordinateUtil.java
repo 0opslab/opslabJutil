@@ -3,7 +3,7 @@ package com.opslab.util.coordinates;
 /**
  * 经纬度相关的阿一些操作
  */
-public class CoordinateUtil {
+public final class CoordinateUtil {
     /**
      * 计算地球上任意两点(经纬度)距离
      *
