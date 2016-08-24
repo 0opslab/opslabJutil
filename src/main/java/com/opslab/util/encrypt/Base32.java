@@ -23,7 +23,7 @@ public final class Base32 {
      * @param bytes
      * @return
      */
-    public static String encode(final byte[] bytes) {
+    public final static String encode(final byte[] bytes) {
         StringBuilder base32 = new StringBuilder((bytes.length * 8 + 4) / 5);
 
         int currByte, digit, i = 0;
@@ -83,7 +83,7 @@ public final class Base32 {
      * @return
      * @throws IllegalArgumentException
      */
-    public static String decode(final String base32) throws IllegalArgumentException {
+    public final static String decode(final String base32) throws IllegalArgumentException {
         switch (base32.length() % 8) {
             case 1:
             case 3:
