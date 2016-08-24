@@ -6,7 +6,7 @@ import java.security.MessageDigest;
 /**
  * 提供密码相关的工具类
  */
-public class Password {
+public final class Password {
 
     //必选包含数字、大写字母、小写字母、特殊字符，长度在8到15位
     private static final String SEC_PASSWORD =

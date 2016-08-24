@@ -16,7 +16,7 @@ import java.util.jar.JarFile;
  * <h6>Description:<h6>
  * <p>Java Class与反射相关的一些工具类</p>
  */
-public class ClassUtil {
+public final class ClassUtil {
 
     private static Logger logger = Logger.getLogger(ClassUtil.class);
     /**

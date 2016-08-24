@@ -8,7 +8,7 @@ import java.io.UnsupportedEncodingException;
  * Description:
  * 编码相关的封装类
  */
-public class CharsetUtil {
+public final class CharsetUtil {
     /**
      * 7位ASCII字符，也叫作ISO646-US、Unicode字符集的基本拉丁块
      */

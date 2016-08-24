@@ -3,7 +3,7 @@ package com.opslab.util;
 /**
  * 文件名及文件路径相关的操作
  */
-public class FilePathUtil {
+public final class FilePathUtil {
 
     /**
      * 判断是否符是合法的文件路径

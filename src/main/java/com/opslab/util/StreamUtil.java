@@ -5,7 +5,7 @@ import java.io.*;
 /**
  * 流相关的操作方法封装
  */
-public class StreamUtil {
+public final class StreamUtil {
     /**
      * Read an input stream into a string
      */
