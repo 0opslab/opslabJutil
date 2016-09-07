@@ -9,7 +9,7 @@ import java.util.Map;
  * 提供一些对象有效性校验的方法
  */
 @SuppressWarnings("rawtypes")
-public class valid {
+public final class valid {
 
     /**
      * 判断字符串是否是符合指定格式的时间

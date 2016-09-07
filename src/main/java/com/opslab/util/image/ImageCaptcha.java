@@ -5,7 +5,7 @@ import java.util.Random;
 /**
  * 生成图片验证码
  */
-public class ImageCaptcha {
+public final class ImageCaptcha {
     //指定图片的宽度
     private static int width =200;
     //指定图片的高度

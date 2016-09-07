@@ -6,7 +6,7 @@ import java.awt.image.BufferedImage;
 /**
  * 图片相关的操作类
  */
-public class ImageUtil {
+public final class ImageUtil {
 
     /**
      * 重新设定图像的长高宽

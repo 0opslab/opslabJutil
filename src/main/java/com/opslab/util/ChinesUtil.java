@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
 /**
  * 一些中文相关的操作方法
  */
-public class ChinesUtil {
+public final class ChinesUtil {
     private ChinesUtil(){
 
     }

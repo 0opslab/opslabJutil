@@ -14,7 +14,7 @@ import java.util.Random;
 /**
  * 具体用于实现生成验证码图片的方法
  */
-public class CaptchaUtil {
+public final class CaptchaUtil {
     protected static Font font = new Font("Verdana", Font.ITALIC|Font.BOLD, 28);   // 字体
     /**
      * 产生0--num的随机数,不包括num

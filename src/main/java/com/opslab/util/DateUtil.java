@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 /**
  * @author:Neptune Description:DateUtil 提供一些常用的时间想法的方法
  */
-public class DateUtil {
+public final class DateUtil {
 
     //日期时间类型格式
     private static String DATETIME_FORMAT = "yyyy-MM-dd HH:mm:ss";

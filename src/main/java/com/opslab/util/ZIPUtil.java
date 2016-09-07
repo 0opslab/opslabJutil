@@ -9,7 +9,7 @@ import java.util.zip.ZipOutputStream;
 /**
  * 压缩文档相关的工具类
  */
-public class ZIPUtil {
+public final class ZIPUtil {
     /**
      * 文档压缩
      *
