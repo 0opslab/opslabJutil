@@ -69,22 +69,14 @@ public class FileUtil {
      * @return 文件行数
      */
     public final static int countLines(File file) {
-        int count = 0;
-        try (
-                InputStream is = new BufferedInputStream(new FileInputStream(file))
-        ) {
-            byte[] c = new byte[BUFFER_SIZE];
-            int readChars;
-            while ((readChars = is.read(c)) != -1) {
-                for (int i = 0; i < readChars; ++i) {
-                    if (c[i] == '\n')
-                        ++count;
-                }
-            }
+        try(LineNumberReader rf = new LineNumberReader(new FileReader(file))){
+            long fileLength = file.length();
+            rf.skip(fileLength);
+            return rf.getLineNumber();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return count;
+        return 0;
     }
 
     /**
@@ -187,13 +179,12 @@ public class FileUtil {
      * @return 是否成功
      */
     public final static boolean appendLine(File file, String str) {
-        String lineSeparator = System.getProperty("line.separator", "\n");
         try (
                 RandomAccessFile randomFile = new RandomAccessFile(file, "rw")
         ) {
             long fileLength = randomFile.length();
             randomFile.seek(fileLength);
-            randomFile.writeBytes(lineSeparator + str);
+            randomFile.writeBytes(SysUtil.FILE_SEPARATOR + str);
             return true;
         } catch (IOException e) {
             e.printStackTrace();
