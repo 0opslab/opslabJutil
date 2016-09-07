@@ -34,7 +34,7 @@ import java.util.regex.Pattern;
  * <li>fragment (third)</li>
  * </ul>
  */
-public class UrlUtil {
+public final class UrlUtil {
     private static final String SCHEME_PATTERN = "([^:/?#]+):";
 
     private static final String HTTP_PATTERN = "(http|https):";

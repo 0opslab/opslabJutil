@@ -5,7 +5,7 @@ import java.io.UnsupportedEncodingException;
 /**
  * Various character and character sequence utilities, including <code>char[]</code> - <code>byte[]</code> conversions.
  */
-public class CharUtil {
+public final class CharUtil {
 
 
 

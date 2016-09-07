@@ -5,7 +5,7 @@ import java.io.ByteArrayOutputStream;
 /**
  * 常用类型转换
  */
-public class ConvertUtil {
+public final class ConvertUtil {
 
     private final static String hexStr = "0123456789ABCDEF";
 

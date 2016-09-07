@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
  * Description:
  * 封装一些正则相关的操作
  */
-public class RegUtil {
+public final class RegUtil {
 
     /**
      * Alphanumeric characters

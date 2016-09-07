@@ -4,14 +4,14 @@ import java.awt.Color;
 /**
  * 颜色相关的工具类
  */
-public class ColorUtil {
+public final class ColorUtil {
     /**
      * 16进制转Color对象
      *      color:RGB颜色
      * @param str
      * @return
      */
-    public static Color String2Color(String str) {
+    public final static Color String2Color(String str) {
         int i =   Integer.parseInt(str.substring(1), 16);
         return new Color(i);
     }
@@ -21,7 +21,7 @@ public class ColorUtil {
      * @param color
      * @return
      */
-    public static String Color2String(Color color) {
+    public final static String Color2String(Color color) {
         String R = Integer.toHexString(color.getRed());
         R = R.length()<2?('0'+R):R;
         String B = Integer.toHexString(color.getBlue());

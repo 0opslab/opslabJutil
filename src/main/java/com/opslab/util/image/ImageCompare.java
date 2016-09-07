@@ -9,7 +9,7 @@ import java.io.File;
 /**
  * 图片比较
  */
-public class ImageCompare {
+public final class ImageCompare {
     private static Logger logger = Logger.getLogger(ImageCompare.class);
 
     /**

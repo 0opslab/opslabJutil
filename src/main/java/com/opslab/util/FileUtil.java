@@ -19,7 +19,7 @@ import java.util.List;
 /**
  * 封装了些文件相关的操作
  */
-public class FileUtil {
+public final class FileUtil {
     /**
      * Buffer的大小
      */

@@ -8,7 +8,7 @@ import java.util.Properties;
 /**
  * 提供一些常用的属性文件相关的方法
  */
-public class PropertiesUtil {
+public final class PropertiesUtil {
 
     /**
      * 从系统属性文件中获取相应的值
