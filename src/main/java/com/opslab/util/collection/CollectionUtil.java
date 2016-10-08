@@ -44,7 +44,7 @@ public final class CollectionUtil {
      * 使用指定的Filter过滤集合
      */
     public final static <T> List<T> filter(List<T> list, ListFilter filter) {
-        List result = new ArrayList();
+        List result = new ArrayList(list.size());
         if (!valid.valid(list)) {
             logger.error("list is empty or is null");
             return result;
@@ -58,7 +58,7 @@ public final class CollectionUtil {
     }
 
     public final static <T> Set<T> filter(Set<T> set, SetFilter filter) {
-        Set result = new HashSet();
+        Set result = new HashSet(set.size());
         if (valid.valid(set)) {
             logger.error("list is empty or is null");
             return result;
@@ -86,7 +86,7 @@ public final class CollectionUtil {
     }
 
     public final static <K, V> Map Filter(Map<K, V> map, MapFilter filter) {
-        Map result = new HashMap();
+        Map result = new HashMap(map.size());
         if (valid.valid(map)) {
             logger.error("map is empty or is null");
             return result;
@@ -139,7 +139,7 @@ public final class CollectionUtil {
      * @return
      */
     public final static <K, V> Map<K, V> intersection(Map<K, V> map1, Map<K, V> map2) {
-        Map<K, V> map = new HashMap<>();
+        Map<K, V> map = new HashMap<>(map1.size());
         if (valid.valid(map1, map2)) {
             Set<K> setkey1 = new HashSet<>(map1.keySet());
             Set<K> setkey2 = new HashSet<>(map2.keySet());
@@ -157,14 +157,14 @@ public final class CollectionUtil {
      * 求俩个集合的并集
      */
     public final static <T> List<T> unicon(List<T> list1, List<T> list2) {
-        List<T> list = new ArrayList();
+        List<T> list = new ArrayList(list1.size()+list2.size());
         list.addAll(list1);
         list.addAll(list2);
         return list;
     }
 
     public final static <T> Set<T> unicon(Set<T> set1, Set<T> set2) {
-        Set<T> set = new HashSet<>();
+        Set<T> set = new HashSet<>(set1.size()+set2.size());
         set = set1;
         set.addAll(set2);
         return set;
@@ -178,7 +178,7 @@ public final class CollectionUtil {
     }
 
     public final static <K, V> Map<K, V> unicon(Map<K, V> map1, Map<K, V> map2) {
-        Map<K, V> map = new HashMap<>();
+        Map<K, V> map = new HashMap<>(map1.size()+map2.size());
         map.putAll(map1);
         map.putAll(map2);
         return map;
@@ -190,7 +190,7 @@ public final class CollectionUtil {
      * 求俩个集合的差集
      */
     public final static <T> List<T> subtract(List<T> list1, List<T> list2) {
-        List<T> list = new ArrayList<>();
+        List<T> list = new ArrayList<>(list1.size()+list2.size());
         if (valid.valid(list1)) {
             list.addAll(list1);
             list.removeAll(list2);
@@ -199,7 +199,7 @@ public final class CollectionUtil {
     }
 
     public final static <T> Set<T> subtract(Set<T> set1, Set<T> set2) {
-        Set<T> set = new HashSet<>();
+        Set<T> set = new HashSet<>(set1.size()+set2.size());
         if (valid.valid(set1)) {
             set.addAll(set1);
             set.removeAll(set2);
@@ -217,7 +217,7 @@ public final class CollectionUtil {
     }
 
     public final static <K, V> Map<K, V> subtract(Map<K, V> map1, Map<K, V> map2) {
-        Map<K, V> map = new HashMap<>();
+        Map<K, V> map = new HashMap<>(map1.size()+map2.size());
         if (valid.valid(map1, map2)) {
             Set<K> setkey1 = new HashSet<>(map1.keySet());
             Set<K> setkey2 = new HashSet<>(map2.keySet());
