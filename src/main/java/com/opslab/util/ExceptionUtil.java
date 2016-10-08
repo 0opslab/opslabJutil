@@ -18,6 +18,9 @@ public final class ExceptionUtil {
         StringWriter sw = new StringWriter();
         e.printStackTrace(new PrintWriter(sw, true));
         String str = sw.toString();
+        if(packageName == null ){
+            return str;
+        }
         String[] arrs = str.split("\n");
         StringBuffer sbuf = new StringBuffer();
         sbuf.append(arrs[0] + "\n");
@@ -28,5 +31,16 @@ public final class ExceptionUtil {
             }
         }
         return sbuf.toString();
+    }
+
+    /**
+     * 获取异常信息
+     * @param e
+     * @return
+     */
+    public final static String stackTraceToString(Throwable e){
+        StringWriter sw = new StringWriter();
+        e.printStackTrace(new PrintWriter(sw, true));
+        return sw.toString();
     }
 }
