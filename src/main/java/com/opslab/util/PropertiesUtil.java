@@ -1,14 +1,19 @@
 package com.opslab.util;
 
 
+import org.apache.log4j.Logger;
+
 import java.io.*;
 import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 /**
  * 提供一些常用的属性文件相关的方法
  */
 public final class PropertiesUtil {
+    public static Logger logger = Logger.getLogger(PropertiesUtil.class);
 
     /**
      * 从系统属性文件中获取相应的值
@@ -37,25 +42,37 @@ public final class PropertiesUtil {
         }
     }
 
+    public final static Map<String,String> properties(InputStream in){
+        Map<String,String> map = new HashMap<>();
+        Properties pps = new Properties();
+        try {
+            pps.load(in);
+        } catch (IOException e) {
+            logger.error("load properties error:"+e.getMessage());
+        }
+        Enumeration en = pps.propertyNames();
+        while (en.hasMoreElements()) {
+            String strKey = (String) en.nextElement();
+            String strValue = pps.getProperty(strKey);
+            map.put(strKey,strValue);
+        }
+        return map;
+    }
     /**
      * 读取Properties的全部信息
      *
      * @param filePath 读取的属性文件
      * @return 返回所有的属性 key:value<>key:value
      */
-    public final static String GetAllProperties(String filePath) throws IOException {
+    public final static Map<String,String> GetAllProperties(String filePath) throws IOException {
+        Map<String,String> map = new HashMap<>();
         Properties pps = new Properties();
-        String     str = "";
         try (InputStream in = new BufferedInputStream(new FileInputStream(filePath))) {
-            pps.load(in);
-            Enumeration en = pps.propertyNames();
-            while (en.hasMoreElements()) {
-                String strKey = (String) en.nextElement();
-                String strValue = pps.getProperty(strKey);
-                str += strKey + ":" + strValue + "<>";
-            }
+            return properties(in);
+        }catch (IOException e){
+            logger.error("load properties error");
         }
-        return str.substring(0, str.lastIndexOf("<>"));
+        return map;
     }
 
     /**

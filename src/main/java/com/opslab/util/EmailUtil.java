@@ -29,26 +29,29 @@ public final class EmailUtil {
 
 
     private Transport transport;
-    private String  mailHost        = "";
-    private int     port            = 25;
-    private boolean auth            = false;
-    private String  sender_username = "";
-    private String  sender_password = "";
+    private String mailHost = "";
+    private int port = 25;
+    private boolean auth = false;
+    private String sender_username = "";
+    private String sender_password = "";
 
     /*
      * 初始化方法
      */
     public EmailUtil(boolean debug) {
-        try (InputStream in = new BufferedInputStream(new FileInputStream(OpslabConfig.CONFIG_FILE))) {
-            properties.load(in);
-            this.mailHost = properties.getProperty("mail.smtp.host");
-            this.port = Integer.valueOf(properties.getProperty("mail.smtp.port"));
-            this.auth = Boolean.parseBoolean(properties.getProperty("mail.smtp.auth"));
-            this.sender_username = properties.getProperty("mail.sender.username");
-            this.sender_password = properties.getProperty("mail.sender.password");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+        this.mailHost = OpslabConfig.get("mail.smtp.host");
+        this.port = Integer.valueOf(OpslabConfig.get("mail.smtp.port"));
+        this.auth = Boolean.parseBoolean(OpslabConfig.get("mail.smtp.auth"));
+        this.sender_username = OpslabConfig.get("mail.sender.username");
+        this.sender_password = OpslabConfig.get("mail.sender.password");
+
+        properties.put("mail.smtp.host", mailHost);
+        properties.put("mail.smtp.auth", auth);
+        properties.put("mail.smtp.port", String.valueOf(25));
+        properties.put("mail.sender.username", sender_username);
+        properties.put("mail.sender.password", sender_password);
+
         session = Session.getInstance(properties);
         session.setDebug(debug);//开启后有调试信息
         message = new MimeMessage(session);

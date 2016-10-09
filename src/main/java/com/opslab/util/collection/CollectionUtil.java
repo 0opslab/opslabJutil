@@ -281,6 +281,23 @@ public final class CollectionUtil {
     }
 
     /**
+     * 将Map以separator链接并以字符串的形式返回
+     *
+     * @return
+     */
+    public final static <K,V> String join(Map<K,V> map, String separator,String separator1) {
+        if(map == null || map.size() == 0){
+            return "";
+        }
+        StringBuilder sb = new StringBuilder();
+        for (Map.Entry<K, V> entry : map.entrySet()) {
+            sb.append(String.valueOf(entry.getKey())).append(separator1)
+                    .append(String.valueOf(entry.getValue())).append(separator);
+        }
+        return sb.toString().substring(0, sb.toString().length() - separator.length());
+    }
+
+    /**
      * 将map的key以separator链接并以字符串的形式返回
      *
      * @param map

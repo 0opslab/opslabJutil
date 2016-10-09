@@ -17,21 +17,16 @@ public class FTPFactory {
 
     //获取一个实例
     public static FTPUtil getInstance(String Name) throws IOException {
-        Properties properties = new Properties();
-        try (InputStream in = new BufferedInputStream(new FileInputStream(OpslabConfig.CONFIG_FILE))) {
-            properties.load(in);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        String host = properties.getProperty(Name + ".host");
+
+        String host = OpslabConfig.get(Name + ".host");
         if (host != null) {
-            int port = Integer.parseInt(properties.getProperty(Name + ".port"));
-            String username = properties.getProperty(Name + ".username");
-            String password = properties.getProperty(Name + ".password");
-            String remoteDir = properties.getProperty(Name + ".remoteDir");
-            String localDir = properties.getProperty(Name + ".localDir");
-            String Encoding = properties.getProperty(Name + ".Encoding");
-            boolean passiveMode = new Boolean(properties.getProperty(Name + ".passiveMode")).booleanValue();
+            int port = Integer.parseInt(OpslabConfig.get(Name + ".port"));
+            String username = OpslabConfig.get(Name + ".username");
+            String password = OpslabConfig.get(Name + ".password");
+            String remoteDir = OpslabConfig.get(Name + ".remoteDir");
+            String localDir = OpslabConfig.get(Name + ".localDir");
+            String Encoding = OpslabConfig.get(Name + ".Encoding");
+            boolean passiveMode = new Boolean(OpslabConfig.get(Name + ".passiveMode")).booleanValue();
             FTPVo vo = new FTPVo(host, port, username, password, remoteDir, localDir, Encoding, passiveMode);
             return new FTPUtilImpl(vo);
         } else {
