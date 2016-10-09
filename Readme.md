@@ -1,10 +1,9 @@
-#0opslab-utils
+#0opslab-utils [新浪微博](http://weibo.com/5204661479)
 ---
 封装了一些常用Java操作方法,便于重复开发利用.
 另外希望身为Java牛牛的你们一起测试和完善 一起封装和完成常用的Java代码。
 节约撸码时间以方便有更多的时间去把妹子～<br>
 
-#me [新浪微博](http://weibo.com/5204661479)
 ---
 
 #usage
