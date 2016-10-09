@@ -42,6 +42,7 @@ public class SysUtil {
      * 主机名
      */
     public static String HOST_NAME;
+
     /**
      * 主机架构
      */
@@ -114,6 +115,7 @@ public class SysUtil {
 
 
     }
+
 
 
     /**

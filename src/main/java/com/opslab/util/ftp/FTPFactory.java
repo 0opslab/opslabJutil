@@ -1,5 +1,7 @@
 package com.opslab.util.ftp;
 
+import com.opslab.util.OpslabConfig;
+
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -11,17 +13,12 @@ import java.util.Properties;
  * FTP工具类
  */
 public class FTPFactory {
-    private static String CONFIG_FILE;
 
-    static {
-        URL path = FTPFactory.class.getProtectionDomain().getCodeSource().getLocation();
-        CONFIG_FILE = path.getPath() + "ftp.properties";
-    }
 
     //获取一个实例
     public static FTPUtil getInstance(String Name) throws IOException {
         Properties properties = new Properties();
-        try (InputStream in = new BufferedInputStream(new FileInputStream(CONFIG_FILE))) {
+        try (InputStream in = new BufferedInputStream(new FileInputStream(OpslabConfig.CONFIG_FILE))) {
             properties.load(in);
         } catch (IOException e) {
             e.printStackTrace();

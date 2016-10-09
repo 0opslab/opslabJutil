@@ -14,12 +14,7 @@ import java.util.Properties;
  * 封装Email相关的操作
  */
 public final class EmailUtil {
-    private static String CONFIG_FILE;
 
-    static {
-        URL path = EmailUtil.class.getProtectionDomain().getCodeSource().getLocation();
-        CONFIG_FILE = path.getPath() + "mail.properties";
-    }
 
     private Properties properties = new Properties();
     /**
@@ -44,7 +39,7 @@ public final class EmailUtil {
      * 初始化方法
      */
     public EmailUtil(boolean debug) {
-        try (InputStream in = new BufferedInputStream(new FileInputStream(CONFIG_FILE))) {
+        try (InputStream in = new BufferedInputStream(new FileInputStream(OpslabConfig.CONFIG_FILE))) {
             properties.load(in);
             this.mailHost = properties.getProperty("mail.smtp.host");
             this.port = Integer.valueOf(properties.getProperty("mail.smtp.port"));

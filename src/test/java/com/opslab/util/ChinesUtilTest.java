@@ -10,7 +10,6 @@ public class ChinesUtilTest extends TestCase {
 
     public void testMain() {
         String[] strArr = new String[]{
-                "www.micmiu.com",
                 "!@#$%^&*()_+{}[]|\"'?/:;<>,.",
                 "！￥……（）——：；“”‘’《》，。？、",
                 "不要啊",
