@@ -3,6 +3,11 @@ package com.opslab.util;
 import com.opslab.util.RandomUtil;
 import org.junit.Test;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import static junit.framework.Assert.assertEquals;
+
 
 public class RandomUtilTest {
 
@@ -38,5 +43,21 @@ public class RandomUtilTest {
         System.out.println(RandomUtil.getNotSimple(in, 3));
     }
 
+    @Test
+    public void testUuid(){
+        System.out.println(RandomUtil.uuid());
+        System.out.println(RandomUtil.UUID());
+        System.out.println(RandomUtil.squid());
+        System.out.println(RandomUtil.squid());
+        System.out.println(RandomUtil.squid());
+        for(int i=0;i<10;i++){
+            Set<String> set = new HashSet<>(100000);
+            for(int j=0;j<100000;j++){
+                set.add(RandomUtil.squid());
+            }
+            assertEquals("出现重复主键",100000,set.size());
+        }
+
+    }
 
 }

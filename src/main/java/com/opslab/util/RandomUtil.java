@@ -1,6 +1,7 @@
 package com.opslab.util;
 
 
+import java.util.Date;
 import java.util.Random;
 import java.util.UUID;
 
@@ -183,5 +184,20 @@ public final class RandomUtil {
         String s = uuid.toString();
         String temp =s.substring(0,8)+s.substring(9,13)+s.substring(14,18)+s.substring(19,23)+s.substring(24);
         return temp.toUpperCase();
+    }
+
+    /**
+     * 返回一个有序列的uuid编码
+     * 前11位为时间(毫秒)
+     * 中间4位为主机特征码
+     * 剩下的保证其唯一性
+     * @return
+     */
+    public static String squid(){
+        Long date = new Date().getTime();
+        String s =UUID.randomUUID().toString();
+        String str = Long.toHexString(date);
+        String result =  str+ OpslabConfig.HOST_FEATURE+s.substring(17,18)+s.substring(19,23)+s.substring(24);
+        return result.toUpperCase();
     }
 }
