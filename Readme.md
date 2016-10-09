@@ -41,8 +41,8 @@
 
 #API
 ---
-
 #CharsetUtil字符串相关的工具类
+
 ##常量字段
     static String	GBK             中文超大字符集
     static String	ISO_8859_1      ISO 拉丁字母表 No.1，也叫作 ISO-LATIN-1
@@ -74,25 +74,24 @@
 
 
 #ClassUtil-Class与反射相关的一些工具类
-
 ##常量方法
-    static StrinList<String>	getClassName(String packageName, boolean childPackage)
+    static List<String>	getClassName(String packageName, boolean childPackage)
     static String[]	getField(String className)
     获取指定类的全部属性字段
     static String[]	getMethod(String className)
     获取对象的全部方法
-    static void	getter(java.lang.Object obj, String att)
+    static void	getter(Object obj, String att)
     调用对象的getter方法
     static String	initStr(String old)
-    java.lang.Class	loadClass(String className)
+    Class	loadClass(String className)
     加载指定的类
-    static <T> T	propertiesCopy(java.lang.Object obj, java.lang.Class<T> type)
+    static <T> T	propertiesCopy(Object obj, Class<T> type)
     同名属性值复制 将对象obj内属性名同类型T内容有同名属性的值复制到类型T中，并返回一个类型T的对象
-    static <T> T	propertiesCopyIgnore(java.lang.Object obj, java.lang.Class<T> type)
+    static <T> T	propertiesCopyIgnore(Object obj, Class<T> type)
     同名属性值复制（忽略大小写） 将对象obj内属性名同类型T内容有同名属性的值复制到类型T中，并返回一个类型T的对象
-    static <T> T	propertiesCopyIgnoreFilter(java.lang.Object obj, java.lang.Class<T> type, String IgnoreStr)
+    static <T> T	propertiesCopyIgnoreFilter(Object obj, Class<T> type, String IgnoreStr)
     同名属性值复制（比较时忽略字符IgnoreStr的内容） 将对象obj内属性名同类型T内容有同名属性的值复制到类型T中，并返回一个类型T的对象
-    static void	setter(java.lang.Object obj, String att, java.lang.Object value, java.lang.Class<?> type)
+    static void	setter(Object obj, String att, Object value, Class<?> type)
     调用对象的setter方法
 #ChinesUtil中文相关的工具类
 
@@ -119,92 +118,92 @@
     static byte[]	shortToByte(short number)
 #DateUtil日期时间相关的工具类
 ##常量方法
-    static StrinDate	calculate(StrinDate date, int second, String timeBurst)
+    static Date	calculate(Date date, int second, String timeBurst)
     时间Date在时间段(例如每天的08:00-18:00)上增加或减去second秒
-    static StrinDate	calculate(String date, int second, String timeBurst)
+    static Date	calculate(String date, int second, String timeBurst)
     时间Date在时间段(例如每天的08:00-18:00)上增加或减去second秒
     static String	Date()
     获取当前的日期
-    static String	Date(StrinDate date)
+    static String	Date(Date date)
     将指定的时间格式化成出返回
-    static StrinDate	Date(String dateStr)
+    static Date	Date(String dateStr)
     将指定的字符串解析为时间类型
     static String	DateTime()
     获取当前日期时间
-    static String	DateTime(StrinDate date)
+    static String	DateTime(Date date)
     将指定的时间格式化成出返回
-    static StrinDate	DateTime(String datestr)
+    static Date	DateTime(String datestr)
     将指定的字符串解析为时间类型
-    static StrinDate	day(StrinDate date, int day)
+    static Date	day(Date date, int day)
     在指定的时间上加或减去几天
-    static StrinDate	day(int day)
+    static Date	day(int day)
     在当前时间的基础上加或减去几天
-    static StrinDate	hour(StrinDate date, float hour)
+    static Date	hour(Date date, float hour)
     在制定的时间上加或减去几小时-支持浮点数
-    static StrinDate	hour(float hour)
+    static Date	hour(float hour)
     在当前时间的基础上加或减去几小时-支持浮点数
     static boolean	isDate(String date)
     判断字符串是否为日期字符串
-    static StrinDate	Minute(StrinDate date, int minute)
+    static Date	Minute(Date date, int minute)
     在制定的时间上加或减去几分钟
-    static StrinDate	Minute(int minute)
+    static Date	Minute(int minute)
     在当前时间的基础上加或减去几分钟
-    static StrinDate	month(StrinDate date, int month)
+    static Date	month(Date date, int month)
     在指定的时间上加或减去几月
-    static StrinDate	month(int month)
+    static Date	month(int month)
     在当前时间的基础上加或减去几月
-    static int	subDay(StrinDate startTime, StrinDate endTime)
+    static int	subDay(Date startTime, Date endTime)
     获取俩个时间之前的相隔的天数
     static int	subDay(String startTime, String endTime)
     获取俩个时间之前的相隔的天数
-    static long	subtimeBurst(StrinDate startDate, StrinDate endDate, String timeBurst)
+    static long	subtimeBurst(Date startDate, Date endDate, String timeBurst)
     返回俩个时间在时间段(例如每天的08:00-18:00)的时长-单位秒
     static long	subtimeBurst(String startDate, String endDate, String timeBurst)
     返回俩个时间在时间段(例如每天的08:00-18:00)的时长-单位秒
-    static long	Subtract(StrinDate date1, StrinDate date2)
+    static long	Subtract(Date date1, Date date2)
     时间date1和date2的时间差-单位秒
     static long	Subtract(String date1, String date2)
     时间date1和date2的时间差-单位秒
     static String	SubtractDate(String date1, String date2)
     获取俩个时间的查结果用时秒表示
-    static int	SubtractDay(StrinDate date1, StrinDate date2)
+    static int	SubtractDay(Date date1, Date date2)
     时间date1和date2的时间差-单位天
     static int	SubtractDay(String date1, String date2)
     时间date1和date2的时间差-单位天
-    static int	SubtractHour(StrinDate date1, StrinDate date2)
+    static int	SubtractHour(Date date1, Date date2)
     时间date1和date2的时间差-单位小时
     static int	SubtractHour(String date1, String date2)
     时间date1和date2的时间差-单位小时
-    static int	SubtractMinute(StrinDate date1, StrinDate date2)
+    static int	SubtractMinute(Date date1, Date date2)
     时间date1和date2的时间差-单位分钟
     static int	SubtractMinute(String date1, String date2)
     时间date1和date2的时间差 -单位分钟
-    static int	SubtractMonth(StrinDate date1, StrinDate date2)
+    static int	SubtractMonth(Date date1, Date date2)
     时间date1和date2的时间差-单位月
     static int	SubtractMonth(String date1, String date2)
     时间date1和date2的时间差-单位月
     static String	SubtractTime(String date1, String date2)
     获取俩个时间的查结果用时秒表示
-    static int	SubtractYear(StrinDate date1, StrinDate date2)
+    static int	SubtractYear(Date date1, Date date2)
     时间date1和date2的时间差-单位年
     static int	SubtractYear(String date1, String date2)
     时间date1和date2的时间差-单位年
     static String	Time()
     获取当前的时间
-    static String	Time(StrinDate date)
+    static String	Time(Date date)
     讲指定的时间格式化成出返回
-    static StrinDate	Time(String dateStr)
+    static Date	Time(String dateStr)
     将指定的字符串解析为时间类型
-    static StrinDate	year(StrinDate date, int year)
+    static Date	year(Date date, int year)
     在指定的时间上加或减去几年
-    static StrinDate	year(int year)
+    static Date	year(int year)
     在当前时间的基础上加或减去year年
 #EmailUtilEmail相关的工具类
 
 ##常量方法
     void	doSendHtmlEmail(String subject, String sendHtml, String receiveUser)
     发送邮件
-    void	doSendHtmlEmail(String subject, String sendHtml, String receiveUser, java.io.File attachment)
+    void	doSendHtmlEmail(String subject, String sendHtml, String receiveUser, File attachment)
     发送邮件
 
 #FilePathUtil文件路径相关的工具类
@@ -217,74 +216,74 @@
 
 #FileUtil文件相关的工具类
 ##常量方法
-    static boolean	appendLine(java.io.File file, String str)
+    static boolean	appendLine(File file, String str)
     在文件末尾追加一行
-    static boolean	appendLine(java.io.File file, String str, String encoding)
+    static boolean	appendLine(File file, String str, String encoding)
     在文件末尾追加一行
-    static boolean	cleanFile(java.io.File file)
+    static boolean	cleanFile(File file)
     快速清空一个超大的文件
-    static boolean	copy(java.io.File file, String targetFile)
+    static boolean	copy(File file, String targetFile)
     复制文件 通过该方式复制文件文件越大速度越是明显
     static boolean	copy(String resourcePath, String targetPath)
     复制文件
-    static void	copyDir(java.io.File filePath, String targetPath)
+    static void	copyDir(File filePath, String targetPath)
     复制目录
     static void	copyDir(String filePath, String targetPath)
     复制目录
-    static int	countLines(java.io.File file)
+    static int	countLines(File file)
     获取文件的行数
-    static String	cpdetector(java.io.File file)
+    static String	cpdetector(File file)
     获取文件的编码(cpDetector)探测
     static boolean	createFiles(String filePaht)
     创建文件支持多级目录
     static void	createPaths(String paths)
     创建多级目录
-    static boolean	deleteBigFile(java.io.File file)
+    static boolean	deleteBigFile(File file)
     快速的删除超大的文件
-    static boolean	deleteDir(java.io.File file)
+    static boolean	deleteDir(File file)
     删除一个目录
-    static boolean	deleteFile(java.io.File file)
+    static boolean	deleteFile(File file)
     删除一个文件
-    static String	FileType(java.io.File file)
+    static String	FileType(File file)
     获取文件的类型
-    static String	hash(java.io.File file)
+    static String	hash(File file)
     获取文件的Hash
-    static StrinList<String>	Lines(java.io.File file)
+    static List<String>	Lines(File file)
     以列表的方式获取文件的所有行
-    static StrinList<String>	Lines(java.io.File file, int lines)
+    static List<String>	Lines(File file, int lines)
     以列表的方式获取文件的指定的行数数据
-    static StrinList<String>	Lines(java.io.File file, int lines, String encoding)
+    static List<String>	Lines(File file, int lines, String encoding)
     以列表的方式获取文件的指定的行数数据
-    static StrinList<String>	Lines(java.io.File file, String encoding)
+    static List<String>	Lines(File file, String encoding)
     以列表的方式获取文件的所有行
-    static StrinList<java.io.File>	listFile(java.io.File path)
+    static List<File>	listFile(File path)
     罗列指定路径下的全部文件
-    static StrinList<java.io.File>	listFile(String path)
+    static List<File>	listFile(String path)
     罗列指定路径下的全部文件
-    static StrinList<java.io.File>	listFileAll(java.io.File path)
+    static List<File>	listFileAll(File path)
     罗列指定路径下的全部文件包括文件夹
-    static StrinList<java.io.File>	listFileFilter(java.io.File dirPath, String postfixs)
+    static List<File>	listFileFilter(File dirPath, String postfixs)
     获取指定目录下的特点文件,通过后缀名过滤
     static String	MimeType(String file)
     获取文件的Mime类型
-    static StrinDate	modifyTime(java.io.File file)
+    static Date	modifyTime(File file)
     获取文件最后的修改时间
-    static StrinList<java.io.File>	searchFile(java.io.File dirPath, String fileName)
+    static List<File>	searchFile(File dirPath, String fileName)
     在指定的目录下搜寻文个文件
-    static StrinList<java.io.File>	searchFileReg(java.io.File dirPath, String reg)
+    static List<File>	searchFileReg(File dirPath, String reg)
     查找符合正则表达式reg的的文件
     static String	SimpleEncoding(String file)
     利用简单的文件头字节特征探测文件编码
 #PrintUtil打印相关的工具类
 ##常量方法
-    static void	print(StrinEnumeration enums)
+    static void	print(Enumeration enums)
     遍历打印Enumeration
-    static void	print(StrinList<?> list)
+    static void	print(List<?> list)
     遍历打印遍历List集合
-    static void	print(StrinMap map)
+    static void	print(Map map)
     遍历打印Map集合
     static void	print(String str)
-    static void	println(java.lang.Object obj)
+    static void	println(Object obj)
     static void	println(String str)
 
 #ProUtil属性文件相关的工具类
@@ -339,16 +338,16 @@
     判断是否数字表示
 #SecUtil安全相关的工具类
 ##常量方法
-    static String	FileMD5(java.io.File file)
+    static String	FileMD5(File file)
     static String	md5(String password)
 #StreamUtil-Stream相关的工具类
 ##常量方法
-    static java.io.InputStream	byte2InputStream(byte[] b)
-    static byte[]	inputStream2Byte(java.io.InputStream inStream)
-    static byte[]	stream2Byte(java.io.InputStream is)
-    void	streamSaveAsFile(java.io.InputStream is, java.io.File outfile)
+    static InputStream	byte2InputStream(byte[] b)
+    static byte[]	inputStream2Byte(InputStream inStream)
+    static byte[]	stream2Byte(InputStream is)
+    void	streamSaveAsFile(InputStream is, File outfile)
     将流另存为文件
-    static String	streamToString(java.io.InputStream in)
+    static String	streamToString(InputStream in)
     Read an input stream into a string
 #StringUtil字符串相关的工具类
 ##常量方法
@@ -370,21 +369,21 @@
     判断是否是空字符串 null和"" 都返回 true
     static boolean	isIn(String substring, String[] source)
     判断字符串数组中是否包含某字符串元素
-    static String	joinString(StrinList array, String symbol)
+    static String	joinString(List array, String symbol)
     把string array or list用给定的符号symbol连接成一个字符串
     static String	joinString(String[] array, String symbol)
     把string array or list用给定的符号symbol连接成一个字符串
     static String	left(String input, int count)
     截取字符串左侧指定长度的字符串
-    static String	listToStringSlipStr(StrinList list, String slipStr)
+    static String	listToStringSlipStr(List list, String slipStr)
     将list 用传入的分隔符组装为String
     static String	ltrim(String str1, int num)
     截取字符串左侧的Num位
     static String	middle(String input, int index, int count)
     从指定位置开始截取指定长度的字符串
-    static StrinMap<String,String>	parseQuery(String query, char split1, char split2, String dupLink)
+    static Map<String,String>	parseQuery(String query, char split1, char split2, String dupLink)
     解析字符串返回map键值对(例：a=1&b=2 => a=1,b=2)
-    static StrinList<String>	parseString2ListByCustomerPattern(String pattern, String src)
+    static List<String>	parseString2ListByCustomerPattern(String pattern, String src)
     根据指定的字符把源字符串分割成一个数组
     static String	repeat(String src, int num)
     repeat - 通过源字符串重复生成N次组成新的字符串。
@@ -455,13 +454,13 @@
     获取JVM内存总量
     static long	usedMemory()
     已使用的物理内存
-#ValidUtil字符串相关的工具类
+#valid相关的工具类
 ##常量方法
-    static boolean	isValid(StrinCollection col)
+    static boolean	isValid(Collection col)
     判断集合的有效性
-    static boolean	isValid(java.lang.Object obj)
+    static boolean	isValid(Object obj)
     判断一个对象是否为空
-    static boolean	isValid(java.lang.Object[] arr)
+    static boolean	isValid(Object[] arr)
     判断数组是否有效
     static boolean	isValid(String src)
     判断字符串有效性
@@ -469,8 +468,7 @@
 ##常量方法
     static String	escape(String src)
     static String	getParamValue(String url, String paramName)
-    static void	main(String[] args)
-    static void	print(javax.servlet.http.HttpServletRequest request)
+    static void	    print(HttpServletRequest request)
     static String	removeParam(String url, String... paramNames)
     static String	removeParam(String url, String paramName)
     static String	setParam(String url, String paramName, String paramValue)
@@ -478,8 +476,8 @@
     static String	urlJoin(java.net.URL url, String locationHeader)
 #ZIPUtil-zip相关的工具类
 ##常量方法
-    static void	deCompress(java.io.File file, String dest)
+    static void	deCompress(File file, String dest)
     文档压缩
-    static void	unCompress(java.io.File source, String path)
+    static void	unCompress(File source, String path)
     文档解压
-    static void	zipFile(java.io.File inFile, Strinzip.ZipOutputStream zos, String dir)
+    static void	zipFile(File inFile, ZipOutputStream zos, String dir)
