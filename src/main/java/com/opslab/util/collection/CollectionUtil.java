@@ -17,7 +17,7 @@ import java.util.*;
  * Map<--SortedMap<--TreeMap
  * Map<--HashMap
  */
-public final class CollectionUtil {
+public  class CollectionUtil {
     private static Logger logger = Logger.getLogger(CollectionUtil.class);
 
     /**

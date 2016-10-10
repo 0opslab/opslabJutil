@@ -395,15 +395,7 @@ public final class StringUtil {
 
 
 
-    /**
-     * 获取字符串的编码
-     */
-    public final static String cpDetector(String str) {
-        if(isEmpty(str)){
-            return "";
-        }
-        return StringImpl.encoding(str);
-    }
+
 
     /**
      * 获取字符串str在String中出现的次数

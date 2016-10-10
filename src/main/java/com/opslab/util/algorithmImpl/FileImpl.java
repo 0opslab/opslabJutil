@@ -5,7 +5,6 @@ import org.mozilla.intl.chardet.nsDetector;
 import org.mozilla.intl.chardet.nsICharsetDetectionObserver;
 
 import java.io.*;
-import java.net.URL;
 
 /**
  * 文件相关的算法实现
@@ -56,44 +55,9 @@ public class FileImpl {
         return code;
     }
 
-    /**
-     * 探测资源符的编码
-     *
-     * @param url 需要处理的资源
-     * @return 返回文件编码
-     */
-    public static String cpdetector(URL url) {
-        java.nio.charset.Charset charset = null;
-        try {
-            charset = cpDetector.codepageDetector.detectCodepage(url);
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-        if (charset != null)
-            return charset.name();
-        else
-            return null;
-    }
 
-    /**
-     * 探测字符串的编码
-     *
-     * @param stringValue 需要处理的字符串
-     * @return 返回文件的编码
-     */
-    public static String encoding(String stringValue) {
-        java.nio.charset.Charset charset = null;
-        try {
-            InputStream inputStream = new ByteArrayInputStream(stringValue.getBytes());
-            charset = cpDetector.codepageDetector.detectCodepage(inputStream, 3);
-            if (charset != null) {
-                return charset.name();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+
+
 
     /**
      * 传入一个文件(File)对象，检查文件编码
