@@ -132,26 +132,7 @@ public class StringImpl {
     }
 
 
-    /**
-     * 获取字符串的编码
-     * <p/>
-     * Summary:该方法利用cpDetector概率探测故性能和准确率不是100%
-     *
-     * @param str 需要处理的字符串
-     */
-    public static String encoding(String str) {
-        java.nio.charset.Charset charset = null;
-        try {
-            InputStream inputStream = new ByteArrayInputStream(str.getBytes());
-            charset = cpDetector.codepageDetector.detectCodepage(inputStream, 3);
-            if (charset != null) {
-                return charset.name();
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+
 
     /**
      * 获取字符串编码

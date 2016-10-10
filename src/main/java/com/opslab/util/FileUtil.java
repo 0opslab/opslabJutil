@@ -375,20 +375,7 @@ public final class FileUtil {
         return false;
     }
 
-    /**
-     * 获取文件的编码(cpDetector)探测
-     *
-     * @param file 需要处理的文件
-     * @return 文件的编码
-     */
-    public final static String cpdetector(File file) {
-        try {
-            return FileImpl.cpdetector(file.toURL());
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+
 
     /**
      * 利用简单的文件头字节特征探测文件编码
