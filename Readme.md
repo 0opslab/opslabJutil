@@ -26,7 +26,15 @@
 <dependency>
     <groupId>com.0opslab</groupId>
     <artifactId>0opslab-utils</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.4</version>
+</dependency>
+
+
+<!--1.0.6-->
+<dependency>
+    <groupId>com.0opslab</groupId>
+    <artifactId>0opslab-utils</artifactId>
+    <version>1.0.6</version>
 </dependency>
 
 可以通过在classpath下添加0opslab.properties文件来进行一些配置
