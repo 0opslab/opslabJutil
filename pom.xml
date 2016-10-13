@@ -5,10 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.0opslab</groupId>
-    <artifactId>0opslab-utils</artifactId>
-    <version>1.0.6</version>
+    <artifactId>opslabJutil</artifactId>
+    <version>1.0.8</version>
 
-    <name>0opslab-utils</name>
+    <name>opslabJutil</name>
     <description>Simple and convenient to use it to accomplish common development java code</description>
     <url>https://github.com/0opslab/utils</url>
 
