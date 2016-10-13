@@ -2,9 +2,14 @@
 ---
 封装了一些常用Java操作方法,便于重复开发利用.
 另外希望身为Java牛牛的你们一起测试和完善 一起封装和完成常用的Java代码。
-节约撸码时间以方便有更多的时间去把妹子～<br>
+节约撸码时间以方便有更多的时间去把妹子～
 
 ---
+#开发环境
+    Win7x64 && ubuntu14
+    JDK1.7
+    IDEA14
+
 
 #usage
 ```xml
@@ -37,13 +42,17 @@
     <version>1.0.6</version>
 </dependency>
 
-可以通过在classpath下添加0opslab.properties文件来进行一些配置
+```
+
+## config
+如果需要修改默认配置可以通过在classpath下添加0opslab.properties文件来进行一些配置
+
+```java
 #主机特征四位的十六进制特征码
 HOST_FEATURE=0001
 DATETIME_FORMAT=yyyy-MM-dd HH:mm:ss
 DATE_FORMAT=yyyy-MM-dd
 TIME_FORMAT=HH:mm:ss
-
 
 #email信息配置
 mail.smtp.host=smtp.qq.com
@@ -64,13 +73,6 @@ FTPTest.passiveMode=true
 ```
 
 
-#下一步计划
-常用的方法已经添加的差不多了,下一步计划将现有的方法在windows和linux都进行相应的测试,并使用findbugs进行一定的错误排查.
-
-#开发环境
-    Win7x64 && ubuntu14
-    JDK1.7
-    IDEA14
 
 #API
 ---
