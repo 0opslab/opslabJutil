@@ -37,6 +37,9 @@ public class StringUtilTest {
         List<String> list = StringUtil.parseString2List(StringUtil.joinString(arr, "/"), "/");
         assertEquals("MySQL:ORACLE:MSSQL:NOSQL", StringUtil.joinString(list, ":"));
 
+
+        System.out.println(StringUtil.join("/"));
+        System.out.println(StringUtil.join("/","MySQL", "ORACLE", "MSSQL", "NOSQL"));
     }
 
     @Test
