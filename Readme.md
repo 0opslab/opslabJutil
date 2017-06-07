@@ -76,8 +76,8 @@ FTPTest.passiveMode=true
 
 #API
 ---
+```java
 #CharsetUtil字符串相关的工具类
-
 ##常量字段
     static String	GBK             中文超大字符集
     static String	ISO_8859_1      ISO 拉丁字母表 No.1，也叫作 ISO-LATIN-1
@@ -128,8 +128,8 @@ FTPTest.passiveMode=true
     同名属性值复制（比较时忽略字符IgnoreStr的内容） 将对象obj内属性名同类型T内容有同名属性的值复制到类型T中，并返回一个类型T的对象
     static void	setter(Object obj, String att, Object value, Class<?> type)
     调用对象的setter方法
-#ChinesUtil中文相关的工具类
 
+#ChinesUtil中文相关的工具类
 ##常量方法
     static String	getFirstSpell(String chinese)
     获取汉字串拼音首字母，英文字符不变
@@ -142,8 +142,8 @@ FTPTest.passiveMode=true
     static boolean	isChineseByREG(String str)
     static boolean  isMessyCode(String strName)
     判断是否是乱码
-#ConvertUtil转换相关的工具类
 
+#ConvertUtil转换相关的工具类
 ##常量方法
     static int	bytesToInt(byte[] bytes)
     static long	byteToLong(byte[] b)
@@ -151,6 +151,7 @@ FTPTest.passiveMode=true
     static byte[]	intToByte(int i)
     static byte[]	longToByte(long number)
     static byte[]	shortToByte(short number)
+
 #DateUtil日期时间相关的工具类
 ##常量方法
     static Date	calculate(Date date, int second, String timeBurst)
@@ -233,8 +234,8 @@ FTPTest.passiveMode=true
     在指定的时间上加或减去几年
     static Date	year(int year)
     在当前时间的基础上加或减去year年
-#EmailUtilEmail相关的工具类
 
+#EmailUtilEmail相关的工具类
 ##常量方法
     void	doSendHtmlEmail(String subject, String sendHtml, String receiveUser)
     发送邮件
@@ -242,7 +243,6 @@ FTPTest.passiveMode=true
     发送邮件
 
 #FilePathUtil文件路径相关的工具类
-
 ##常量方法
     static String	commandPath(String file)
     返回一个通用的文件路径
@@ -309,6 +309,7 @@ FTPTest.passiveMode=true
     查找符合正则表达式reg的的文件
     static String	SimpleEncoding(String file)
     利用简单的文件头字节特征探测文件编码
+
 #PrintUtil打印相关的工具类
 ##常量方法
     static void	print(Enumeration enums)
@@ -330,6 +331,7 @@ FTPTest.passiveMode=true
     static String	key(String key)
     static void	WriteProperties(String filePath, String pKey, String pValue)
     写入Properties信息
+
 #RandomUtil随机操作的相关的工具类
 ##常量方法
     static int	getNotSimple(int[] param, int len)
@@ -355,6 +357,7 @@ FTPTest.passiveMode=true
     返回一个大写的uuid
     public static String squid()
     返回一个大写的有序列的uuid
+
 #RegUtil正则相关的工具类
 ##常量方法
     static int	countSubStrReg(String str, String reg)
@@ -371,10 +374,12 @@ FTPTest.passiveMode=true
     判断是否数字表示
     static boolean	isNumericString(String src)
     判断是否数字表示
+
 #SecUtil安全相关的工具类
 ##常量方法
     static String	FileMD5(File file)
     static String	md5(String password)
+
 #StreamUtil-Stream相关的工具类
 ##常量方法
     static InputStream	byte2InputStream(byte[] b)
@@ -384,6 +389,7 @@ FTPTest.passiveMode=true
     将流另存为文件
     static String	streamToString(InputStream in)
     Read an input stream into a string
+
 #StringUtil字符串相关的工具类
 ##常量方法
     static int	countSubStr(String string, String str)
@@ -448,6 +454,7 @@ FTPTest.passiveMode=true
     static String	trimPunct(String str)
     删除所有的标点符号
     static String	unicode2String(String unicode)
+
 #SysUtil系统相关的工具类
 ##常量字段
     static String	CURRENT_USER
@@ -489,6 +496,7 @@ FTPTest.passiveMode=true
     获取JVM内存总量
     static long	usedMemory()
     已使用的物理内存
+
 #valid相关的工具类
 ##常量方法
     static boolean	isValid(Collection col)
@@ -499,6 +507,7 @@ FTPTest.passiveMode=true
     判断数组是否有效
     static boolean	isValid(String src)
     判断字符串有效性
+
 #WebUtilWeb相关的工具类
 ##常量方法
     static String	escape(String src)
@@ -509,6 +518,7 @@ FTPTest.passiveMode=true
     static String	setParam(String url, String paramName, String paramValue)
     static String	unescape(String src)
     static String	urlJoin(java.net.URL url, String locationHeader)
+
 #ZIPUtil-zip相关的工具类
 ##常量方法
     static void	deCompress(File file, String dest)
