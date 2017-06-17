@@ -2,3 +2,6 @@ target/
 src/test/resource/temp/
 .idea/
 *.iml
+.DB_Store
+.DB_Store?:wq
+*.log
