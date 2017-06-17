@@ -1,9 +1,7 @@
 package com.opslab.util;
 
-import com.opslab.util.EmailUtil;
 import org.junit.Ignore;
 import org.junit.Test;
-import test.TestUtil;
 
 import java.io.File;
 

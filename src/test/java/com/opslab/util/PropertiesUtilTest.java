@@ -1,8 +1,6 @@
 package com.opslab.util;
 
-import com.opslab.util.PropertiesUtil;
 import org.junit.Test;
-import test.TestUtil;
 
 import java.nio.charset.Charset;
 

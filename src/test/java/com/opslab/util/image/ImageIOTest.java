@@ -2,7 +2,7 @@ package com.opslab.util.image;
 
 import org.junit.Ignore;
 import org.junit.Test;
-import test.TestUtil;
+import com.opslab.util.TestUtil;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

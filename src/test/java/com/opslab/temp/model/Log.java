@@ -1,4 +1,4 @@
-package model;
+package com.opslab.temp.model;
 
 
 import java.io.Serializable;

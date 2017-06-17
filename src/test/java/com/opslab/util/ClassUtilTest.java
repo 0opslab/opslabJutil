@@ -1,9 +1,7 @@
 package com.opslab.util;
 
-import com.opslab.util.ClassUtil;
-import model.BusinessLog;
+import com.opslab.temp.model.BusinessLog;
 import org.junit.Test;
-import test.TestUtil;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
@@ -15,7 +13,7 @@ public class ClassUtilTest {
     @Test
     public void testField() throws  InvocationTargetException, IllegalAccessException {
         System.out.println("=============所有字段===============");
-        String[] fields = ClassUtil.getField("model.BusinessLog",true);
+        String[] fields = ClassUtil.getField("com.opslab.temp.model.BusinessLog",true);
         for (String f : fields) {
             System.out.println(f);
         }
@@ -24,12 +22,12 @@ public class ClassUtilTest {
     @Test
     public void testPublicField()  {
         System.out.println("=============获取类中的全部public属性包括继承的==========");
-        String[] fields = ClassUtil.getPublicField("model.BusinessLog", true);
+        String[] fields = ClassUtil.getPublicField("com.opslab.temp.model.BusinessLog", true);
         for(String f:fields){
             System.out.println(f);
         }
         System.out.println("=============获取类中的自定义public属性包括继承的==========");
-        String[] fieldz = ClassUtil.getPublicField("model.BusinessLog", false);
+        String[] fieldz = ClassUtil.getPublicField("com.opslab.temp.model.BusinessLog", false);
         for(String f:fieldz){
             System.out.println(f);
         }
@@ -38,7 +36,7 @@ public class ClassUtilTest {
     @Test
     public void testProtectedField()  {
         System.out.println("=============获取类中自定义的protected类型的属性==============");
-        String[] field = ClassUtil.getProtectedField("model.BusinessLog");
+        String[] field = ClassUtil.getProtectedField("com.opslab.temp.model.BusinessLog");
         for(String f:field){
             System.out.println(f);
         }
@@ -47,7 +45,7 @@ public class ClassUtilTest {
     @Test
     public void testPrivateField()  {
         System.out.println("=============获取类中自定义的private类型的属性==============");
-        String[] field = ClassUtil.getPrivateField("model.BusinessLog");
+        String[] field = ClassUtil.getPrivateField("com.opslab.temp.model.BusinessLog");
         for(String f:field){
             System.out.println(f);
         }
@@ -167,25 +165,25 @@ public class ClassUtilTest {
 
     @Test
     public void testGetSuperClass()  {
-        System.out.println(ClassUtil.getSuperClass("model.BusinessLog"));
-        System.out.println(ClassUtil.getSuperClass("model.Log"));
+        System.out.println(ClassUtil.getSuperClass("com.opslab.temp.model.BusinessLog"));
+        System.out.println(ClassUtil.getSuperClass("com.opslab.temp.model.Log"));
     }
 
     @Test
     public void testGetSuperClassChian()  {
-        String[] superClassChian = ClassUtil.getSuperClassChian("model.BusinessLog");
+        String[] superClassChian = ClassUtil.getSuperClassChian("com.opslab.temp.model.BusinessLog");
         System.out.println(Arrays.toString(superClassChian));
-        System.out.println(Arrays.toString(ClassUtil.getSuperClassChian("model.Log")));
+        System.out.println(Arrays.toString(ClassUtil.getSuperClassChian("com.opslab.temp.model.Log")));
     }
 
     @Test
     public void testGetInterfaces()  {
         String[] interfaces = ClassUtil.getInterfaces("java.util.List",false);
         System.out.println(Arrays.toString(interfaces));
-        interfaces = ClassUtil.getInterfaces("model.BusinessLog",false);
+        interfaces = ClassUtil.getInterfaces("com.opslab.temp.model.BusinessLog",false);
         System.out.println(Arrays.toString(interfaces));
 
-        interfaces = ClassUtil.getInterfaces("model.BusinessLog",true);
+        interfaces = ClassUtil.getInterfaces("com.opslab.temp.model.BusinessLog",true);
         System.out.println(Arrays.toString(interfaces));
     }
 

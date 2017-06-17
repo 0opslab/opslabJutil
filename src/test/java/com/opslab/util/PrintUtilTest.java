@@ -1,6 +1,6 @@
 package com.opslab.util;
 
-import model.User;
+import com.opslab.temp.model.User;
 import org.junit.Test;
 
 import java.util.*;

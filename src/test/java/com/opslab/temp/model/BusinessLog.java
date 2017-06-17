@@ -1,4 +1,4 @@
-package model;
+package com.opslab.temp.model;
 
 
 public class BusinessLog extends Log implements interfaces{

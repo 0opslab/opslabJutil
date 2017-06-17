@@ -2,7 +2,7 @@ package com.opslab.util.image;
 
 import com.opslab.util.RandomUtil;
 import junit.framework.TestCase;
-import test.TestUtil;
+import com.opslab.util.TestUtil;
 
 /**
  * 测试验证码生成

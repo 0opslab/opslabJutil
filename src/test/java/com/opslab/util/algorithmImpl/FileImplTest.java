@@ -1,9 +1,7 @@
 package com.opslab.util.algorithmImpl;
 
 import org.junit.Test;
-import test.TestUtil;
-
-import java.io.File;
+import com.opslab.util.TestUtil;
 
 public class FileImplTest {
 

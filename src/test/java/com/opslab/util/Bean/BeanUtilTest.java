@@ -2,9 +2,9 @@ package com.opslab.util.bean;
 
 import com.opslab.util.StringUtil;
 import junit.framework.TestCase;
-import model.BusinessLog;
-import model.Log;
-import model.Log2;
+import com.opslab.temp.model.BusinessLog;
+import com.opslab.temp.model.Log;
+import com.opslab.temp.model.Log2;
 import org.junit.Test;
 
 import java.lang.reflect.InvocationTargetException;

@@ -1,4 +1,4 @@
-package test;
+package com.opslab.util;
 
 
 public class TestUtil {

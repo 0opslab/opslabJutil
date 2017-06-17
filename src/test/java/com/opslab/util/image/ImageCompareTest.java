@@ -1,7 +1,7 @@
 package com.opslab.util.image;
 
 import junit.framework.TestCase;
-import test.TestUtil;
+import com.opslab.util.TestUtil;
 
 import java.io.File;
 

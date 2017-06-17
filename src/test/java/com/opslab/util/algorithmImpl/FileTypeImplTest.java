@@ -2,7 +2,7 @@ package com.opslab.util.algorithmImpl;
 
 import junit.framework.TestCase;
 import org.junit.Test;
-import test.TestUtil;
+import com.opslab.util.TestUtil;
 
 import java.io.File;
 

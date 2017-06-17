@@ -1,9 +1,6 @@
 package com.opslab.util;
 
-import com.opslab.util.CharsetUtil;
-import com.opslab.util.FileUtil;
 import org.junit.Test;
-import test.TestUtil;
 
 import java.io.File;
 import java.io.IOException;
