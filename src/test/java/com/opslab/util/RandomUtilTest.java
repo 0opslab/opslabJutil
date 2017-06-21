@@ -1,7 +1,6 @@
 package com.opslab.util;
 
-import com.opslab.util.RandomUtil;
-import com.opslab.util.collection.CollectionUtil;
+import com.opslab.helper.CollectionHelper;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -45,7 +44,7 @@ public class RandomUtilTest {
                 map.put(integer,1);
             }
         }
-        System.out.println(CollectionUtil.join(map,"\n","="));
+        System.out.println(CollectionHelper.join(map,"\n","="));
     }
 
     @Test

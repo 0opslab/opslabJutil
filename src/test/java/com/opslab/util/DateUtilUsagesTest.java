@@ -53,7 +53,7 @@ public class DateUtilUsagesTest {
         for(String line :lines){
             String[] tt = line.split("/");
             count += DateUtil.subtimeBurst(tt[0], tt[1], "08:00-19:30");
-            count1 += DateUtil.Subtract(tt[0], tt[1]);
+            count1 += DateUtil.subtract(tt[0], tt[1]);
         }
         System.out.println("sum1 > "+count/60/60);
         System.out.println("sum2 > "+count1/60/60);

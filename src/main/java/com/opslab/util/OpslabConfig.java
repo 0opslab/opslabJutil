@@ -1,7 +1,6 @@
 package com.opslab.util;
 
 
-import com.opslab.util.collection.CollectionUtil;
 import org.apache.log4j.Logger;
 
 import java.io.File;
@@ -40,7 +39,7 @@ public class OpslabConfig {
             logger.error("init config error:" + e.getMessage());
         }
 //        System.out.println(CLASS_PATH);
-//        System.out.println(CollectionUtil.join(INIT_MAP, "\n", ":"));
+//        System.out.println(CollectionHelper.join(INIT_MAP, "\n", ":"));
     }
 
 
