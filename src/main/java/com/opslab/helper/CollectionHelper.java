@@ -3,7 +3,6 @@ package com.opslab.helper;
 import com.opslab.functions.ObjectHandler;
 import com.opslab.functions.ObjectProcess;
 import com.opslab.util.valid;
-import com.sun.istack.internal.NotNull;
 
 import java.util.*;
 
@@ -20,7 +19,11 @@ public final class CollectionHelper {
      * @param handler    实现特定处理的方法
      * @param <T>        泛型
      */
-    public static <T> void handler(@NotNull Collection<T> collection, ObjectHandler<T> handler) {
+    public static <T> void handler( Collection<T> collection, ObjectHandler<T> handler) {
+        if(collection == null || collection.size() == 0){
+            logger.error("collection is empty or is null");
+            return;
+        }
         for (T t : collection) {
             handler.handler(t);
         }
@@ -35,7 +38,15 @@ public final class CollectionHelper {
      * @param <T>        泛型
      * @param <E>        泛型
      */
-    public static <T, E> void process(@NotNull Collection<T> collection, @NotNull Collection<E> result, ObjectProcess<T, E> process) {
+    public static <T, E> void process( Collection<T> collection,  Collection<E> result, ObjectProcess<T, E> process) {
+        if(collection == null || collection.size() == 0){
+            logger.error("collection is empty or is null");
+            return;
+        }
+        if(result == null || result.size() == 0){
+            logger.error("receive collection is empty or is null");
+            return;
+        }
         for (T t : collection) {
             E next = process.process(t);
             if (next != null) {
