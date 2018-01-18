@@ -86,7 +86,7 @@ public final class ConvertUtil {
      */
     public final static char[] bytesToChars(byte[] bytes) {
         char[] chars = new char[]{};
-        if (valid.valid(bytes)) {
+        if (CheckUtil.valid(bytes)) {
             chars = new char[bytes.length];
             for (int i = 0; i < bytes.length; i++) {
                 chars[i] = (char) bytes[i];

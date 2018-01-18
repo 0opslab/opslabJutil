@@ -11,9 +11,7 @@ public class ExceptionUtilTest  {
     public void testStackTraceToString() throws Exception {
         try{
             int i=1/0;
-            System.out.println(i);
         }catch (Exception e){
-            System.out.println("========");
             System.out.println(ExceptionUtil.stackTraceToString(e,"com.opslab"));
             System.out.println(ExceptionUtil.stackTraceToString(e));
         }

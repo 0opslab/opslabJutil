@@ -134,7 +134,7 @@ public final class StringUtil {
                 if (temp != null && temp.trim().length() > 0)
                     result += (temp + symbol);
             }
-            if (result.length() > 1 && valid.valid(symbol)) {
+            if (result.length() > 1 && CheckUtil.valid(symbol)) {
                 result = result.substring(0, result.length() - symbol.length());
             }
         }
@@ -153,7 +153,7 @@ public final class StringUtil {
                 if (temp != null && temp.trim().length() > 0)
                     result.append(temp + linkStr);
             }
-            if (result.length() > 1 && valid.valid(linkStr)) {
+            if (result.length() > 1 && CheckUtil.valid(linkStr)) {
                 return result.substring(0, result.length() - linkStr.length());
             }
         return result.toString();
@@ -330,7 +330,7 @@ public final class StringUtil {
      * @return 包含则返回true，否则返回false
      */
     public  static boolean isIn(String substring, String[] source) {
-        if(isEmpty(substring) || !valid.valid(source)){
+        if(isEmpty(substring) || !CheckUtil.valid(source)){
             return false;
         }
         for (String t:source) {

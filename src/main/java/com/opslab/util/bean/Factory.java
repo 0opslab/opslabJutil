@@ -1,6 +1,6 @@
 package com.opslab.util.bean;
 
-import com.opslab.util.valid;
+import com.opslab.util.CheckUtil;
 
 import java.beans.BeanInfo;
 import java.beans.IntrospectionException;
@@ -38,7 +38,7 @@ public class Factory {
     public static boolean isDeclaredField(String className, String pro) throws ClassNotFoundException {
         Class   classz = Class.forName(className);
         Field[] fields = classz.getFields();
-        if (valid.valid(fields)) {
+        if (CheckUtil.valid(fields)) {
             for (Field f : fields) {
                 if (f.getName().equals(pro)) {
                     return false;
@@ -61,7 +61,7 @@ public class Factory {
 
     public static void add(Class clazz) throws IntrospectionException, ClassNotFoundException {
         String className = clazz.getName();
-        if (!valid.valid(BEAN_SIMPLE_PROPERTIES.get(className))) {
+        if (!CheckUtil.valid(BEAN_SIMPLE_PROPERTIES.get(className))) {
             BeanInfo beanInfo = Introspector.getBeanInfo(clazz);
             PropertyDescriptor[] proDescrtptors = beanInfo.getPropertyDescriptors();
             if (proDescrtptors != null && proDescrtptors.length > 0) {

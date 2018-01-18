@@ -122,7 +122,7 @@ public class SysUtil {
      * 已使用的物理内存
      */
     public final static long usedMemory() {
-        if (valid.valid(osmxb)) {
+        if (CheckUtil.valid(osmxb)) {
             return (osmxb.getTotalPhysicalMemorySize() - osmxb.getFreePhysicalMemorySize()) / kb;
         }
         return 0;

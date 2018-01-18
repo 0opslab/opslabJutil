@@ -15,7 +15,8 @@ import java.util.Arrays;
 public class OperateImageTest extends TestCase {
 
     private String path = TestUtil.path + "/image/";
-    private String path_temp =TestUtil.path + "/temp/image/";
+    private String path_temp =TestUtil.path + "/temp/";
+
     /**
      * 剪切图片
      * @throws Exception
@@ -35,7 +36,6 @@ public class OperateImageTest extends TestCase {
                 readImageFormat,
                 writeImageFormat);
     }
-
     /**
      * 按照倍率缩小图片
      * @throws Exception
@@ -228,4 +228,6 @@ public class OperateImageTest extends TestCase {
     public void testDrawAndAlphaPolygon() throws Exception {
 
     }
+
+
 }
