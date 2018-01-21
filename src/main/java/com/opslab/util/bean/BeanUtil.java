@@ -1,7 +1,7 @@
 package com.opslab.util.bean;
 
 import com.opslab.helper.CollectionHelper;
-import com.opslab.util.valid;
+import com.opslab.util.CheckUtil;
 
 import java.beans.IntrospectionException;
 import java.lang.reflect.InvocationTargetException;
@@ -106,7 +106,7 @@ public  class BeanUtil {
         add(bean);
         Map        map = simpleProperties(bean);
         BeanStruct st  = (BeanStruct) map.get(pro);
-        return valid.valid(st) && st.isDeclared();
+        return CheckUtil.valid(st) && st.isDeclared();
     }
 
     /**
@@ -135,7 +135,7 @@ public  class BeanUtil {
         add(bean);
         pro = filter.Properties(pro);
         Map<String,BeanStruct> map = simpleProperties(bean);
-        if (valid.valid(map)) {
+        if (CheckUtil.valid(map)) {
             Set<String> set = map.keySet();
             for (String s : set) {
                 if (pro.equals(filter.Properties(s))) {
@@ -228,7 +228,7 @@ public  class BeanUtil {
         Object result = null;
         pro = filter.Properties(pro);
         Map<String,BeanStruct> map = simpleProperties(bean);
-        if (valid.valid(map)) {
+        if (CheckUtil.valid(map)) {
             Set<String> set = map.keySet();
             for (String s : set) {
                 if (pro.equals(filter.Properties(s))) {
@@ -252,7 +252,7 @@ public  class BeanUtil {
         Object result = null;
         pro = filter.Properties(pro);
         Map<String,BeanStruct> map = simpleProperties(bean);
-        if (valid.valid(map)) {
+        if (CheckUtil.valid(map)) {
             Set<String> set = map.keySet();
             try {
                 for (String s : set) {
@@ -350,7 +350,7 @@ public  class BeanUtil {
         add(bean);
         pro = filter.Properties(pro);
         Map<String,BeanStruct> map = simpleProperties(bean);
-        if (valid.valid(map)) {
+        if (CheckUtil.valid(map)) {
             Set<String> set = map.keySet();
             for (String s : set) {
                 if (pro.equals(filter.Properties(s))) {
@@ -373,7 +373,7 @@ public  class BeanUtil {
         add(bean);
         pro = filter.Properties(pro);
         Map<String,BeanStruct> map = simpleProperties(bean);
-        if (valid.valid(map)) {
+        if (CheckUtil.valid(map)) {
             Set<String> set = map.keySet();
             try {
                 for (String s : set) {
@@ -402,7 +402,7 @@ public  class BeanUtil {
             String[] pros) throws InvocationTargetException, IllegalAccessException {
         add(srcBean);
         add(destBean);
-        if (valid.valid(pros)) {
+        if (CheckUtil.valid(pros)) {
             for (String s : pros) {
                 Object value = readMethod(srcBean, getReadMethod(srcBean, s));
                 writeMethod(destBean, getWriteMethod(destBean, s), value);
@@ -420,7 +420,7 @@ public  class BeanUtil {
     public  static void copyPropertyPeaceful(Object srcBean, Object destBean, String[] pros) {
         add(srcBean);
         add(destBean);
-        if (valid.valid(pros)) {
+        if (CheckUtil.valid(pros)) {
             try {
                 for (String s : pros) {
                     Object value =readMethod(srcBean, getReadMethod(srcBean, s));
@@ -546,7 +546,7 @@ public  class BeanUtil {
         add(destBean);
         Map<String,BeanStruct> srcMap = simpleProperties(srcBean);
         Map<String,BeanStruct> dstMap = simpleProperties(destBean);
-        if (valid.valid(srcMap, dstMap)) {
+        if (CheckUtil.valid(srcMap, dstMap)) {
             Map<String,String> srcMapFilter = new HashMap<>();
             Map<String,String> dstMapFilter = new HashMap<>();
             for (Map.Entry<String,BeanStruct> entry : srcMap.entrySet()) {
@@ -556,7 +556,7 @@ public  class BeanUtil {
                 dstMapFilter.put(filter.Properties(entry.getKey()), entry.getKey());
             }
             Map<String,String> intersection = CollectionHelper.intersection(srcMapFilter, dstMapFilter);
-            if (valid.valid(intersection)) {
+            if (CheckUtil.valid(intersection)) {
                 for (Map.Entry<String,String> entry : intersection.entrySet()) {
                     String key = entry.getKey();
                     String srcKey = srcMapFilter.get(key);
@@ -580,7 +580,7 @@ public  class BeanUtil {
         add(destBean);
         Map<String,BeanStruct> srcMap = simpleProperties(srcBean);
         Map<String,BeanStruct> dstMap = simpleProperties(destBean);
-        if (valid.valid(srcMap, dstMap)) {
+        if (CheckUtil.valid(srcMap, dstMap)) {
             Map<String,String> srcMapFilter = new HashMap<>();
             Map<String,String> dstMapFilter = new HashMap<>();
             for (Map.Entry<String,BeanStruct> entry : srcMap.entrySet()) {
@@ -590,7 +590,7 @@ public  class BeanUtil {
                 dstMapFilter.put(filter.Properties(entry.getKey()), entry.getKey());
             }
             Map<String,String> intersection = CollectionHelper.intersection(srcMapFilter, dstMapFilter);
-            if (valid.valid(intersection)) {
+            if (CheckUtil.valid(intersection)) {
                 for (Map.Entry<String,String> entry : intersection.entrySet()) {
                     String key = entry.getKey();
                     String srcKey = srcMapFilter.get(key);

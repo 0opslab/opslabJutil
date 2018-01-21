@@ -2,7 +2,7 @@ package com.opslab.helper;
 
 import com.opslab.functions.ObjectHandler;
 import com.opslab.functions.ObjectProcess;
-import com.opslab.util.valid;
+import com.opslab.util.CheckUtil;
 
 import java.util.*;
 
@@ -75,7 +75,7 @@ public final class CollectionHelper {
      * 求俩个集合的交集
      */
     public static <T> List<T> intersection(List<T> list1, List<T> list2) {
-        if (valid.valid(list1, list2)) {
+        if (CheckUtil.valid(list1, list2)) {
             Set<T> set = new HashSet<>(list1);
             set.retainAll(list2);
             return new ArrayList<>(set);
@@ -92,7 +92,7 @@ public final class CollectionHelper {
      * @return 交集
      */
     public static <T> Set<T> intersection(Set<T> set1, Set<T> set2) {
-        if (valid.valid(set1, set2)) {
+        if (CheckUtil.valid(set1, set2)) {
             List<T> list = new ArrayList<>(set1);
             list.retainAll(set2);
             return new HashSet<>(list);
@@ -109,7 +109,7 @@ public final class CollectionHelper {
      * @return 交集
      */
     public static <T> Queue<T> intersection(Queue<T> queue1, Queue<T> queue2) {
-        if (valid.valid(queue1, queue2)) {
+        if (CheckUtil.valid(queue1, queue2)) {
             Set<T> set = new HashSet<>(queue1);
             set.retainAll(queue2);
             return new LinkedList<>(set);
@@ -128,7 +128,7 @@ public final class CollectionHelper {
      */
     public static <K, V> Map<K, V> intersection(Map<K, V> map1, Map<K, V> map2) {
         Map<K, V> map = new HashMap<>(map1.size());
-        if (valid.valid(map1, map2)) {
+        if (CheckUtil.valid(map1, map2)) {
             Set<K> setkey1 = new HashSet<>(map1.keySet());
             Set<K> setkey2 = new HashSet<>(map2.keySet());
             setkey1.retainAll(setkey2);
@@ -197,7 +197,7 @@ public final class CollectionHelper {
      */
     public static <T> List<T> subtract(List<T> list1, List<T> list2) {
         List<T> list = new ArrayList<>(list1.size() + list2.size());
-        if (valid.valid(list1)) {
+        if (CheckUtil.valid(list1)) {
             list.addAll(list1);
             list.removeAll(list2);
         }
@@ -214,7 +214,7 @@ public final class CollectionHelper {
      */
     public static <T> Set<T> subtract(Set<T> set1, Set<T> set2) {
         Set<T> set = new HashSet<>(set1.size() + set2.size());
-        if (valid.valid(set1)) {
+        if (CheckUtil.valid(set1)) {
             set.addAll(set1);
             set.removeAll(set2);
         }
@@ -231,7 +231,7 @@ public final class CollectionHelper {
      */
     public static <T> Queue<T> subtract(Queue<T> queue1, Queue<T> queue2) {
         Queue<T> queue = new LinkedList<>();
-        if (valid.valid(queue1)) {
+        if (CheckUtil.valid(queue1)) {
             queue.addAll(queue1);
             queue.removeAll(queue2);
         }
@@ -249,7 +249,7 @@ public final class CollectionHelper {
      */
     public static <K, V> Map<K, V> subtract(Map<K, V> map1, Map<K, V> map2) {
         Map<K, V> map = new HashMap<>(map1.size() + map2.size());
-        if (valid.valid(map1, map2)) {
+        if (CheckUtil.valid(map1, map2)) {
             Set<K> setkey1 = new HashSet<>(map1.keySet());
             Set<K> setkey2 = new HashSet<>(map2.keySet());
             for (K k : setkey2) {

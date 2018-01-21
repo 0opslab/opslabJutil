@@ -1,5 +1,6 @@
 package com.opslab.util.coordinates;
 
+import com.opslab.util.map.CoordinateUtil;
 import junit.framework.TestCase;
 
 /**

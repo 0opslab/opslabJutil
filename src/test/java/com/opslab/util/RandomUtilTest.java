@@ -1,6 +1,7 @@
 package com.opslab.util;
 
 import com.opslab.helper.CollectionHelper;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.HashMap;
@@ -11,7 +12,7 @@ import java.util.Set;
 import static com.opslab.util.RandomUtil.integer;
 import static junit.framework.Assert.assertEquals;
 
-
+@Ignore
 public class RandomUtilTest {
 
     @Test
@@ -27,7 +28,7 @@ public class RandomUtilTest {
             System.out.println(integer(100,110));
         }
 
-        for (int i = 0; i < 100000; i++) {
+        for (int i = 0; i < 10; i++) {
             System.out.println(integer(1,1000000000));
         }
     }

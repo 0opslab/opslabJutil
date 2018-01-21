@@ -64,7 +64,5 @@ public class OpslabConfig {
         return INIT_MAP.get(key);
     }
 
-    public static void main(String[] args) {
 
-    }
 }
