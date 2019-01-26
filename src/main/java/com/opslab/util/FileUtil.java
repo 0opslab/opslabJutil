@@ -376,20 +376,7 @@ public final class FileUtil {
 
 
 
-    /**
-     * 利用简单的文件头字节特征探测文件编码
-     *
-     * @param file 需要处理的文件
-     * @return UTF-8 Unicode UTF-16BE GBK
-     */
-    public final static String simpleEncoding(String file) {
-        try {
-            return FileImpl.simpleEncoding(file);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
+
 
     /**
      * 创建多级目录

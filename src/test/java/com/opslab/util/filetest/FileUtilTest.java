@@ -175,12 +175,7 @@ public class FileUtilTest  {
     }
 
 
-    @Test
-    public void testSimpleEncoding() {
-        System.out.println("简单的利用文件头进行文件的编码探测!");
-        System.out.println(FileUtil.simpleEncoding(TestUtil.path + "GBK.txt"));
-        System.out.println("利用cpdetector进行文件编码探测");
-    }
+
 
     @Test
     public void testListFile() {
