@@ -1,5 +1,6 @@
 package com.opslab.util;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.nio.charset.Charset;
@@ -7,6 +8,7 @@ import java.nio.charset.Charset;
 public class PropertiesUtilTest {
 
     @Test
+    @Ignore
     public void testmain() {
         //Win7默认会都会输出GBK(不过会应为应用程序的编码会发生相应的变化)
         System.out.println("File encoding:" + System.getProperty("file.encoding"));
@@ -18,6 +20,7 @@ public class PropertiesUtilTest {
     }
 
     @Test
+    @Ignore
     public void testKey() throws Exception {
         System.out.println(System.getProperties());
         System.out.println(PropertiesUtil.key("user.name"));
@@ -25,8 +28,9 @@ public class PropertiesUtilTest {
     }
 
     @Test
+    @Ignore
     public void testPro() throws Exception {
-        String path = TestUtil.path + "Test.properties";
+        String path = TestUtil.path + "/text/Test.properties";
         System.out.println(PropertiesUtil.key("user.dir"));
         System.out.println(PropertiesUtil.GetValueByKey(path, "test"));
         System.out.println(PropertiesUtil.GetAllProperties(path));

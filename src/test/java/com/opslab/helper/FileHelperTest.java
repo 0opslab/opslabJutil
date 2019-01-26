@@ -61,7 +61,7 @@ public class FileHelperTest {
 
     @Test
     public void fileHash(){
-        File file = new File(TestUtil.path+"/English.txt");
+        File file = new File(TestUtil.path+"/text/English.txt");
         System.out.println(FileHelper.fileHash(file,"MD5"));
         System.out.println(FileHelper.fileHash(file,"SHA-1"));
         System.out.println(FileHelper.fileHash(file,"SHA-256"));

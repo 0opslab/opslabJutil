@@ -17,20 +17,20 @@ public class FileUtilTest  {
     @Test
     public void testCountLines() throws IOException {
 
-        String file = TestUtil.path + "English.txt";
+        String file = TestUtil.path + "/text/English.txt";
         System.out.println("文件行数："+FileUtil.countLines(new File(file)));
     }
 
     @Test
     public void testHash() {
-        String file = TestUtil.path + "ali.gif";
+        String file = TestUtil.path + "/image/ali.gif";
         assertEquals("文件Hash校验错误", "4FE6FF69F7257F2E8C36B0752B5393BF", FileUtil.fileMD5(new File(file)).toUpperCase());
     }
 
     @Test
     public void testFileType() throws IOException {
-        String efile = TestUtil.path + "ali.gif";
-        String hfile = TestUtil.path + "tgepng";
+        String efile = TestUtil.path + "/image/ali.gif";
+        String hfile = TestUtil.path + "/image/tgepng";
 
         assertEquals("文件类型判断有错", "gif", FileUtil.fileType(new File(efile)));
         assertEquals("文件类型判断有错", "png", FileUtil.fileType(new File(hfile)));
@@ -40,7 +40,7 @@ public class FileUtilTest  {
 
     @Test
     public void testModify() {
-        String exefile = TestUtil.path + "cmdexe";
+        String exefile = TestUtil.path + "/bin/cmdexe";
         Date   date    = FileUtil.modifyTime(new File(exefile));
         //assertEquals("获取文件修改的最后时间错误","2010-11-21 11:24:03",DateUtil.DateTime(date));
     }
@@ -50,7 +50,7 @@ public class FileUtilTest  {
         System.out.println("=====按List讲文件全部读入到List中======");
 
         System.out.println("全英文文件测试");
-        String       efile = TestUtil.path + "English.txt";
+        String       efile = TestUtil.path + "/text/English.txt";
         List<String> lines = FileUtil.lines(new File(efile));
         System.out.println(lines);
         System.out.println("读取文件的前3行");
@@ -59,7 +59,7 @@ public class FileUtilTest  {
 
 
         System.out.println("GBK文件测试");
-        String       gbkfile  = TestUtil.path + "GBK.txt";
+        String       gbkfile  = TestUtil.path + "/text/GBK.txt";
         List<String> gbklines = FileUtil.lines(new File(gbkfile));
         System.out.println(gbklines);
         gbklines = FileUtil.lines(new File(gbkfile), "GBK");
@@ -70,7 +70,7 @@ public class FileUtilTest  {
 
 
         System.out.println("UTF8文件测试");
-        String       utf8file  = TestUtil.path + "UTF8.txt";
+        String       utf8file  = TestUtil.path + "/text/UTF8.txt";
         List<String> utf8lines = FileUtil.lines(new File(utf8file));
         System.out.println(utf8lines);
         utf8lines = FileUtil.lines(new File(utf8file), "UTF-8");
@@ -85,14 +85,14 @@ public class FileUtilTest  {
     @Test
     public void testCleanFile() {
         System.out.println("快速清空一个超大文件");
-        String clearFile = TestUtil.path + "GBKTOUTF8.txt";
+        String clearFile = TestUtil.path + "/text/GBKTOUTF8.txt";
         FileUtil.cleanFile(new File(clearFile));
     }
 
     @Test
     public void testCopy() throws Exception {
         System.out.println("测试文件拷贝");
-        String copy = TestUtil.path + "GBKTOUTF8.txt";
+        String copy = TestUtil.path + "/text/GBKTOUTF8.txt";
         String dest = TestUtil.path + "temp/GBKTOUTF8.txt";
         FileUtil.copy(copy, dest);
     }
@@ -103,9 +103,9 @@ public class FileUtilTest  {
         String line1 = "E-String";
         String line2 = "中文字符串";
 
-        File efile    = new File(TestUtil.path + "EnglishWrite.txt");
-        File gbkfile  = new File(TestUtil.path + "GBKWrite.txt");
-        File utf8file = new File(TestUtil.path + "UTF8Write.txt");
+        File efile    = new File(TestUtil.path + "/text/EnglishWrite.txt");
+        File gbkfile  = new File(TestUtil.path + "/text/GBKWrite.txt");
+        File utf8file = new File(TestUtil.path + "/text/UTF8Write.txt");
 
         FileUtil.appendLine(efile, line1);
         FileUtil.appendLine(efile, line2);

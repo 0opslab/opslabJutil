@@ -10,8 +10,8 @@ public class FileTypeImplTest extends TestCase {
 
     @Test
     public void testFileType() {
-        assertEquals("gif", FileTypeImpl.getFileType(new File(TestUtil.path + "ali.gif")));
-        assertEquals("png", FileTypeImpl.getFileType(new File(TestUtil.path + "tgepng")));
+        assertEquals("gif", FileTypeImpl.getFileType(new File(TestUtil.path + "/image/ali.gif")));
+        assertEquals("png", FileTypeImpl.getFileType(new File(TestUtil.path + "/image/tgepng")));
     }
 
 }

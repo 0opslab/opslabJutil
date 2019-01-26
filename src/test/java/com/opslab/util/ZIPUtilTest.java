@@ -1,5 +1,6 @@
 package com.opslab.util;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.File;
@@ -7,8 +8,9 @@ import java.io.File;
 public class ZIPUtilTest  {
 
     @Test
+    @Ignore
     public void testDeCompress() throws Exception {
-        String file    = SysUtil.CURRENT_USER_DIR + "/src/test/java/model";
+        String file    = SysUtil.CURRENT_USER_DIR + "/src/test/java";
         String zipFile = TestUtil.path + "temp/test.zip";
         ZIPUtil.deCompress(new File(file), zipFile);
 
@@ -16,6 +18,7 @@ public class ZIPUtilTest  {
     }
 
     @Test
+    @Ignore
     public void testUnCompress() throws Exception {
         String zipFile = TestUtil.path + "temp/test.zip";
         if (!(new File(zipFile).exists())) {
