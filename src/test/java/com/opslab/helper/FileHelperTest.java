@@ -19,7 +19,7 @@ import java.util.regex.Pattern;
  * Created by monsoon on 18/06/2017.
  */
 public class FileHelperTest {
-    private  String file =  TestUtil.path+ "EnglishWrite.txt";
+    private  String file =  TestUtil.path+ "/text/EnglishWrite.txt";
 
     /**
      * 逐行打印

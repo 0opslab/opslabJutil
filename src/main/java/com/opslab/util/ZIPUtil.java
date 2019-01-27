@@ -17,33 +17,45 @@ public final class ZIPUtil {
      * @param dest 压缩后的文件名称
      * @throws Exception
      */
-    public final static void deCompress(File file, String dest) throws Exception {
+    public  static void deCompress(File file, String dest) throws IOException {
         try (ZipOutputStream zos = new ZipOutputStream(new FileOutputStream(dest))) {
-            zipFile(file, zos, "");
+            String dir = "";
+            if(file.isDirectory()){
+                dir = file.getName();
+            }
+            zipFile(file, zos, dir);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw e;
         }
     }
 
-    public final static void zipFile(File inFile, ZipOutputStream zos, String dir) throws IOException {
+    public  static void zipFile(File inFile, ZipOutputStream zos, String dir) throws IOException {
         if (inFile.isDirectory()) {
             File[] files = inFile.listFiles();
-            if (CheckUtil.valid(files)) {
-                for (File file : files) {
-                    String name = inFile.getName();
-                    if (!"".equals(dir)) {
-                        name = dir + "/" + name;
+            if (files == null || files.length == 0) {
+                String entryName  = dir+"/";
+                zos.putNextEntry( new ZipEntry(entryName));
+                return;
+            }
+            for (File file : files) {
+                String entryName  = dir+"/"+file.getName();
+                if (file.isDirectory()) {
+                    zipFile(file,zos,entryName);
+                } else {
+                    ZipEntry entry = new ZipEntry(entryName);
+                    zos.putNextEntry(entry);
+                    try (InputStream is = new FileInputStream(file)) {
+                        int len = 0;
+                        while ((len = is.read()) != -1) {
+                            zos.write(len);
+                        }
+                    } catch (IOException e) {
+                        throw e;
                     }
-                    zipFile(file, zos, name);
                 }
             }
         } else {
-            String entryName = null;
-            if (!"".equals(dir)) {
-                entryName = dir + "/" + inFile.getName();
-            } else {
-                entryName = inFile.getName();
-            }
+            String entryName = dir + "/" + inFile.getName();
             ZipEntry entry = new ZipEntry(entryName);
             zos.putNextEntry(entry);
             try (InputStream is = new FileInputStream(inFile)) {
@@ -52,7 +64,7 @@ public final class ZIPUtil {
                     zos.write(len);
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                throw e;
             }
         }
     }
@@ -63,7 +75,7 @@ public final class ZIPUtil {
      * @param source 需要解压缩的文档名称
      * @param path   需要解压缩的路径
      */
-    public final static void unCompress(File source, String path) throws IOException {
+    public  static void unCompress(File source, String path) throws IOException {
         ZipEntry zipEntry = null;
         FileUtil.createPaths(path);
         //实例化ZipFile，每一个zip压缩文件都可以表示为一个ZipFile
@@ -74,21 +86,33 @@ public final class ZIPUtil {
         ) {
             while ((zipEntry = zipInputStream.getNextEntry()) != null) {
                 String fileName = zipEntry.getName();
-                File temp = new File(path + "/" + fileName);
-                if (!temp.getParentFile().exists()) {
-                    temp.getParentFile().mkdirs();
-                }
-                try (OutputStream os = new FileOutputStream(temp);
-                     //通过ZipFile的getInputStream方法拿到具体的ZipEntry的输入流
-                     InputStream is = zipFile.getInputStream(zipEntry)) {
-                    int len = 0;
-                    while ((len = is.read()) != -1) {
-                        os.write(len);
+                String filePath = path + "/" + fileName;
+                if(zipEntry.isDirectory()){
+                    File temp = new File(filePath);
+                    if (!temp.exists()) {
+                        temp.mkdirs();
+                    }
+                }else{
+                    File temp = new File(filePath);
+                    if (!temp.getParentFile().exists()) {
+                        temp.getParentFile().mkdirs();
+                    }
+                    try (OutputStream os = new FileOutputStream(temp);
+                         //通过ZipFile的getInputStream方法拿到具体的ZipEntry的输入流
+                         InputStream is = zipFile.getInputStream(zipEntry)) {
+                        int len = 0;
+                        while ((len = is.read()) != -1) {
+                            os.write(len);
+                        }
+                    }catch (IOException e){
+                        throw e;
                     }
                 }
+
+
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            throw e;
         }
     }
 }

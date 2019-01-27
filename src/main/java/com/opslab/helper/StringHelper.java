@@ -1,4 +1,197 @@
 package com.opslab.helper;
 
+import com.opslab.util.CheckUtil;
+import com.opslab.util.algorithmImpl.BCConvert;
+
+import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class StringHelper {
+    /**
+     * 判断是否是空字符串 null和"" 都返回 true
+     *
+     * @param str 判断的字符串
+     * @return 是否有效
+     */
+    public  static boolean isEmpty(String str) {
+        return str == null || str.equals("");
+    }
+
+    /**
+     * 把string array or list用给定的符号symbol连接成一个字符串
+     *
+     * @param array  需要处理的字符串数组
+     * @param symbol 链接的符号
+     * @return 处理后的字符串
+     */
+    public  static String join(String[] array, String symbol) {
+        String result = "";
+        if (array != null) {
+            for (String temp : array) {
+                if (temp != null && temp.trim().length() > 0)
+                    result += (temp + symbol);
+            }
+            if (result.length() > 1 && CheckUtil.valid(symbol)) {
+                result = result.substring(0, result.length() - symbol.length());
+            }
+        }
+        return result;
+    }
+
+
+    /**
+     * 根据指定的字符把源字符串分割成一个list
+     *
+     * @param src     处理的字符串
+     * @param pattern 分割字符串
+     * @return 处理后的list
+     */
+    public  static List<String> parseString2List(String src, String pattern) {
+        List<String> list = new ArrayList<>();
+        if (src != null) {
+            String[] tt = src.split(pattern);
+            list.addAll(Arrays.asList(tt));
+        }
+        return list;
+    }
+
+
+
+    /**
+     * 格式化一个float
+     *
+     * @param format 要格式化成的格式 such as #.00, #.#
+     * @return 格式化后的字符串
+     */
+    public  static String formatDouble(double f, String format) {
+        DecimalFormat df = new DecimalFormat(format);
+        return df.format(f);
+    }
+
+
+    /**
+     * 全角字符变半角字符
+     *
+     * @param str 需要处理的字符串
+     * @return 处理后的字符串
+     */
+    public  static String full2Half(String str) {
+        if(isEmpty(str)){
+            return "";
+        }
+        return BCConvert.qj2bj(str);
+    }
+
+    /**
+     * 半角字符变全角字符
+     * @param str 需要处理的字符串
+     * @return 处理后的字符串
+     */
+    public  static String Half2Full(String str){
+        if(isEmpty(str)){
+            return "";
+        }
+        return BCConvert.bj2qj(str);
+    }
+
+    /**
+     * 页面中去除字符串中的空格、回车、换行符、制表符
+     *
+     * @param str 需要处理的字符串
+     */
+    public  static String replaceBlank(String str) {
+        if (str != null) {
+            Pattern p = Pattern.compile("\\s*|\t|\r|\n");
+            Matcher m = p.matcher(str);
+            str = m.replaceAll("");
+        }
+        return str;
+    }
+
+    /**
+     * 字符串转换unicode.实现native2ascii.exe类似的功能
+     *
+     * @param string 需要处理的字符串
+     */
+    public  static String string2Unicode(String string) {
+        StringBuilder uni = new StringBuilder();
+        for (int i = 0; i < string.length(); i++) {
+            String temp ="\\u"+String.valueOf(Integer.toHexString(string.charAt(i)));
+            uni.append(temp);
+        }
+        return uni.toString();
+    }
+
+    /**
+     * 转字符串 实现native2ascii.exe类似的功能
+     *
+     * @param unicode 需要处理的字符串
+     */
+    public  static String unicode2String(String unicode) {
+        StringBuilder str = new StringBuilder();
+        String[]     hex    = unicode.split("\\\\u");
+        for (int i = 1; i < hex.length; i++) {
+            int data = Integer.parseInt(hex[i], 16);
+            str.append((char) data);
+        }
+        return str.toString();
+    }
+
+    /**
+     * 截取字符串左侧指定长度的字符串
+     *
+     * @param input 输入字符串
+     * @param count 截取长度
+     * @return 截取字符串
+     */
+    public  static String left(String input, int count) {
+        if (isEmpty(input)) {
+            return "";
+        }
+        count = (count > input.length()) ? input.length() : count;
+        return input.substring(0, count);
+    }
+
+    /**
+     * 截取字符串右侧指定长度的字符串
+     *
+     * @param input 输入字符串
+     * @param count 截取长度
+     * @return 截取字符串
+     * Summary 其他编码的有待测试
+     */
+    public  static String right(String input, int count) {
+        if (isEmpty(input)) {
+            return "";
+        }
+        count = (count > input.length()) ? input.length() : count;
+        return input.substring(input.length() - count, input.length());
+    }
+
+    /**
+     * 返回俩个字符串共同的前缀
+     * @param str1
+     * @param str2
+     * @return
+     */
+    public  static String hasPrefix(String str1,String str2){
+        //@TODO-字符串方法实现
+        return null;
+    }
+
+    /**
+     * 返回俩个字符串共同的后缀
+     * @param str1
+     * @param str2
+     * @return
+     */
+    public  static String hasSuffix(String str1,String str2){
+        //TODO-字符串方法实现
+        return null;
+    }
+
 }

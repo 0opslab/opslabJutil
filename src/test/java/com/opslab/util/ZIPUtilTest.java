@@ -15,6 +15,9 @@ public class ZIPUtilTest  {
         ZIPUtil.deCompress(new File(file), zipFile);
 
 
+        File file1 = new File(SysUtil.CURRENT_USER_DIR + "/src/test/java/com/opslab/helper/FileHelperTest.java");
+        ZIPUtil.deCompress(file1, TestUtil.path + "temp/test1.zip");
+
     }
 
     @Test

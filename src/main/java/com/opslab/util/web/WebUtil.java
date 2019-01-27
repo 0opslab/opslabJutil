@@ -70,7 +70,7 @@ public final class WebUtil {
         String html = content;
         html = html.replaceAll("'", "&apos;");
         html = html.replaceAll("\"", "&quot;");
-        html = html.replaceAll("\t", "&nbsp;&nbsp;");// 替换跳格
+        html = html.replaceAll("\t", "&nbsp;&nbsp;");
         html = html.replaceAll("<", "&lt;");
         html = html.replaceAll(">", "&gt;");
         return html;
@@ -82,7 +82,7 @@ public final class WebUtil {
         String html = content;
         html = html.replaceAll("&apos;", "'");
         html = html.replaceAll("&quot;", "\"");
-        html = html.replaceAll("&nbsp;", " ");// 替换跳格
+        html = html.replaceAll("&nbsp;", " ");
         html = html.replaceAll("&lt;", "<");
         html = html.replaceAll("&gt;", ">");
         return html;

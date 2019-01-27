@@ -4,6 +4,7 @@ import com.opslab.functions.ObjectFilter;
 import com.opslab.functions.ObjectHandler;
 import com.opslab.functions.ObjectProcess;
 import com.opslab.util.SysUtil;
+import com.opslab.util.ZIPUtil;
 import com.opslab.util.algorithmImpl.FileImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -642,5 +643,36 @@ public final class FileHelper {
             e.printStackTrace();
         }
         return null;
+    }
+
+
+    /**
+     * 文件压缩支持文件和文件夹
+     * @throws Exception
+     */
+    public static boolean zipDeCompress(File file,String zipFile)  {
+        try {
+            ZIPUtil.deCompress(file, zipFile);
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    /**
+     * 文件压缩
+     * @param zipFile
+     * @param path
+     * @return
+     */
+    public static boolean zipUnCompress(File zipFile,String path)  {
+        try {
+            ZIPUtil.unCompress(zipFile, path);
+            return true;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }
