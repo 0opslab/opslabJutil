@@ -1,5 +1,7 @@
 package com.opslab.util.encrypt;
 
+import com.opslab.Opslab;
+
 import java.io.UnsupportedEncodingException;
 
 /**
@@ -309,7 +311,7 @@ public class Blowfish {
 
     public byte[] encrypt(final String input) {
         try {
-            final byte[] bytes = input.getBytes("UTF-8");
+            final byte[] bytes = input.getBytes(Opslab.UTF_8);
             return encrypt(bytes, 0, bytes.length);
         } catch (UnsupportedEncodingException e) {
             return null;
@@ -345,7 +347,7 @@ public class Blowfish {
 
     public String decryptString(final byte[] source) {
         try {
-            return new String(decryptBytes(source), "UTF-8");
+            return new String(decryptBytes(source), Opslab.UTF_8);
         } catch (UnsupportedEncodingException e) {
             return null;
         }

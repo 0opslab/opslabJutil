@@ -1,22 +1,15 @@
 package com.opslab.util.encrypt;
 
+import com.opslab.Opslab;
+import sun.misc.BASE64Decoder;
+
+import javax.crypto.*;
+import javax.crypto.spec.SecretKeySpec;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
-import java.util.Calendar;
-
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.KeyGenerator;
-import javax.crypto.NoSuchPaddingException;
-import javax.crypto.SecretKey;
-import javax.crypto.spec.SecretKeySpec;
-
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
 
 /**
  * ASE加密
@@ -51,7 +44,7 @@ public final class ASEUtil {
             // 7.初始化密码器，第一个参数为加密(Encrypt_mode)或者解密解密(Decrypt_mode)操作，第二个参数为使用的KEY
             cipher.init(Cipher.ENCRYPT_MODE, key);
             // 8.获取加密内容的字节数组(这里要设置为utf-8)不然内容中如果有中文和英文混合中文就会解密为乱码
-            byte[] byte_encode = content.getBytes("utf-8");
+            byte[] byte_encode = content.getBytes(Opslab.UTF_8);
             // 9.根据密码器的初始化方式--加密：将数据加密
             byte[] byte_AES = cipher.doFinal(byte_encode);
             // 10.将加密后的数据转换为字符串
@@ -59,9 +52,9 @@ public final class ASEUtil {
             // 解决办法：
             // 在项目的Build path中先移除JRE System Library，再添加库JRE System
             // Library，重新编译后就一切正常了。
-            String AES_encode = new String(new BASE64Encoder().encode(byte_AES));
-            // 11.将字符串返回
-            return AES_encode;
+            //11.将字符串返回
+            return new String(Base64Ext.encode(byte_AES, Base64Ext.NO_WRAP));
+
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         } catch (NoSuchPaddingException e) {
@@ -111,8 +104,7 @@ public final class ASEUtil {
              * 解密
 			 */
             byte[] byte_decode = cipher.doFinal(byte_content);
-            String AES_decode = new String(byte_decode, "utf-8");
-            return AES_decode;
+            return new String(byte_decode, Opslab.UTF_8);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         } catch (NoSuchPaddingException e) {

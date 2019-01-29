@@ -1,5 +1,6 @@
 package com.opslab.util.web;
 
+import com.opslab.Opslab;
 import com.opslab.util.CharUtil;
 import com.opslab.util.CharsetUtil;
 import com.opslab.util.StringUtil;
@@ -111,7 +112,7 @@ public final class UrlUtil {
     }
 
     public static String encodeScheme(String scheme) {
-        return encodeUriComponent(scheme, CharsetUtil.UTF_8, URIPart.SCHEME);
+        return encodeUriComponent(scheme, Opslab.UTF_8, URIPart.SCHEME);
     }
 
     /**
@@ -134,7 +135,7 @@ public final class UrlUtil {
 */
 
     public static String encodeUserInfo(String userInfo) {
-        return encodeUriComponent(userInfo, CharsetUtil.UTF_8, URIPart.USER_INFO);
+        return encodeUriComponent(userInfo,Opslab.UTF_8, URIPart.USER_INFO);
     }
 
     /**
@@ -145,7 +146,7 @@ public final class UrlUtil {
     }
 
     public static String encodeHost(String host) {
-        return encodeUriComponent(host, CharsetUtil.UTF_8, URIPart.HOST);
+        return encodeUriComponent(host,Opslab.UTF_8, URIPart.HOST);
     }
 
     /**
@@ -156,7 +157,7 @@ public final class UrlUtil {
     }
 
     public static String encodePort(String port) {
-        return encodeUriComponent(port, CharsetUtil.UTF_8, URIPart.PORT);
+        return encodeUriComponent(port,Opslab.UTF_8, URIPart.PORT);
     }
 
     /**
@@ -167,7 +168,7 @@ public final class UrlUtil {
     }
 
     public static String encodePath(String path) {
-        return encodeUriComponent(path, CharsetUtil.UTF_8, URIPart.PATH);
+        return encodeUriComponent(path,Opslab.UTF_8, URIPart.PATH);
     }
 
     /**
@@ -178,7 +179,7 @@ public final class UrlUtil {
     }
 
     public static String encodePathSegment(String segment) {
-        return encodeUriComponent(segment, CharsetUtil.UTF_8, URIPart.PATH_SEGMENT);
+        return encodeUriComponent(segment,Opslab.UTF_8, URIPart.PATH_SEGMENT);
     }
 
     /**
@@ -189,7 +190,7 @@ public final class UrlUtil {
     }
 
     public static String encodeQuery(String query) {
-        return encodeUriComponent(query, CharsetUtil.UTF_8, URIPart.QUERY);
+        return encodeUriComponent(query,Opslab.UTF_8, URIPart.QUERY);
     }
 
     /**
@@ -200,7 +201,7 @@ public final class UrlUtil {
     }
 
     public static String encodeQueryParam(String queryParam) {
-        return encodeUriComponent(queryParam, CharsetUtil.UTF_8, URIPart.QUERY_PARAM);
+        return encodeUriComponent(queryParam,Opslab.UTF_8, URIPart.QUERY_PARAM);
     }
 
     /**
@@ -211,14 +212,14 @@ public final class UrlUtil {
     }
 
     public static String encodeFragment(String fragment) {
-        return encodeUriComponent(fragment, CharsetUtil.UTF_8, URIPart.FRAGMENT);
+        return encodeUriComponent(fragment,Opslab.UTF_8, URIPart.FRAGMENT);
     }
 
     /**
      * @see #encode(String, String)
      */
     public static String encode(String uri) {
-        return encode(uri, CharsetUtil.UTF_8);
+        return encode(uri,Opslab.UTF_8);
     }
 
     /**
@@ -249,7 +250,7 @@ public final class UrlUtil {
      * @see #encodeHttpUrl(String, String)
      */
     public static String encodeHttpUrl(String httpUrl) {
-        return encodeHttpUrl(httpUrl, CharsetUtil.UTF_8);
+        return encodeHttpUrl(httpUrl,Opslab.UTF_8);
     }
 
     /**
@@ -337,14 +338,14 @@ public final class UrlUtil {
      * should be set previously or after the URL is built.
      */
     public static Builder build(String path, boolean encodePath) {
-        return new Builder(path, encodePath, CharsetUtil.UTF_8);
+        return new Builder(path, encodePath,Opslab.UTF_8);
     }
 
     /**
      * Decodes URL elements.
      */
     public static String decode(String url) {
-        return decode(url, CharsetUtil.UTF_8, false);
+        return decode(url,Opslab.UTF_8, false);
     }
 
     /**
@@ -362,7 +363,7 @@ public final class UrlUtil {
      * Decodes query name or value.
      */
     public static String decodeQuery(String source) {
-        return decode(source, CharsetUtil.UTF_8, true);
+        return decode(source,Opslab.UTF_8, true);
     }
 
     /**

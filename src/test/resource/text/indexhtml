@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="utf-8">
+    <meta charset=Opslab.UTF_8>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title></title>
     <link rel="stylesheet" type="text/css" href="./scripts/bootstrap/css/bootstrap.min.css">
@@ -26,8 +26,8 @@
 
     <script type="text/javascript" src="scripts/jqueryui/jquery-ui.min.js"></script>
 
-    <script type="text/javascript" src="./index.js" charset="utf-8"></script>
-    <script type="text/javascript" src="./index-data.js" charset="utf-8"></script>
+    <script type="text/javascript" src="./index.js" charset=Opslab.UTF_8></script>
+    <script type="text/javascript" src="./index-data.js" charset=Opslab.UTF_8></script>
 </head>
 <body>
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">

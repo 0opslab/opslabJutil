@@ -1,5 +1,7 @@
 package com.opslab.util.encrypt;
 
+import com.opslab.Opslab;
+
 import javax.crypto.Cipher;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESedeKeySpec;
@@ -12,8 +14,7 @@ public class DESUtil {
 
     // 向量
     private final static String iv = "01234567";
-    // 加解密统一使用的编码方式
-    private final static String encoding = "utf-8";
+
 
     /**
      * 3DES加密
@@ -31,7 +32,7 @@ public class DESUtil {
         Cipher cipher = Cipher.getInstance("desede/CBC/PKCS5Padding");
         IvParameterSpec ips = new IvParameterSpec(iv.getBytes());
         cipher.init(Cipher.ENCRYPT_MODE, deskey, ips);
-        byte[] encryptData = cipher.doFinal(plainText.getBytes(encoding));
+        byte[] encryptData = cipher.doFinal(plainText.getBytes(Opslab.UTF_8));
         return Base64.encodeToString(encryptData);
     }
 
@@ -51,7 +52,7 @@ public class DESUtil {
         IvParameterSpec ips = new IvParameterSpec(iv.getBytes());
         cipher.init(Cipher.DECRYPT_MODE, deskey, ips);
         byte[] decryptData = cipher.doFinal(Base64.decode(encryptText));
-        return new String(decryptData, encoding);
+        return new String(decryptData, Opslab.UTF_8);
     }
 
 

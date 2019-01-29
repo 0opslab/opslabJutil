@@ -1,5 +1,6 @@
 package com.opslab.helper;
 
+import com.opslab.Opslab;
 import com.opslab.functions.ObjectFilter;
 import com.opslab.functions.ObjectHandler;
 import com.opslab.functions.ObjectProcess;
@@ -26,7 +27,7 @@ public class FileHelperTest {
      */
     @Test
     public void handlerWithLine(){
-        FileHelper.handlerWithLine(new File(file), "UTF-8", new ObjectHandler<String>() {
+        FileHelper.handlerWithLine(new File(file), Opslab.UTF_8, new ObjectHandler<String>() {
             @Override
             public void handler(String s) {
                 System.out.println(s);
@@ -40,7 +41,7 @@ public class FileHelperTest {
     @Test
     public void processWithLine(){
         List<String> lines = new ArrayList<String>();
-        FileHelper.processWithLine(new File(file), "UTF-8", lines, new ObjectProcess<String,String>() {
+        FileHelper.processWithLine(new File(file), Opslab.UTF_8, lines, new ObjectProcess<String,String>() {
             @Override
             public String process(String o) {
                 if(o != null && o.length() > 15){

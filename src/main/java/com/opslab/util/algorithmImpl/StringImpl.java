@@ -1,5 +1,6 @@
 package com.opslab.util.algorithmImpl;
 
+import com.opslab.Opslab;
 import com.opslab.util.CharsetUtil;
 import com.opslab.util.SysUtil;
 
@@ -142,17 +143,16 @@ public class StringImpl {
     public static String simpleEncoding(String str) {
         try{
             byte[] bs = str.getBytes(SysUtil.JVM_ENCODING);
-            if(str.equals(new String(bs,CharsetUtil.UTF_8))){
-                return CharsetUtil.UTF_8;
+            if(str.equals(new String(bs, Opslab.UTF_8))){
+                return Opslab.UTF_8;
             }
-            if(str.equals(new String(bs,CharsetUtil.GBK))){
-                return CharsetUtil.GBK;
+            if(str.equals(new String(bs,Opslab.GBK))){
+                return Opslab.GBK;
             }
-            if(str.equals(new String(bs,"ISO-8859-1"))){
-                return "ISO-8859-1";
+            if(str.equals(new String(bs,Opslab.ISO_8859_1))){
+                return Opslab.ISO_8859_1;
             }
         }catch(UnsupportedEncodingException e) {
-            System.out.println("111111111");
             e.printStackTrace();
         }
         String encode = "GB2312";
@@ -173,7 +173,7 @@ public class StringImpl {
         } catch (UnsupportedEncodingException exception1) {
             exception1.printStackTrace();
         }
-        encode = "UTF-8";
+        encode = Opslab.UTF_8;
         try {
             if (str.equals(new String(str.getBytes(encode), encode))) {
                 return encode;

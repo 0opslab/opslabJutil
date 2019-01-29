@@ -1,5 +1,7 @@
 package com.opslab.util.encrypt;
 
+import com.opslab.Opslab;
+
 import javax.crypto.Cipher;
 import java.io.ByteArrayOutputStream;
 import java.security.*;
@@ -9,10 +11,6 @@ import java.security.spec.PKCS8EncodedKeySpec;
 import java.security.spec.X509EncodedKeySpec;
 import java.util.HashMap;
 import java.util.Map;
-import javax.crypto.KeyGenerator;
-import javax.crypto.Mac;
-import javax.crypto.SecretKey;
-import javax.crypto.spec.SecretKeySpec;
 
 
 /**
@@ -49,23 +47,6 @@ public final class RsaUtil {
      */
     private static final int MAX_DECRYPT_BLOCK = 128;
 
-    private static final String KEY_SHA = "SHA";
-
-    /**
-     * MAC算法可选以下多种算法
-     *
-     * <pre>
-     * HmacMD5
-     * HmacSHA1
-     * HmacSHA256
-     * HmacSHA384
-     * HmacSHA512
-     * </pre>
-     */
-    public static final String KEY_MAC = "HmacMD5";
-
-
-    public static final String ENCODING = "UTF-8";
 
     /**
      * BASE64解密
@@ -88,8 +69,6 @@ public final class RsaUtil {
     public static String encryptBASE64(byte[] key) throws Exception {
         return new String(Base64Ext.encode(key, Base64Ext.NO_WRAP));
     }
-
-
 
 
 
@@ -378,7 +357,7 @@ public final class RsaUtil {
      */
     public static String decryptDataWithPubKey(String data, String PUBLICKEY) throws Exception {
         byte[] rs = decryptBASE64(data);
-        return  new String(decryptByPublicKey(rs, PUBLICKEY), ENCODING);
+        return  new String(decryptByPublicKey(rs, PUBLICKEY), Opslab.UTF_8);
     }
 
 
@@ -399,7 +378,7 @@ public final class RsaUtil {
      */
     public static String decryptDataWithPriKey(String data, String PRIVATEKEY) throws Exception {
         byte[] rs = decryptBASE64(data);
-        return  new String(decryptByPrivateKey(rs, PRIVATEKEY), ENCODING);
+        return  new String(decryptByPrivateKey(rs, PRIVATEKEY), Opslab.UTF_8);
     }
 
 

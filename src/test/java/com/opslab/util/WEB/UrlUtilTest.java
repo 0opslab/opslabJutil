@@ -1,5 +1,6 @@
 package com.opslab.util.web;
 
+import com.opslab.Opslab;
 import com.opslab.util.CharsetUtil;
 import junit.framework.TestCase;
 import org.junit.Test;
@@ -67,15 +68,15 @@ public class UrlUtilTest extends TestCase {
     @Test
     public void testQuerySimple() throws UnsupportedEncodingException {
         assertEquals("%E4%B8%AD%E5%9B%BD", UrlUtil.encodeQueryParam("中国"));    // utf8
-        assertEquals("%D6%D0%B9%FA", UrlUtil.encodeQueryParam("中国", CharsetUtil.GBK));
+        assertEquals("%D6%D0%B9%FA", UrlUtil.encodeQueryParam("中国", Opslab.GBK));
         assertEquals("https://www.google.com/search?q=Java%20Util",
                 UrlUtil.encodeHttpUrl("https://www.google.com/search?q=Java Util"));
 
         assertEquals("中国", UrlUtil.decode("%E4%B8%AD%E5%9B%BD"));
         assertEquals("中国", UrlUtil.decodeQuery("%E4%B8%AD%E5%9B%BD"));
         assertEquals("中国", UrlUtil.decode("%e4%b8%ad%e5%9b%bd"));
-        assertEquals("中国", UrlUtil.decode("%D6%D0%B9%FA", CharsetUtil.GBK));
-        assertEquals("中国", UrlUtil.decodeQuery("%D6%D0%B9%FA", CharsetUtil.GBK));
+        assertEquals("中国", UrlUtil.decode("%D6%D0%B9%FA", Opslab.GBK));
+        assertEquals("中国", UrlUtil.decodeQuery("%D6%D0%B9%FA", Opslab.GBK));
     }
 
     @Test
@@ -138,7 +139,7 @@ public class UrlUtilTest extends TestCase {
                 "&mainSheet.dealContent=1\n" +
                 "&textfield23=4004\n" +
                 "&textfield23=%CD%B6%CB%DF%B4%A6%C0%ED%D6%D0%D0%C4%D7%E9";
-        System.out.println(UrlUtil.decodeQuery(http_request,CharsetUtil.GBK));
+        System.out.println(UrlUtil.decodeQuery(http_request,Opslab.GBK));
     }
 
     @Test

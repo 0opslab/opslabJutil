@@ -6,10 +6,12 @@ import org.junit.Test;
 public class Base64Test extends TestCase {
     String text = "There can be miracles \n when you believe";
 
-    String base64 = "VGhlcmUlMjBjYW4lMjBiZSUyMG1pcmFjbGVzJTIwJTBBJTIwd2hlbiUyMHlvdSUyMGJlbGlldmU=";
+    String base64 = "VGhlcmUgY2FuIGJlIG1pcmFjbGVzIAogd2hlbiB5b3UgYmVsaWV2ZQ==";
 
     @Test
     public void testBase64() {
+//        System.out.println(Base64.encodeToString(text));
+//        System.out.println(Base64.decodeToString(Base64.encodeToString(text)));
         assertEquals(base64, Base64.encodeToString(text));
         assertEquals("VA==", Base64.encodeToString("T"));
         assertEquals("T", Base64.decodeToString("VA=="));

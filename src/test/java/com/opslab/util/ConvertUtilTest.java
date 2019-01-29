@@ -1,5 +1,6 @@
 package com.opslab.util;
 
+import com.opslab.Opslab;
 import com.opslab.util.CharsetUtil;
 import com.opslab.util.ConvertUtil;
 import org.junit.Test;
@@ -13,26 +14,26 @@ public class ConvertUtilTest {
     @Test
     public void testencodeBytes() throws UnsupportedEncodingException {
         String str = "中文";
-        System.out.println(new String(ConvertUtil.encodeBytes(str.getBytes(CharsetUtil.GBK), ' ')));
-        System.out.println(new String(ConvertUtil.encodeBytes(str.getBytes(CharsetUtil.UTF_8), ' ')));
+        System.out.println(new String(ConvertUtil.encodeBytes(str.getBytes(Opslab.GBK), ' ')));
+        System.out.println(new String(ConvertUtil.encodeBytes(str.getBytes(Opslab.UTF_8), ' ')));
     }
 
     @Test
     public void testBytesToHexString() throws UnsupportedEncodingException {
         String str = "中文";
-        byte[] uft8_bytes = str.getBytes(CharsetUtil.UTF_8);
+        byte[] uft8_bytes = str.getBytes(Opslab.UTF_8);
         String utf8_hexStr = ConvertUtil.bytesToHexString(uft8_bytes);
         System.out.println("UTF-8 BYTE:"+ Arrays.toString(uft8_bytes));
         System.out.println("UTF-8 HEX: " + utf8_hexStr);
-        byte[] gbk_bytes = str.getBytes(CharsetUtil.GBK);
-        String gbk_hexStr = ConvertUtil.bytesToHexString(str.getBytes(CharsetUtil.GBK));
+        byte[] gbk_bytes = str.getBytes(Opslab.GBK);
+        String gbk_hexStr = ConvertUtil.bytesToHexString(str.getBytes(Opslab.GBK));
         System.out.println("GBK BYTE:" + Arrays.toString(gbk_bytes));
         System.out.println("GBK HEX: " + gbk_hexStr);
 
         //用UTF-8数字新建字符串
         System.out.println(new String(uft8_bytes));
         //用户GBK数字新建字符串
-        System.out.println(new String(gbk_bytes, CharsetUtil.GBK));
+        System.out.println(new String(gbk_bytes, Opslab.GBK));
 
 
     }

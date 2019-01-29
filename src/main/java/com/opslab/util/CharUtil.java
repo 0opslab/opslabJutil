@@ -1,5 +1,7 @@
 package com.opslab.util;
 
+import com.opslab.Opslab;
+
 import java.io.UnsupportedEncodingException;
 
 /**
@@ -128,7 +130,7 @@ public final class CharUtil {
      * Converts char array to byte array using default Jodd encoding.
      */
     public final static byte[] toByteArray(char[] carr) throws UnsupportedEncodingException {
-        return new String(carr).getBytes(CharsetUtil.UTF_8);
+        return new String(carr).getBytes(Opslab.UTF_8);
     }
 
     /**
@@ -142,7 +144,7 @@ public final class CharUtil {
      * Converts byte array of default Jodd encoding to char array.
      */
     public final static char[] toCharArray(byte[] barr) throws UnsupportedEncodingException {
-        return new String(barr, CharsetUtil.UTF_8).toCharArray();
+        return new String(barr, Opslab.UTF_8).toCharArray();
     }
 
     // ---------------------------------------------------------------- find

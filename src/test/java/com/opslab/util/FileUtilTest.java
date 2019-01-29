@@ -1,5 +1,6 @@
 package com.opslab.util;
 
+import com.opslab.Opslab;
 import org.junit.Test;
 
 import java.io.File;
@@ -73,10 +74,10 @@ public class FileUtilTest {
         String utf8file = path + "/text/UTF8.txt";
         List<String> utf8lines = FileUtil.lines(new File(utf8file));
         System.out.println(utf8lines);
-        utf8lines = FileUtil.lines(new File(utf8file), "UTF-8");
+        utf8lines = FileUtil.lines(new File(utf8file), Opslab.UTF_8);
         System.out.println(utf8lines);
         System.out.println("读取文件的前3行");
-        lines = FileUtil.lines(new File(utf8file), 3, "UTF-8");
+        lines = FileUtil.lines(new File(utf8file), 3, Opslab.UTF_8);
         System.out.println(lines);
 
     }
@@ -110,8 +111,8 @@ public class FileUtilTest {
         File utf8file = new File(path + "/text/UTF8Write.txt");
         FileUtil.appendLine(efile, line1);
         FileUtil.appendLine(efile, line2);
-        FileUtil.appendLine(efile, line1, "UTF-8");
-        FileUtil.appendLine(efile, line2, "UTF-8");
+        FileUtil.appendLine(efile, line1, Opslab.UTF_8);
+        FileUtil.appendLine(efile, line2, Opslab.UTF_8);
 
         FileUtil.appendLine(gbkfile, line1);
         FileUtil.appendLine(gbkfile, line2);
@@ -120,8 +121,8 @@ public class FileUtilTest {
 
         FileUtil.appendLine(utf8file, line1);
         FileUtil.appendLine(utf8file, line2);
-        FileUtil.appendLine(utf8file, line1, "UTF-8");
-        FileUtil.appendLine(utf8file, line2, "UTF-8");
+        FileUtil.appendLine(utf8file, line1, Opslab.UTF_8);
+        FileUtil.appendLine(utf8file, line2, Opslab.UTF_8);
 
     }
 
@@ -279,11 +280,11 @@ public class FileUtilTest {
         FileUtil.write(new File(path + "cfile2.TXT"), ctemp);
         FileUtil.writeAppend(new File(path + "cfile2.TXT"), ctemp);
 
-        FileUtil.write(new File(path + "efile1_UTF8.TXT"), etemp, CharsetUtil.UTF_8);
-        FileUtil.write(new File(path + "efile2_UTF8.TXT"), etemp, CharsetUtil.UTF_8);
-        FileUtil.writeAppend(new File(path + "efile2_UTF8.TXT"), etemp, CharsetUtil.UTF_8);
-        FileUtil.write(new File(path + "cfile1_UTF8.TXT"), ctemp, CharsetUtil.UTF_8);
-        FileUtil.write(new File(path + "cfile2_UTF8.TXT"), ctemp, CharsetUtil.UTF_8);
-        FileUtil.writeAppend(new File(path + "cfile2_UTF8.TXT"), ctemp, CharsetUtil.UTF_8);
+        FileUtil.write(new File(path + "efile1_UTF8.TXT"), etemp,Opslab.UTF_8);
+        FileUtil.write(new File(path + "efile2_UTF8.TXT"), etemp,Opslab.UTF_8);
+        FileUtil.writeAppend(new File(path + "efile2_UTF8.TXT"), etemp,Opslab.UTF_8);
+        FileUtil.write(new File(path + "cfile1_UTF8.TXT"), ctemp,Opslab.UTF_8);
+        FileUtil.write(new File(path + "cfile2_UTF8.TXT"), ctemp,Opslab.UTF_8);
+        FileUtil.writeAppend(new File(path + "cfile2_UTF8.TXT"), ctemp,Opslab.UTF_8);
     }
 }

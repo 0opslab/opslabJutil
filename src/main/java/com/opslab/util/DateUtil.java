@@ -1,6 +1,8 @@
 package com.opslab.util;
 
 
+import com.opslab.Opslab;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -14,14 +16,6 @@ import java.util.regex.Pattern;
  */
 public final class DateUtil {
 
-    //日期时间类型格式
-    private static final String DATETIME_FORMAT = OpslabConfig.DATETIME_FORMAT;
-
-    //日期类型格式
-    private static final String DATE_FORMAT = OpslabConfig.DATE_FORMAT;
-
-    //时间类型的格式
-    private static final String TIME_FORMAT = OpslabConfig.TIME_FORMAT;
 
     //注意SimpleDateFormat不是线程安全的
     private static ThreadLocal<SimpleDateFormat> ThreadDateTime = new ThreadLocal<SimpleDateFormat>();
@@ -31,7 +25,7 @@ public final class DateUtil {
     private static SimpleDateFormat DateTimeInstance() {
         SimpleDateFormat df = ThreadDateTime.get();
         if (df == null) {
-            df = new SimpleDateFormat(DATETIME_FORMAT);
+            df = new SimpleDateFormat(Opslab.DATETIME_FORMAT);
             ThreadDateTime.set(df);
         }
         return df;
@@ -40,7 +34,7 @@ public final class DateUtil {
     private static SimpleDateFormat DateInstance() {
         SimpleDateFormat df = ThreadDate.get();
         if (df == null) {
-            df = new SimpleDateFormat(DATE_FORMAT);
+            df = new SimpleDateFormat(Opslab.DATE_FORMAT);
             ThreadDate.set(df);
         }
         return df;
@@ -49,7 +43,7 @@ public final class DateUtil {
     private static SimpleDateFormat TimeInstance() {
         SimpleDateFormat df = ThreadTime.get();
         if (df == null) {
-            df = new SimpleDateFormat(TIME_FORMAT);
+            df = new SimpleDateFormat(Opslab.TIME_FORMAT);
             ThreadTime.set(df);
         }
         return df;

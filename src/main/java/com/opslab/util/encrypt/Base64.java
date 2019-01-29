@@ -1,5 +1,6 @@
 package com.opslab.util.encrypt;
 
+import com.opslab.Opslab;
 import com.opslab.util.CharsetUtil;
 
 import java.io.UnsupportedEncodingException;
@@ -65,7 +66,7 @@ public final class Base64 {
 
     public final static byte[] encodeToByte(String s) {
         try {
-            return encodeToByte(s.getBytes(CharsetUtil.UTF_8), false);
+            return encodeToByte(s.getBytes(Opslab.UTF_8), false);
         } catch (UnsupportedEncodingException ignore) {
             return new byte[]{};
         }
@@ -73,7 +74,7 @@ public final class Base64 {
 
     public final static byte[] encodeToByte(String s, boolean lineSep) {
         try {
-            return encodeToByte(s.getBytes(CharsetUtil.UTF_8), lineSep);
+            return encodeToByte(s.getBytes(Opslab.UTF_8), lineSep);
         } catch (UnsupportedEncodingException ignore) {
             return new byte[]{};
         }
@@ -128,7 +129,7 @@ public final class Base64 {
 
     public final static String decodeToString(byte[] arr) {
         try {
-            return new String(decode(arr), CharsetUtil.UTF_8);
+            return new String(decode(arr),Opslab.UTF_8);
         } catch (UnsupportedEncodingException ignore) {
             return null;
         }
@@ -179,7 +180,7 @@ public final class Base64 {
 
     public final static String encodeToString(String s) {
         try {
-            return new String(encodeToChar(s.getBytes(CharsetUtil.UTF_8), false));
+            return new String(encodeToChar(s.getBytes(Opslab.UTF_8), false));
         } catch (UnsupportedEncodingException ignore) {
             return null;
         }
@@ -187,7 +188,7 @@ public final class Base64 {
 
     public final static String encodeToString(String s, boolean lineSep) {
         try {
-            return new String(encodeToChar(s.getBytes(CharsetUtil.UTF_8), lineSep));
+            return new String(encodeToChar(s.getBytes(Opslab.UTF_8), lineSep));
         } catch (UnsupportedEncodingException ignore) {
             return null;
         }
@@ -206,7 +207,7 @@ public final class Base64 {
 
     public final static String decodeToString(String s) {
         try {
-            return new String(decode(s), CharsetUtil.UTF_8);
+            return new String(decode(s),Opslab.UTF_8);
         } catch (UnsupportedEncodingException ignore) {
             return null;
         }
