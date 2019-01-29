@@ -4,9 +4,9 @@ import junit.framework.TestCase;
 import org.junit.Test;
 
 public class Base64Test extends TestCase {
-    String text = "There can be miracles when you believe";
+    String text = "There can be miracles \n when you believe";
 
-    String base64 = "VGhlcmUgY2FuIGJlIG1pcmFjbGVzIHdoZW4geW91IGJlbGlldmU=";
+    String base64 = "VGhlcmUlMjBjYW4lMjBiZSUyMG1pcmFjbGVzJTIwJTBBJTIwd2hlbiUyMHlvdSUyMGJlbGlldmU=";
 
     @Test
     public void testBase64() {
