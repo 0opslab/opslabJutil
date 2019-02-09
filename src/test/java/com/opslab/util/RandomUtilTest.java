@@ -162,9 +162,9 @@ public class RandomUtilTest {
             int count = map3.get(10)+map3.get(30)+map3.get(50);
             String str = "10/30/50 ="+map3.get(10)+":"+map3.get(30)+":"+map3.get(50)
                     +"("+count+") ->"+
-                    StringHelper.formatNumber(new BigDecimal(map3.get(10)/(float)count),"#.00000")+":"+
-                    StringHelper.formatNumber(new BigDecimal(map3.get(30)/(float)count),"#.00000")+":"+
-                    StringHelper.formatNumber(new BigDecimal(map3.get(50)/(float)count),"#.00000");
+                    StringHelper.formatNumber(new BigDecimal(map3.get(10)/(float)count),"#.000000")+":"+
+                    StringHelper.formatNumber(new BigDecimal(map3.get(30)/(float)count),"#.000000")+":"+
+                    StringHelper.formatNumber(new BigDecimal(map3.get(50)/(float)count),"#.000000");
             System.out.println(str);
         }
     }
