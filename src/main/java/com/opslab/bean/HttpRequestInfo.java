@@ -1,7 +1,10 @@
-package com.opslab.web.entity;
+package com.opslab.bean;
 
 import java.util.Map;
 
+/**
+ * http请求信息
+ */
 public class HttpRequestInfo {
     //请求标识如userid
     private String bskid;

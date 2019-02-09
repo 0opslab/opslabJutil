@@ -1,7 +1,7 @@
 package com.opslab.util.encrypt;
 
 import com.opslab.Opslab;
-import sun.misc.BASE64Decoder;
+
 
 import javax.crypto.*;
 import javax.crypto.spec.SecretKeySpec;
@@ -99,7 +99,7 @@ public final class ASEUtil {
             // 7.初始化密码器，第一个参数为加密(Encrypt_mode)或者解密(Decrypt_mode)操作，第二个参数为使用的KEY
             cipher.init(Cipher.DECRYPT_MODE, key);
             // 8.将加密并编码后的内容解码成字节数组
-            byte[] byte_content = new BASE64Decoder().decodeBuffer(content);
+            byte[] byte_content = Base64Ext.decode(content.getBytes(), Base64Ext.NO_WRAP);
             /*
              * 解密
 			 */

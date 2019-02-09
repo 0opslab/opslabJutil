@@ -1,5 +1,6 @@
 package com.opslab.util.encrypt;
 
+import com.opslab.util.RandomUtil;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -14,9 +15,10 @@ public class ASEUtilTest {
                 "系统找不到指定的路径hello word,.。.。，、;：？!ˉˇ¨`~ 々～"};
         String key = "E7B3BBE7BB9FE689BEE4B88DE588B0E68C87E";
         for(String str:arr){
-            String str_en1 =  ASEUtil.encrypt(key,str);
+            String random = RandomUtil.uuid();
+            String str_en1 =  ASEUtil.encrypt(key,str+random);
             String decode = ASEUtil.decode(key, str_en1);
-            assertEquals(decode,str);
+            assertEquals(decode,str+random);
         }
     }
 

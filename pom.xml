@@ -21,17 +21,9 @@
 
     <developers>
         <developer>
-            <name>devopslab</name>
-            <email>438558488@qq.com</email>
-            <url>http://0opslab.com/</url>
+            <name>0opslab</name>
         </developer>
     </developers>
-
-    <scm>
-        <connection>scm:git:https://github.com/0opslab/utils</connection>
-        <developerConnection>scm:git:https://github.com/0opslab/utils</developerConnection>
-        <url>https://github.com/0opslab/utils</url>
-    </scm>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -67,12 +59,6 @@
         </dependency>
         <!--hamcrest-core-->
 
-        <!--java-mail-->
-        <dependency>
-            <groupId>com.sun.mail</groupId>
-            <artifactId>javax.mail</artifactId>
-            <version>1.5.5</version>
-        </dependency>
         <dependency>
             <groupId>antlr</groupId>
             <artifactId>antlr</artifactId>
@@ -91,7 +77,6 @@
             <version>3.1.0</version>
         </dependency>
 
-
         <!--servlet-->
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -102,80 +87,6 @@
     </dependencies>
 
 
-    <!--
-        <profiles>
-            <profile>
-                <id>release</id>
-                <build>
-                    <plugins>
-                        <plugin>
-                            <groupId>org.sonatype.plugins</groupId>
-                            <artifactId>nexus-staging-maven-plugin</artifactId>
-                            <version>1.6.3</version>
-                            <extensions>true</extensions>
-                            <configuration>
-                                <serverId>oss</serverId>
-                                <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                                <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                            </configuration>
-                        </plugin>
-
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-source-plugin</artifactId>
-                        <version>2.2.1</version>
-                        <executions>
-                            <execution>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>jar-no-fork</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>2.9.1</version>
-                        <executions>
-                            <execution>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>jar</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>1.5</version>
-                        <executions>
-                            <execution>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-            <distributionManagement>
-                <snapshotRepository>
-                    <id>oss</id>
-                    <url>http://oss.sonatype.org/content/repositories/snapshots</url>
-                </snapshotRepository>
-                <repository>
-                    <id>oss</id>
-                    <url>http://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-                </repository>
-            </distributionManagement>
-        </profile>
-    </profiles>
-    -->
     <build>
         <plugins>
             <plugin>

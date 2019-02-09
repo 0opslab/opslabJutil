@@ -31,7 +31,7 @@ public final class RandomUtil {
      * @return
      */
     public static String number(int length) {
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         Random random = new Random();
         for (int i = 0; i < length; i++) {
             sb.append(NUMBERCHAR.charAt(random.nextInt(NUMBERCHAR.length())));
@@ -46,7 +46,7 @@ public final class RandomUtil {
      * @return 随机字符串
      */
     public static String String(int length) {
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         Random random = new Random();
         for (int i = 0; i < length; i++) {
             sb.append(ALLCHAR.charAt(random.nextInt(ALLCHAR.length())));
@@ -61,7 +61,7 @@ public final class RandomUtil {
      * @return 随机字符串
      */
     public static String MixString(int length) {
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         Random random = new Random();
         for (int i = 0; i < length; i++) {
             sb.append(ALLCHAR.charAt(random.nextInt(LETTERCHAR.length())));
@@ -96,7 +96,7 @@ public final class RandomUtil {
      * @return 纯0字符串
      */
     public static String ZeroString(int length) {
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         for (int i = 0; i < length; i++) {
             sb.append('0');
         }
@@ -111,7 +111,7 @@ public final class RandomUtil {
      * @return 定长的字符串
      */
     public static String toFixdLengthString(long num, int fixdlenth) {
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         String strNum = String.valueOf(num);
         if (fixdlenth - strNum.length() >= 0) {
             sb.append(ZeroString(fixdlenth - strNum.length()));
@@ -131,7 +131,7 @@ public final class RandomUtil {
      * @return 定长的字符串
      */
     public static String toFixdLengthString(int num, int fixdlenth) {
-        StringBuffer sb = new StringBuffer();
+        StringBuilder sb = new StringBuilder();
         String strNum = String.valueOf(num);
         if (fixdlenth - strNum.length() >= 0) {
             sb.append(ZeroString(fixdlenth - strNum.length()));
@@ -172,63 +172,7 @@ public final class RandomUtil {
         return param[index];
     }
 
-    /**
-     * 实现一个简单的字符串乘法
-     * @param str
-     * @param multiplication
-     * @return
-     */
-    private static String strMultiplication(String str,int multiplication){
-        StringBuffer buffer = new StringBuffer();
-        for (int i = 0; i < multiplication; i++) {
-            buffer.append(str);
-        }
-        return buffer.toString();
-    }
-    /**
-     * 从指定的数组中按照指定比例返回指定的随机元素
-     * @param param
-     * @param percentum
-     * @param <T>
-     * @return
-     */
-    public static <T> T randomItem(T[] param,double[] percentum){
-        int length = percentum.length;
-        Integer[] ints = ArrayUtil.doubleBitCount(percentum);
-        int max = Collections.max(Arrays.asList(ints));
-        int[] arr = new int[length];
-        int sum = 0;
-        Map map = new HashMap(length);
-        int multiple = Integer.parseInt("1"+strMultiplication("0",max));
-        for (int i = 0; i < length; i++) {
-            int temp = (int)(percentum[i] * multiple);
-            arr[i] = temp;
-            if(i == 0){
-                map.put(i,new int[]{1,temp});
-            }else{
-                map.put(i,new int[]{sum,sum+temp});
-            }
-            sum += temp;
-        }
-        int indexSum = integer(1,sum);
-        int index =-1;
-        for (int i = 0; i < length; i++) {
-            int[]  scope = (int[]) map.get(i);
-            if(indexSum ==1 ){
-                index = 0;
-                break;
-            }
-            if(indexSum > scope[0] && indexSum <= scope[1]){
-                index =i;
-                break;
-            }
-        }
-        if(index == -1){
-            throw new RuntimeException("随机失败");
-        }else{
-            return param[index];
-        }
-    }
+
     /**
      * 返回一个UUID
      *
@@ -260,14 +204,66 @@ public final class RandomUtil {
      * 中间4位为主机特征码
      * 剩下的保证其唯一性
      *
+     * @param hostFeature 主机特征码建议设置4位
      * @return
      */
-    public static String squid() {
+    public static String squid(String hostFeature) {
         Long date = new Date().getTime();
         String s = UUID.randomUUID().toString();
         String str = Long.toHexString(date);
-        String result = str + OpslabConfig.HOST_FEATURE
+        String result = str + hostFeature
                 + s.substring(17, 18) + s.substring(19, 23) + s.substring(24);
         return result.toUpperCase();
+    }
+
+
+    /**
+     * 从指定的数组中按照指定比例返回指定的随机元素
+     *
+     * @param param
+     * @param percentum
+     * @param <T>
+     * @return
+     */
+    public static <T> T randomItem(T[] param, double[] percentum) {
+        int length = percentum.length;
+        Integer[] ints = ArrayUtil.doubleBitCount(percentum);
+        int max = Collections.max(Arrays.asList(ints));
+        int[] arr = new int[length];
+        int sum = 0;
+        Map map = new HashMap(length);
+        StringBuffer buffer = new StringBuffer();
+        for (int i = 0; i < max; i++) {
+            buffer.append("0");
+        }
+        int multiple = Integer.parseInt("1" + buffer.toString());
+        for (int i = 0; i < length; i++) {
+            int temp = (int) (percentum[i] * multiple);
+            arr[i] = temp;
+            if (i == 0) {
+                map.put(i, new int[]{1, temp});
+            } else {
+                map.put(i, new int[]{sum, sum + temp});
+            }
+            sum += temp;
+        }
+        int indexSum = integer(1, sum);
+        int index = -1;
+        for (int i = 0; i < length; i++) {
+            int[] scope = (int[]) map.get(i);
+            if (indexSum == 1) {
+                index = 0;
+                break;
+            }
+            if (indexSum > scope[0] && indexSum <= scope[1]) {
+                index = i;
+                break;
+            }
+        }
+        if (index == -1) {
+            throw new RuntimeException("随机失败");
+        } else {
+            return param[index];
+        }
     }
 }
