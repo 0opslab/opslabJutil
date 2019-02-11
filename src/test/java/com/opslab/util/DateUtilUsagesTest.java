@@ -18,25 +18,25 @@ public class DateUtilUsagesTest {
 
     @Test
     @Ignore
-    public void testList(){
+    public void testList() {
         File file = new File(path + "TimeCount.txt");
         List<String> lines = FileUtil.lines(file);
-        Map<String,Integer> group = new HashMap<String,Integer>();
-        String key ="";
-        for(String line:lines) {
-            line = line.replaceAll("^\\t","").replaceAll("\\t",":");
+        Map<String, Integer> group = new HashMap<String, Integer>();
+        String key = "";
+        for (String line : lines) {
+            line = line.replaceAll("^\\t", "").replaceAll("\\t", ":");
             String[] tt = line.split(":");
 
-            if(tt.length == 2){
+            if (tt.length == 2) {
                 key = tt[0];
-                if(!group.containsKey(key)){
-                    group.put(key,0);
+                if (!group.containsKey(key)) {
+                    group.put(key, 0);
                 }
                 int count = Integer.parseInt(tt[1]) + group.get(key);
-                group.put(key,count);
-            }else{
+                group.put(key, count);
+            } else {
                 int count = Integer.parseInt(tt[0]) + group.get(key);
-                group.put(key,count);
+                group.put(key, count);
             }
         }
         System.out.println(group);
@@ -48,49 +48,49 @@ public class DateUtilUsagesTest {
     public void testListLine() throws ParseException {
         File file = new File(path + "time.txt");
         List<String> lines = FileUtil.lines(file);
-        int count=0;
+        int count = 0;
         int count1 = 0;
-        for(String line :lines){
+        for (String line : lines) {
             String[] tt = line.split("/");
             count += DateUtil.subtimeBurst(tt[0], tt[1], "08:00-19:30");
             count1 += DateUtil.subtract(tt[0], tt[1]);
         }
-        System.out.println("sum1 > "+count/60/60);
-        System.out.println("sum2 > "+count1/60/60);
-        System.out.println("count > "+lines.size());
+        System.out.println("sum1 > " + count / 60 / 60);
+        System.out.println("sum2 > " + count1 / 60 / 60);
+        System.out.println("count > " + lines.size());
 
     }
 
     @Test
     @Ignore
-    public void testGruop()throws ParseException {
+    public void testGruop() throws ParseException {
         File file = new File(path + "times.txt");
         List<String> lines = FileUtil.lines(file);
-        Map<String,String> group = new HashMap<String,String>();
-        for(String line:lines){
-            String[] tt= line.split("/");
-            if(group.get(tt[2]) != null){
-                String value =group.get(tt[2]);
+        Map<String, String> group = new HashMap<String, String>();
+        for (String line : lines) {
+            String[] tt = line.split("/");
+            if (group.get(tt[2]) != null) {
+                String value = group.get(tt[2]);
                 int count = 0;
                 int sum = 0;
-                if(value != null && !"".equals(value)){
+                if (value != null && !"".equals(value)) {
                     String[] ss = value.split(":");
-                    sum = Integer.parseInt(ss[0]) ;
-                    sum +=(int) DateUtil.subtimeBurst(tt[0], tt[1], "08:00-19:30");
-                    count = Integer.parseInt(ss[1])+1;
+                    sum = Integer.parseInt(ss[0]);
+                    sum += (int) DateUtil.subtimeBurst(tt[0], tt[1], "08:00-19:30");
+                    count = Integer.parseInt(ss[1]) + 1;
                 }
-                group.put(tt[2],sum+":"+count);
-            }else{
-                int sum =(int) DateUtil.subtimeBurst(tt[0], tt[1], "08:00-19:30");
-                int count =1;
-                group.put(tt[2],sum+":"+count);
+                group.put(tt[2], sum + ":" + count);
+            } else {
+                int sum = (int) DateUtil.subtimeBurst(tt[0], tt[1], "08:00-19:30");
+                int count = 1;
+                group.put(tt[2], sum + ":" + count);
             }
         }
-        for(Map.Entry<String,String> entry:group.entrySet()){
+        for (Map.Entry<String, String> entry : group.entrySet()) {
             String[] value = entry.getValue().split(":");
-            int sum = Integer.parseInt(value[0])/60/60;
+            int sum = Integer.parseInt(value[0]) / 60 / 60;
             int count = Integer.parseInt(value[1]);
-            System.out.println(entry.getKey()+"=>"+sum+"/"+count);
+            System.out.println(entry.getKey() + "=>" + sum + "/" + count);
         }
     }
 }

@@ -16,6 +16,7 @@ import java.util.List;
 
 /**
  * 图片相关的操作
+ *
  * @author adam.胡升阳
  */
 public final class OperateImage {
@@ -31,6 +32,7 @@ public final class OperateImage {
     public static String IMAGE_TYPE_PNG = "png";
     // Photoshop的专用格式Photoshop
     public static String IMAGE_TYPE_PSD = "psd";
+
     /**
      * 对图片裁剪，并把裁剪新图片保存
      *
@@ -45,11 +47,11 @@ public final class OperateImage {
      * @throws IOException
      */
     public static void cropImage(String srcPath, String toPath,
-                          int x, int y, int width, int height,
-                          String readImageFormat, String writeImageFormat) throws IOException {
-        try(
-            FileInputStream fis =new FileInputStream(srcPath);
-            ImageInputStream iis = ImageIO.createImageInputStream(fis)
+                                 int x, int y, int width, int height,
+                                 String readImageFormat, String writeImageFormat) throws IOException {
+        try (
+                FileInputStream fis = new FileInputStream(srcPath);
+                ImageInputStream iis = ImageIO.createImageInputStream(fis)
         ) {
             Iterator it = ImageIO.getImageReadersByFormatName(readImageFormat);
             ImageReader reader = (ImageReader) it.next();
@@ -63,7 +65,7 @@ public final class OperateImage {
             BufferedImage bi = reader.read(0, param);
             //保存新图片
             ImageIO.write(bi, writeImageFormat, new File(toPath));
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
             throw e;
         }
@@ -80,15 +82,15 @@ public final class OperateImage {
      */
     public static void reduceImageByRatio(String srcImagePath, String toImagePath, int widthRatio, int heightRatio) throws IOException {
         File file = new File(srcImagePath);
-        try(FileOutputStream out = new FileOutputStream(toImagePath)) {
+        try (FileOutputStream out = new FileOutputStream(toImagePath)) {
             //读入文件
 
-            String prefix= FileUtil.suffix(file);
+            String prefix = FileUtil.suffix(file);
             // 构造Image对象
             BufferedImage srcBuffer = ImageIO.read(file);
             // 按比例缩减图像
             BufferedImage imageBuffer = ImageUtil.imageShrinkRatio(srcBuffer, widthRatio, heightRatio);
-            ImageIO.write(imageBuffer,prefix,out);
+            ImageIO.write(imageBuffer, prefix, out);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -104,14 +106,14 @@ public final class OperateImage {
      */
     public static void reduceImageEqualProportion(String srcImagePath, String toImagePath, int ratio) throws IOException {
         File file = new File(srcImagePath);
-        try(FileOutputStream out = new FileOutputStream(toImagePath)) {
+        try (FileOutputStream out = new FileOutputStream(toImagePath)) {
             //读入文件
-            String prefix= FileUtil.suffix(file);
+            String prefix = FileUtil.suffix(file);
             // 构造Image对象
             BufferedImage srcBuffer = ImageIO.read(file);
             // 按比例缩减图像
             BufferedImage imageBuffer = ImageUtil.imageShrinkRatio(srcBuffer, ratio, ratio);
-            ImageIO.write(imageBuffer,prefix,out);
+            ImageIO.write(imageBuffer, prefix, out);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -128,9 +130,9 @@ public final class OperateImage {
      */
     public static void enlargementImageByRatio(String srcImagePath, String toImagePath, int widthRatio, int heightRatio) throws IOException {
         File file = new File(srcImagePath);
-        try(FileOutputStream out = new FileOutputStream(toImagePath)) {
+        try (FileOutputStream out = new FileOutputStream(toImagePath)) {
             //读入文件
-            String prefix= FileUtil.suffix(file);
+            String prefix = FileUtil.suffix(file);
             // 构造Image对象
             BufferedImage srcBuffer = ImageIO.read(file);
             // 按比例缩减图像
@@ -152,9 +154,9 @@ public final class OperateImage {
      */
     public static void enlargementImageEqualProportion(String srcImagePath, String toImagePath, int ratio) throws IOException {
         File file = new File(srcImagePath);
-        try(FileOutputStream out = new FileOutputStream(toImagePath)) {
+        try (FileOutputStream out = new FileOutputStream(toImagePath)) {
             //读入文件
-            String prefix= FileUtil.suffix(file);
+            String prefix = FileUtil.suffix(file);
             // 构造Image对象
             BufferedImage srcBuffer = ImageIO.read(file);
             // 按比例缩减图像
@@ -169,16 +171,16 @@ public final class OperateImage {
      * 重置图形的边长大小
      *
      * @param srcImagePath 原图像
-     * @param toImagePath 新生产的图像
-     * @param width 图像宽度
-     * @param height 图像高度
+     * @param toImagePath  新生产的图像
+     * @param width        图像宽度
+     * @param height       图像高度
      * @throws IOException
      */
     public static void resizeImage(String srcImagePath, String toImagePath, int width, int height) throws IOException {
         File file = new File(srcImagePath);
-        try(FileOutputStream out = new FileOutputStream(toImagePath)) {
+        try (FileOutputStream out = new FileOutputStream(toImagePath)) {
             //读入文件
-            String prefix= FileUtil.suffix(file);
+            String prefix = FileUtil.suffix(file);
             // 构造Image对象
             BufferedImage srcBuffer = ImageIO.read(file);
             // 按比例缩减图像
@@ -401,7 +403,7 @@ public final class OperateImage {
      * @param toPath            图片写入路径
      * @throws IOException
      */
-    public static void mergeBothImage(String negativeImagePath, String additionImagePath,String iamgeFromat, int x, int y, String toPath) throws IOException {
+    public static void mergeBothImage(String negativeImagePath, String additionImagePath, String iamgeFromat, int x, int y, String toPath) throws IOException {
         InputStream is = null;
         InputStream is2 = null;
         OutputStream os = null;
@@ -483,16 +485,6 @@ public final class OperateImage {
     }
 
 
-
-
-
-
-
-
-
-
-
-
     /**
      * 图片灰化操作
      *
@@ -529,8 +521,8 @@ public final class OperateImage {
      * @throws IOException
      */
     public static void alphaWords2Image(String srcImagePath, float alpha,
-                                 String font, int fontStyle, int fontSize, Color color,
-                                 String inputWords, int x, int y, String imageFormat, String toPath) throws IOException {
+                                        String font, int fontStyle, int fontSize, Color color,
+                                        String inputWords, int x, int y, String imageFormat, String toPath) throws IOException {
         FileOutputStream fos = null;
         try {
             BufferedImage image = ImageIO.read(new File(srcImagePath));
@@ -573,8 +565,8 @@ public final class OperateImage {
      * @throws IOException
      */
     public static void alphaImage2Image(String srcImagePath, String appendImagePath,
-                                 float alpha, int x, int y, int width, int height,
-                                 String imageFormat, String toPath) throws IOException {
+                                        float alpha, int x, int y, int width, int height,
+                                        String imageFormat, String toPath) throws IOException {
         FileOutputStream fos = null;
         try {
             BufferedImage image = ImageIO.read(new File(srcImagePath));

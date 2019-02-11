@@ -3,7 +3,7 @@ package com.opslab.util;
 
 import org.junit.Test;
 
-public class CharUtilTest  {
+public class CharUtilTest {
 
     @Test
     public void testToChar() throws Exception {

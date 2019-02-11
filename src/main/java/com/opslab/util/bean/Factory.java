@@ -21,14 +21,14 @@ public class Factory {
      * 存放BeanUtil解析过的JavaBean数据
      * 只获取简单的属性字段
      */
-    public static Map<String,Map<String,BeanStruct>> BEAN_SIMPLE_PROPERTIES = new Hashtable<>();
+    public static Map<String, Map<String, BeanStruct>> BEAN_SIMPLE_PROPERTIES = new Hashtable<>();
 
 
     /**
      * 存放BeanUtil解析过的JavaBean数据
      * 只获取简单的属性字段(忽略字段名字的大小写)
      */
-    public static Map<String,Map<String,BeanStruct>> BEAN_SIMPLE_PROPERTIESIGNORE = new Hashtable<>();
+    public static Map<String, Map<String, BeanStruct>> BEAN_SIMPLE_PROPERTIESIGNORE = new Hashtable<>();
 
 
     static {
@@ -36,7 +36,7 @@ public class Factory {
     }
 
     public static boolean isDeclaredField(String className, String pro) throws ClassNotFoundException {
-        Class   classz = Class.forName(className);
+        Class classz = Class.forName(className);
         Field[] fields = classz.getFields();
         if (CheckUtil.valid(fields)) {
             for (Field f : fields) {
@@ -65,8 +65,8 @@ public class Factory {
             BeanInfo beanInfo = Introspector.getBeanInfo(clazz);
             PropertyDescriptor[] proDescrtptors = beanInfo.getPropertyDescriptors();
             if (proDescrtptors != null && proDescrtptors.length > 0) {
-                Map<String,BeanStruct> simpleProperties = new Hashtable<>();
-                Map<String,BeanStruct> simplePropertiesIgnore = new Hashtable<>();
+                Map<String, BeanStruct> simpleProperties = new Hashtable<>();
+                Map<String, BeanStruct> simplePropertiesIgnore = new Hashtable<>();
                 for (PropertyDescriptor propDesc : proDescrtptors) {
                     String fieldName = propDesc.getName();
                     if (!"class".equals(fieldName)) {

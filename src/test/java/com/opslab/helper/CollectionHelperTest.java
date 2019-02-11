@@ -5,6 +5,7 @@ import com.opslab.functions.ObjectProcess;
 import com.opslab.temp.model.User;
 import com.opslab.util.FileUtil;
 import com.opslab.util.TestUtil;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.File;
@@ -13,18 +14,19 @@ import java.util.*;
 /**
  * 测试集合对象的一些助手工具方法
  */
+@Ignore
 public class CollectionHelperTest {
     String path = TestUtil.path;
 
     @Test
-    public void handler(){
-        String file = path + "EnglishWrite.txt";
+    public void handler() {
+        String file = path + "/text/EnglishWrite.txt";
         List<String> lines = FileUtil.lines(new File(file));
         //如下所示，可以传递一个实现特定方法的类，以实现类似js中callback方法形式的编码风格
         CollectionHelper.handler(lines, new ObjectHandler<String>() {
             @Override
             public void handler(String line) {
-                System.out.println("handler line:"+line);
+                System.out.println("handler line:" + line);
             }
         });
 
@@ -32,17 +34,17 @@ public class CollectionHelperTest {
     }
 
     @Test
-    public void process(){
-        String file = path + "EnglishWrite.txt";
+    public void process() {
+        String file = path + "/text/EnglishWrite.txt";
 
         List<String> lines = FileUtil.lines(new File(file));
 
         //返回当长度大于15的行
         Set<String> result = new HashSet<String>();
-        CollectionHelper.process(lines, result,new ObjectProcess<String, String>() {
+        CollectionHelper.process(lines, result, new ObjectProcess<String, String>() {
             @Override
             public String process(String s) {
-                if(s != null && s.length()> 15){
+                if (s != null && s.length() > 15) {
                     return s;
                 }
                 return null;
@@ -66,9 +68,9 @@ public class CollectionHelperTest {
     @Test
     public void testDeepCopy() {
         List<User> list1 = new ArrayList<>();
-        User       user1 = new User("111", "AAA");
-        User       user2 = new User("222", "BBB");
-        User       user3 = new User("333", "CCC");
+        User user1 = new User("111", "AAA");
+        User user2 = new User("222", "BBB");
+        User user3 = new User("333", "CCC");
         list1.add(user1);
         list1.add(user2);
         list1.add(user3);
@@ -138,7 +140,6 @@ public class CollectionHelperTest {
         System.out.println("list2:" + list2);
 
 
-
     }
 
     @Test
@@ -181,20 +182,20 @@ public class CollectionHelperTest {
     @Test
     public void testMap() throws Exception {
         System.out.println("=================测试Map的集合相关的方法=================");
-        Map<String,String> map = new HashMap();
+        Map<String, String> map = new HashMap();
         map.put("AAA", "AAA1");
         map.put("BBB", "BBB1");
         map.put("CCC", "CCC1");
         map.put("DDD", "DDD1");
 
-        Map<String,String> map1 = new HashMap();
+        Map<String, String> map1 = new HashMap();
         map1.put("BBB", "BBB1");
         map1.put("CCC", "CCC1");
         map1.put("DDD", "DDD1");
         map1.put("EEE", "EEE1");
 
         //交集
-        Map<String,String> map2 = CollectionHelper.intersection(map, map1);
+        Map<String, String> map2 = CollectionHelper.intersection(map, map1);
         System.out.println("原map:" + map);
         System.out.println("原map1:" + map1);
         System.out.println("交集:" + map2);
@@ -203,7 +204,7 @@ public class CollectionHelperTest {
         System.out.println("原map1:" + map1);
 
         //并集
-        Map<String,String> map3 = CollectionHelper.unicon(map, map1);
+        Map<String, String> map3 = CollectionHelper.unicon(map, map1);
         System.out.println("原map:" + map);
         System.out.println("原map1:" + map1);
         System.out.println("并集:" + map3);
@@ -212,7 +213,7 @@ public class CollectionHelperTest {
         System.out.println("原map1:" + map1);
 
         //差集
-        Map<String,String> map4 = CollectionHelper.subtract(map, map1);
+        Map<String, String> map4 = CollectionHelper.subtract(map, map1);
         System.out.println("原map:" + map);
         System.out.println("原map1:" + map1);
         System.out.println("差集:" + map4);
@@ -224,30 +225,30 @@ public class CollectionHelperTest {
     }
 
     @Test
-    public void testJoin(){
+    public void testJoin() {
         List<String> list1 = new ArrayList<>();
         list1.add("AAA");
         list1.add("BBB");
         list1.add("CCC");
         list1.add("AAA");
 
-        System.out.println(CollectionHelper.join(list1,"-"));
+        System.out.println(CollectionHelper.join(list1, "-"));
 
         Set<String> set1 = new HashSet<>();
         set1.add("AAA");
         set1.add("BBB");
         set1.add("CCC");
 
-        System.out.println(CollectionHelper.join(set1,"-"));
+        System.out.println(CollectionHelper.join(set1, "-"));
 
-        Map<String,String> map = new HashMap();
+        Map<String, String> map = new HashMap();
         map.put("AAA", "AAA1");
         map.put("BBB", "BBB1");
         map.put("CCC", "CCC1");
         map.put("DDD", "DDD1");
 
-        System.out.println(CollectionHelper.keyJoin(map,"="));
-        System.out.println(CollectionHelper.valueJoin(map,"="));
+        System.out.println(CollectionHelper.keyJoin(map, "="));
+        System.out.println(CollectionHelper.valueJoin(map, "="));
     }
 
 }

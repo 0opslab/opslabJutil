@@ -6,6 +6,7 @@ package com.opslab.util.encrypt;
 public class Decode {
     /**
      * 比较安全的字符串转换
+     *
      * @param str
      * @return
      */
@@ -26,6 +27,7 @@ public class Decode {
 
     /**
      * 比较安全的字符串转换
+     *
      * @param hexStr
      * @return
      */

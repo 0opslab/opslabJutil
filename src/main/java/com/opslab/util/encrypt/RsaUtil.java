@@ -71,9 +71,6 @@ public final class RsaUtil {
     }
 
 
-
-
-
     /**
      * <p>
      * 生成密钥对(公钥和私钥)
@@ -99,11 +96,8 @@ public final class RsaUtil {
      * 用私钥对信息生成数字签名
      * </p>
      *
-     * @param data
-     *            待加签preSign
-     * @param privateKey
-     *            私钥(BASE64编码)
-     *
+     * @param data       待加签preSign
+     * @param privateKey 私钥(BASE64编码)
      * @return
      * @throws Exception
      */
@@ -123,16 +117,11 @@ public final class RsaUtil {
      * 校验数字签名
      * </p>
      *
-     * @param data
-     *            待加签preSign
-     * @param publicKey
-     *            公钥(BASE64编码)
-     * @param sign
-     *            数字签名
-     *
+     * @param data      待加签preSign
+     * @param publicKey 公钥(BASE64编码)
+     * @param sign      数字签名
      * @return
      * @throws Exception
-     *
      */
     public static boolean verify(byte[] data, String publicKey, String sign) throws Exception {
         byte[] keyBytes = decryptBASE64(publicKey);
@@ -150,10 +139,8 @@ public final class RsaUtil {
      * 私钥解密
      * </p>
      *
-     * @param encryptedData
-     *            已加密数据
-     * @param privateKey
-     *            私钥(BASE64编码)
+     * @param encryptedData 已加密数据
+     * @param privateKey    私钥(BASE64编码)
      * @return
      * @throws Exception
      */
@@ -191,10 +178,8 @@ public final class RsaUtil {
      * 公钥解密
      * </p>
      *
-     * @param encryptedData
-     *            已加密数据
-     * @param publicKey
-     *            公钥(BASE64编码)
+     * @param encryptedData 已加密数据
+     * @param publicKey     公钥(BASE64编码)
      * @return
      * @throws Exception
      */
@@ -232,10 +217,8 @@ public final class RsaUtil {
      * 公钥加密
      * </p>
      *
-     * @param data
-     *            源数据
-     * @param publicKey
-     *            公钥(BASE64编码)
+     * @param data      源数据
+     * @param publicKey 公钥(BASE64编码)
      * @return
      * @throws Exception
      */
@@ -273,10 +256,8 @@ public final class RsaUtil {
      * 私钥加密
      * </p>
      *
-     * @param data
-     *            源数据
-     * @param privateKey
-     *            私钥(BASE64编码)
+     * @param data       源数据
+     * @param privateKey 私钥(BASE64编码)
      * @return
      * @throws Exception
      */
@@ -313,8 +294,7 @@ public final class RsaUtil {
      * 获取私钥
      * </p>
      *
-     * @param keyMap
-     *            密钥对
+     * @param keyMap 密钥对
      * @return
      * @throws Exception
      */
@@ -328,8 +308,7 @@ public final class RsaUtil {
      * 获取公钥
      * </p>
      *
-     * @param keyMap
-     *            密钥对
+     * @param keyMap 密钥对
      * @return
      * @throws Exception
      */
@@ -340,6 +319,7 @@ public final class RsaUtil {
 
     /**
      * java端私钥加密
+     *
      * @param data
      * @param PRIVATEKEY
      * @return
@@ -357,7 +337,7 @@ public final class RsaUtil {
      */
     public static String decryptDataWithPubKey(String data, String PUBLICKEY) throws Exception {
         byte[] rs = decryptBASE64(data);
-        return  new String(decryptByPublicKey(rs, PUBLICKEY), Opslab.UTF_8);
+        return new String(decryptByPublicKey(rs, PUBLICKEY), Opslab.UTF_8);
     }
 
 
@@ -378,7 +358,7 @@ public final class RsaUtil {
      */
     public static String decryptDataWithPriKey(String data, String PRIVATEKEY) throws Exception {
         byte[] rs = decryptBASE64(data);
-        return  new String(decryptByPrivateKey(rs, PRIVATEKEY), Opslab.UTF_8);
+        return new String(decryptByPrivateKey(rs, PRIVATEKEY), Opslab.UTF_8);
     }
 
 

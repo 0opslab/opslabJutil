@@ -4,15 +4,15 @@ import com.opslab.Opslab;
 import com.opslab.util.CharsetUtil;
 import com.opslab.util.StringUtil;
 import com.opslab.util.SysUtil;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.CharacterCodingException;
 import java.nio.charset.Charset;
 
-
+@Ignore
 public class CharsetUtilTest {
-
 
 
     @Test

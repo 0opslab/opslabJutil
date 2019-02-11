@@ -15,7 +15,7 @@ public class ColorUtilTest extends TestCase {
     }
 
     public void testColor2String() throws Exception {
-        Color color = new Color(255,255,255);
+        Color color = new Color(255, 255, 255);
         System.out.println(ColorUtil.Color2String(color));
     }
 }

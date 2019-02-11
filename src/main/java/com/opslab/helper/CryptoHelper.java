@@ -14,7 +14,6 @@ import java.security.MessageDigest;
 public class CryptoHelper {
 
 
-
     /**
      * BASE64解密
      *
@@ -42,7 +41,7 @@ public class CryptoHelper {
     /**
      * 字符串加密函数MD5实现
      */
-    public final static String md5(String password){
+    public final static String md5(String password) {
         MessageDigest md;
         try {
             // 生成一个MD5加密计算摘要
@@ -61,34 +60,37 @@ public class CryptoHelper {
 
     /**
      * 提供ASE加密算法
+     *
      * @param secretKey 秘钥
-     * @param str 加密的字符串
+     * @param str       加密的字符串
      * @return string
      */
-    public static String aesEncrypt(String secretKey, String str){
+    public static String aesEncrypt(String secretKey, String str) {
         return Decode.str2HexStr(ASEUtil.AESEncode(secretKey, str));
     }
 
     /**
      * 提供ASE解密算法
+     *
      * @param secretKey 秘钥
-     * @param str 解密的字符串
+     * @param str       解密的字符串
      * @return decode str or null
      */
-    public static String  aseDecode(String secretKey, String str){
-        return  ASEUtil.AESDncode(secretKey, Decode.hexStr2Str(str));
+    public static String aseDecode(String secretKey, String str) {
+        return ASEUtil.AESDncode(secretKey, Decode.hexStr2Str(str));
     }
 
 
     /**
      * 提供des加密算法
+     *
      * @param secretKey 秘钥
-     * @param str 加密的字符串
+     * @param str       加密的字符串
      * @return string
      */
     public static String desEncrypt(String secretKey, String str) {
         try {
-            return DESUtil.encrypt(secretKey,str);
+            return DESUtil.encrypt(secretKey, str);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -97,11 +99,12 @@ public class CryptoHelper {
 
     /**
      * 提供des解密算法
+     *
      * @param secretKey 秘钥
-     * @param str 解密的字符串
+     * @param str       解密的字符串
      * @return decode str or null
      */
-    public static String  dseDecode(String secretKey, String str) {
+    public static String dseDecode(String secretKey, String str) {
         try {
             return DESUtil.decode(secretKey, str);
         } catch (Exception e) {

@@ -30,12 +30,12 @@ public class CheckUtilTest extends TestCase {
         assertEquals(true, CheckUtil.valid(map, map1));
     }
 
-    public void testIsDate(){
+    public void testIsDate() {
         assertEquals(true, CheckUtil.isDate("2016-03-16 00:07:02",
                 "yyyy-MM-dd HH:mm:ss"));
     }
 
-    public void testSwith(){
+    public void testSwith() {
         System.out.println(CheckUtil.valid(new Object()));
         System.out.println(CheckUtil.valid(""));
     }

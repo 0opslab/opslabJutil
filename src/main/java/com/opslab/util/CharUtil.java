@@ -10,7 +10,6 @@ import java.io.UnsupportedEncodingException;
 public final class CharUtil {
 
 
-
     /**
      * Converts (signed) byte to (unsigned) char.
      */
@@ -112,7 +111,7 @@ public final class CharUtil {
             carrLen++;
         }
         char[] carr = new char[carrLen];
-        int    i    = 0, j = 0;
+        int i = 0, j = 0;
         while (i < barr.length) {
             char c = (char) (barr[i] << 8);
             i++;
@@ -355,7 +354,6 @@ public final class CharUtil {
     public final static boolean isUnreserved(char c) {
         return isAlpha(c) || isDigit(c) || c == '-' || c == '.' || c == '_' || c == '~';
     }
-
 
 
     /**

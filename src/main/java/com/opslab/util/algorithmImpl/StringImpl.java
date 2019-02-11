@@ -50,7 +50,7 @@ public class StringImpl {
 
     private static String removeSign(String str) {
         StringBuffer sb = new StringBuffer();
-        for (char item : str.toCharArray()){
+        for (char item : str.toCharArray()) {
             if (charReg(item)) {
                 sb.append(item);
             }
@@ -133,26 +133,24 @@ public class StringImpl {
     }
 
 
-
-
     /**
      * 获取字符串编码
      *
      * @param str 需要处理的字符串
      */
     public static String simpleEncoding(String str) {
-        try{
+        try {
             byte[] bs = str.getBytes(SysUtil.JVM_ENCODING);
-            if(str.equals(new String(bs, Opslab.UTF_8))){
+            if (str.equals(new String(bs, Opslab.UTF_8))) {
                 return Opslab.UTF_8;
             }
-            if(str.equals(new String(bs,Opslab.GBK))){
+            if (str.equals(new String(bs, Opslab.GBK))) {
                 return Opslab.GBK;
             }
-            if(str.equals(new String(bs,Opslab.ISO_8859_1))){
+            if (str.equals(new String(bs, Opslab.ISO_8859_1))) {
                 return Opslab.ISO_8859_1;
             }
-        }catch(UnsupportedEncodingException e) {
+        } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
         String encode = "GB2312";

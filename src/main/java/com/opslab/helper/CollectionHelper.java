@@ -3,6 +3,8 @@ package com.opslab.helper;
 import com.opslab.functions.ObjectHandler;
 import com.opslab.functions.ObjectProcess;
 import com.opslab.util.CheckUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.*;
 
@@ -10,7 +12,7 @@ import java.util.*;
  * 集合对象的一些助手工具类
  */
 public final class CollectionHelper {
-    private  static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(CollectionHelper.class);
+    private static Logger logger = LoggerFactory.getLogger(CollectionHelper.class);
 
     /**
      * 对集合中元素进行特定的处理
@@ -19,8 +21,8 @@ public final class CollectionHelper {
      * @param handler    实现特定处理的方法
      * @param <T>        泛型
      */
-    public static <T> void handler( Collection<T> collection, ObjectHandler<T> handler) {
-        if(collection == null || collection.size() == 0){
+    public static <T> void handler(Collection<T> collection, ObjectHandler<T> handler) {
+        if (collection == null || collection.size() == 0) {
             logger.error("collection is empty or is null");
             return;
         }
@@ -38,12 +40,12 @@ public final class CollectionHelper {
      * @param <T>        泛型
      * @param <E>        泛型
      */
-    public static <T, E> void process( Collection<T> collection,  Collection<E> result, ObjectProcess<T, E> process) {
-        if(collection == null || collection.size() == 0){
+    public static <T, E> void process(Collection<T> collection, Collection<E> result, ObjectProcess<T, E> process) {
+        if (collection == null || collection.size() == 0) {
             logger.error("collection is empty or is null");
             return;
         }
-        if(result == null || result.size() == 0){
+        if (result == null || result.size() == 0) {
             logger.error("receive collection is empty or is null");
             return;
         }

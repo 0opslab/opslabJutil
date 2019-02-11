@@ -8,7 +8,7 @@ import com.opslab.util.DateUtil;
 public class FTPLog {
     private String host;
     private String operation;
-    private int    ReplyCode;
+    private int ReplyCode;
     private String localFile;
     private String remoteFile;
     private String ReplyCodeDesc;

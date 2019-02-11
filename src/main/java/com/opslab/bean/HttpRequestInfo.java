@@ -17,8 +17,7 @@ public class HttpRequestInfo {
     //请求地址
     private String uri;
     //请求参数
-    private Map<String,Object> params;
-
+    private Map<String, Object> params;
 
 
     public HttpRequestInfo() {

@@ -1,11 +1,12 @@
-package com.opslab.web.entity;
+package com.opslab.helper;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class HttpRequestUtil {
+public class HttpRequestHelper {
 
     /**
      * 判断是否为ajax请求
+     *
      * @param request
      * @return
      */
@@ -17,6 +18,7 @@ public class HttpRequestUtil {
 
     /**
      * 获取客户端请求的IP
+     *
      * @param request
      * @return
      */
@@ -44,4 +46,6 @@ public class HttpRequestUtil {
 
         return "0:0:0:0:0:0:0:1".equals(ip) ? "127.0.0.1" : ip;
     }
+
+
 }

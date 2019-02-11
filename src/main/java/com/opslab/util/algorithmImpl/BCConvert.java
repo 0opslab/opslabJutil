@@ -49,12 +49,12 @@ public class BCConvert {
      * </PRE>
      */
     public static String bj2qj(String src) {
-        if(StringUtil.isEmpty(src)){
+        if (StringUtil.isEmpty(src)) {
             return "";
         }
         StringBuilder buf = new StringBuilder(src.length());
         char[] ca = src.toCharArray();
-        for (char t:ca) {
+        for (char t : ca) {
             if (t == DBC_SPACE) {
                 // 如果是半角空格，直接用全角空格替代
                 buf.append(SBC_SPACE);
@@ -76,7 +76,7 @@ public class BCConvert {
      * </PRE>
      */
     public static String qj2bj(String src) {
-        if(StringUtil.isEmpty(src)){
+        if (StringUtil.isEmpty(src)) {
             return "";
         }
         StringBuilder buf = new StringBuilder(src.length());

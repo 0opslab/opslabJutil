@@ -1,6 +1,7 @@
 package com.opslab.util;
 
 import com.opslab.Opslab;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.File;
@@ -10,6 +11,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
+@Ignore
 public class FileUtilTest {
     String path = TestUtil.path;
 
@@ -176,8 +178,6 @@ public class FileUtilTest {
     }
 
 
-
-
     @Test
     public void testListFile() {
         System.out.println("罗列指定目录下的所有文件");
@@ -280,11 +280,11 @@ public class FileUtilTest {
         FileUtil.write(new File(path + "cfile2.TXT"), ctemp);
         FileUtil.writeAppend(new File(path + "cfile2.TXT"), ctemp);
 
-        FileUtil.write(new File(path + "efile1_UTF8.TXT"), etemp,Opslab.UTF_8);
-        FileUtil.write(new File(path + "efile2_UTF8.TXT"), etemp,Opslab.UTF_8);
-        FileUtil.writeAppend(new File(path + "efile2_UTF8.TXT"), etemp,Opslab.UTF_8);
-        FileUtil.write(new File(path + "cfile1_UTF8.TXT"), ctemp,Opslab.UTF_8);
-        FileUtil.write(new File(path + "cfile2_UTF8.TXT"), ctemp,Opslab.UTF_8);
-        FileUtil.writeAppend(new File(path + "cfile2_UTF8.TXT"), ctemp,Opslab.UTF_8);
+        FileUtil.write(new File(path + "efile1_UTF8.TXT"), etemp, Opslab.UTF_8);
+        FileUtil.write(new File(path + "efile2_UTF8.TXT"), etemp, Opslab.UTF_8);
+        FileUtil.writeAppend(new File(path + "efile2_UTF8.TXT"), etemp, Opslab.UTF_8);
+        FileUtil.write(new File(path + "cfile1_UTF8.TXT"), ctemp, Opslab.UTF_8);
+        FileUtil.write(new File(path + "cfile2_UTF8.TXT"), ctemp, Opslab.UTF_8);
+        FileUtil.writeAppend(new File(path + "cfile2_UTF8.TXT"), ctemp, Opslab.UTF_8);
     }
 }

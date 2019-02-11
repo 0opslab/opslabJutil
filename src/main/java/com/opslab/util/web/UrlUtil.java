@@ -55,10 +55,10 @@ public final class UrlUtil {
     // Regex patterns that matches URIs. See RFC 3986, appendix B
 
     private static final Pattern URI_PATTERN = Pattern.compile("^(" + SCHEME_PATTERN + ")?" + "(//(" + USERINFO_PATTERN + "@)?" + HOST_PATTERN + "(:" + PORT_PATTERN +
-                    ")?" + ")?" + PATH_PATTERN + "(\\?" + QUERY_PATTERN + ")?" + "(#" + LAST_PATTERN + ")?");
+            ")?" + ")?" + PATH_PATTERN + "(\\?" + QUERY_PATTERN + ")?" + "(#" + LAST_PATTERN + ")?");
 
     private static final Pattern HTTP_URL_PATTERN = Pattern.compile('^' + HTTP_PATTERN + "(//(" + USERINFO_PATTERN + "@)?" + HOST_PATTERN + "(:" + PORT_PATTERN + ")?" + ")?" +
-                    PATH_PATTERN + "(\\?" + LAST_PATTERN + ")?");
+            PATH_PATTERN + "(\\?" + LAST_PATTERN + ")?");
 
     /**
      * Encodes single URI component.
@@ -135,7 +135,7 @@ public final class UrlUtil {
 */
 
     public static String encodeUserInfo(String userInfo) {
-        return encodeUriComponent(userInfo,Opslab.UTF_8, URIPart.USER_INFO);
+        return encodeUriComponent(userInfo, Opslab.UTF_8, URIPart.USER_INFO);
     }
 
     /**
@@ -146,7 +146,7 @@ public final class UrlUtil {
     }
 
     public static String encodeHost(String host) {
-        return encodeUriComponent(host,Opslab.UTF_8, URIPart.HOST);
+        return encodeUriComponent(host, Opslab.UTF_8, URIPart.HOST);
     }
 
     /**
@@ -157,7 +157,7 @@ public final class UrlUtil {
     }
 
     public static String encodePort(String port) {
-        return encodeUriComponent(port,Opslab.UTF_8, URIPart.PORT);
+        return encodeUriComponent(port, Opslab.UTF_8, URIPart.PORT);
     }
 
     /**
@@ -168,7 +168,7 @@ public final class UrlUtil {
     }
 
     public static String encodePath(String path) {
-        return encodeUriComponent(path,Opslab.UTF_8, URIPart.PATH);
+        return encodeUriComponent(path, Opslab.UTF_8, URIPart.PATH);
     }
 
     /**
@@ -179,7 +179,7 @@ public final class UrlUtil {
     }
 
     public static String encodePathSegment(String segment) {
-        return encodeUriComponent(segment,Opslab.UTF_8, URIPart.PATH_SEGMENT);
+        return encodeUriComponent(segment, Opslab.UTF_8, URIPart.PATH_SEGMENT);
     }
 
     /**
@@ -190,7 +190,7 @@ public final class UrlUtil {
     }
 
     public static String encodeQuery(String query) {
-        return encodeUriComponent(query,Opslab.UTF_8, URIPart.QUERY);
+        return encodeUriComponent(query, Opslab.UTF_8, URIPart.QUERY);
     }
 
     /**
@@ -201,7 +201,7 @@ public final class UrlUtil {
     }
 
     public static String encodeQueryParam(String queryParam) {
-        return encodeUriComponent(queryParam,Opslab.UTF_8, URIPart.QUERY_PARAM);
+        return encodeUriComponent(queryParam, Opslab.UTF_8, URIPart.QUERY_PARAM);
     }
 
     /**
@@ -212,14 +212,14 @@ public final class UrlUtil {
     }
 
     public static String encodeFragment(String fragment) {
-        return encodeUriComponent(fragment,Opslab.UTF_8, URIPart.FRAGMENT);
+        return encodeUriComponent(fragment, Opslab.UTF_8, URIPart.FRAGMENT);
     }
 
     /**
      * @see #encode(String, String)
      */
     public static String encode(String uri) {
-        return encode(uri,Opslab.UTF_8);
+        return encode(uri, Opslab.UTF_8);
     }
 
     /**
@@ -250,7 +250,7 @@ public final class UrlUtil {
      * @see #encodeHttpUrl(String, String)
      */
     public static String encodeHttpUrl(String httpUrl) {
-        return encodeHttpUrl(httpUrl,Opslab.UTF_8);
+        return encodeHttpUrl(httpUrl, Opslab.UTF_8);
     }
 
     /**
@@ -279,7 +279,7 @@ public final class UrlUtil {
     }
 
     private static String encodeUriComponents(String scheme, String authority, String userInfo, String host,
-            String port, String path, String query, String fragment, String encoding) {
+                                              String port, String path, String query, String fragment, String encoding) {
 
         StringBuilder sb = new StringBuilder();
 
@@ -338,14 +338,14 @@ public final class UrlUtil {
      * should be set previously or after the URL is built.
      */
     public static Builder build(String path, boolean encodePath) {
-        return new Builder(path, encodePath,Opslab.UTF_8);
+        return new Builder(path, encodePath, Opslab.UTF_8);
     }
 
     /**
      * Decodes URL elements.
      */
     public static String decode(String url) {
-        return decode(url,Opslab.UTF_8, false);
+        return decode(url, Opslab.UTF_8, false);
     }
 
     /**
@@ -363,7 +363,7 @@ public final class UrlUtil {
      * Decodes query name or value.
      */
     public static String decodeQuery(String source) {
-        return decode(source,Opslab.UTF_8, true);
+        return decode(source, Opslab.UTF_8, true);
     }
 
     /**
@@ -374,8 +374,8 @@ public final class UrlUtil {
     }
 
     private static String decode(String source, String encoding, boolean decodePlus) {
-        int                   length = source.length();
-        ByteArrayOutputStream bos    = new ByteArrayOutputStream(length);
+        int length = source.length();
+        ByteArrayOutputStream bos = new ByteArrayOutputStream(length);
 
         boolean changed = false;
 
@@ -500,8 +500,8 @@ public final class UrlUtil {
 
     public static class Builder {
         protected final StringBuilder url;
-        protected final String        encoding;
-        protected       boolean       hasParams;
+        protected final String encoding;
+        protected boolean hasParams;
 
         public Builder(String path, boolean encodePath, String encoding) {
             this.encoding = encoding;
@@ -631,10 +631,11 @@ public final class UrlUtil {
 
     /**
      * 获取HTTPrequest的请求参数
+     *
      * @param request http请求
      */
     public static Map print(HttpServletRequest request) {
-        Map<String,String>  map        = new HashMap<>();
+        Map<String, String> map = new HashMap<>();
         Enumeration paramNames = request.getParameterNames();
         while (paramNames.hasMoreElements()) {
             String paramName = (String) paramNames.nextElement();
@@ -660,9 +661,9 @@ public final class UrlUtil {
      *                null：不允许重复参数名出现，则靠后的参数值会覆盖掉靠前的参数值。
      * @return map
      */
-    public static Map<String,String> parseQuery(String query, char split1, char split2, String dupLink) {
+    public static Map<String, String> parseQuery(String query, char split1, char split2, String dupLink) {
         if (!StringUtil.isEmpty(query) && query.indexOf(split2) > 0) {
-            Map<String,String> result = new HashMap<>();
+            Map<String, String> result = new HashMap<>();
 
             String name = null;
             String value = null;
@@ -708,12 +709,13 @@ public final class UrlUtil {
 
     /**
      * 解析http请求URI
+     *
      * @param queryUri http请求的uri
      */
-    public static Map<String,String> httpParseQuery(String queryUri){
-        Map<String,String> result = new HashMap<>();
-        if(!StringUtil.isEmpty(queryUri)){
-            result = parseQuery(queryUri,'&','=',",");
+    public static Map<String, String> httpParseQuery(String queryUri) {
+        Map<String, String> result = new HashMap<>();
+        if (!StringUtil.isEmpty(queryUri)) {
+            result = parseQuery(queryUri, '&', '=', ",");
         }
         return result;
     }

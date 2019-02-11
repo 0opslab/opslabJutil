@@ -13,11 +13,12 @@ public final class CheckUtil {
 
     /**
      * 判断字符串是否是符合指定格式的时间
-     * @param date 时间字符串
+     *
+     * @param date   时间字符串
      * @param format 时间格式
      * @return 是否符合
      */
-    public final static boolean isDate(String date,String format){
+    public final static boolean isDate(String date, String format) {
         try {
             SimpleDateFormat sdf = new SimpleDateFormat(format);
             sdf.parse(date);
@@ -37,6 +38,7 @@ public final class CheckUtil {
 
     /**
      * 判断一组字符串是否有效
+     *
      * @param src
      * @return
      */
@@ -59,6 +61,7 @@ public final class CheckUtil {
 
     /**
      * 判断一组对象是否有效
+     *
      * @param objs
      * @return
      */
@@ -78,6 +81,7 @@ public final class CheckUtil {
 
     /**
      * 判断一组集合是否有效
+     *
      * @param cols
      * @return
      */
@@ -92,6 +96,7 @@ public final class CheckUtil {
 
     /**
      * 判断map是否有效
+     *
      * @param map
      * @return
      */
@@ -101,6 +106,7 @@ public final class CheckUtil {
 
     /**
      * 判断一组map是否有效
+     *
      * @param maps 需要判断map
      * @return 是否全部有效
      */

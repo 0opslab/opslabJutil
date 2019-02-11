@@ -39,8 +39,8 @@ public class BeanUtilTest extends TestCase {
 
     @Test
     public void testGetProperties() throws InvocationTargetException, IllegalAccessException {
-        String      value = "Test BeanUtil getProperties Method";
-        BusinessLog bean  = new BusinessLog();
+        String value = "Test BeanUtil getProperties Method";
+        BusinessLog bean = new BusinessLog();
         bean.setOperationName(value);
 
         assertEquals(value, BeanUtil.getProperty(bean, "operationName"));
@@ -76,10 +76,10 @@ public class BeanUtilTest extends TestCase {
 
     @Test
     public void testSetProperties() throws InvocationTargetException, IllegalAccessException {
-        String value ="Properties's value1";
+        String value = "Properties's value1";
         BusinessLog bean = new BusinessLog();
 
-        BeanUtil.setProperty(bean,"operationName", value);
+        BeanUtil.setProperty(bean, "operationName", value);
         assertEquals(value, bean.getOperationName());
 
         BeanUtil.setPropertyPeaceful(bean, "operationName", value + "2");

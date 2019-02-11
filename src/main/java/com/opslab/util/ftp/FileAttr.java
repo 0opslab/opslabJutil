@@ -7,8 +7,8 @@ import java.util.Date;
  */
 public class FileAttr {
     private String fileName;
-    private Date   ModifyTime;
-    private Long   size;
+    private Date ModifyTime;
+    private Long size;
 
     public String getFileName() {
         return fileName;

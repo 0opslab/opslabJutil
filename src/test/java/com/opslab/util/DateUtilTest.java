@@ -84,8 +84,8 @@ public class DateUtilTest {
     @Test
     public void testHour() throws Exception {
         String str1 = "2015-02-23 18:54:00";
-        Date   date = DateUtil.hour(DateUtil.dateTime(str1), -0.5F);
-        String rs   = DateUtil.dateTime(date);
+        Date date = DateUtil.hour(DateUtil.dateTime(str1), -0.5F);
+        String rs = DateUtil.dateTime(date);
         assertEquals("转换有误", "2015-02-23 18:24:00", rs);
     }
 
@@ -120,7 +120,7 @@ public class DateUtilTest {
     public void testSubtract() throws Exception {
         String str1 = "2015-02-23 18:54:00";
         String str2 = "2015-02-23 18:55:22";
-        long   rs   = DateUtil.subtract(str1, str2);
+        long rs = DateUtil.subtract(str1, str2);
         System.out.println(rs);
         assertEquals("计算有误", 82L, rs);
     }
@@ -129,7 +129,7 @@ public class DateUtilTest {
     public void testSubtract1() throws Exception {
         String str1 = "2015-02-23 18:54:00";
         String str2 = "2015-02-23 18:55:22";
-        long   rs   = DateUtil.subtract(sdf.parse(str1), sdf.parse(str2));
+        long rs = DateUtil.subtract(sdf.parse(str1), sdf.parse(str2));
         assertEquals("计算有误", 82L, rs);
     }
 
@@ -137,7 +137,7 @@ public class DateUtilTest {
     public void testSubtractMinute() throws Exception {
         String str1 = "2015-02-23 18:54:00";
         String str2 = "2015-02-23 18:55:22";
-        int    rs   = DateUtil.subtractMinute(str1, str2);
+        int rs = DateUtil.subtractMinute(str1, str2);
         assertEquals("计算有误", 1, rs);
     }
 
@@ -145,7 +145,7 @@ public class DateUtilTest {
     public void testSubtractMinute1() throws Exception {
         String str1 = "2015-02-23 18:54:00";
         String str2 = "2015-02-23 18:55:22";
-        int    rs   = DateUtil.subtractMinute(sdf.parse(str1), sdf.parse(str2));
+        int rs = DateUtil.subtractMinute(sdf.parse(str1), sdf.parse(str2));
         assertEquals("计算有误", 1, rs);
     }
 
@@ -153,7 +153,7 @@ public class DateUtilTest {
     public void testSubtractHour() throws Exception {
         String str1 = "2015-02-23 18:54:00";
         String str2 = "2015-02-24 21:55:22";
-        int    rs   = DateUtil.subtractHour(str1, str2);
+        int rs = DateUtil.subtractHour(str1, str2);
         assertEquals("计算有误", 27, rs);
     }
 
@@ -161,7 +161,7 @@ public class DateUtilTest {
     public void testSubtractHour1() throws Exception {
         String str1 = "2015-02-23 18:54:00";
         String str2 = "2015-02-23 21:55:22";
-        int    rs   = DateUtil.subtractHour(sdf.parse(str1), sdf.parse(str2));
+        int rs = DateUtil.subtractHour(sdf.parse(str1), sdf.parse(str2));
         assertEquals("计算有误", 3, rs);
     }
 
@@ -169,7 +169,7 @@ public class DateUtilTest {
     public void testSubtractDay() throws Exception {
         String str1 = "2015-02-23 18:54:00";
         String str2 = "2015-03-26 21:55:22";
-        int    rs   = DateUtil.subtractDay(str1, str2);
+        int rs = DateUtil.subtractDay(str1, str2);
         assertEquals("计算有误", 31, rs);
     }
 
@@ -177,7 +177,7 @@ public class DateUtilTest {
     public void testSubtractDay1() throws Exception {
         String str1 = "2015-03-23 18:54:00";
         String str2 = "2015-03-25 21:55:22";
-        int    rs   = DateUtil.subtractDay(str1, str2);
+        int rs = DateUtil.subtractDay(str1, str2);
         assertEquals("计算有误", 2, rs);
     }
 
@@ -185,7 +185,7 @@ public class DateUtilTest {
     public void testSubtractMonth() throws Exception {
         String str1 = "2015-02-23 18:54:00";
         String str2 = "2016-08-25 21:55:22";
-        int    rs   = DateUtil.subtractMonth(str1, str2);
+        int rs = DateUtil.subtractMonth(str1, str2);
         assertEquals("计算有误", 18, rs);
     }
 
@@ -193,7 +193,7 @@ public class DateUtilTest {
     public void testSubtractMonth1() throws Exception {
         String str1 = "2015-02-23 18:54:00";
         String str2 = "2016-08-25 21:55:22";
-        int    rs   = DateUtil.subtractMonth(sdf.parse(str1), sdf.parse(str2));
+        int rs = DateUtil.subtractMonth(sdf.parse(str1), sdf.parse(str2));
         assertEquals("计算有误", 18, rs);
     }
 
@@ -201,7 +201,7 @@ public class DateUtilTest {
     public void testSubtractYear() throws Exception {
         String str1 = "2015-02-23 18:54:00";
         String str2 = "2016-08-25 21:55:22";
-        int    rs   = DateUtil.subtractYear(sdf.parse(str1), sdf.parse(str2));
+        int rs = DateUtil.subtractYear(sdf.parse(str1), sdf.parse(str2));
         assertEquals("计算有误", 1, rs);
     }
 
@@ -209,7 +209,7 @@ public class DateUtilTest {
     public void testSubtractYear1() throws Exception {
         String str1 = "2015-02-23 18:54:00";
         String str2 = "2016-08-25 21:55:22";
-        int    rs   = DateUtil.subtractYear(str1, str2);
+        int rs = DateUtil.subtractYear(str1, str2);
         assertEquals("计算有误", 1, rs);
     }
 
@@ -217,7 +217,7 @@ public class DateUtilTest {
     public void testSubtractTime() throws Exception {
         String str1 = "2015-02-23 18:54:00";
         String str2 = "2015-02-23 19:59:22";
-        String rs   = DateUtil.subtractTime(str1, str2);
+        String rs = DateUtil.subtractTime(str1, str2);
         assertEquals("计算有误", "1:5:22", rs);
     }
 
@@ -225,7 +225,7 @@ public class DateUtilTest {
     public void testSubtractDate() throws Exception {
         String str1 = "2015-02-23 18:54:00";
         String str2 = "2015-02-25 19:59:22";
-        String rs   = DateUtil.subtractDate(str1, str2);
+        String rs = DateUtil.subtractDate(str1, str2);
         assertEquals("计算有误", "2-1:5:22", rs);
     }
 
@@ -256,12 +256,12 @@ public class DateUtilTest {
 
         assertEquals("计算有误", DateUtil.subtimeBurst("2015-01-05 20:59:02",
                 "2015-01-07 08:00:57", "08:00-21:00"), (21 - 8) * 3600 + 115L);
-        assertEquals("计算有误",DateUtil.subtimeBurst("2016-03-08 14:37:03",
-                "2016-03-09 09:37:03","08:30-17:30"),4 *60 * 60);
+        assertEquals("计算有误", DateUtil.subtimeBurst("2016-03-08 14:37:03",
+                "2016-03-09 09:37:03", "08:30-17:30"), 4 * 60 * 60);
     }
 
     @Test
-    public void testCalculate23(){
+    public void testCalculate23() {
         System.out.println(DateUtil.dateTime(DateUtil.calculate("2016-03-08 14:38:23",
                 2 * 3600, "08:30-17:30")));
     }

@@ -17,10 +17,10 @@ public final class ZIPUtil {
      * @param dest 压缩后的文件名称
      * @throws Exception
      */
-    public  static void deCompress(File file, String dest) throws IOException {
+    public static void deCompress(File file, String dest) throws IOException {
         try (ZipOutputStream zos = new ZipOutputStream(new FileOutputStream(dest))) {
             String dir = "";
-            if(file.isDirectory()){
+            if (file.isDirectory()) {
                 dir = file.getName();
             }
             zipFile(file, zos, dir);
@@ -29,18 +29,18 @@ public final class ZIPUtil {
         }
     }
 
-    public  static void zipFile(File inFile, ZipOutputStream zos, String dir) throws IOException {
+    public static void zipFile(File inFile, ZipOutputStream zos, String dir) throws IOException {
         if (inFile.isDirectory()) {
             File[] files = inFile.listFiles();
             if (files == null || files.length == 0) {
-                String entryName  = dir+"/";
-                zos.putNextEntry( new ZipEntry(entryName));
+                String entryName = dir + "/";
+                zos.putNextEntry(new ZipEntry(entryName));
                 return;
             }
             for (File file : files) {
-                String entryName  = dir+"/"+file.getName();
+                String entryName = dir + "/" + file.getName();
                 if (file.isDirectory()) {
-                    zipFile(file,zos,entryName);
+                    zipFile(file, zos, entryName);
                 } else {
                     ZipEntry entry = new ZipEntry(entryName);
                     zos.putNextEntry(entry);
@@ -75,7 +75,7 @@ public final class ZIPUtil {
      * @param source 需要解压缩的文档名称
      * @param path   需要解压缩的路径
      */
-    public  static void unCompress(File source, String path) throws IOException {
+    public static void unCompress(File source, String path) throws IOException {
         ZipEntry zipEntry = null;
         FileUtil.createPaths(path);
         //实例化ZipFile，每一个zip压缩文件都可以表示为一个ZipFile
@@ -87,12 +87,12 @@ public final class ZIPUtil {
             while ((zipEntry = zipInputStream.getNextEntry()) != null) {
                 String fileName = zipEntry.getName();
                 String filePath = path + "/" + fileName;
-                if(zipEntry.isDirectory()){
+                if (zipEntry.isDirectory()) {
                     File temp = new File(filePath);
                     if (!temp.exists()) {
                         temp.mkdirs();
                     }
-                }else{
+                } else {
                     File temp = new File(filePath);
                     if (!temp.getParentFile().exists()) {
                         temp.getParentFile().mkdirs();
@@ -104,7 +104,7 @@ public final class ZIPUtil {
                         while ((len = is.read()) != -1) {
                             os.write(len);
                         }
-                    }catch (IOException e){
+                    } catch (IOException e) {
                         throw e;
                     }
                 }

@@ -1,6 +1,9 @@
 package com.opslab.util.image;
 
-import org.apache.log4j.Logger;
+
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
@@ -10,7 +13,7 @@ import java.io.File;
  * 图片比较
  */
 public final class ImageCompare {
-    private static Logger logger = Logger.getLogger(ImageCompare.class);
+    private static Logger logger = LoggerFactory.getLogger(ImageCompare.class);
 
     /**
      * 改变成二进制码

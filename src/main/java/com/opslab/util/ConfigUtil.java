@@ -1,20 +1,19 @@
 package com.opslab.util;
 
-import org.apache.log4j.Logger;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.util.List;
 import java.util.Properties;
 
 /**
  * 配置相关的一些辅助类
  */
 public class ConfigUtil {
-
-    private static Logger logger = Logger.getLogger(ConfigUtil.class);
 
     /**
      * 获取配置文件资源

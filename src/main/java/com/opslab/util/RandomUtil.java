@@ -220,7 +220,7 @@ public final class RandomUtil {
     /**
      * 从指定的数组中按照指定比例返回指定的随机元素
      *
-     * @param param 随机数组
+     * @param param     随机数组
      * @param percentum 比例
      * @param <T>
      * @return

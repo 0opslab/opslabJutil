@@ -9,7 +9,7 @@ import java.util.List;
 
 public class ConfigUtilTest extends TestCase {
 
-    public void testFindAsResource(){
+    public void testFindAsResource() {
         URL url = ConfigUtil.findAsResource("log4j.properties");
         System.out.println(url);
 
@@ -20,7 +20,7 @@ public class ConfigUtilTest extends TestCase {
         System.out.println(url);
     }
 
-    public void testResourcePath(){
+    public void testResourcePath() {
         System.out.println(ConfigUtil.resourcePath(""));
         System.out.println(ConfigUtil.resourcePath("log4j.properties"));
 

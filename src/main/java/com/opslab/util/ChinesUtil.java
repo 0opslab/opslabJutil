@@ -15,9 +15,10 @@ import java.util.regex.Pattern;
  * 一些中文相关的操作方法
  */
 public final class ChinesUtil {
-    private ChinesUtil(){
+    private ChinesUtil() {
 
     }
+
     /**
      * 将字符串中的中文转化为拼音,其他字符不变
      *
@@ -30,7 +31,7 @@ public final class ChinesUtil {
         format.setToneType(HanyuPinyinToneType.WITHOUT_TONE);
         format.setVCharType(HanyuPinyinVCharType.WITH_V);
 
-        char[] input  = inputString.trim().toCharArray();
+        char[] input = inputString.trim().toCharArray();
         String output = "";
 
         try {
@@ -54,8 +55,8 @@ public final class ChinesUtil {
      * @return 汉语拼音首字母
      */
     public final static String getFirstSpell(String chinese) {
-        StringBuffer            pybf          = new StringBuffer();
-        char[]                  arr           = chinese.toCharArray();
+        StringBuffer pybf = new StringBuffer();
+        char[] arr = chinese.toCharArray();
         HanyuPinyinOutputFormat defaultFormat = new HanyuPinyinOutputFormat();
         defaultFormat.setCaseType(HanyuPinyinCaseType.LOWERCASE);
         defaultFormat.setToneType(HanyuPinyinToneType.WITHOUT_TONE);
@@ -83,8 +84,8 @@ public final class ChinesUtil {
      * @return 汉语拼音
      */
     public final static String getFullSpell(String chinese) {
-        StringBuffer            pybf          = new StringBuffer();
-        char[]                  arr           = chinese.toCharArray();
+        StringBuffer pybf = new StringBuffer();
+        char[] arr = chinese.toCharArray();
         HanyuPinyinOutputFormat defaultFormat = new HanyuPinyinOutputFormat();
         defaultFormat.setCaseType(HanyuPinyinCaseType.LOWERCASE);
         defaultFormat.setToneType(HanyuPinyinToneType.WITHOUT_TONE);
@@ -119,7 +120,7 @@ public final class ChinesUtil {
         }
         // 大小写不同：\\p 表示包含，\\P 表示不包含
         // \\p{Cn} 的意思为 Unicode 中未被定义字符的编码，\\P{Cn} 就表示 Unicode中已经被定义字符的编码
-        String  reg     = "\\p{InCJK Unified Ideographs}&&\\P{Cn}";
+        String reg = "\\p{InCJK Unified Ideographs}&&\\P{Cn}";
         Pattern pattern = Pattern.compile(reg);
         return pattern.matcher(str.trim()).find();
     }
@@ -157,7 +158,7 @@ public final class ChinesUtil {
     public final static int ChineseLength(String str) {
         Pattern p = Pattern.compile("[\u4E00-\u9FA5]+");
         Matcher m = p.matcher(str);
-        int     i = 0;
+        int i = 0;
         while (m.find()) {
             String temp = m.group(0);
             i += temp.length();
@@ -172,13 +173,13 @@ public final class ChinesUtil {
      * @return
      */
     public final static boolean isMessyCode(String strName) {
-        Pattern p        = Pattern.compile("\\s*|\t*|\r*|\n*");
-        Matcher m        = p.matcher(strName);
-        String  after    = m.replaceAll("");
-        String  temp     = after.replaceAll("\\p{P}", "");
-        char[]  ch       = temp.trim().toCharArray();
-        float   chLength = 0;
-        float   count    = 0;
+        Pattern p = Pattern.compile("\\s*|\t*|\r*|\n*");
+        Matcher m = p.matcher(strName);
+        String after = m.replaceAll("");
+        String temp = after.replaceAll("\\p{P}", "");
+        char[] ch = temp.trim().toCharArray();
+        float chLength = 0;
+        float count = 0;
         for (int i = 0; i < ch.length; i++) {
             char c = ch[i];
             if (!Character.isLetterOrDigit(c)) {

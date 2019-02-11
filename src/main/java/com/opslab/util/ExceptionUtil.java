@@ -10,7 +10,7 @@ public final class ExceptionUtil {
     /**
      * 只返回指定包中的异常堆栈信息
      *
-     * @param e 异常信息
+     * @param e           异常信息
      * @param packageName 只转换某个包下的信息
      * @return string
      */

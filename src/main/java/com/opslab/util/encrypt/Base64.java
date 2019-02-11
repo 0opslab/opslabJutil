@@ -11,7 +11,7 @@ import java.util.Arrays;
  */
 public final class Base64 {
     private static final char[] CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".toCharArray();
-    private static final int[]  INV   = new int[256];
+    private static final int[] INV = new int[256];
 
     static {
         Arrays.fill(INV, -1);
@@ -32,10 +32,10 @@ public final class Base64 {
             return new char[0];
         }
 
-        int    evenlen = (len / 3) * 3;
-        int    cnt     = ((len - 1) / 3 + 1) << 2;
-        int    destLen = cnt + (lineSeparator ? (cnt - 1) / 76 << 1 : 0);
-        char[] dest    = new char[destLen];
+        int evenlen = (len / 3) * 3;
+        int cnt = ((len - 1) / 3 + 1) << 2;
+        int destLen = cnt + (lineSeparator ? (cnt - 1) / 76 << 1 : 0);
+        char[] dest = new char[destLen];
 
         for (int s = 0, d = 0, cc = 0; s < evenlen; ) {
             int i = (arr[s++] & 0xff) << 16 | (arr[s++] & 0xff) << 8 | (arr[s++] & 0xff);
@@ -95,10 +95,10 @@ public final class Base64 {
             return new byte[0];
         }
 
-        int    evenlen = (len / 3) * 3;
-        int    cnt     = ((len - 1) / 3 + 1) << 2;
-        int    destlen = cnt + (lineSep ? (cnt - 1) / 76 << 1 : 0);
-        byte[] dest    = new byte[destlen];
+        int evenlen = (len / 3) * 3;
+        int cnt = ((len - 1) / 3 + 1) << 2;
+        int destlen = cnt + (lineSep ? (cnt - 1) / 76 << 1 : 0);
+        byte[] dest = new byte[destlen];
 
         for (int s = 0, d = 0, cc = 0; s < evenlen; ) {
             int i = (arr[s++] & 0xff) << 16 | (arr[s++] & 0xff) << 8 | (arr[s++] & 0xff);
@@ -129,7 +129,7 @@ public final class Base64 {
 
     public final static String decodeToString(byte[] arr) {
         try {
-            return new String(decode(arr),Opslab.UTF_8);
+            return new String(decode(arr), Opslab.UTF_8);
         } catch (UnsupportedEncodingException ignore) {
             return null;
         }
@@ -144,12 +144,12 @@ public final class Base64 {
             return new byte[0];
         }
 
-        int    sndx   = 0, endx = length - 1;
-        int    pad    = arr[endx] == '=' ? (arr[endx - 1] == '=' ? 2 : 1) : 0;
-        int    cnt    = endx - sndx + 1;
-        int    sepCnt = length > 76 ? (arr[76] == '\r' ? cnt / 78 : 0) << 1 : 0;
-        int    len    = ((cnt - sepCnt) * 6 >> 3) - pad;
-        byte[] dest   = new byte[len];
+        int sndx = 0, endx = length - 1;
+        int pad = arr[endx] == '=' ? (arr[endx - 1] == '=' ? 2 : 1) : 0;
+        int cnt = endx - sndx + 1;
+        int sepCnt = length > 76 ? (arr[76] == '\r' ? cnt / 78 : 0) << 1 : 0;
+        int len = ((cnt - sepCnt) * 6 >> 3) - pad;
+        byte[] dest = new byte[len];
 
         int d = 0;
         for (int cc = 0, eLen = (len / 3) * 3; d < eLen; ) {
@@ -207,7 +207,7 @@ public final class Base64 {
 
     public final static String decodeToString(String s) {
         try {
-            return new String(decode(s),Opslab.UTF_8);
+            return new String(decode(s), Opslab.UTF_8);
         } catch (UnsupportedEncodingException ignore) {
             return null;
         }
@@ -222,12 +222,12 @@ public final class Base64 {
             return new byte[0];
         }
 
-        int    sndx   = 0, endx = length - 1;
-        int    pad    = s.charAt(endx) == '=' ? (s.charAt(endx - 1) == '=' ? 2 : 1) : 0;
-        int    cnt    = endx - sndx + 1;
-        int    sepCnt = length > 76 ? (s.charAt(76) == '\r' ? cnt / 78 : 0) << 1 : 0;
-        int    len    = ((cnt - sepCnt) * 6 >> 3) - pad;
-        byte[] dest   = new byte[len];
+        int sndx = 0, endx = length - 1;
+        int pad = s.charAt(endx) == '=' ? (s.charAt(endx - 1) == '=' ? 2 : 1) : 0;
+        int cnt = endx - sndx + 1;
+        int sepCnt = length > 76 ? (s.charAt(76) == '\r' ? cnt / 78 : 0) << 1 : 0;
+        int len = ((cnt - sepCnt) * 6 >> 3) - pad;
+        byte[] dest = new byte[len];
 
         int d = 0;
         for (int cc = 0, eLen = (len / 3) * 3; d < eLen; ) {
@@ -265,12 +265,12 @@ public final class Base64 {
             return new byte[0];
         }
 
-        int    sndx   = 0, endx = length - 1;
-        int    pad    = arr[endx] == '=' ? (arr[endx - 1] == '=' ? 2 : 1) : 0;
-        int    cnt    = endx - sndx + 1;
-        int    sepCnt = length > 76 ? (arr[76] == '\r' ? cnt / 78 : 0) << 1 : 0;
-        int    len    = ((cnt - sepCnt) * 6 >> 3) - pad;
-        byte[] dest   = new byte[len];
+        int sndx = 0, endx = length - 1;
+        int pad = arr[endx] == '=' ? (arr[endx - 1] == '=' ? 2 : 1) : 0;
+        int cnt = endx - sndx + 1;
+        int sepCnt = length > 76 ? (arr[76] == '\r' ? cnt / 78 : 0) << 1 : 0;
+        int len = ((cnt - sepCnt) * 6 >> 3) - pad;
+        byte[] dest = new byte[len];
 
         int d = 0;
         for (int cc = 0, eLen = (len / 3) * 3; d < eLen; ) {

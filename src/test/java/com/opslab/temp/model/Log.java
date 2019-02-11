@@ -3,7 +3,7 @@ package com.opslab.temp.model;
 
 import java.io.Serializable;
 
-public class Log implements Serializable{
+public class Log implements Serializable {
     private Integer logId;
 
     public String logType;

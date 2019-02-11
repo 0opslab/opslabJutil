@@ -7,6 +7,7 @@ import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESedeKeySpec;
 import javax.crypto.spec.IvParameterSpec;
 import java.security.Key;
+
 /**
  * Created by 0opslab
  */
@@ -23,7 +24,7 @@ public class DESUtil {
      * @return
      * @throws Exception
      */
-    public static String encrypt(String secretKey,String plainText) throws Exception {
+    public static String encrypt(String secretKey, String plainText) throws Exception {
         Key deskey = null;
         DESedeKeySpec spec = new DESedeKeySpec(secretKey.getBytes());
         SecretKeyFactory keyfactory = SecretKeyFactory.getInstance("desede");
@@ -43,7 +44,7 @@ public class DESUtil {
      * @return
      * @throws Exception
      */
-    public static String decode(String secretKey,String encryptText) throws Exception {
+    public static String decode(String secretKey, String encryptText) throws Exception {
         Key deskey = null;
         DESedeKeySpec spec = new DESedeKeySpec(secretKey.getBytes());
         SecretKeyFactory keyfactory = SecretKeyFactory.getInstance("desede");

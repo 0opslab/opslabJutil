@@ -13,7 +13,7 @@ import java.util.Map;
  */
 public class FileTypeImpl {
 
-    public final static Map<String,String> FILE_TYPE_MAP = new HashMap<String,String>();
+    public final static Map<String, String> FILE_TYPE_MAP = new HashMap<String, String>();
 
     static {
         FILE_TYPE_MAP.put("jpg", "FFD8FF"); //JPEG (jpg)
@@ -60,7 +60,7 @@ public class FileTypeImpl {
      */
     public final static String getFileType(File file) {
         String filetype = null;
-        byte[] b        = new byte[50];
+        byte[] b = new byte[50];
         try (
                 InputStream is = new FileInputStream(file)
         ) {
@@ -82,10 +82,10 @@ public class FileTypeImpl {
      * @author:[shixing_11@sina.com]
      */
     public final static String getFileTypeByStream(byte[] b) {
-        String                             filetypeHex   = String.valueOf(getFileHexString(b));
-        Iterator<Map.Entry<String,String>> entryiterator = FILE_TYPE_MAP.entrySet().iterator();
+        String filetypeHex = String.valueOf(getFileHexString(b));
+        Iterator<Map.Entry<String, String>> entryiterator = FILE_TYPE_MAP.entrySet().iterator();
         while (entryiterator.hasNext()) {
-            Map.Entry<String,String> entry = entryiterator.next();
+            Map.Entry<String, String> entry = entryiterator.next();
             String fileTypeHexValue = entry.getValue();
             if (filetypeHex.toUpperCase().startsWith(fileTypeHexValue)) {
                 return entry.getKey();

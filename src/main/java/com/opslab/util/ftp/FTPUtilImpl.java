@@ -2,10 +2,13 @@ package com.opslab.util.ftp;
 
 import com.opslab.util.FileUtil;
 import com.opslab.util.CheckUtil;
+import com.opslab.util.JacksonUtil;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
 import org.apache.commons.net.ftp.FTPReply;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 import java.io.*;
 import java.util.*;
@@ -16,9 +19,9 @@ import java.util.regex.Pattern;
  * FTP工具类的实现
  */
 public class FTPUtilImpl implements FTPUtil {
-    private Logger logger = Logger.getLogger(FTPUtilImpl.class);
+    private Logger logger = LoggerFactory.getLogger(FTPUtilImpl.class);
     private FTPClient client;
-    private FTPVo     vo;
+    private FTPVo vo;
 
 
     public FTPUtilImpl(FTPVo vo) throws IOException {
@@ -29,7 +32,7 @@ public class FTPUtilImpl implements FTPUtil {
     //创建变连接FTP
     private FTPClient createFTPClien(FTPVo vo) {
         FTPClient client = new FTPClient();
-        int       reply  = -1;
+        int reply = -1;
         try {
             client.connect(vo.getHostName(), vo.getPort());
             client.login(vo.getUsername(), vo.getPassword());
@@ -57,28 +60,28 @@ public class FTPUtilImpl implements FTPUtil {
 
     //通过FTP响应码判断是否操作成功
     public boolean reply(String operation) {
-        int    replyCode = client.getReplyCode();
-        FTPLog log       = new FTPLog();
+        int replyCode = client.getReplyCode();
+        FTPLog log = new FTPLog();
         log.setHost(vo.getHostName());
         log.setOperation(operation);
         log.setLocalFile("");
         log.setRemoteFile("");
         log.setReplyCode(replyCode);
         log.setReplyCodeDesc(FTPConstant.REPLYCODE.get(replyCode));
-        logger.info(log);
+        logger.info(JacksonUtil.toJson(log));
         return FTPReply.isPositiveCompletion(replyCode);
     }
 
     public boolean reply(String operation, String localFile, String remoteFile) {
-        int    replyCode = client.getReplyCode();
-        FTPLog log       = new FTPLog();
+        int replyCode = client.getReplyCode();
+        FTPLog log = new FTPLog();
         log.setHost(vo.getHostName());
         log.setOperation(operation);
         log.setLocalFile(localFile);
         log.setRemoteFile(remoteFile);
         log.setReplyCode(replyCode);
         log.setReplyCodeDesc(FTPConstant.REPLYCODE.get(replyCode));
-        logger.info(log);
+        logger.info(JacksonUtil.toJson(log));
         return FTPReply.isPositiveCompletion(replyCode);
     }
 
@@ -162,8 +165,8 @@ public class FTPUtilImpl implements FTPUtil {
     @Override
     public boolean putFile(File file, String remoteFileName, boolean isDelete) {
         String fileName = remoteFileName;
-        String path     = "";
-        String parent   = getParentPath(remoteFileName);
+        String path = "";
+        String parent = getParentPath(remoteFileName);
         if (remoteFileName.lastIndexOf("/") != -1) {
             path = remoteFileName.substring(0, remoteFileName.lastIndexOf("/"));
             fileName = remoteFileName.substring(remoteFileName.lastIndexOf("/") + 1);
@@ -219,8 +222,8 @@ public class FTPUtilImpl implements FTPUtil {
     }
 
     @Override
-    public Map<String,FileAttr> listFileAttr(String directory) {
-        Map<String,FileAttr> map = new HashMap<String,FileAttr>();
+    public Map<String, FileAttr> listFileAttr(String directory) {
+        Map<String, FileAttr> map = new HashMap<String, FileAttr>();
         try {
             FTPFile[] files = client.listFiles(directory);
             for (int i = 0; i < files.length; i++) {

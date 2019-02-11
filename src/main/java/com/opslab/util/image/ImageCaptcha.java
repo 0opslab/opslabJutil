@@ -7,11 +7,11 @@ import java.util.Random;
  */
 public final class ImageCaptcha {
     //指定图片的宽度
-    private static int width =200;
+    private static int width = 200;
     //指定图片的高度
-    private static int height= 40;
+    private static int height = 40;
     //指定所以的字符
-    public static  String CHAR    = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    public static String CHAR = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     public static String getCHAR() {
         return CHAR;
@@ -39,11 +39,12 @@ public final class ImageCaptcha {
 
     /**
      * 随机指定长度的字符串
+     *
      * @param len
      * @return
      */
-    private static String randomStr(int len){
-        StringBuffer sb     = new StringBuffer();
+    private static String randomStr(int len) {
+        StringBuffer sb = new StringBuffer();
         Random random = new Random();
         for (int i = 0; i < len; i++) {
             sb.append(CHAR.charAt(random.nextInt(CHAR.length())));
@@ -54,21 +55,22 @@ public final class ImageCaptcha {
 
     /**
      * 生产一张png格式的验证图片在指定的位置
+     *
      * @param strlen 验证码长度
-     * @param file 文件位置
+     * @param file   文件位置
      * @return 是否成功
      */
-    public static String pngCaptcha(int strlen,String file){
+    public static String pngCaptcha(int strlen, String file) {
         String random = randomStr(strlen);
-        if(CaptchaUtil.pngCaptcha(random,width,height,file)){
+        if (CaptchaUtil.pngCaptcha(random, width, height, file)) {
             return random;
         }
         return "";
     }
 
-    public static String gifCaptch(int strlen,String file){
+    public static String gifCaptch(int strlen, String file) {
         String random = randomStr(strlen);
-        if(CaptchaUtil.gifCaptcha(random,width,height,file)){
+        if (CaptchaUtil.gifCaptcha(random, width, height, file)) {
             return random;
         }
         return "";

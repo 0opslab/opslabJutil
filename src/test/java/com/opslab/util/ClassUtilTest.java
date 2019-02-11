@@ -1,57 +1,61 @@
 package com.opslab.util;
 
 import com.opslab.temp.model.BusinessLog;
+import org.junit.Ignore;
 import org.junit.Test;
 
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Vector;
 
-
+@Ignore
 public class ClassUtilTest {
 
     @Test
-    public void testField() throws  InvocationTargetException, IllegalAccessException {
+    public void testField() throws InvocationTargetException, IllegalAccessException {
         System.out.println("=============所有字段===============");
-        String[] fields = ClassUtil.getField("com.opslab.temp.model.BusinessLog",true);
+        String[] fields = ClassUtil.getField("com.opslab.temp.model.BusinessLog", true);
         for (String f : fields) {
             System.out.println(f);
         }
     }
 
     @Test
-    public void testPublicField()  {
+    public void testPublicField() {
         System.out.println("=============获取类中的全部public属性包括继承的==========");
         String[] fields = ClassUtil.getPublicField("com.opslab.temp.model.BusinessLog", true);
-        for(String f:fields){
+        for (String f : fields) {
             System.out.println(f);
         }
         System.out.println("=============获取类中的自定义public属性包括继承的==========");
         String[] fieldz = ClassUtil.getPublicField("com.opslab.temp.model.BusinessLog", false);
-        for(String f:fieldz){
+        for (String f : fieldz) {
             System.out.println(f);
         }
     }
 
     @Test
-    public void testProtectedField()  {
+    public void testProtectedField() {
         System.out.println("=============获取类中自定义的protected类型的属性==============");
         String[] field = ClassUtil.getProtectedField("com.opslab.temp.model.BusinessLog");
-        for(String f:field){
+        for (String f : field) {
             System.out.println(f);
         }
     }
 
     @Test
-    public void testPrivateField()  {
+    public void testPrivateField() {
         System.out.println("=============获取类中自定义的private类型的属性==============");
         String[] field = ClassUtil.getPrivateField("com.opslab.temp.model.BusinessLog");
-        for(String f:field){
+        for (String f : field) {
             System.out.println(f);
         }
     }
+
     @Test
-    public void testPrivateMetod()  {
+    public void testPrivateMetod() {
         System.out.println("=============获取自定义的private类型的方法==========");
         String[] methods = ClassUtil.getPrivateMethod("com.opslab.util.bean.BeanUtil");
         for (String m : methods) {
@@ -59,8 +63,9 @@ public class ClassUtilTest {
         }
 
     }
+
     @Test
-    public void testProtectedMetod()  {
+    public void testProtectedMetod() {
         System.out.println("=============获取自定义的Protected类型的方法==========");
         String[] methods = ClassUtil.getProtectedMethod("com.opslab.util.bean.BeanUtil", false);
         for (String m : methods) {
@@ -72,8 +77,9 @@ public class ClassUtilTest {
             System.out.println(m);
         }
     }
+
     @Test
-    public void testPublicMetod()  {
+    public void testPublicMetod() {
         System.out.println("=============获取自定义的public类型的方法==========");
         String[] methods = ClassUtil.getPublicMethod("com.opslab.util.bean.BeanUtil", false);
         for (String m : methods) {
@@ -87,7 +93,7 @@ public class ClassUtilTest {
     }
 
     @Test
-    public void testMetod() throws  InvocationTargetException, IllegalAccessException {
+    public void testMetod() throws InvocationTargetException, IllegalAccessException {
         System.out.println("============所有方法================");
         String[] methods = ClassUtil.getMethod("com.opslab.util.StringUtil", false);
         for (String m : methods) {
@@ -103,22 +109,32 @@ public class ClassUtilTest {
 
 
     @Test
-    public void testgetClassNameByFile(){
-        String file = System.getProperty("user.dir")+"/target/classes";
+    public void testgetClassNameByFile() {
+        String file = System.getProperty("user.dir") + "/target/classes";
         List<String> classNames = ClassUtil.getClassNameByFile(file, true);
         System.out.println(classNames);
     }
+
     @Test
-    public void testGetClass() {
-        System.out.println("============所有类================");
-        List<String> classNames = ClassUtil.getClassName("com.opslab", true);
-        for (String str : classNames) {
-            System.out.println(str);
+    public void testgetLoaderClass() throws NoSuchFieldException, IllegalAccessException {
+        List<Class> loaderClass = ClassUtil.getLoaderClass(ClassUtil.getContextClassLoader());
+        for (Class clas : loaderClass) {
+            System.out.println(clas.getName());
         }
-
-
     }
 
+
+//    @Test
+//    public void testGetClass() throws NoSuchFieldException, IllegalAccessException {
+//        System.out.println("============所有类================");
+//        String path = System.getProperty("user.dir");
+//        System.out.println(path);
+//        List<String> classNames = ClassUtil.getClassName(path+"/target/classes", path);
+//        for (String str : classNames) {
+//            System.out.println(str);
+//        }
+//
+//    }
 
 
     @Test
@@ -135,8 +151,8 @@ public class ClassUtilTest {
      * 测试从jar包中获取到类名字
      */
     @Test
-    public void testGetClassByJar(){
-        String jarPath = TestUtil.path +"/lib/cpdetector.jar";
+    public void testGetClassByJar() {
+        String jarPath = TestUtil.path + "/lib/cpdetector.jar";
         List<String> classNameList = ClassUtil.getClassNameByJar(jarPath);
         System.out.println(classNameList);
     }
@@ -145,45 +161,44 @@ public class ClassUtilTest {
      * 获取jar包中的所有的资源文件
      */
     @Test
-    public void testGetResourceByJar(){
-        String jarPath = TestUtil.path +"/lib/cpdetector.jar";
+    public void testGetResourceByJar() {
+        String jarPath = TestUtil.path + "/lib/cpdetector.jar";
         List<String> resourceNames = ClassUtil.getResourceNameByJar(jarPath);
         System.out.println(resourceNames);
     }
-
 
 
     /**
      * 获取jar包中的自定类型的资源
      */
     @Test
-    public void testGetResourceByJar1(){
-        String jarPath = TestUtil.path +"/lib/cpdetector.jar";
-        List<String> resourceNames = ClassUtil.getResourceNameByJar(jarPath,".xml");
+    public void testGetResourceByJar1() {
+        String jarPath = TestUtil.path + "/lib/cpdetector.jar";
+        List<String> resourceNames = ClassUtil.getResourceNameByJar(jarPath, ".xml");
         System.out.println(resourceNames);
     }
 
     @Test
-    public void testGetSuperClass()  {
+    public void testGetSuperClass() {
         System.out.println(ClassUtil.getSuperClass("com.opslab.temp.model.BusinessLog"));
         System.out.println(ClassUtil.getSuperClass("com.opslab.temp.model.Log"));
     }
 
     @Test
-    public void testGetSuperClassChian()  {
+    public void testGetSuperClassChian() {
         String[] superClassChian = ClassUtil.getSuperClassChian("com.opslab.temp.model.BusinessLog");
         System.out.println(Arrays.toString(superClassChian));
         System.out.println(Arrays.toString(ClassUtil.getSuperClassChian("com.opslab.temp.model.Log")));
     }
 
     @Test
-    public void testGetInterfaces()  {
-        String[] interfaces = ClassUtil.getInterfaces("java.util.List",false);
+    public void testGetInterfaces() {
+        String[] interfaces = ClassUtil.getInterfaces("java.util.List", false);
         System.out.println(Arrays.toString(interfaces));
-        interfaces = ClassUtil.getInterfaces("com.opslab.temp.model.BusinessLog",false);
+        interfaces = ClassUtil.getInterfaces("com.opslab.temp.model.BusinessLog", false);
         System.out.println(Arrays.toString(interfaces));
 
-        interfaces = ClassUtil.getInterfaces("com.opslab.temp.model.BusinessLog",true);
+        interfaces = ClassUtil.getInterfaces("com.opslab.temp.model.BusinessLog", true);
         System.out.println(Arrays.toString(interfaces));
     }
 

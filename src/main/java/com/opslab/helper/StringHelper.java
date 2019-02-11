@@ -18,7 +18,7 @@ public class StringHelper {
      * @param str 判断的字符串
      * @return 是否有效
      */
-    public  static boolean isEmpty(String str) {
+    public static boolean isEmpty(String str) {
         return str == null || str.equals("");
     }
 
@@ -29,7 +29,7 @@ public class StringHelper {
      * @param symbol 链接的符号
      * @return 处理后的字符串
      */
-    public  static String join(String[] array, String symbol) {
+    public static String join(String[] array, String symbol) {
         String result = "";
         if (array != null) {
             for (String temp : array) {
@@ -51,7 +51,7 @@ public class StringHelper {
      * @param pattern 分割字符串
      * @return 处理后的list
      */
-    public  static List<String> parseString2List(String src, String pattern) {
+    public static List<String> parseString2List(String src, String pattern) {
         List<String> list = new ArrayList<>();
         if (src != null) {
             String[] tt = src.split(pattern);
@@ -61,14 +61,13 @@ public class StringHelper {
     }
 
 
-
     /**
      * 格式化一个float
      *
      * @param format 要格式化成的格式 such as #.00, #.#
      * @return 格式化后的字符串
      */
-    public  static String formatDouble(double f, String format) {
+    public static String formatDouble(double f, String format) {
         DecimalFormat df = new DecimalFormat(format);
         return df.format(f);
     }
@@ -80,8 +79,8 @@ public class StringHelper {
      * @param str 需要处理的字符串
      * @return 处理后的字符串
      */
-    public  static String full2Half(String str) {
-        if(isEmpty(str)){
+    public static String full2Half(String str) {
+        if (isEmpty(str)) {
             return "";
         }
         return BCConvert.qj2bj(str);
@@ -89,11 +88,12 @@ public class StringHelper {
 
     /**
      * 半角字符变全角字符
+     *
      * @param str 需要处理的字符串
      * @return 处理后的字符串
      */
-    public  static String Half2Full(String str){
-        if(isEmpty(str)){
+    public static String Half2Full(String str) {
+        if (isEmpty(str)) {
             return "";
         }
         return BCConvert.bj2qj(str);
@@ -104,7 +104,7 @@ public class StringHelper {
      *
      * @param str 需要处理的字符串
      */
-    public  static String replaceBlank(String str) {
+    public static String replaceBlank(String str) {
         if (str != null) {
             Pattern p = Pattern.compile("\\s*|\t|\r|\n");
             Matcher m = p.matcher(str);
@@ -118,10 +118,10 @@ public class StringHelper {
      *
      * @param string 需要处理的字符串
      */
-    public  static String string2Unicode(String string) {
+    public static String string2Unicode(String string) {
         StringBuilder uni = new StringBuilder();
         for (int i = 0; i < string.length(); i++) {
-            String temp ="\\u"+String.valueOf(Integer.toHexString(string.charAt(i)));
+            String temp = "\\u" + String.valueOf(Integer.toHexString(string.charAt(i)));
             uni.append(temp);
         }
         return uni.toString();
@@ -132,9 +132,9 @@ public class StringHelper {
      *
      * @param unicode 需要处理的字符串
      */
-    public  static String unicode2String(String unicode) {
+    public static String unicode2String(String unicode) {
         StringBuilder str = new StringBuilder();
-        String[]     hex    = unicode.split("\\\\u");
+        String[] hex = unicode.split("\\\\u");
         for (int i = 1; i < hex.length; i++) {
             int data = Integer.parseInt(hex[i], 16);
             str.append((char) data);
@@ -149,7 +149,7 @@ public class StringHelper {
      * @param count 截取长度
      * @return 截取字符串
      */
-    public  static String left(String input, int count) {
+    public static String left(String input, int count) {
         if (isEmpty(input)) {
             return "";
         }
@@ -165,7 +165,7 @@ public class StringHelper {
      * @return 截取字符串
      * Summary 其他编码的有待测试
      */
-    public  static String right(String input, int count) {
+    public static String right(String input, int count) {
         if (isEmpty(input)) {
             return "";
         }
@@ -175,37 +175,40 @@ public class StringHelper {
 
     /**
      * 返回俩个字符串共同的前缀
+     *
      * @param str1
      * @param str2
      * @return
      */
-    public  static String hasPrefix(String str1,String str2){
+    public static String hasPrefix(String str1, String str2) {
         //@TODO-字符串方法实现
         return null;
     }
 
     /**
      * 返回俩个字符串共同的后缀
+     *
      * @param str1
      * @param str2
      * @return
      */
-    public  static String hasSuffix(String str1,String str2){
+    public static String hasSuffix(String str1, String str2) {
         //TODO-字符串方法实现
         return null;
     }
 
     /**
      * 数字格式化
-     * @param obj 传入的小数
+     *
+     * @param obj    传入的小数
      * @param format 保留几位小数就穿几个0
      * @return
      */
-    public static String formatNumber(BigDecimal obj,String format) {
+    public static String formatNumber(BigDecimal obj, String format) {
         DecimalFormat df = new DecimalFormat(format);
-        if(obj.compareTo(BigDecimal.ZERO)>0&&obj.compareTo(new BigDecimal(1))<0){
-            return "0"+df.format(obj);
-        }else {
+        if (obj.compareTo(BigDecimal.ZERO) > 0 && obj.compareTo(new BigDecimal(1)) < 0) {
+            return "0" + df.format(obj);
+        } else {
             return df.format(obj);
         }
     }

@@ -15,7 +15,7 @@ public class PrintUtilTest {
         System.out.println(list);
 
 
-        Map<String,String> map = new HashMap<>();
+        Map<String, String> map = new HashMap<>();
         map.put("1", "test1");
         map.put("2", "test2");
         map.put("3", "test3");
@@ -31,17 +31,16 @@ public class PrintUtilTest {
 
 
     @Test
-    public void testArr(){
-        byte[] bytes = new byte[]{1,2,3};
+    public void testArr() {
+        byte[] bytes = new byte[]{1, 2, 3};
         System.out.println(bytes);
-        char[] chars = new char[]{'a','b','中','文'};
+        char[] chars = new char[]{'a', 'b', '中', '文'};
         System.out.println(chars);
-        int[] ints = new int[]{1,2,34,};
+        int[] ints = new int[]{1, 2, 34,};
         System.out.println(ints);
-        User[] users = new User[]{new User("11","aa"),new User("22","bb")};
+        User[] users = new User[]{new User("11", "aa"), new User("22", "bb")};
         System.out.println(users);
     }
-
 
 
 }

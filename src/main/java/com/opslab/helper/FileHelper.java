@@ -77,6 +77,7 @@ public final class FileHelper {
 
     ///////////////////////////////////////////////////////////////////////
     // 写文件的方法(如果写入的数据较多建议使用通道的方式)
+
     /**
      * 获取文件的行数
      *
@@ -139,13 +140,15 @@ public final class FileHelper {
 
     /**
      * 读取文件内容
+     *
      * @param file
      * @return
      */
     public static String readContents(File file) {
-        try (FileInputStream in = new FileInputStream(file)){
+        try (FileInputStream in = new FileInputStream(file)) {
             Long filelength = file.length();
-            byte[] filecontent = new byte[filelength.intValue()];;
+            byte[] filecontent = new byte[filelength.intValue()];
+            ;
             in.read(filecontent);
             return new String(filecontent);
         } catch (FileNotFoundException e) {
@@ -180,6 +183,7 @@ public final class FileHelper {
 
     /**
      * 写文件
+     *
      * @param file     需要处理的文件
      * @param str      添加的字符串
      * @param encoding 指定写入的编码
@@ -219,6 +223,7 @@ public final class FileHelper {
 
     /**
      * 写文件
+     *
      * @param file     需要处理的文件
      * @param str      添加的字符串
      * @param encoding 指定写入的编码
@@ -240,6 +245,7 @@ public final class FileHelper {
 
     ///////////////////////////////////////////////////////////////////////
     // 复制文件的方法
+
     /**
      * 复制文件
      *
@@ -283,7 +289,7 @@ public final class FileHelper {
      * @return 是否成功
      */
     public static boolean copyFile(File file, File targetFile) throws IOException {
-        logger.debug("copy file resource:{} ,target:{}",file.getAbsolutePath(),targetFile.getAbsolutePath());
+        logger.debug("copy file resource:{} ,target:{}", file.getAbsolutePath(), targetFile.getAbsolutePath());
         int BUFFER_SIZE = 1024 * 1024;
         if (!targetFile.getParentFile().exists()) {
             targetFile.getParentFile().mkdirs();
@@ -306,9 +312,6 @@ public final class FileHelper {
             throw e;
         }
     }
-
-
-
 
 
     ///////////////////////////////////////////////////////////////////////
@@ -562,6 +565,7 @@ public final class FileHelper {
 
     ///////////////////////////////////////////////////////////////////////
     //其他杂项方法
+
     /**
      * 创建文件支持多级目录
      *
@@ -585,6 +589,7 @@ public final class FileHelper {
         }
         return false;
     }
+
     /**
      * 获取文件后缀名
      *
@@ -648,9 +653,10 @@ public final class FileHelper {
 
     /**
      * 文件压缩支持文件和文件夹
+     *
      * @throws Exception
      */
-    public static boolean zipDeCompress(File file,String zipFile)  {
+    public static boolean zipDeCompress(File file, String zipFile) {
         try {
             ZIPUtil.deCompress(file, zipFile);
             return true;
@@ -662,11 +668,12 @@ public final class FileHelper {
 
     /**
      * 文件压缩
+     *
      * @param zipFile
      * @param path
      * @return
      */
-    public static boolean zipUnCompress(File zipFile,String path)  {
+    public static boolean zipUnCompress(File zipFile, String path) {
         try {
             ZIPUtil.unCompress(zipFile, path);
             return true;

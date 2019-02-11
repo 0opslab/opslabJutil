@@ -9,6 +9,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+
 /**
  * Class AnimatedGifEncoder - Encodes a GIF file consisting of one or
  * more frames.
@@ -28,7 +29,6 @@ import java.io.OutputStream;
  *
  * @author wuhongjun
  * @version 1.03 November 2003
- *
  */
 public class GifEncoder {
     protected int width; // image size
@@ -66,6 +66,7 @@ public class GifEncoder {
      * Sets the GIF frame disposal code for the last added frame
      * and any subsequent frames.  Default is 0 if no transparent
      * color has been set, otherwise 2.
+     *
      * @param code int disposal code.
      */
     public void setDispose(int code) {
@@ -321,7 +322,6 @@ public class GifEncoder {
 
     /**
      * Returns index of palette color closest to c
-     *
      */
     protected int findClosest(Color c) {
         if (colorTab == null) return -1;
@@ -331,7 +331,7 @@ public class GifEncoder {
         int minpos = 0;
         int dmin = 256 * 256 * 256;
         int len = colorTab.length;
-        for (int i = 0; i < len;) {
+        for (int i = 0; i < len; ) {
             int dr = r - (colorTab[i++] & 0xff);
             int dg = g - (colorTab[i++] & 0xff);
             int db = b - (colorTab[i] & 0xff);
@@ -472,7 +472,7 @@ public class GifEncoder {
     }
 
     /**
-     *    Write 16-bit value to output stream, LSB first
+     * Write 16-bit value to output stream, LSB first
      */
     protected void writeShort(int value) throws IOException {
         out.write(value & 0xff);

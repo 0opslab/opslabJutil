@@ -1,6 +1,10 @@
 package com.opslab.util;
 
-import org.apache.log4j.Logger;
+
+
+import com.opslab.helper.FileHelper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,13 +15,14 @@ import java.lang.reflect.Modifier;
 import java.util.*;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
+import java.util.regex.Pattern;
 
 /**
  * <h6>Description:<h6>
  * <p>Java Class与反射相关的一些工具类</p>
  */
 public final class ClassUtil {
-
+    private static Logger logger = LoggerFactory.getLogger(ClassUtil.class);
 
     /**
      * 获取类加载器
@@ -29,7 +34,7 @@ public final class ClassUtil {
                 overridenClassLoader : Thread.currentThread().getContextClassLoader();
     }
 
-    private static Logger logger = Logger.getLogger(ClassUtil.class);
+
 
     /**
      * 获取指定类的全部属性字段
@@ -255,18 +260,19 @@ public final class ClassUtil {
     /**
      * 获取指定目录下所有的类名
      *
-     * @param path         包名
-     * @param childPackage 是否获取子包
+     * @param classPath class文件路径
+     * @param jarPath jar文件路径
      */
-    public final static List<String> getClassName(String path, boolean childPackage) {
-        List<String> fileNames = new ArrayList<>();
-        if (path.endsWith(".jar")) {
-            fileNames.addAll(getClassNameByJar(path));
-        } else {
-            fileNames = getClassNameByFile(path, childPackage);
-        }
-        return fileNames;
-    }
+//    public final static List<String> getClassName(String classPath, String jarPath) {
+//        List<String> fileNames = new ArrayList<>();
+//        List<File> jarList = FileHelper.listFileSuffix(new File(jarPath), "jar");
+//        for(File file:jarList){
+//            fileNames.addAll(getClassNameByJar(file.getAbsolutePath()));
+//        }
+//        //fileNames.addAll(getClassNameByFile(classPath,true));
+//
+//        return fileNames;
+//    }
 
     /**
      * 从项目文件获取某包下所有类
@@ -282,7 +288,7 @@ public final class ClassUtil {
             if (file.getName().endsWith(".class")) {
                 String childFilePath = file.getPath();
                 int index = filePath.replaceAll("\\\\", ".").length();
-                childFilePath = childFilePath.replaceAll("\\\\", ".").substring(index, childFilePath.length());
+                childFilePath = childFilePath.replaceAll("\\\\", ".").substring(index+1, childFilePath.length());
                 myClassName.add(childFilePath);
             }
         }
@@ -303,7 +309,7 @@ public final class ClassUtil {
                 JarEntry jarEntry = entrys.nextElement();
                 String entryName = jarEntry.getName();
                 if (entryName.endsWith(".class")) {
-                    entryName = entryName.replace("/", ".").substring(0, entryName.lastIndexOf("."));
+                    entryName = entryName.replace("/", ".");
                     myClassName.add(entryName);
                 }
             }
@@ -376,6 +382,27 @@ public final class ClassUtil {
             logger.error(ExceptionUtil.stackTraceToString(e, "com.opslab.util"));
         }
         return resource;
+    }
+
+    /**
+     * 获取类加载器已经加载的类
+     * @param classLoader
+     * @return
+     * @throws NoSuchFieldException
+     * @throws IllegalAccessException
+     */
+    public static List<Class> getLoaderClass(ClassLoader classLoader) throws NoSuchFieldException, IllegalAccessException {
+        Class cla = classLoader.getClass();
+        while (cla != ClassLoader.class)
+            cla = cla.getSuperclass();
+        Field field = cla.getDeclaredField("classes");
+        field.setAccessible(true);
+        Vector v = (Vector) field.get(classLoader);
+        List<Class> result = new ArrayList<>();
+        for (int i = 0; i < v.size(); i++) {
+            result.add((Class)v.get(i));
+        }
+        return result;
     }
 
     /**

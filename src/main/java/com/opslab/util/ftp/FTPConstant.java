@@ -12,11 +12,11 @@ public class FTPConstant {
     /**
      * FTP状态码及其描述
      */
-    public static  Map<Integer,String> REPLYCODE        = new HashMap<Integer,String>();
+    public static Map<Integer, String> REPLYCODE = new HashMap<Integer, String>();
     //用于编码转换
-    private static String              ISO_ECODING      = "ISO-8859-1";
+    private static String ISO_ECODING = "ISO-8859-1";
     //程序运行的编码
-    private static String              PROJECT_ENCODING = Opslab.UTF_8;
+    private static String PROJECT_ENCODING = Opslab.UTF_8;
 
     static {
         REPLYCODE.put(120, "服务已就绪，在 nnn 分钟后开始。");

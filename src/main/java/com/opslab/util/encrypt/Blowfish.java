@@ -568,13 +568,13 @@ public class Blowfish {
     }
 
 
-    public final static byte[] encrypt(String key,String str){
+    public final static byte[] encrypt(String key, String str) {
         Blowfish bf1 = new Blowfish();
         bf1.init(true, key.getBytes());
         return bf1.encrypt(str);
     }
 
-    public final static String decrypt(String key,byte[] tt){
+    public final static String decrypt(String key, byte[] tt) {
         Blowfish bf2 = new Blowfish();
         bf2.init(true, key.getBytes());
         return bf2.decryptString(tt);
