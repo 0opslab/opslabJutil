@@ -67,6 +67,10 @@ public final class ImageCaptcha {
         }
         return "";
     }
+    public static String pngCaptchaBase64(int strlen) {
+        String random = randomStr(strlen);
+        return CaptchaUtil.pngCaptchaBase64(random, width, height);
+    }
 
     public static String gifCaptch(int strlen, String file) {
         String random = randomStr(strlen);
@@ -74,5 +78,9 @@ public final class ImageCaptcha {
             return random;
         }
         return "";
+    }
+    public static String gifCaptchBase64(int strlen) {
+        String random = randomStr(strlen);
+        return CaptchaUtil.gifCaptchaBase64(random, width, height);
     }
 }

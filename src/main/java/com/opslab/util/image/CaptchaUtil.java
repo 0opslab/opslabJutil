@@ -1,14 +1,13 @@
 package com.opslab.util.image;
 
+import com.opslab.util.encrypt.Base64Ext;
 import com.opslab.util.image.GIF.GifEncoder;
+import sun.misc.BASE64Encoder;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
+import java.io.*;
 import java.util.Random;
 
 /**
@@ -43,7 +42,14 @@ public final class CaptchaUtil {
         return new Color(r, g, b);
     }
 
-
+    /**
+     * 生成PNG的验证图片
+     * @param randomStr
+     * @param width
+     * @param height
+     * @param file
+     * @return
+     */
     public static boolean pngCaptcha(String randomStr, int width, int height, String file) {
         char[] strs = randomStr.toCharArray();
         try (OutputStream out = new FileOutputStream(file)) {
@@ -83,7 +89,7 @@ public final class CaptchaUtil {
     public static boolean gifCaptcha(String randomStr, int width, int height, String file) {
         char[] rands = randomStr.toCharArray();
         int len = rands.length;
-        try (OutputStream out = new FileOutputStream(file)) {
+        try (OutputStream out =   new FileOutputStream(file)) {
             // gif编码类，这个利用了洋人写的编码类，所有类都在附件中
             GifEncoder gifEncoder = new GifEncoder();
             //生成字符
@@ -102,13 +108,86 @@ public final class CaptchaUtil {
                 frame.flush();
             }
             gifEncoder.finish();
-            return true;
+           return true;
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
         return false;
+    }
+
+    /**
+     * 生成PNG的验证图片
+     * @param randomStr
+     * @param width
+     * @param height
+     * @return
+     */
+    public static String pngCaptchaBase64(String randomStr, int width, int height) {
+        char[] strs = randomStr.toCharArray();
+        try (ByteArrayOutputStream out =   new ByteArrayOutputStream()) {
+            BufferedImage bi = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+            Graphics2D g = (Graphics2D) bi.getGraphics();
+            AlphaComposite ac3;
+            Color color;
+            int len = strs.length;
+            g.setColor(Color.WHITE);
+            g.fillRect(0, 0, width, height);
+            for (int i = 0; i < 15; i++) {
+                color = color(150, 250);
+                g.setColor(color);
+                g.drawOval(num(width), num(height), 5 + num(10), 5 + num(10));
+            }
+            g.setFont(font);
+            int h = height - ((height - font.getSize()) >> 1),
+                    w = width / len,
+                    size = w - font.getSize() + 1;
+            for (int i = 0; i < len; i++) {
+                // 指定透明度
+                ac3 = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.7f);
+                g.setComposite(ac3);
+                // 对每个字符都用随机颜色
+                color = new Color(20 + num(110), 30 + num(110), 30 + num(110));
+                g.setColor(color);
+                g.drawString(strs[i] + "", (width - (len - i) * w) + size, h - 4);
+            }
+            ImageIO.write(bi, "png", out);
+            return "data:image/png;base64,"+new String(Base64Ext.encode(out.toByteArray(), Base64Ext.NO_WRAP));
+        } catch (IOException e) {
+            return null;
+        }
+    }
+
+    public static String gifCaptchaBase64(String randomStr, int width, int height) {
+        char[] rands = randomStr.toCharArray();
+        int len = rands.length;
+        try (ByteArrayOutputStream out =   new ByteArrayOutputStream()) {
+            // gif编码类，这个利用了洋人写的编码类，所有类都在附件中
+            GifEncoder gifEncoder = new GifEncoder();
+            //生成字符
+            gifEncoder.start(out);
+            gifEncoder.setQuality(180);
+            gifEncoder.setDelay(100);
+            gifEncoder.setRepeat(0);
+            BufferedImage frame;
+            Color fontcolor[] = new Color[len];
+            for (int i = 0; i < len; i++) {
+                fontcolor[i] = new Color(20 + num(110), 20 + num(110), 20 + num(110));
+            }
+            for (int i = 0; i < len; i++) {
+                frame = graphicsImage(fontcolor, rands, i, width, height, len);
+                gifEncoder.addFrame(frame);
+                frame.flush();
+            }
+            gifEncoder.finish();
+            return "data:image/gif;base64,"+new String(Base64Ext.encode(out.toByteArray(), Base64Ext.NO_WRAP));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     /**

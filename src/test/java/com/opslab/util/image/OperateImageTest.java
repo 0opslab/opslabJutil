@@ -2,6 +2,7 @@ package com.opslab.util.image;
 
 import junit.framework.TestCase;
 import com.opslab.util.TestUtil;
+import org.junit.Ignore;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -12,6 +13,7 @@ import java.util.Arrays;
 /**
  * 测试图片工具类
  */
+@Ignore
 public class OperateImageTest extends TestCase {
 
     private String path = TestUtil.path + "/image/";
@@ -196,6 +198,7 @@ public class OperateImageTest extends TestCase {
         String imageFormat = "jpg";
         String file = path + "1.jpg";
         String dstFile = path_temp + "AlphaWords2Image.jpg";
+        System.out.println(dstFile);
         OperateImage.alphaWords2Image(file, alpha, font, fontStyle, fontSize, color, inputWords, 0, 0, imageFormat, dstFile);
     }
 
