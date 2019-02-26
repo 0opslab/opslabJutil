@@ -3,6 +3,7 @@ package com.opslab.helper;
 import com.opslab.util.CheckUtil;
 import com.opslab.util.algorithmImpl.BCConvert;
 
+
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -210,6 +211,38 @@ public class StringHelper {
             return "0" + df.format(obj);
         } else {
             return df.format(obj);
+        }
+    }
+
+    public static boolean hasLength(String str) {
+        return str != null && !str.isEmpty();
+    }
+
+    public static String replace(String inString, String oldPattern, String newPattern) {
+        if (hasLength(inString) && hasLength(oldPattern) && newPattern != null) {
+            int index = inString.indexOf(oldPattern);
+            if (index == -1) {
+                return inString;
+            } else {
+                int capacity = inString.length();
+                if (newPattern.length() > oldPattern.length()) {
+                    capacity += 16;
+                }
+
+                StringBuilder sb = new StringBuilder(capacity);
+                int pos = 0;
+
+                for(int patLen = oldPattern.length(); index >= 0; index = inString.indexOf(oldPattern, pos)) {
+                    sb.append(inString.substring(pos, index));
+                    sb.append(newPattern);
+                    pos = index + patLen;
+                }
+
+                sb.append(inString.substring(pos));
+                return sb.toString();
+            }
+        } else {
+            return inString;
         }
     }
 

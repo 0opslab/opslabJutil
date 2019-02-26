@@ -394,13 +394,19 @@ public final class FileUtil {
      */
     public final static boolean createFiles(String filePath) {
         File file = new File(filePath);
-        File dir = file.getParentFile();
-        if (!dir.exists()) {
-            if (dir.mkdirs()) {
-                try {
-                    return file.createNewFile();
-                } catch (IOException e) {
-                    e.printStackTrace();
+        if(file.isDirectory()){
+            if (!file.exists()) {
+                return file.mkdirs();
+            }
+        }else{
+            File dir = file.getParentFile();
+            if (!dir.exists()) {
+                if (dir.mkdirs()) {
+                    try {
+                        return file.createNewFile();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         }

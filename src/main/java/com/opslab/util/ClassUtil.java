@@ -3,15 +3,21 @@ package com.opslab.util;
 
 
 import com.opslab.helper.FileHelper;
+import com.opslab.helper.StringHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.*;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
@@ -461,5 +467,58 @@ public final class ClassUtil {
             }
         }
         return list.toArray(new String[list.size()]);
+    }
+
+    /**
+     * 获取资源文件
+     * @param resourceLocation
+     * @return
+     * @throws FileNotFoundException
+     */
+    public static File getFile(String resourceLocation) throws FileNotFoundException {
+        AssertUtil.notNull(resourceLocation,"Resource location must not be null");
+        if (resourceLocation.startsWith("classpath:")) {
+            String path = resourceLocation.substring("classpath:".length());
+            String description = "class path resource [" + path + "]";
+            ClassLoader cl = getContextClassLoader();
+            URL url = cl != null ? cl.getResource(path) : ClassLoader.getSystemResource(path);
+            if (url == null) {
+                throw new FileNotFoundException(description + " cannot be resolved to absolute file path because it does not exist");
+            } else {
+                return getFile(url, description);
+            }
+        } else {
+            try {
+                return getFile(new URL(resourceLocation));
+            } catch (MalformedURLException var5) {
+                return new File(resourceLocation);
+            }
+        }
+    }
+
+    public static File getFile(URL resourceUrl) throws FileNotFoundException {
+        return getFile(resourceUrl, "URL");
+    }
+
+    public static File getFile(URL resourceUrl, String description) throws FileNotFoundException {
+        AssertUtil.notNull(resourceUrl, "Resource URL must not be null");
+        if (!"file".equals(resourceUrl.getProtocol())) {
+            throw new FileNotFoundException(description + " cannot be resolved to absolute file path because it does not reside in the file system: " + resourceUrl);
+        } else {
+            try {
+                return new File(toURI(resourceUrl).getSchemeSpecificPart());
+            } catch (URISyntaxException var3) {
+                return new File(resourceUrl.getFile());
+            }
+        }
+    }
+
+
+    public static URI toURI(URL url) throws URISyntaxException {
+        return toURI(url.toString());
+    }
+
+    public static URI toURI(String location) throws URISyntaxException {
+        return new URI(StringHelper.replace(location, " ", "%20"));
     }
 }

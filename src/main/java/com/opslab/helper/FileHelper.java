@@ -3,6 +3,7 @@ package com.opslab.helper;
 import com.opslab.functions.ObjectFilter;
 import com.opslab.functions.ObjectHandler;
 import com.opslab.functions.ObjectProcess;
+import com.opslab.util.AssertUtil;
 import com.opslab.util.SysUtil;
 import com.opslab.util.ZIPUtil;
 import com.opslab.util.algorithmImpl.FileImpl;
@@ -159,6 +160,85 @@ public final class FileHelper {
         return null;
     }
 
+    /**
+     * 创建文件支持多级目录
+     *
+     * @param file 需要创建的文件
+     * @return 是否成功,如果存在则返回成功
+     */
+    public final static boolean createFiles(File file) {
+        if(file.exists()){
+            return true;
+        }
+        if(file.isDirectory()){
+            if (!file.exists()) {
+                return file.mkdirs();
+            }
+        }else{
+            File dir = file.getParentFile();
+            if (!dir.exists()) {
+                if (dir.mkdirs()) {
+                    try {
+                        return file.createNewFile();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }else{
+                try {
+                    return file.createNewFile();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 创建文件支持多级目录
+     *
+     * @param file 需要创建的文件
+     * @para isReNew 存在的时候是否重新创建
+     * @return 是否成功,如果存在则返回成功
+     */
+    public final static boolean createFiles(File file,boolean isReNew) {
+        if(file.exists()){
+            if(isReNew){
+                if(file.delete()){
+                    try {
+                        return file.createNewFile();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return true;
+        }
+        if(file.isDirectory()){
+            if (!file.exists()) {
+                return file.mkdirs();
+            }
+        }else{
+            File dir = file.getParentFile();
+            if (!dir.exists()) {
+                if (dir.mkdirs()) {
+                    try {
+                        return file.createNewFile();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }else{
+                try {
+                    return file.createNewFile();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return false;
+    }
     ///////////////////////////////////////////////////////////////////////
     // 写文件的方法(如果写入的数据较多建议使用通道的方式)
 
@@ -170,6 +250,7 @@ public final class FileHelper {
      * @return 是否成功
      */
     public static boolean write(File file, String str) {
+        AssertUtil.notNull(file,"file is null");
         try (
                 RandomAccessFile randomFile = new RandomAccessFile(file, "rw")
         ) {
@@ -190,10 +271,12 @@ public final class FileHelper {
      * @return 是否成功
      */
     public static boolean write(File file, String str, String encoding) {
+        AssertUtil.notNull(file,"file is null");
         try (
                 RandomAccessFile randomFile = new RandomAccessFile(file, "rw")
         ) {
             randomFile.write((str).getBytes(encoding));
+            return true;
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -7,7 +7,7 @@ public class UiResultFactory {
 
     public static String RESULT_STATUS_EXCEPTION = "EXCEPTION";
 
-    public static UiResult succcess() {
+    public static UiResult success() {
         return new UiResult(RESULT_STATUS_SUCCESS, RESULT_STATUS_SUCCESS, null);
     }
 
@@ -19,13 +19,10 @@ public class UiResultFactory {
         return new UiResult(RESULT_STATUS_ERROR, RESULT_STATUS_ERROR, null);
     }
 
-    public static UiResult error(String error, Object data) {
+    public static UiResult error(String error) {
         return new UiResult(RESULT_STATUS_ERROR, error, null);
     }
 
-    public static UiResult errorMsg(String msg) {
-        return new UiResult(RESULT_STATUS_ERROR, msg, null);
-    }
 
     public static UiResult result(String result, String msg, Object data) {
         return new UiResult(result, msg, data);
