@@ -61,96 +61,97 @@ public final class Opslab {
     public static final String GB2312 = "GB2312";
 
 
-    String AMPERSAND = "&";
-    String AND = "and";
-    String AT = "@";
-    String ASTERISK = "*";
-    String STAR = ASTERISK;
-    String BACK_SLASH = "\\";
-    String COLON = ":";
-    String COMMA = ",";
-    String DASH = "-";
-    String DOLLAR = "$";
-    String DOT = ".";
-    String DOTDOT = "..";
-    String DOT_CLASS = ".class";
-    String DOT_JAVA = ".java";
-    String EMPTY = "";
-    String EQUALS = "=";
-    String FALSE = "false";
-    String SLASH = "/";
-    String HASH = "#";
-    String HAT = "^";
-    String LEFT_BRACE = "{";
-    String LEFT_BRACKET = "(";
-    String LEFT_CHEV = "<";
-    String NEWLINE = "\n";
-    String N = "n";
-    String NO = "no";
-    String NULL = "null";
-    String OFF = "off";
-    String ON = "on";
-    String PERCENT = "%";
-    String PIPE = "|";
-    String PLUS = "+";
-    String QUESTION_MARK = "?";
-    String EXCLAMATION_MARK = "!";
-    String QUOTE = "\"";
-    String RETURN = "\r";
-    String TAB = "\t";
-    String RIGHT_BRACE = "}";
-    String RIGHT_BRACKET = ")";
-    String RIGHT_CHEV = ">";
-    String SEMICOLON = ";";
-    String SINGLE_QUOTE = "'";
-    String BACKTICK = "`";
-    String SPACE = " ";
-    String LEFT_SQ_BRACKET = "[";
-    String RIGHT_SQ_BRACKET = "]";
-    String TRUE = "true";
-    String UNDERSCORE = "_";
-    String Y = "y";
-    String YES = "yes";
-    String ONE = "1";
-    String ZERO = "0";
-    String DOLLAR_LEFT_BRACE = "${";
-    String CRLF = "\r\n";
+    public static final String AMPERSAND = "&";
+    public static final String AND = "and";
+    public static final String AT = "@";
+    public static final String ASTERISK = "*";
+    public static final String STAR = ASTERISK;
+    public static final String BACK_SLASH = "\\";
+    public static final String COLON = ":";
+    public static final String COMMA = ",";
+    public static final String DASH = "-";
+    public static final String DOLLAR = "$";
+    public static final String DOT = ".";
+    public static final String DOTDOT = "..";
+    public static final String DOT_CLASS = ".class";
+    public static final String DOT_JAVA = ".java";
+    public static final String EMPTY = "";
+    public static final String EQUALS = "=";
+    public static final String FALSE = "false";
+    public static final String SLASH = "/";
+    public static final String HASH = "#";
+    public static final String HAT = "^";
+    public static final String LEFT_BRACE = "{";
+    public static final String LEFT_BRACKET = "(";
+    public static final String LEFT_CHEV = "<";
+    public static final String NEWLINE = "\n";
+    public static final String N = "n";
+    public static final String NO = "no";
+    public static final String NULL = "null";
+    public static final String OFF = "off";
+    public static final String ON = "on";
+    public static final String PERCENT = "%";
+    public static final String PIPE = "|";
+    public static final String PLUS = "+";
+    public static final String QUESTION_MARK = "?";
+    public static final String EXCLAMATION_MARK = "!";
+    public static final String QUOTE = "\"";
+    public static final String RETURN = "\r";
+    public static final String TAB = "\t";
+    public static final String RIGHT_BRACE = "}";
+    public static final String RIGHT_BRACKET = ")";
+    public static final String RIGHT_CHEV = ">";
+    public static final String SEMICOLON = ";";
+    public static final String SINGLE_QUOTE = "'";
+    public static final String BACKTICK = "`";
+    public static final String SPACE = " ";
+    public static final String LEFT_SQ_BRACKET = "[";
+    public static final String RIGHT_SQ_BRACKET = "]";
+    public static final String TRUE = "true";
+    public static final String UNDERSCORE = "_";
+    public static final String Y = "y";
+    public static final String YES = "yes";
+    public static final String ONE = "1";
+    public static final String ZERO = "0";
+    public static final String DOLLAR_LEFT_BRACE = "${";
+    public static final String CRLF = "\r\n";
 
-    String HTML_NBSP = "&nbsp;";
-    String HTML_AMP = "&amp";
-    String HTML_QUOTE = "&quot;";
-    String HTML_LT = "&lt;";
-    String HTML_GT = "&gt;";
+    public static final String HTML_NBSP = "&nbsp;";
+    public static final String HTML_AMP = "&amp";
+    public static final String HTML_QUOTE = "&quot;";
+    public static final String HTML_LT = "&lt;";
+    public static final String HTML_GT = "&gt;";
 
-    String HXWFH = "░▒▣▤▥▦▧▨▩▪▫▬◆◇◈◎●◐◑☉☎☏☜☞☺☻☼♠♡♢♣♤♥♦♧♨♩♪♫♬♭♯";
-    String HXWFHS = ".。，、;：？!ˉˇ¨`~ 々～‖∶'`|·… — ～ - 〃‘’“”〝〞〔〕〈〉《》「」『』〖〗【】()[]{｝︻︼﹄﹃";
+    public static final String HXWFH = "░▒▣▤▥▦▧▨▩▪▫▬◆◇◈◎●◐◑☉☎☏☜☞☺☻☼♠♡♢♣♤♥♦♧♨♩♪♫♬♭♯";
+    //常用的的标点符号
+    public static final String HXWFHS = ".。，、;：？!ˉˇ¨`~ 々～‖∶'`|·… — ～ - 〃‘’“”〝〞〔〕〈〉《》「」『』〖〗【】()[]{｝︻︼﹄﹃";
 
     //常用的数学符号
-    String MATH_SYMBOL = "+-×÷﹢﹣±/=∥∠≌∽≦≧≒﹤﹥≈≡≠=≤≥<>≮≯∷∶∫∮∝∞∧∨∑∏∪∩∈∵∴⊥∥∠⌒⊙√∟⊿㏒㏑%‰";
+    public static final String MATH_SYMBOL = "+-×÷﹢﹣±/=∥∠≌∽≦≧≒﹤﹥≈≡≠=≤≥<>≮≯∷∶∫∮∝∞∧∨∑∏∪∩∈∵∴⊥∥∠⌒⊙√∟⊿㏒㏑%‰";
 
     //计量符号
-    String UNIT_SYMBOL = "㎎㎏㎜㎝㎞㎡㏄㏎㏑㏒㏕℡%‰℃℉°′″$￡￥￠♂♀℅";
+    public static final String UNIT_SYMBOL = "㎎㎏㎜㎝㎞㎡㏄㏎㏑㏒㏕℡%‰℃℉°′″$￡￥￠♂♀℅";
 
     //常用的数学符号
-    String NUMBER_SYMBOL = "①②③④⑤⑥⑦⑧⑨⑩㈠㈡㈢㈣㈤㈥㈦㈧㈨㈩№" + "⑴⑵⑶⑷⑸⑹⑺⑻⑼⑽⑾⑿⒀⒁⒂⒃⒄⒅⒆⒇" +
+    public static final String NUMBER_SYMBOL = "①②③④⑤⑥⑦⑧⑨⑩㈠㈡㈢㈣㈤㈥㈦㈧㈨㈩№" + "⑴⑵⑶⑷⑸⑹⑺⑻⑼⑽⑾⑿⒀⒁⒂⒃⒄⒅⒆⒇" +
             "ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩⅪⅫⅰⅱⅲⅳⅴⅵⅶⅷⅸⅹ";
 
     //希腊符号
-    String GREEK_SYMBOL = "ΓΔΛΞΠΣΦΨΩαβγδεζνξοπρσηθικλμτυφχψω";
+    public static final String GREEK_SYMBOL = "ΓΔΛΞΠΣΦΨΩαβγδεζνξοπρσηθικλμτυφχψω";
 
     //俄语
-    String RUSSIAN_SYMBOL = "БВГДЁЖИЙКЛПФЦЧШЩЪЫЬЭЮЯ";
+    public static final String RUSSIAN_SYMBOL = "БВГДЁЖИЙКЛПФЦЧШЩЪЫЬЭЮЯ";
 
     //中文符号
-    String ZHCN_SYMBOL = "卍卐卄巜氺兀々〆のぁ〤〥";
+    public static final String ZHCN_SYMBOL = "卍卐卄巜氺兀々〆のぁ〤〥";
 
     //日语
-    String JAPANESE_SYMBOL = "ぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのはばぱひびぴ" +
+    public static final String JAPANESE_SYMBOL = "ぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのはばぱひびぴ" +
             "ふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろゎわゐゑをん ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾ" +
             "タダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ";
 
     //常用的符号
-    String SYMBOL_ALL = "、。·ˉˇ¨〃々—～‖…‘’“”〔〕〈 〉《》「」『』〖〗【】±+-×÷∧∨∑∏∪∩∈√⊥∥∠⌒⊙∫∮≡≌≈∽∝≠≮≯≤≥∞∶ ∵∴∷♂♀°′" +
+    public static final String SYMBOL_ALL = "、。·ˉˇ¨〃々—～‖…‘’“”〔〕〈 〉《》「」『』〖〗【】±+-×÷∧∨∑∏∪∩∈√⊥∥∠⌒⊙∫∮≡≌≈∽∝≠≮≯≤≥∞∶ ∵∴∷♂♀°′" +
             "″℃$¤￠￡‰§№☆★〇○●◎◇◆ 回□■△▽⊿▲▼◣◤◢◥▁▂▃▄▅▆▇█▉▊▋▌▍▎▏▓※→←↑↓↖↗↘↙〓 ⅰⅱⅲⅳⅴⅵⅶⅷⅸⅹ①②③④⑤⑥⑦⑧⑨⑩" +
             "⒈⒉⒊⒋ ⒌⒍⒎⒏⒐⒑⒒⒓⒔⒕⒖⒗⒘⒙⒚⒛⑴⑵⑶⑷⑸⑹⑺⑻⑼⑽⑾⑿⒀⒁⒂⒃⒄⒅⒆⒇㈠㈡㈢㈣㈤㈥㈦㈧㈨㈩ⅠⅡⅢⅣⅤⅥ" +
             "ⅦⅧⅨⅩⅪⅫ!\"#￥%&'()*+，-./0123456789：;<=>？@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrs" +
@@ -168,6 +169,5 @@ public final class Opslab {
 
 
     //必选包含数字、大写字母、小写字母、特殊字符，长度在8到15位
-    public static final String SEC_PASSWORD =
-            "^(?=.*?[0-9])(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[@!#$%^&*()_+\\.\\-\\?<>'\"|=]+).{8,15}$";
+    public static final String SEC_PASSWORD = "^(?=.*?[0-9])(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[@!#$%^&*()_+\\.\\-\\?<>'\"|=]+).{8,15}$";
 }
