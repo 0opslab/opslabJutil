@@ -169,5 +169,5 @@ public final class Opslab {
 
 
     //必选包含数字、大写字母、小写字母、特殊字符，长度在8到15位
-    public static final String SEC_PASSWORD = "^(?=.*?[0-9])(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[@!#$%^&*()_+\\.\\-\\?<>'\"|=]+).{8,15}$";
+    public static final String SEC_PASSWORD =  "^(?=.*?[0-9])(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[@!#$%^&*()_+\\.\\-\\?<>'\"|=]+).{8,15}$";
 }
