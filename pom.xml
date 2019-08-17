@@ -6,7 +6,7 @@
 
     <groupId>com.0opslab</groupId>
     <artifactId>opslabJutil</artifactId>
-    <version>2.0.3</version>
+    <version>2.0.4</version>
 
     <name>opslabJutil</name>
     <description>Simple and convenient to use it to accomplish common development java code</description>
@@ -38,7 +38,7 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.7.6</version>
+            <version>1.7.25</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -47,6 +47,7 @@
             <version>1.7.6</version>
             <scope>test</scope>
         </dependency>
+
         <!--pinyin4j-->
         <dependency>
             <groupId>com.belerweb</groupId>
@@ -62,14 +63,12 @@
             <scope>provided</scope>
         </dependency>
         <!--hamcrest-core-->
-
         <dependency>
             <groupId>antlr</groupId>
             <artifactId>antlr</artifactId>
             <version>2.7.7</version>
             <scope>provided</scope>
         </dependency>
-
 
         <dependency>
             <groupId>net.sourceforge.jchardet</groupId>
@@ -94,20 +93,7 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.9.9</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>2.7.3</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-            <version>2.7.3</version>
-            <scope>provided</scope>
+            <version>2.9.8</version>
         </dependency>
     </dependencies>
 
@@ -127,8 +113,15 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.5</version>
                 <configuration>
-                    <skip>true</skip>
+                    <forkMode>once</forkMode>
+                    <argLine>-Dfile.encoding=UTF-8</argLine>
+                    <includes>
+                        <include>**/*Test.java</include>
+                    </includes>
+                    <excludes>
+                    </excludes>
                 </configuration>
             </plugin>
         </plugins>

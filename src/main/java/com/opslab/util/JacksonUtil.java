@@ -8,18 +8,23 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializerProvider;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.StringWriter;
 
 public class JacksonUtil {
+    private static Logger logger = LoggerFactory.getLogger(JacksonUtil.class);
+
     private static ObjectMapper mapper = new ObjectMapper();
 
     static {
         // 将null值不序列化
         // objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
 
-        // 将null值转换为空串
+
+        /* 将null值转换为空串 */
         mapper.getSerializerProvider().setNullValueSerializer(new JsonSerializer<Object>() {
             @Override
             public void serialize(Object value, JsonGenerator gen, SerializerProvider serializers)
@@ -29,7 +34,13 @@ public class JacksonUtil {
         });
     }
 
-    public static String toJson(Object obj)  {
+    /**
+     * 对象转换成JSON
+     *
+     * @param obj
+     * @return
+     */
+    public static String toJson(Object obj) {
         StringWriter sw = new StringWriter();
         JsonGenerator gen = null;
         try {
@@ -37,8 +48,8 @@ public class JacksonUtil {
             mapper.writeValue(gen, obj);
         } catch (IOException e) {
             e.printStackTrace();
-        }finally {
-            if(gen != null){
+        } finally {
+            if (gen != null) {
                 try {
                     gen.close();
                 } catch (IOException e) {
@@ -55,5 +66,21 @@ public class JacksonUtil {
         return mapper.readValue(jsonStr, objClass);
     }
 
-
+    /**
+     * 将 JSON 字符串转化为 Java 对象
+     *
+     * @param json
+     * @param clazz
+     * @param <T>
+     * @return
+     */
+    public static <T> T toObject(String json, Class<T> clazz) {
+        T object = null;
+        try {
+            object = mapper.readValue(json, clazz);
+        } catch (Exception e) {
+            logger.error("JSON String Can't covert to Java Object!");
+        }
+        return object;
+    }
 }

@@ -4,7 +4,6 @@ import com.opslab.functions.ObjectFilter;
 import com.opslab.functions.ObjectHandler;
 import com.opslab.functions.ObjectProcess;
 import com.opslab.util.AssertUtil;
-import com.opslab.util.CheckUtil;
 import com.opslab.util.SysUtil;
 import com.opslab.util.ZIPUtil;
 import com.opslab.util.algorithmImpl.FileImpl;
@@ -165,17 +164,17 @@ public final class FileHelper {
      * 创建文件支持多级目录
      *
      * @param file 需要创建的文件
-     * @return 是否成功, 如果存在则返回成功
+     * @return 是否成功,如果存在则返回成功
      */
     public final static boolean createFiles(File file) {
-        if (file.exists()) {
+        if(file.exists()){
             return true;
         }
-        if (file.isDirectory()) {
+        if(file.isDirectory()){
             if (!file.exists()) {
                 return file.mkdirs();
             }
-        } else {
+        }else{
             File dir = file.getParentFile();
             if (!dir.exists()) {
                 if (dir.mkdirs()) {
@@ -185,7 +184,7 @@ public final class FileHelper {
                         e.printStackTrace();
                     }
                 }
-            } else {
+            }else{
                 try {
                     return file.createNewFile();
                 } catch (IOException e) {
@@ -200,13 +199,13 @@ public final class FileHelper {
      * 创建文件支持多级目录
      *
      * @param file 需要创建的文件
-     * @return 是否成功, 如果存在则返回成功
      * @para isReNew 存在的时候是否重新创建
+     * @return 是否成功,如果存在则返回成功
      */
-    public final static boolean createFiles(File file, boolean isReNew) {
-        if (file.exists()) {
-            if (isReNew) {
-                if (file.delete()) {
+    public final static boolean createFiles(File file,boolean isReNew) {
+        if(file.exists()){
+            if(isReNew){
+                if(file.delete()){
                     try {
                         return file.createNewFile();
                     } catch (IOException e) {
@@ -216,11 +215,11 @@ public final class FileHelper {
             }
             return true;
         }
-        if (file.isDirectory()) {
+        if(file.isDirectory()){
             if (!file.exists()) {
                 return file.mkdirs();
             }
-        } else {
+        }else{
             File dir = file.getParentFile();
             if (!dir.exists()) {
                 if (dir.mkdirs()) {
@@ -230,7 +229,7 @@ public final class FileHelper {
                         e.printStackTrace();
                     }
                 }
-            } else {
+            }else{
                 try {
                     return file.createNewFile();
                 } catch (IOException e) {
@@ -251,7 +250,7 @@ public final class FileHelper {
      * @return 是否成功
      */
     public static boolean write(File file, String str) {
-        AssertUtil.notNull(file, "file is null");
+        AssertUtil.notNull(file,"file is null");
         try (
                 RandomAccessFile randomFile = new RandomAccessFile(file, "rw")
         ) {
@@ -272,7 +271,7 @@ public final class FileHelper {
      * @return 是否成功
      */
     public static boolean write(File file, String str, String encoding) {
-        AssertUtil.notNull(file, "file is null");
+        AssertUtil.notNull(file,"file is null");
         try (
                 RandomAccessFile randomFile = new RandomAccessFile(file, "rw")
         ) {
@@ -766,5 +765,4 @@ public final class FileHelper {
         }
         return false;
     }
-
 }
