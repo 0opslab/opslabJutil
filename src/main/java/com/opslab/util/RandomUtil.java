@@ -172,6 +172,18 @@ public final class RandomUtil {
         return param[index];
     }
 
+    public static String uuid16(){
+        String uuid= UUID.randomUUID().toString();
+        char[] cs=new char[32];
+        char c=0;
+        for(int i=uuid.length()/2,j=1;i-->0;){
+            if((c=uuid.charAt(i))!='-'){
+                cs[j++]=c;
+            }
+        }
+        String uid=String.valueOf(cs);
+        return uid;
+    }
 
     /**
      * 返回一个UUID

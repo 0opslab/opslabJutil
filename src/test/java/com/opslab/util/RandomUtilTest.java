@@ -37,6 +37,14 @@ public class RandomUtilTest {
     }
 
     @Test
+    public void testUUid16(){
+        for (int i = 0; i < 1000; i++) {
+            System.out.println(RandomUtil.uuid16());
+        }
+    }
+
+
+    @Test
     public void testInteger1() {
         Map<Integer, Integer> map = new HashMap();
         for (int i = 0; i < 1000; i++) {
