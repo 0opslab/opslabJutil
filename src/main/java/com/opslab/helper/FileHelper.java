@@ -7,6 +7,7 @@ import com.opslab.util.AssertUtil;
 import com.opslab.util.SysUtil;
 import com.opslab.util.ZIPUtil;
 import com.opslab.util.algorithmImpl.FileImpl;
+import com.sun.org.apache.xml.internal.security.utils.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -164,17 +165,17 @@ public final class FileHelper {
      * 创建文件支持多级目录
      *
      * @param file 需要创建的文件
-     * @return 是否成功,如果存在则返回成功
+     * @return 是否成功, 如果存在则返回成功
      */
     public final static boolean createFiles(File file) {
-        if(file.exists()){
+        if (file.exists()) {
             return true;
         }
-        if(file.isDirectory()){
+        if (file.isDirectory()) {
             if (!file.exists()) {
                 return file.mkdirs();
             }
-        }else{
+        } else {
             File dir = file.getParentFile();
             if (!dir.exists()) {
                 if (dir.mkdirs()) {
@@ -184,7 +185,7 @@ public final class FileHelper {
                         e.printStackTrace();
                     }
                 }
-            }else{
+            } else {
                 try {
                     return file.createNewFile();
                 } catch (IOException e) {
@@ -199,13 +200,13 @@ public final class FileHelper {
      * 创建文件支持多级目录
      *
      * @param file 需要创建的文件
+     * @return 是否成功, 如果存在则返回成功
      * @para isReNew 存在的时候是否重新创建
-     * @return 是否成功,如果存在则返回成功
      */
-    public final static boolean createFiles(File file,boolean isReNew) {
-        if(file.exists()){
-            if(isReNew){
-                if(file.delete()){
+    public final static boolean createFiles(File file, boolean isReNew) {
+        if (file.exists()) {
+            if (isReNew) {
+                if (file.delete()) {
                     try {
                         return file.createNewFile();
                     } catch (IOException e) {
@@ -215,11 +216,11 @@ public final class FileHelper {
             }
             return true;
         }
-        if(file.isDirectory()){
+        if (file.isDirectory()) {
             if (!file.exists()) {
                 return file.mkdirs();
             }
-        }else{
+        } else {
             File dir = file.getParentFile();
             if (!dir.exists()) {
                 if (dir.mkdirs()) {
@@ -229,7 +230,7 @@ public final class FileHelper {
                         e.printStackTrace();
                     }
                 }
-            }else{
+            } else {
                 try {
                     return file.createNewFile();
                 } catch (IOException e) {
@@ -250,7 +251,7 @@ public final class FileHelper {
      * @return 是否成功
      */
     public static boolean write(File file, String str) {
-        AssertUtil.notNull(file,"file is null");
+        AssertUtil.notNull(file, "file is null");
         try (
                 RandomAccessFile randomFile = new RandomAccessFile(file, "rw")
         ) {
@@ -271,7 +272,7 @@ public final class FileHelper {
      * @return 是否成功
      */
     public static boolean write(File file, String str, String encoding) {
-        AssertUtil.notNull(file,"file is null");
+        AssertUtil.notNull(file, "file is null");
         try (
                 RandomAccessFile randomFile = new RandomAccessFile(file, "rw")
         ) {
@@ -761,6 +762,101 @@ public final class FileHelper {
             ZIPUtil.unCompress(zipFile, path);
             return true;
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    /**
+     * 获取文件内容，内容经过BASE64编码
+     *
+     * @param URL
+     * @return
+     * @throws IOException
+     */
+    public static String getSource(String URL) {
+        try {
+            File file = new File(URL);
+            file.length();
+            FileInputStream is = new FileInputStream(file);
+            byte[] bytes = new byte[(int) file.length()];
+            int len = 0;
+            while ((len = is.read(bytes)) != -1) {
+                is.read(bytes);
+            }
+            is.close();
+            return Base64.encode(bytes);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 将BASE64的字符串恢复成文件
+     *
+     * @param filename
+     * @param content
+     * @return
+     */
+    public static boolean sourceFile(String filename, String content) {
+        File file = new File(filename);
+        try (FileOutputStream fos = new FileOutputStream(file)) {
+            byte[] bytes = Base64.decode(content);
+            fos.write(bytes);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    /**
+     * 将文件转换为base64的字符串
+     *
+     * @param URL
+     * @param size 每个字符串的长度（字节）
+     * @return
+     * @throws IOException
+     */
+    public static List<String> getSource(String URL, int size) {
+        List<String> list = new ArrayList<>();
+        try (InputStream fis = new FileInputStream(URL)) {
+            byte[] buf = new byte[size];
+            int len = 0;
+            while ((len = fis.read(buf)) != -1) {
+                if (len < size) {
+                    byte[] bs = new byte[len];
+                    System.arraycopy(buf, 0, bs, 0, len);
+                    String str = (Base64.encode(bs));
+                    list.add(str);
+                } else {
+                    String str = (Base64.encode(buf));
+                    list.add(str);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    /**
+     * 将BASE64的字符串恢复成文件
+     *
+     * @param filename
+     * @param contents
+     * @return
+     */
+    public static boolean sourceFile(String filename, List<String> contents) {
+        File file = new File(filename);
+        try (FileOutputStream fos = new FileOutputStream(file)) {
+            for (String str : contents) {
+                byte[] bytes = Base64.decode(str);
+                fos.write(bytes);
+            }
+            return true;
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return false;

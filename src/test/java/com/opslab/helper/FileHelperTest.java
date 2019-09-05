@@ -5,8 +5,10 @@ import com.opslab.functions.ObjectFilter;
 import com.opslab.functions.ObjectHandler;
 import com.opslab.functions.ObjectProcess;
 import com.opslab.util.FileUtil;
+import com.opslab.util.JacksonUtil;
 import com.opslab.util.TestUtil;
 import com.opslab.util.algorithmImpl.FileImpl;
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -171,6 +173,24 @@ public class FileHelperTest {
     public void readFile() {
         String content = FileHelper.readContents(new File(TestUtil.path + "/text/English.txt"));
         System.out.println("content:" + content);
+    }
+
+    @Test
+    @Ignore
+    public void testBase64(){
+        String file = "C:\\Users\\Administrator\\Desktop\\HBASE.docx";
+        String content = FileHelper.getSource(file);
+        String file2 = "C:\\Users\\Administrator\\Desktop\\HBASE1.docx";
+        FileHelper.sourceFile(file2 ,content);
+        String fileHash = FileHelper.fileHash(new File(file), "md5");
+        String file2Hash = FileHelper.fileHash(new File(file2), "md5");
+        Assert.assertEquals(fileHash,file2Hash);
+
+        String file3 = "C:\\Users\\Administrator\\Desktop\\flink_2.docx";
+        String file4 = "C:\\Users\\Administrator\\Desktop\\flink_3.docx";
+        List<String> strings = FileHelper.getSource(file3, 100 * 1024 );
+        FileHelper.sourceFile(file4,strings);
+        Assert.assertEquals(fileHash,file2Hash);
     }
 
 }
