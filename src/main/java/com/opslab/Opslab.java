@@ -60,6 +60,11 @@ public final class Opslab {
      */
     public static final String GB2312 = "GB2312";
 
+    /**
+     * 空字符串
+     */
+    public static final String STR_EMPTY ="";
+
 
     String AMPERSAND = "&";
     String AND = "and";
