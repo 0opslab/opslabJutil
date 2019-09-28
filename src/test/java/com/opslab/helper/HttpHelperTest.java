@@ -3,8 +3,6 @@ package com.opslab.helper;
 import com.opslab.Opslab;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class HttpHelperTest {
     @Test
     public void testGet(){
