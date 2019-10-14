@@ -180,17 +180,18 @@ public class FileHelperTest {
     public void testBase64(){
         String file = "C:\\Users\\Administrator\\Desktop\\HBASE.docx";
         String content = FileHelper.getSource(file);
+
         String file2 = "C:\\Users\\Administrator\\Desktop\\HBASE1.docx";
         FileHelper.sourceFile(file2 ,content);
         String fileHash = FileHelper.fileHash(new File(file), "md5");
         String file2Hash = FileHelper.fileHash(new File(file2), "md5");
         Assert.assertEquals(fileHash,file2Hash);
 
-        String file3 = "C:\\Users\\Administrator\\Desktop\\flink_2.docx";
-        String file4 = "C:\\Users\\Administrator\\Desktop\\flink_3.docx";
-        List<String> strings = FileHelper.getSource(file3, 100 * 1024 );
-        FileHelper.sourceFile(file4,strings);
-        Assert.assertEquals(fileHash,file2Hash);
+        //String file3 = "C:\\Users\\Administrator\\Desktop\\flink_2.docx";
+        //String file4 = "C:\\Users\\Administrator\\Desktop\\flink_3.docx";
+        //List<String> strings = FileHelper.getSource(file3, 100 * 1024 );
+        //FileHelper.sourceFile(file4,strings);
+        //Assert.assertEquals(fileHash,file2Hash);
     }
 
 }

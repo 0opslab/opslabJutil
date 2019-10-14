@@ -2,7 +2,6 @@ package com.opslab.util.image;
 
 import com.opslab.util.encrypt.Base64Ext;
 import com.opslab.util.image.GIF.GifEncoder;
-import sun.misc.BASE64Encoder;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

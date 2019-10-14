@@ -71,7 +71,9 @@ public class FileDemo {
             throw e;
         } finally {
             try {
-                in.close();
+                if (in != null) {
+                    in.close();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -109,15 +111,16 @@ public class FileDemo {
             throw e;
         } finally {
             try {
-                channel.close();
+                if(channel != null){
+                    channel.close();
+                }
+                if(fs != null){
+                    fs.close();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            try {
-                fs.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+
         }
     }
 
@@ -147,7 +150,10 @@ public class FileDemo {
             throw e;
         } finally {
             try {
-                fc.close();
+                if(fc != null){
+                    fc.close();
+                }
+
             } catch (IOException e) {
                 e.printStackTrace();
             }

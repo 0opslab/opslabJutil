@@ -43,7 +43,7 @@ public final class ImageHelper {
      * @param file   文件位置
      */
     public static ResultBean pngCaptcha(int strlen, int width, int height, String file) {
-        String random = RandomUtil.String(strlen);
+        String random = RandomUtil.string(strlen);
         if (CaptchaUtil.pngCaptcha(random, width, height, file)) {
             return new ResultBean(random,null,true);
         }
@@ -58,7 +58,7 @@ public final class ImageHelper {
      * @return
      */
     public static ResultBean pngCaptchaBase64(int strlen,int width,int height) {
-        String random = RandomUtil.String(strlen);
+        String random = RandomUtil.string(strlen);
         String data = CaptchaUtil.pngCaptchaBase64(random, width, height);
         if(data != null){
             return new ResultBean(random,data,true);
@@ -76,7 +76,7 @@ public final class ImageHelper {
      * @return
      */
     public static ResultBean gifCaptch(int strlen,int width,int height, String file) {
-        String random = RandomUtil.String(strlen);
+        String random = RandomUtil.string(strlen);
         if (CaptchaUtil.gifCaptcha(random, width, height, file)) {
             return new ResultBean(random,null,true);
         }
@@ -91,7 +91,7 @@ public final class ImageHelper {
      * @return
      */
     public static ResultBean gifCaptchBase64(int strlen,int width,int height) {
-        String random = RandomUtil.String(strlen);
+        String random = RandomUtil.string(strlen);
         String data = CaptchaUtil.gifCaptchaBase64(random, width, height);
         if(data != null){
             return new ResultBean(random,data,true);

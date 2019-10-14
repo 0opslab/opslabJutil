@@ -65,6 +65,21 @@ public final class Opslab {
      */
     public static final String STR_EMPTY ="";
 
+    //未登陆
+    public final static  String SYS_NOLOGIN = "Nologin";
+
+    //成功
+    public final static  String SYS_SUCCESS = "Success";
+
+    //失败
+    public final static  String SYS_ERROR = "Error";
+
+    //异常
+    public final static  String SYS_EXCEPTION = "Exception";
+
+    //无记录
+    public final static  String SYS_NORECORD = "NoRecord";
+
 
     String AMPERSAND = "&";
     String AND = "and";

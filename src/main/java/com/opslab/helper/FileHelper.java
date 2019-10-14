@@ -4,13 +4,13 @@ import com.opslab.functions.ObjectFilter;
 import com.opslab.functions.ObjectHandler;
 import com.opslab.functions.ObjectProcess;
 import com.opslab.util.AssertUtil;
-import com.opslab.util.SysUtil;
 import com.opslab.util.ZIPUtil;
 import com.opslab.util.algorithmImpl.FileImpl;
-import com.sun.org.apache.xml.internal.security.utils.Base64;
+import com.opslab.util.encrypt.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.activation.MimetypesFileTypeMap;
 import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
@@ -77,6 +77,20 @@ public final class FileHelper {
         }
     }
 
+    /**
+     * 获取文件content-type
+     * @param file
+     * @return
+     */
+    public static String contentType(String file) {
+        String contentType = null;
+        try {
+            contentType = new MimetypesFileTypeMap().getContentType(new File(file));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return contentType;
+    }
     ///////////////////////////////////////////////////////////////////////
     // 写文件的方法(如果写入的数据较多建议使用通道的方式)
 
@@ -785,7 +799,7 @@ public final class FileHelper {
                 is.read(bytes);
             }
             is.close();
-            return Base64.encode(bytes);
+            return Base64.encodeToString(bytes);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -828,10 +842,10 @@ public final class FileHelper {
                 if (len < size) {
                     byte[] bs = new byte[len];
                     System.arraycopy(buf, 0, bs, 0, len);
-                    String str = (Base64.encode(bs));
+                    String str = (Base64.encodeToString(bs));
                     list.add(str);
                 } else {
-                    String str = (Base64.encode(buf));
+                    String str = (Base64.encodeToString(buf));
                     list.add(str);
                 }
             }

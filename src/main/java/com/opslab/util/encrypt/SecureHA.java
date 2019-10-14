@@ -12,16 +12,16 @@ public class SecureHA {
 
     public static String getResult(String inputStr) {
         BigInteger sha = null;
-        byte[] inputData = inputStr.getBytes();
         try {
+            byte[] inputData = inputStr.getBytes();
             MessageDigest messageDigest = MessageDigest.getInstance(KEY_SHA);
             messageDigest.update(inputData);
             sha = new BigInteger(messageDigest.digest());
-
+            return sha.toString(32);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return sha.toString(32);
+        return null;
     }
 
 

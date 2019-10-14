@@ -45,7 +45,7 @@ public final class RandomUtil {
      * @param length 随机字符串长度
      * @return 随机字符串
      */
-    public static String String(int length) {
+    public static String string(int length) {
         StringBuilder sb = new StringBuilder();
         Random random = new Random();
         for (int i = 0; i < length; i++) {
@@ -60,7 +60,7 @@ public final class RandomUtil {
      * @param length 随机字符串长度
      * @return 随机字符串
      */
-    public static String MixString(int length) {
+    public static String mixString(int length) {
         StringBuilder sb = new StringBuilder();
         Random random = new Random();
         for (int i = 0; i < length; i++) {
@@ -75,8 +75,8 @@ public final class RandomUtil {
      * @param length 随机字符串长度
      * @return 随机字符串
      */
-    public static String LowerString(int length) {
-        return MixString(length).toLowerCase();
+    public static String lowerString(int length) {
+        return mixString(length).toLowerCase();
     }
 
     /**
@@ -85,8 +85,8 @@ public final class RandomUtil {
      * @param length 随机字符串长度
      * @return 随机字符串
      */
-    public static String UpperString(int length) {
-        return MixString(length).toUpperCase();
+    public static String upperString(int length) {
+        return mixString(length).toUpperCase();
     }
 
     /**
@@ -95,7 +95,7 @@ public final class RandomUtil {
      * @param length 字符串长度
      * @return 纯0字符串
      */
-    public static String ZeroString(int length) {
+    public static String zeroString(int length) {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < length; i++) {
             sb.append('0');
@@ -114,7 +114,7 @@ public final class RandomUtil {
         StringBuilder sb = new StringBuilder();
         String strNum = String.valueOf(num);
         if (fixdlenth - strNum.length() >= 0) {
-            sb.append(ZeroString(fixdlenth - strNum.length()));
+            sb.append(zeroString(fixdlenth - strNum.length()));
         } else {
             throw new RuntimeException("将数字" +
                     num + "转化为长度为" + fixdlenth + "的字符串发生异常！");
@@ -134,7 +134,7 @@ public final class RandomUtil {
         StringBuilder sb = new StringBuilder();
         String strNum = String.valueOf(num);
         if (fixdlenth - strNum.length() >= 0) {
-            sb.append(ZeroString(fixdlenth - strNum.length()));
+            sb.append(zeroString(fixdlenth - strNum.length()));
         } else {
             throw new RuntimeException("将数字" +
                     num + "转化为长度为" + fixdlenth + "的字符串发生异常！");
@@ -181,8 +181,7 @@ public final class RandomUtil {
                 cs[j++]=c;
             }
         }
-        String uid=String.valueOf(cs);
-        return uid;
+        return String.valueOf(cs);
     }
 
     /**
@@ -241,7 +240,7 @@ public final class RandomUtil {
         int length = percentum.length;
         Integer[] ints = ArrayUtil.doubleBitCount(percentum);
         int max = Collections.max(Arrays.asList(ints));
-        int[] arr = new int[length];
+
         int sum = 0;
         Map map = new HashMap(length);
         StringBuffer buffer = new StringBuffer();
@@ -251,7 +250,7 @@ public final class RandomUtil {
         int multiple = Integer.parseInt("1" + buffer.toString());
         for (int i = 0; i < length; i++) {
             int temp = (int) (percentum[i] * multiple);
-            arr[i] = temp;
+
             if (i == 0) {
                 map.put(i, new int[]{1, temp});
             } else {
