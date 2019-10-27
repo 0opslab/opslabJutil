@@ -27,8 +27,16 @@ public class ResultFactory {
     public static AjaxResult error(String errorMsg) {
         AjaxResult result = new AjaxResult();
         result.setResult(Opslab.SYS_ERROR);
-        result.setResultDesc(Opslab.SYS_ERROR);
+        result.setResultDesc(errorMsg);
         result.setData("");
+        return result;
+    }
+
+    public static AjaxResult error(String errorMsg,Object data) {
+        AjaxResult result = new AjaxResult();
+        result.setResult(Opslab.SYS_ERROR);
+        result.setResultDesc(errorMsg);
+        result.setData(data);
         return result;
     }
 
