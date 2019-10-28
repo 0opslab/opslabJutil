@@ -5,8 +5,10 @@ import com.opslab.util.CharsetUtil;
 import com.opslab.util.ConvertUtil;
 import org.junit.Test;
 
+import javax.sound.midi.Soundbank;
 import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
+import java.util.List;
 
 
 public class ConvertUtilTest {
@@ -61,7 +63,7 @@ public class ConvertUtilTest {
     @Test
     public void testHex() {
         String hexStr = "E4 B8 AD E6 96 87";
-        System.out.println(ConvertUtil.hexStringtoBinarg(hexStr));
+        System.out.println(ConvertUtil.hexStringToBin(hexStr));
         System.out.println(Arrays.toString(ConvertUtil.hexStringToByte(hexStr)));
         for (byte b : ConvertUtil.hexStringToByte(hexStr)) {
             System.out.print(ConvertUtil.byteToBinary(b) + " ");
@@ -80,5 +82,13 @@ public class ConvertUtilTest {
         System.out.println(Arrays.toString(ConvertUtil.longToByte(10L)));
 
         System.out.println(ConvertUtil.byteToBinary(ConvertUtil.longToByte(10L)[0]));
+    }
+
+
+    @Test
+    public void arrayList(){
+        String hexStr = "E4 B8 AD E6 96 87";
+        List<String> strings = ConvertUtil.arrayToList(hexStr.split(" "));
+        System.out.println(JacksonUtil.toJson(strings));
     }
 }
