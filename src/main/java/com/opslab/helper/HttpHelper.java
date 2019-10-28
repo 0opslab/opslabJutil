@@ -16,9 +16,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * 封装常见的HTTP方法
@@ -34,7 +32,7 @@ public final class HttpHelper {
      * @param request
      * @return
      */
-    static String requestParamsToString(ServletRequest request) {
+    public static String requestParamsToString(ServletRequest request) {
         StringBuilder sbuf = new StringBuilder();
         Map<String, String[]> map = request.getParameterMap();
         if (map == null || map.size() == 0) {
@@ -62,7 +60,7 @@ public final class HttpHelper {
      * @param request
      * @return
      */
-    static boolean isAjax(HttpServletRequest request) {
+    public static boolean isAjax(HttpServletRequest request) {
         String header = request.getHeader("X-Requested-With");
         return "XMLHttpRequest".equalsIgnoreCase(header);
     }
@@ -73,7 +71,7 @@ public final class HttpHelper {
      * @param request
      * @return
      */
-    static String getIpAddr(HttpServletRequest request) {
+    public static String getIpAddr(HttpServletRequest request) {
         if (request == null) {
             return "unknown";
         }
@@ -380,7 +378,7 @@ public final class HttpHelper {
      * @param param
      * @return
      */
-    static String sendPost(String httpUrl, String param) {
+    public static String sendPost(String httpUrl, String param) {
         HttpURLConnection connection = null;
         InputStream is = null;
         OutputStream os = null;
@@ -463,7 +461,7 @@ public final class HttpHelper {
      * @param isIgnoreSSL
      * @return
      */
-    static String sendPostSSL(String httpUrl, String param, boolean isIgnoreSSL) {
+    public static String sendPostSSL(String httpUrl, String param, boolean isIgnoreSSL) {
         HttpURLConnection connection = null;
         InputStream is = null;
         OutputStream os = null;
@@ -567,5 +565,58 @@ public final class HttpHelper {
         javax.net.ssl.SSLContext sc = javax.net.ssl.SSLContext.getInstance("SSL");
         sc.init(null, trustAllCerts, null);
         javax.net.ssl.HttpsURLConnection.setDefaultSSLSocketFactory(sc.getSocketFactory());
+    }
+
+    /**
+     * 获取请求参数
+     * @param request
+     * @return
+     */
+    public static Map<String, Object> convertDataMap(HttpServletRequest request) {
+        Map<String, String[]> properties = request.getParameterMap();
+        Map<String, Object> returnMap = new HashMap<String, Object>();
+        Iterator<?> entries = properties.entrySet().iterator();
+        Map.Entry<?, ?> entry;
+        String name = "";
+        String value = "";
+        while (entries.hasNext()) {
+            entry = (Map.Entry<?, ?>) entries.next();
+            name = (String) entry.getKey();
+            Object valueObj = entry.getValue();
+            if (null == valueObj) {
+                value = "";
+            } else if (valueObj instanceof String[]) {
+                String[] values = (String[]) valueObj;
+                for (int i = 0; i < values.length; i++) {
+                    value = values[i] + ",";
+                }
+                value = value.substring(0, value.length() - 1);
+            } else {
+                value = valueObj.toString();
+            }
+            returnMap.put(name, value);
+        }
+        return returnMap;
+    }
+
+    /**
+     * 获取请求参数
+     * @param request
+     * @return
+     */
+    public static  Map<String,Object> getParams(HttpServletRequest request) {
+        Map<String,Object> map = new HashMap();
+        Enumeration paramNames = request.getParameterNames();
+        while (paramNames.hasMoreElements()) {
+            String paramName = (String) paramNames.nextElement();
+            String[] paramValues = request.getParameterValues(paramName);
+            if (paramValues.length == 1) {
+                String paramValue = paramValues[0];
+                if (paramValue.length() != 0) {
+                    map.put(paramName, paramValue);
+                }
+            }
+        }
+        return map;
     }
 }
