@@ -24,6 +24,15 @@ public class StringHelper {
     }
 
     /**
+     * 判断字符串不为空
+     * @param str
+     * @return
+     */
+    public static boolean isNotEmpty(String str) {
+        return str != null && !"".equals(str);
+    }
+
+    /**
      * 把string array or list用给定的符号symbol连接成一个字符串
      *
      * @param array  需要处理的字符串数组
