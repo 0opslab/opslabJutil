@@ -1,8 +1,11 @@
 package com.opslab.bean;
 
+import lombok.Data;
+
 /**
  * 返回统一的数据格式
  */
+@Data
 public class UiResult {
     //返回编码
     private String code;
@@ -20,27 +23,5 @@ public class UiResult {
     public UiResult() {
     }
 
-    public String getCode() {
-        return code;
-    }
 
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public Object getData() {
-        return data;
-    }
-
-    public void setData(Object data) {
-        this.data = data;
-    }
 }

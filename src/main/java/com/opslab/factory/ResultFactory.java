@@ -1,7 +1,7 @@
 package com.opslab.factory;
 
 import com.opslab.Opslab;
-import com.opslab.entity.AjaxResult;
+import com.opslab.bean.AjaxResult;
 
 public class ResultFactory {
     /**

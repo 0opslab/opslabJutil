@@ -1,5 +1,7 @@
 package com.opslab.bean;
 
+import lombok.Data;
+
 import java.util.List;
 
 /**
@@ -7,6 +9,7 @@ import java.util.List;
  *
  * @param <T>
  */
+@Data
 public class PageBean<T> {
 
     // 当前页
@@ -38,60 +41,5 @@ public class PageBean<T> {
         this.isMore = this.currentPage >= this.totalPage ? 0 : 1;
     }
 
-    public Integer getCurrentPage() {
-        return currentPage;
-    }
 
-    public void setCurrentPage(Integer currentPage) {
-        this.currentPage = currentPage;
-    }
-
-    public Integer getPageSize() {
-        return pageSize;
-    }
-
-    public void setPageSize(Integer pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public Integer getIsMore() {
-        return isMore;
-    }
-
-    public void setIsMore(Integer isMore) {
-        this.isMore = isMore;
-    }
-
-    public Integer getTotalPage() {
-        return totalPage;
-    }
-
-    public void setTotalPage(Integer totalPage) {
-        this.totalPage = totalPage;
-    }
-
-    public Integer getStartIndex() {
-        return startIndex;
-    }
-
-    public void setStartIndex(Integer startIndex) {
-        this.startIndex = startIndex;
-    }
-
-
-    public Long getTotal() {
-        return total;
-    }
-
-    public void setTotal(Long total) {
-        this.total = total;
-    }
-
-    public List<T> getRows() {
-        return rows;
-    }
-
-    public void setRows(List<T> rows) {
-        this.rows = rows;
-    }
 }

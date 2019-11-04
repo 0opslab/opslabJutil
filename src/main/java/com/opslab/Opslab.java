@@ -63,131 +63,72 @@ public final class Opslab {
     /**
      * 空字符串
      */
-    public static final String STR_EMPTY ="";
+    public static final String STR_EMPTY = "";
 
     //未登陆
-    public final static  String SYS_NOLOGIN = "Nologin";
+    public final static String SYS_NOLOGIN = "Nologin";
 
     //成功
-    public final static  String SYS_SUCCESS = "Success";
+    public final static String SYS_SUCCESS = "Success";
 
     //失败
-    public final static  String SYS_ERROR = "Error";
+    public final static String SYS_ERROR = "Error";
 
     //异常
-    public final static  String SYS_EXCEPTION = "Exception";
+    public final static String SYS_EXCEPTION = "Exception";
 
     //无记录
-    public final static  String SYS_NORECORD = "NoRecord";
+    public final static String SYS_NORECORD = "NoRecord";
 
+    //业务访问
+    public final static String BUSINESS_ACCESS = "ACCESS";
 
-    String AMPERSAND = "&";
-    String AND = "and";
-    String AT = "@";
-    String ASTERISK = "*";
-    String STAR = ASTERISK;
-    String BACK_SLASH = "\\";
-    String COLON = ":";
-    String COMMA = ",";
-    String DASH = "-";
-    String DOLLAR = "$";
-    String DOT = ".";
-    String DOTDOT = "..";
-    String DOT_CLASS = ".class";
-    String DOT_JAVA = ".java";
-    String EMPTY = "";
-    String EQUALS = "=";
-    String FALSE = "false";
-    String SLASH = "/";
-    String HASH = "#";
-    String HAT = "^";
-    String LEFT_BRACE = "{";
-    String LEFT_BRACKET = "(";
-    String LEFT_CHEV = "<";
-    String NEWLINE = "\n";
-    String N = "n";
-    String NO = "no";
-    String NULL = "null";
-    String OFF = "off";
-    String ON = "on";
-    String PERCENT = "%";
-    String PIPE = "|";
-    String PLUS = "+";
-    String QUESTION_MARK = "?";
-    String EXCLAMATION_MARK = "!";
-    String QUOTE = "\"";
-    String RETURN = "\r";
-    String TAB = "\t";
-    String RIGHT_BRACE = "}";
-    String RIGHT_BRACKET = ")";
-    String RIGHT_CHEV = ">";
-    String SEMICOLON = ";";
-    String SINGLE_QUOTE = "'";
-    String BACKTICK = "`";
-    String SPACE = " ";
-    String LEFT_SQ_BRACKET = "[";
-    String RIGHT_SQ_BRACKET = "]";
-    String TRUE = "true";
-    String UNDERSCORE = "_";
-    String Y = "y";
-    String YES = "yes";
-    String ONE = "1";
-    String ZERO = "0";
-    String DOLLAR_LEFT_BRACE = "${";
-    String CRLF = "\r\n";
+    //业务插入
+    public final static String BUSINESS_INSERT = "INSERT";
 
-    String HTML_NBSP = "&nbsp;";
-    String HTML_AMP = "&amp";
-    String HTML_QUOTE = "&quot;";
-    String HTML_LT = "&lt;";
-    String HTML_GT = "&gt;";
+    //业务更新
+    public final static String BUSINESS_UPDATE = "UPDATE";
 
-    String HXWFH = "░▒▣▤▥▦▧▨▩▪▫▬◆◇◈◎●◐◑☉☎☏☜☞☺☻☼♠♡♢♣♤♥♦♧♨♩♪♫♬♭♯";
-    String HXWFHS = ".。，、;：？!ˉˇ¨`~ 々～‖∶'`|·… — ～ - 〃‘’“”〝〞〔〕〈〉《》「」『』〖〗【】()[]{｝︻︼﹄﹃";
+    //业务删除
+    public final static String BUSINESS_DELETE = "DELETE";
 
-    //常用的数学符号
-    String MATH_SYMBOL = "+-×÷﹢﹣±/=∥∠≌∽≦≧≒﹤﹥≈≡≠=≤≥<>≮≯∷∶∫∮∝∞∧∨∑∏∪∩∈∵∴⊥∥∠⌒⊙√∟⊿㏒㏑%‰";
+    //业务文件上传
+    public final static String BUSINESS_UPLOAD = "UPLOAD";
 
-    //计量符号
-    String UNIT_SYMBOL = "㎎㎏㎜㎝㎞㎡㏄㏎㏑㏒㏕℡%‰℃℉°′″$￡￥￠♂♀℅";
-
-    //常用的数学符号
-    String NUMBER_SYMBOL = "①②③④⑤⑥⑦⑧⑨⑩㈠㈡㈢㈣㈤㈥㈦㈧㈨㈩№" + "⑴⑵⑶⑷⑸⑹⑺⑻⑼⑽⑾⑿⒀⒁⒂⒃⒄⒅⒆⒇" +
-            "ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩⅪⅫⅰⅱⅲⅳⅴⅵⅶⅷⅸⅹ";
-
-    //希腊符号
-    String GREEK_SYMBOL = "ΓΔΛΞΠΣΦΨΩαβγδεζνξοπρσηθικλμτυφχψω";
-
-    //俄语
-    String RUSSIAN_SYMBOL = "БВГДЁЖИЙКЛПФЦЧШЩЪЫЬЭЮЯ";
-
-    //中文符号
-    String ZHCN_SYMBOL = "卍卐卄巜氺兀々〆のぁ〤〥";
-
-    //日语
-    String JAPANESE_SYMBOL = "ぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのはばぱひびぴ" +
-            "ふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろゎわゐゑをん ァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセゼソゾ" +
-            "タダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵヶ";
 
     //常用的符号
-    String SYMBOL_ALL = "、。·ˉˇ¨〃々—～‖…‘’“”〔〕〈 〉《》「」『』〖〗【】±+-×÷∧∨∑∏∪∩∈√⊥∥∠⌒⊙∫∮≡≌≈∽∝≠≮≯≤≥∞∶ ∵∴∷♂♀°′" +
-            "″℃$¤￠￡‰§№☆★〇○●◎◇◆ 回□■△▽⊿▲▼◣◤◢◥▁▂▃▄▅▆▇█▉▊▋▌▍▎▏▓※→←↑↓↖↗↘↙〓 ⅰⅱⅲⅳⅴⅵⅶⅷⅸⅹ①②③④⑤⑥⑦⑧⑨⑩" +
-            "⒈⒉⒊⒋ ⒌⒍⒎⒏⒐⒑⒒⒓⒔⒕⒖⒗⒘⒙⒚⒛⑴⑵⑶⑷⑸⑹⑺⑻⑼⑽⑾⑿⒀⒁⒂⒃⒄⒅⒆⒇㈠㈡㈢㈣㈤㈥㈦㈧㈨㈩ⅠⅡⅢⅣⅤⅥ" +
-            "ⅦⅧⅨⅩⅪⅫ!\"#￥%&'()*+，-./0123456789：;<=>？@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrs" +
-            "tuvwxyz{|｝ぁあぃいぅうぇえぉおかがきぎくぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのはばぱひびぴ" +
+    public final static String[] SYMBOL_FH = new String[]{"░", "▒", "▣", "▤", "▥", "▦", "▧", "▨", "▩",
+            "▪", "▫", "▬", "◆", "◇", "◈", "◎", "●", "◐", "◑", "☉", "☎", "☏", "☜", "☞", "☺", "☻", "☼",
+            "♠", "♡", "♢", "♣", "♤", "♥", "♦", "♧", "♨", "♩", "♪", "♫", "♬", "♭", ".", "。", "，", "、", ";", "：", "？", "!",
+            "ˉ", "ˇ", "¨", "`", "~", "々", "～", "‖", "∶", "'", "`", "|", "·", "…", "—", "～", "-",
+            "〃", "‘", "’", "“", "”", "〝", "〞", "〔", "〕", "〈", "〉", "《", "》", "「", "」", "『", "』", "〖", "〗", "【", "】", "(", ")", "[",
+            "]", "{", "｝", "︻", "︼", "﹄", "﹃",};
+
+    //常用的数学符号
+    public final static String[] SYMBOL_MATH = new String[]{"+", "-", "×", "÷", "﹢", "﹣", "±", "/", "=", "∥", "∠", "≌", "∽",
+            "≦", "≧", "≒", "﹤", "﹥", "≈", "≡", "≠", "=", "≤", "≥", "<", ">", "≮", "≯", "∷", "∶", "∫", "∮",
+            "∝", "∞", "∧", "∨", "∑", "∏", "∪", "∩", "∈", "∵", "∴", "⊥", "∥", "∠", "⌒", "⊙", "√", "∟", "⊿", "㏒", "㏑", "%", "‰"};
+
+    //计量符号
+    public final static String[] SYMBOL_UNIT = new String[]{"㎎", "㎏", "㎜", "㎝", "㎞", "㎡", "㏄", "㏎", "㏑",
+            "㏒", "㏕", "℡", "%", "‰", "℃", "℉", "°", "′", "″", "$", "￡", "￥", "￠", "♂", "♀", "℅"};
+
+    //常用的数学符号
+    public final static String SYMBOL_NUMBER = "①②③④⑤⑥⑦⑧⑨⑩㈠㈡㈢㈣㈤㈥㈦㈧㈨㈩⑴⑵⑶⑷⑸⑹⑺⑻⑼⑽⑾⑿⒀⒁⒂⒃⒄⒅⒆⒇" +
+            "ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩⅪⅫⅰⅱⅲⅳⅴⅵⅶⅷⅸⅹ";
+
+
+    //一些常用的无意义的符号
+    public final static char[] SYMBOL_UNMEANING = ("·ˉˇ¨〃々—～‖…「」『』〖〗【】±+-×÷∧∨∑∏∪∩∈√⊥∥∠⌒⊙∫∮≡≌≈∽∝≠≮≯≤≥∞∶ ∵∴∷♂♀°′" +
+            "″℃$¤￠￡‰§№☆★〇○●◎◇◆ 回□■△▽⊿▲▼◣◤◢◥▁▂▃▄▅▆▇█▉▊▋▌▍▎▏▓※→←↑↓↖↗↘↙〓!￥^`{|｝ぁあぃいぅうぇえぉおかがきぎ" +
+            "くぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのはばぱひびぴ" +
             "ふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろゎわゐゑをんァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセ" +
             "ゼソゾタダチヂッツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロヮワヰヱヲンヴヵ" +
-            "ヶΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζηθ ικλμνξοπρστυφχψ ω︵︶︹︺︿﹀︽︾﹁﹂﹃﹄︻︼︷︸АБВГДЕЁЖЗИЙКЛМНОПРСТУ" +
-            "ФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыь эюāáǎàēéěèī íǐìōóǒòūúǔùǖǘǚǜüêɑ\uE7C7ńň\uE7C8ɡㄅㄆㄇㄈㄉㄊㄋㄌ" +
-            "ㄍㄎㄏㄐㄑㄒㄓㄔㄕㄖㄗㄘㄙㄚㄛㄜㄝㄞㄟㄠㄡㄢㄣㄤㄥㄦㄧㄨㄩ︱\uE796︳︴﹏﹋﹌─━│┃┄┅┆ ┇┈┉┊┋┌┍┎┏┐┑┒┓└" +
-            "┕┖┗┘┙┚┛├┝┞┟┠┡┢┣┤┥┦┧┨┩┪┫┬┭┮┯┰┱┲┳┴┵┶┷┸┹┺┻┼┽┾┿╀╁╂╃╄ ╅╆╇╈╉╊╋？㊣㈱曱甴" +
-            "囍∟┅﹊﹍╭ ╮╰ ╯ \uE83A_\uE83A ^︵^﹕﹗/\\ \" < > `,·。{}~～() -√ $ @ * & # 卐℡ ぁ〝〞ミ灬№*\uE7E7\uE7F3ㄨ" +
-            "≮≯ ﹢﹣/∝≌∽≦≧≒﹤﹥じぷ┗┛￥￡§я-―‥…‰′″℅℉№℡∕∝∣═║╒╓╔╕╖╗╘╙╚╛╜╝╞╟╠╡╢╣╤╥╦╧╨╩╪╫╬╱ ╲╳▔▕" +
-            "〆〒〡〢〣〤〥〦〧〨〩㎎ ㎏ ㎜ ㎝ ㎞ ㎡ ㏄ ㏎㏑㏒㏕\uE7C7\uE7C8\uE7E7\uE7E8\uE7E9\uE7EA\uE7EB\uE7EC\uE7ED\uE7EE" +
-            "\uE7EF\uE7F0\uE7F1\uE7F2\uE7F3兀︰﹍﹎ ------";
+            "ヶΓΔΛΞΟΠΡΣΤΥΦΧΨΩαβγδεζηθ ικλμνξοπρστυφχψ ω︵︶︹︺︿﹀︽︾﹁﹂﹃﹄︻︼︷︸АБВГДЕЁЖЗИЙКЛМНОПРСТУ" +
+            "ФХЦЧШЩЪЫЬЭЮЯабвгдеёжзийклмнопрстуфхцчшщъыь эюāáǎàēéěèī íǐìōóǒòūúǔùǖǘǚǜüêɑńňɡㄅㄆㄇㄈㄉㄊㄋㄌ" +
+            "ㄍㄎㄏㄐㄑㄒㄓㄔㄕㄖㄗㄘㄙㄚㄛㄜㄝㄞㄟㄠㄡㄢㄣㄤㄥㄦㄧㄨㄩ︱︳︴﹏﹋﹌─━│┃┄┅┆┇┈┉┊┋┌┍┎┏┐┑┒┓└" +
+            "┕┖┗┘┙┚┛├┝┞┟┠┡┢┣┤┥┦┧┨┩┪┫┬┭┮┯┰┱┲┳┴┵┶┷┸┹┺┻┼┽┾┿╀╁╂╃╄ ╅╆╇╈╉╊╋㊣㈱曱甴" +
+            "∟┅﹍╭╮╰╯^︵^`√卐℡ぁ〝〞ミ灬№*ㄨ≮≯∝≌∽≦≧≒じぷ┗┛￥￡§я-―‥…‰′″℅℉№℡∕∝∣═║╒╓╔╕╖╗╘╙╚╛╜╝╞╟╠╡╢╣╤╥╦╧╨╩╪╫╬╱╲╳▔▕〆〒〡〢〣〤〥〦〧〨〩︰﹍﹎------").toCharArray();
 
 
-    //必选包含数字、大写字母、小写字母、特殊字符，长度在8到15位
-    public static final String SEC_PASSWORD =
-            "^(?=.*?[0-9])(?=.*?[a-z])(?=.*?[A-Z])(?=.*?[@!#$%^&*()_+\\.\\-\\?<>'\"|=]+).{8,15}$";
 }

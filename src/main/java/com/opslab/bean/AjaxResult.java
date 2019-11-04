@@ -1,4 +1,4 @@
-package com.opslab.entity;
+package com.opslab.bean;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
