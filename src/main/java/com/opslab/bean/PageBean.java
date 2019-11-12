@@ -1,6 +1,7 @@
 package com.opslab.bean;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
@@ -10,6 +11,7 @@ import java.util.List;
  * @param <T>
  */
 @Data
+@NoArgsConstructor
 public class PageBean<T> {
 
     // 当前页
@@ -27,16 +29,13 @@ public class PageBean<T> {
     // 分页结果
     private List<T> rows;
 
-    public PageBean() {
-        super();
-    }
 
     public PageBean(Integer currentPage, Integer pageSize, Long totalNum) {
         super();
         this.currentPage = currentPage;
         this.pageSize = pageSize;
         this.total = totalNum;
-        this.totalPage = ((Long)((this.total + this.pageSize - 1) / this.pageSize)).intValue();
+        this.totalPage = ((Long) ((this.total + this.pageSize - 1) / this.pageSize)).intValue();
         this.startIndex = (this.currentPage - 1) * this.pageSize;
         this.isMore = this.currentPage >= this.totalPage ? 0 : 1;
     }
