@@ -20,15 +20,15 @@ public class ResultFactory {
      */
     public static AjaxResult success() {
         AjaxResult result = new AjaxResult();
-        result.setResult(Opslab.SYS_SUCCESS);
-        result.setResultDesc(SYSMSG_SUCCESS);
+        result.setCode(Opslab.SYS_SUCCESS);
+        result.setMsg(SYSMSG_SUCCESS);
         return result;
     }
 
     public static AjaxResult success(Object data) {
         AjaxResult result = new AjaxResult();
-        result.setResult(Opslab.SYS_SUCCESS);
-        result.setResultDesc(SYSMSG_SUCCESS);
+        result.setCode(Opslab.SYS_SUCCESS);
+        result.setMsg(SYSMSG_SUCCESS);
         result.setData(data);
         return result;
     }
@@ -38,43 +38,49 @@ public class ResultFactory {
      */
     public static AjaxResult error(){
         AjaxResult result = new AjaxResult();
-        result.setResult(Opslab.SYS_ERROR);
-        result.setResultDesc(SYSMSG_ERROR);
+        result.setCode(Opslab.SYS_ERROR);
+        result.setMsg(SYSMSG_ERROR);
         result.setData("");
         return result;
     }
 
     public static AjaxResult error(String errorMsg) {
         AjaxResult result = new AjaxResult();
-        result.setResult(Opslab.SYS_ERROR);
-        result.setResultDesc(errorMsg);
+        result.setCode(Opslab.SYS_ERROR);
+        result.setMsg(errorMsg);
         result.setData("");
         return result;
     }
 
     public static AjaxResult error(String errorMsg,Object data) {
         AjaxResult result = new AjaxResult();
-        result.setResult(Opslab.SYS_ERROR);
-        result.setResultDesc(errorMsg);
+        result.setCode(Opslab.SYS_ERROR);
+        result.setMsg(errorMsg);
         result.setData(data);
         return result;
     }
 
+    public static AjaxResult error(int code,String msg){
+        AjaxResult result = new AjaxResult();
+        result.setCode(String.valueOf(code));
+        result.setMsg(msg);
+        return result;
+    }
     /**
      * 请求异常
      */
     public static AjaxResult exception() {
         AjaxResult result = new AjaxResult();
-        result.setResult(Opslab.SYS_EXCEPTION);
-        result.setResultDesc(SYSMSG_EXCEPTION);
+        result.setCode(Opslab.SYS_EXCEPTION);
+        result.setMsg(SYSMSG_EXCEPTION);
         result.setData("");
         return result;
     }
 
     public static AjaxResult exception(String errorMsg) {
         AjaxResult result = new AjaxResult();
-        result.setResult(Opslab.SYS_EXCEPTION);
-        result.setResultDesc(SYSMSG_EXCEPTION);
+        result.setCode(Opslab.SYS_EXCEPTION);
+        result.setMsg(SYSMSG_EXCEPTION);
         result.setData("");
         return result;
     }
@@ -86,8 +92,8 @@ public class ResultFactory {
      */
     public static AjaxResult noLogin() {
         AjaxResult result = new AjaxResult();
-        result.setResult(Opslab.SYS_NOLOGIN);
-        result.setResultDesc(SYSMSG_NOLOGIN);
+        result.setCode(Opslab.SYS_NOLOGIN);
+        result.setMsg(SYSMSG_NOLOGIN);
         result.setData("");
         return result;
     }
@@ -97,8 +103,8 @@ public class ResultFactory {
      */
     public static AjaxResult noRecord(){
         AjaxResult result = new AjaxResult();
-        result.setResult(Opslab.SYS_NORECORD);
-        result.setResultDesc(SYSMSG_NORECORD);
+        result.setCode(Opslab.SYS_NORECORD);
+        result.setMsg(SYSMSG_NORECORD);
         result.setData("");
         return result;
     }
