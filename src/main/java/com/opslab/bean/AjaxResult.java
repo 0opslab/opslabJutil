@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AjaxResult {
-    private String result;
-    private String resultDesc;
+    private String code;
+    private String msg;
     private Object data;
 }
