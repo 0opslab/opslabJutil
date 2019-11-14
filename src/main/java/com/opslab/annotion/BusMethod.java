@@ -10,9 +10,20 @@ import java.lang.annotation.Target;
  */
 @Target(value=ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface MethodInfo {
-	//方法类型
-	public String type() default "";
-	//方法标识
-	public String name() default "";
+public @interface BusMethod {
+	/**
+	 * 方法功能简介
+	 */
+	String name() default "";
+
+	/**
+	 * 功能
+	 */
+	MethodType action() default MethodType.ACCESS;
+
+
+	/**
+	 * 是否保存请求的参数
+	 */
+	boolean saveParams() default true;
 }
