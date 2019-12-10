@@ -14,6 +14,11 @@ import java.util.regex.Pattern;
 
 public class StringHelper {
     /**
+     * 下划线
+     */
+    private static final char SEPARATOR = '_';
+
+    /**
      * 判断是否是空字符串 null和"" 都返回 true
      *
      * @param str 判断的字符串
@@ -25,6 +30,7 @@ public class StringHelper {
 
     /**
      * 判断字符串不为空
+     *
      * @param str
      * @return
      */
@@ -241,7 +247,7 @@ public class StringHelper {
                 StringBuilder sb = new StringBuilder(capacity);
                 int pos = 0;
 
-                for(int patLen = oldPattern.length(); index >= 0; index = inString.indexOf(oldPattern, pos)) {
+                for (int patLen = oldPattern.length(); index >= 0; index = inString.indexOf(oldPattern, pos)) {
                     sb.append(inString.substring(pos, index));
                     sb.append(newPattern);
                     pos = index + patLen;
@@ -254,5 +260,40 @@ public class StringHelper {
             return inString;
         }
     }
+
+
+    /**
+     * 下划线转驼峰命名
+     */
+    public static String toUnderScoreCase(String s) {
+        if (s == null) {
+            return null;
+        }
+        StringBuilder sb = new StringBuilder();
+        boolean upperCase = false;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+
+            boolean nextUpperCase = true;
+
+            if (i < (s.length() - 1)) {
+                nextUpperCase = Character.isUpperCase(s.charAt(i + 1));
+            }
+
+            if ((i > 0) && Character.isUpperCase(c)) {
+                if (!upperCase || !nextUpperCase) {
+                    sb.append(SEPARATOR);
+                }
+                upperCase = true;
+            } else {
+                upperCase = false;
+            }
+
+            sb.append(Character.toLowerCase(c));
+        }
+
+        return sb.toString();
+    }
+
 
 }

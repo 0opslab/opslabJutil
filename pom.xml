@@ -6,7 +6,7 @@
 
     <groupId>com.0opslab</groupId>
     <artifactId>opslabJutil</artifactId>
-    <version>2.0.7</version>
+    <version>2.0.8</version>
 
     <name>opslabJutil</name>
     <description>Simple and convenient to use it to accomplish common development java code</description>
