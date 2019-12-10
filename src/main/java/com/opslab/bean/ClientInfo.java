@@ -3,6 +3,8 @@ package com.opslab.bean;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Map;
+
 /**
  * 封装通用的客户端请求
  */
@@ -13,9 +15,9 @@ public class ClientInfo {
     //用户标示
     private String userId;
     //请求发送时间
-    private String reqTime;
+    private Long reqTime;
     //请求响应时间
-    private String respTime;
+    private Long respTime;
     //请求端ip
     private String clientIp;
     //客户端os系统
@@ -34,4 +36,6 @@ public class ClientInfo {
     private String driverId;
     //请求端
     private String uri;
+    //请求参数
+    private Map<String,Object> params;
 }

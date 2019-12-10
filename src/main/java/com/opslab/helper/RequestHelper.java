@@ -1,11 +1,10 @@
 package com.opslab.helper;
 
+import com.opslab.bean.ClientInfo;
+
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 封装常见的Request方法
@@ -184,5 +183,36 @@ public class RequestHelper {
             e.printStackTrace();
         }
         return value;
+    }
+
+    /**
+     * 获取客户端请求信息
+     */
+    public static ClientInfo clientInfo(HttpServletRequest request,boolean multiRequest,String uid){
+        ClientInfo info = new ClientInfo();
+        info.setReqTime(System.currentTimeMillis());
+        info.setClientIp(getIpAddr(request));
+        String ua = request.getHeader("User-Agent");
+        info.setUserAgents(ua);
+        info.setReferer(request.getHeader("referer"));
+        info.setUri(request.getRequestURI());
+        info.setUserId(uid);
+        if (!multiRequest) {
+            Map<String, Object> params = RequestHelper.getParams(request);
+            info.setParams(params);
+            // 转换request
+            //MultipartHttpServletRequest multiRequest = (MultipartHttpServletRequest) request;
+            //// 获得文件
+            //Map<String, MultipartFile> fileMap = multiRequest.getFileMap();
+            //if(fileMap != null && fileMap.size() > 0){
+            //    params = new HashMap<>();
+            //    for (Map.Entry<String,MultipartFile> file:fileMap.entrySet()){
+            //        MultipartFile ff = file.getValue();
+            //        params.put("fileName",ff.getOriginalFilename());
+            //        params.put("fileSize",ff.getSize());
+            //    }
+            //}
+        }
+        return info;
     }
 }
