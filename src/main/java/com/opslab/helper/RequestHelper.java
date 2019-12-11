@@ -1,8 +1,10 @@
 package com.opslab.helper;
 
+import com.opslab.Opslab;
 import com.opslab.bean.ClientInfo;
 
 import javax.servlet.ServletRequest;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 
@@ -188,7 +190,7 @@ public class RequestHelper {
     /**
      * 获取客户端请求信息
      */
-    public static ClientInfo clientInfo(HttpServletRequest request,boolean multiRequest,String uid){
+    public static ClientInfo clientInfo(HttpServletRequest request){
         ClientInfo info = new ClientInfo();
         info.setReqTime(System.currentTimeMillis());
         info.setClientIp(getIpAddr(request));
@@ -196,23 +198,61 @@ public class RequestHelper {
         info.setUserAgents(ua);
         info.setReferer(request.getHeader("referer"));
         info.setUri(request.getRequestURI());
-        info.setUserId(uid);
-        if (!multiRequest) {
-            Map<String, Object> params = RequestHelper.getParams(request);
-            info.setParams(params);
-            // 转换request
-            //MultipartHttpServletRequest multiRequest = (MultipartHttpServletRequest) request;
-            //// 获得文件
-            //Map<String, MultipartFile> fileMap = multiRequest.getFileMap();
-            //if(fileMap != null && fileMap.size() > 0){
-            //    params = new HashMap<>();
-            //    for (Map.Entry<String,MultipartFile> file:fileMap.entrySet()){
-            //        MultipartFile ff = file.getValue();
-            //        params.put("fileName",ff.getOriginalFilename());
-            //        params.put("fileSize",ff.getSize());
-            //    }
-            //}
-        }
+
+        //if (!multiRequest) {
+        //    Map<String, Object> params = RequestHelper.getParams(request);
+        //    info.setParams(params);
+        //    // 转换request
+        //    //MultipartHttpServletRequest multiRequest = (MultipartHttpServletRequest) request;
+        //    //// 获得文件
+        //    //Map<String, MultipartFile> fileMap = multiRequest.getFileMap();
+        //    //if(fileMap != null && fileMap.size() > 0){
+        //    //    params = new HashMap<>();
+        //    //    for (Map.Entry<String,MultipartFile> file:fileMap.entrySet()){
+        //    //        MultipartFile ff = file.getValue();
+        //    //        params.put("fileName",ff.getOriginalFilename());
+        //    //        params.put("fileSize",ff.getSize());
+        //    //    }
+        //    //}
+        //}
         return info;
     }
+
+    /**
+     * 获取cookie
+     * @param request
+     * @param key
+     * @return
+     */
+    public static String cookieKey(HttpServletRequest request,String key){
+        Cookie[] cookies = request.getCookies();
+        for (Cookie cookie : cookies) {
+            if(key.equals(cookie.getName())){
+                return cookie.getValue();
+            }
+        }
+        return Opslab.STR_EMPTY;
+    }
+
+    /**
+     * 从http头和cookie中获取值
+     * @param request
+     * @param key
+     * @return
+     */
+    public static String headerOrcookieKey(HttpServletRequest request,String key){
+        String header = request.getHeader(key);
+        if(StringHelper.isNotEmpty(header)){
+            return header;
+        }
+        Cookie[] cookies = request.getCookies();
+        for (Cookie cookie : cookies) {
+            if(key.equals(cookie.getName())){
+                return cookie.getValue();
+            }
+        }
+        return Opslab.STR_EMPTY;
+    }
+
+
 }
