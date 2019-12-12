@@ -65,38 +65,69 @@ public final class Opslab {
      */
     public static final String STR_EMPTY = "";
 
-    //未登陆
+
+    /**
+     * 未登陆
+     */
     public final static String SYS_NOLOGIN = "Nologin";
 
-    //成功
+
+    /**
+     * 成功
+     */
     public final static String SYS_SUCCESS = "Success";
 
-    //失败
+
+    /**
+     * 失败
+     */
     public final static String SYS_ERROR = "Error";
 
-    //异常
+
+    /**
+     * 异常
+     */
     public final static String SYS_EXCEPTION = "Exception";
 
-    //无记录
+
+    /**
+     * 无记录
+     */
     public final static String SYS_NORECORD = "NoRecord";
 
-    //业务访问
+    /**
+     * 业务访问
+     */
     public final static String BUSINESS_ACCESS = "ACCESS";
 
-    //业务插入
+
+    /**
+     * 业务插入
+     */
     public final static String BUSINESS_INSERT = "INSERT";
 
-    //业务更新
+
+    /**
+     * 业务更新
+     */
     public final static String BUSINESS_UPDATE = "UPDATE";
 
-    //业务删除
+
+    /**
+     * 业务删除
+     */
     public final static String BUSINESS_DELETE = "DELETE";
 
-    //业务文件上传
+
+    /**
+     * 业务文件上传
+     */
     public final static String BUSINESS_UPLOAD = "UPLOAD";
 
 
-    //常用的符号
+    /**
+     * 常用的符号
+     */
     public final static String[] SYMBOL_FH = new String[]{"░", "▒", "▣", "▤", "▥", "▦", "▧", "▨", "▩",
             "▪", "▫", "▬", "◆", "◇", "◈", "◎", "●", "◐", "◑", "☉", "☎", "☏", "☜", "☞", "☺", "☻", "☼",
             "♠", "♡", "♢", "♣", "♤", "♥", "♦", "♧", "♨", "♩", "♪", "♫", "♬", "♭", ".", "。", "，", "、", ";", "：", "？", "!",
@@ -104,21 +135,30 @@ public final class Opslab {
             "〃", "‘", "’", "“", "”", "〝", "〞", "〔", "〕", "〈", "〉", "《", "》", "「", "」", "『", "』", "〖", "〗", "【", "】", "(", ")", "[",
             "]", "{", "｝", "︻", "︼", "﹄", "﹃",};
 
-    //常用的数学符号
+    /**
+     * 常用的数学符号
+     */
     public final static String[] SYMBOL_MATH = new String[]{"+", "-", "×", "÷", "﹢", "﹣", "±", "/", "=", "∥", "∠", "≌", "∽",
             "≦", "≧", "≒", "﹤", "﹥", "≈", "≡", "≠", "=", "≤", "≥", "<", ">", "≮", "≯", "∷", "∶", "∫", "∮",
             "∝", "∞", "∧", "∨", "∑", "∏", "∪", "∩", "∈", "∵", "∴", "⊥", "∥", "∠", "⌒", "⊙", "√", "∟", "⊿", "㏒", "㏑", "%", "‰"};
 
-    //计量符号
+
+    /**
+     * 计量符号
+     */
     public final static String[] SYMBOL_UNIT = new String[]{"㎎", "㎏", "㎜", "㎝", "㎞", "㎡", "㏄", "㏎", "㏑",
             "㏒", "㏕", "℡", "%", "‰", "℃", "℉", "°", "′", "″", "$", "￡", "￥", "￠", "♂", "♀", "℅"};
 
-    //常用的数学符号
+    /**
+     * 常用的数学符号
+     */
     public final static String SYMBOL_NUMBER = "①②③④⑤⑥⑦⑧⑨⑩㈠㈡㈢㈣㈤㈥㈦㈧㈨㈩⑴⑵⑶⑷⑸⑹⑺⑻⑼⑽⑾⑿⒀⒁⒂⒃⒄⒅⒆⒇" +
             "ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩⅪⅫⅰⅱⅲⅳⅴⅵⅶⅷⅸⅹ";
 
 
-    //一些常用的无意义的符号
+    /**
+     * 一些常用的无意义的符号(只相对于中文)
+     */
     public final static char[] SYMBOL_UNMEANING = ("·ˉˇ¨〃々—～‖…「」『』〖〗【】±+-×÷∧∨∑∏∪∩∈√⊥∥∠⌒⊙∫∮≡≌≈∽∝≠≮≯≤≥∞∶ ∵∴∷♂♀°′" +
             "″℃$¤￠￡‰§№☆★〇○●◎◇◆ 回□■△▽⊿▲▼◣◤◢◥▁▂▃▄▅▆▇█▉▊▋▌▍▎▏▓※→←↑↓↖↗↘↙〓!￥^`{|｝ぁあぃいぅうぇえぉおかがきぎ" +
             "くぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのはばぱひびぴ" +

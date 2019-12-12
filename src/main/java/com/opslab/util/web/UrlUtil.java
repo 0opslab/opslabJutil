@@ -606,6 +606,9 @@ public final class UrlUtil {
 
 
     /**
+     * 拼接url方法
+     *
+     *
      * Example:
      * <pre>
      * {@code
