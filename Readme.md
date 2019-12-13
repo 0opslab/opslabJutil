@@ -4,8 +4,11 @@
 另外希望身为Java牛牛的你们一起测试和完善 一起封装和完成常用的Java代码。
 节约撸码时间以方便有更多的时间去把妹子～
 
-<img src="https://0opslab.github.io/img/wpwx.png" alt="关注我" style="max-width:20%;" />
+
+<p style="text-align:center;"> 
+<img src="https://0opslab.github.io/img/wpwx.png"alt="关注我 "style="zoom:20%;">
 <img src="https://0opslab.github.io/img/wxpay.png" alt="请问喝杯咖啡" style="max-width:20%;" />
+</p>
 
 ---
 #开发环境
