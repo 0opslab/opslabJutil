@@ -36,13 +36,9 @@
 ```
 
 ## 在线api
-[opslabJutil2.x API Doc](https://0opslab.github.io/opslabJutil/opslabJutil2.0.html)
-[opslabJutil3.0.0 API Doc](https://0opslab.github.io/opslabJutil/opslabJutil3.0.0.html)
+[opslabJutil2.x API Doc](https://0opslab.github.io/opslabJutil/opslabJutil2.0.html)<br>
 
-## 下一步计划
-* 加入WEB开发中常用的代码,如HTTP的安全校验,HTTP请求信的过滤,已经HTTP的请求的性能分析等工作。
-* 安全校验
-* 代码优化
+[opslabJutil3.0.0 API Doc](https://0opslab.github.io/opslabJutil/opslabJutil3.0.0.html)<br>
 
-## config
-如果需要修改默认配置可以通过在classpath下添加0opslab.properties文件来进行一些配置
+
+
