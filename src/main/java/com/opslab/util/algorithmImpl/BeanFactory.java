@@ -1,5 +1,6 @@
-package com.opslab.util.bean;
+package com.opslab.util.algorithmImpl;
 
+import com.opslab.bean.BeanStruct;
 import com.opslab.util.CheckUtil;
 
 import java.beans.BeanInfo;
@@ -14,7 +15,7 @@ import java.util.Map;
 /**
  * 提供一些BeanUti需要的方法
  */
-public class Factory {
+public class BeanFactory {
 
 
     /**

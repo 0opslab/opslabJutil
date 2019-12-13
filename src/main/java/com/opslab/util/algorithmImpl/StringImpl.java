@@ -1,11 +1,8 @@
 package com.opslab.util.algorithmImpl;
 
 import com.opslab.Opslab;
-import com.opslab.util.CharsetUtil;
 import com.opslab.util.SysUtil;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 
 /**

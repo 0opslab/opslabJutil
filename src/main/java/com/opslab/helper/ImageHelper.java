@@ -1,7 +1,6 @@
 package com.opslab.helper;
 
 import com.opslab.bean.ResultBean;
-import com.opslab.util.RandomHelper;
 import com.opslab.util.image.CaptchaUtil;
 
 import javax.imageio.ImageIO;

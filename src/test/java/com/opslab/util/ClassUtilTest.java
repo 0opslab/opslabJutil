@@ -57,7 +57,7 @@ public class ClassUtilTest {
     @Test
     public void testPrivateMetod() {
         System.out.println("=============获取自定义的private类型的方法==========");
-        String[] methods = ClassUtil.getPrivateMethod("com.opslab.util.bean.BeanUtil");
+        String[] methods = ClassUtil.getPrivateMethod("com.opslab.helper.BeanHepler");
         for (String m : methods) {
             System.out.println(m);
         }
@@ -67,12 +67,12 @@ public class ClassUtilTest {
     @Test
     public void testProtectedMetod() {
         System.out.println("=============获取自定义的Protected类型的方法==========");
-        String[] methods = ClassUtil.getProtectedMethod("com.opslab.util.bean.BeanUtil", false);
+        String[] methods = ClassUtil.getProtectedMethod("com.opslab.helper.BeanHepler", false);
         for (String m : methods) {
             System.out.println(m);
         }
         System.out.println("=============获取自定义的和继承的Protected类型的方法==========");
-        methods = ClassUtil.getProtectedMethod("com.opslab.util.bean.BeanUtil", true);
+        methods = ClassUtil.getProtectedMethod("com.opslab.helper.BeanHepler", true);
         for (String m : methods) {
             System.out.println(m);
         }
@@ -81,12 +81,12 @@ public class ClassUtilTest {
     @Test
     public void testPublicMetod() {
         System.out.println("=============获取自定义的public类型的方法==========");
-        String[] methods = ClassUtil.getPublicMethod("com.opslab.util.bean.BeanUtil", false);
+        String[] methods = ClassUtil.getPublicMethod("com.opslab.helper.BeanHepler", false);
         for (String m : methods) {
             System.out.println(m);
         }
         System.out.println("=============获取自定义的和继承的public类型的方法==========");
-        methods = ClassUtil.getPublicMethod("com.opslab.util.bean.BeanUtil", true);
+        methods = ClassUtil.getPublicMethod("com.opslab.helper.BeanHepler", true);
         for (String m : methods) {
             System.out.println(m);
         }

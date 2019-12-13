@@ -1,6 +1,6 @@
 package com.opslab.util.encrypt;
 
-import com.opslab.util.RandomHelper;
+import com.opslab.helper.RandomHelper;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

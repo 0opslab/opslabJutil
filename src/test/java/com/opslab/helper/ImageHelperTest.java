@@ -2,7 +2,7 @@ package com.opslab.helper;
 
 import com.opslab.bean.ResultBean;
 import com.opslab.util.JacksonUtil;
-import com.opslab.util.RandomHelper;
+import com.opslab.helper.RandomHelper;
 import com.opslab.util.TestUtil;
 import org.junit.Ignore;
 import org.junit.Test;

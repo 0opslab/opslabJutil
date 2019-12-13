@@ -3,7 +3,6 @@ package com.opslab.helper;
 import com.opslab.util.CheckUtil;
 import com.opslab.util.algorithmImpl.BCConvert;
 
-
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.ArrayList;

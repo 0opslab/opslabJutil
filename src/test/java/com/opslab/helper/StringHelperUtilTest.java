@@ -1,7 +1,9 @@
-package com.opslab.util;
+package com.opslab.helper;
 
 
 
+import com.opslab.util.StringUtil;
+import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -11,7 +13,7 @@ import java.util.List;
 import static org.junit.Assert.assertEquals;
 
 @Ignore
-public class StringUtilTest {
+public class StringHelperUtilTest {
 
     @Test
     public void testsubString() {
@@ -29,7 +31,7 @@ public class StringUtilTest {
     @Test
     public void testTrim() {
         String str1 = "java-utils.jar";
-        assertEquals("utils.jar", StringUtil.ltrim(str1, 5));
+        Assert.assertEquals("utils.jar", StringUtil.ltrim(str1, 5));
         assertEquals("", StringUtil.ltrim(null, 5));
         assertEquals("java-utils", StringUtil.rtrim(str1, 4));
         assertEquals(null, StringUtil.rtrim(null, 4));

@@ -1,6 +1,6 @@
 package com.opslab.helper;
 
-import com.opslab.util.RandomHelper;
+import com.opslab.helper.RandomHelper;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -10,8 +10,9 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import static com.opslab.util.RandomHelper.integer;
-import static junit.framework.Assert.assertEquals;
+import static com.opslab.helper.RandomHelper.integer;
+import static org.junit.Assert.assertEquals;
+
 
 @Ignore
 public class RandomHelperTest {

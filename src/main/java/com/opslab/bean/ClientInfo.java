@@ -1,7 +1,6 @@
 package com.opslab.bean;
 
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.Map;
 
@@ -10,9 +9,9 @@ import java.util.Map;
  */
 @Data
 public class ClientInfo {
-    //唯一标示
+    //唯一标识
     private String kid;
-    //用户标示
+    //用户标识
     private String userId;
     //请求发送时间
     private Long reqTime;
@@ -24,10 +23,8 @@ public class ClientInfo {
     private String platform;
     //客户端os系统版本
     private String osVersion;
-    //客户端类型名称
-    private String appName;
-    //客户端类型版本
-    private String appVersion;
+    //客户端类型名称及版本
+    private String appInfo;
     //客户端指纹信息
     private String userAgents;
     //http referer信息

@@ -1,5 +1,7 @@
 package com.opslab.helper;
 
+import com.opslab.Opslab;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -151,5 +153,25 @@ public class CookieHelper {
             }
         }
         return value;
+    }
+
+    /**
+     * 从http头和cookie中获取值
+     * @param request
+     * @param key
+     * @return
+     */
+    public static String headerOrcookieKey(HttpServletRequest request,String key){
+        String header = request.getHeader(key);
+        if(StringHelper.isNotEmpty(header)){
+            return header;
+        }
+        Cookie[] cookies = request.getCookies();
+        for (Cookie cookie : cookies) {
+            if(key.equals(cookie.getName())){
+                return cookie.getValue();
+            }
+        }
+        return Opslab.STR_EMPTY;
     }
 }

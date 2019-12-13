@@ -1,4 +1,4 @@
-package com.opslab.other;
+package com.opslab.useful;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;

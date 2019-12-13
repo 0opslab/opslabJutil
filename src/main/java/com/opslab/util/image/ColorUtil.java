@@ -1,6 +1,6 @@
 package com.opslab.util.image;
 
-import java.awt.Color;
+import java.awt.*;
 
 /**
  * 颜色相关的工具类

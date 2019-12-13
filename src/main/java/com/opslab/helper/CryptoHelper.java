@@ -1,6 +1,5 @@
 package com.opslab.helper;
 
-import com.opslab.Opslab;
 import com.opslab.util.encrypt.ASEUtil;
 import com.opslab.util.encrypt.Base64Ext;
 import com.opslab.util.encrypt.DESUtil;

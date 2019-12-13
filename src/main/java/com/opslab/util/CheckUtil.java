@@ -65,7 +65,7 @@ public final class CheckUtil {
      * @param objs
      * @return
      */
-    public final static boolean valid(Object... objs) {
+    public final static boolean valid(Object[] objs) {
         if (objs != null && objs.length != 0) {
             return true;
         }

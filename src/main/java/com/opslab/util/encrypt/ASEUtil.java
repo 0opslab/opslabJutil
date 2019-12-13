@@ -2,7 +2,6 @@ package com.opslab.util.encrypt;
 
 import com.opslab.Opslab;
 
-
 import javax.crypto.*;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.IOException;

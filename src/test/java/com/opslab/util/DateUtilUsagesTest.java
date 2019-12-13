@@ -1,6 +1,7 @@
 package com.opslab.util;
 
 
+import com.opslab.helper.DateHelper;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -52,8 +53,8 @@ public class DateUtilUsagesTest {
         int count1 = 0;
         for (String line : lines) {
             String[] tt = line.split("/");
-            count += DateUtil.subtimeBurst(tt[0], tt[1], "08:00-19:30");
-            count1 += DateUtil.subtract(tt[0], tt[1]);
+            count += DateHelper.subtimeBurst(tt[0], tt[1], "08:00-19:30");
+            count1 += DateHelper.subtract(tt[0], tt[1]);
         }
         System.out.println("sum1 > " + count / 60 / 60);
         System.out.println("sum2 > " + count1 / 60 / 60);
@@ -76,12 +77,12 @@ public class DateUtilUsagesTest {
                 if (value != null && !"".equals(value)) {
                     String[] ss = value.split(":");
                     sum = Integer.parseInt(ss[0]);
-                    sum += (int) DateUtil.subtimeBurst(tt[0], tt[1], "08:00-19:30");
+                    sum += (int) DateHelper.subtimeBurst(tt[0], tt[1], "08:00-19:30");
                     count = Integer.parseInt(ss[1]) + 1;
                 }
                 group.put(tt[2], sum + ":" + count);
             } else {
-                int sum = (int) DateUtil.subtimeBurst(tt[0], tt[1], "08:00-19:30");
+                int sum = (int) DateHelper.subtimeBurst(tt[0], tt[1], "08:00-19:30");
                 int count = 1;
                 group.put(tt[2], sum + ":" + count);
             }

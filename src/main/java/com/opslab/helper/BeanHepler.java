@@ -1,7 +1,9 @@
-package com.opslab.util.bean;
+package com.opslab.helper;
 
-import com.opslab.helper.CollectionHelper;
+import com.opslab.bean.BeanStruct;
 import com.opslab.util.CheckUtil;
+import com.opslab.util.algorithmImpl.BeanFactory;
+import com.opslab.functions.PropertyFilter;
 
 import java.beans.IntrospectionException;
 import java.lang.reflect.InvocationTargetException;
@@ -13,14 +15,14 @@ import java.util.Set;
 /**
  * JavaBean相关的一些操作
  */
-public class BeanUtil {
+public class BeanHepler {
 
     private static Map<String, BeanStruct> simpleProperties(Object obj) {
-        return Factory.BEAN_SIMPLE_PROPERTIES.get(obj.getClass().getName());
+        return BeanFactory.BEAN_SIMPLE_PROPERTIES.get(obj.getClass().getName());
     }
 
     private static Map<String, BeanStruct> simplePropertiesIgnore(Object obj) {
-        return Factory.BEAN_SIMPLE_PROPERTIESIGNORE.get(obj.getClass().getName());
+        return BeanFactory.BEAN_SIMPLE_PROPERTIESIGNORE.get(obj.getClass().getName());
     }
 
     private static Method getReadMethod(Object obj, String pro) {
@@ -61,7 +63,7 @@ public class BeanUtil {
      */
     public static void add(Object obj) {
         try {
-            Factory.add(obj);
+            BeanFactory.add(obj);
         } catch (IntrospectionException | ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -74,7 +76,7 @@ public class BeanUtil {
      */
     public static void add(Class clazz) {
         try {
-            Factory.add(clazz);
+            BeanFactory.add(clazz);
         } catch (IntrospectionException | ClassNotFoundException e) {
             e.printStackTrace();
         }

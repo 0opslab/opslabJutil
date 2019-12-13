@@ -1,6 +1,6 @@
 package com.opslab.util.image;
 
-import com.opslab.util.RandomHelper;
+import com.opslab.helper.RandomHelper;
 import junit.framework.TestCase;
 import com.opslab.util.TestUtil;
 import org.junit.Ignore;

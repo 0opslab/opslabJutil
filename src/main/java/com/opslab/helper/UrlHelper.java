@@ -1,8 +1,6 @@
 package com.opslab.helper;
 
 import com.opslab.Opslab;
-import com.opslab.util.CharUtil;
-import com.opslab.util.CharsetUtil;
 import com.opslab.util.StringUtil;
 import com.opslab.util.web.URIPart;
 

@@ -6,16 +6,17 @@ import org.junit.Test;
 import java.io.File;
 
 public class ZIPUtilTest {
+    String path = TestUtil.path;
 
     @Test
     @Ignore
     public void testDeCompress() throws Exception {
-        String file = SysUtil.CURRENT_USER_DIR + "/src/test/java";
+        String file = path+ "/src/test/java";
         String zipFile = TestUtil.path + "temp/test.zip";
         ZIPUtil.deCompress(new File(file), zipFile);
 
 
-        File file1 = new File(SysUtil.CURRENT_USER_DIR + "/src/test/java/com/opslab/helper/FileHelperTest.java");
+        File file1 = new File(path + "/src/test/java/com/opslab/helper/FileHelperTest.java");
         ZIPUtil.deCompress(file1, TestUtil.path + "temp/test1.zip");
 
     }

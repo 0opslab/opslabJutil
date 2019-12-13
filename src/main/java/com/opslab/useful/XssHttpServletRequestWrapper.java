@@ -1,4 +1,4 @@
-package com.opslab.other;
+package com.opslab.useful;
 
 import com.opslab.helper.WebHelper;
 

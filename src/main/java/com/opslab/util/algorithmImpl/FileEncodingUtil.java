@@ -1,7 +1,7 @@
 package com.opslab.util.algorithmImpl;
 
-import com.opslab.util.FileUtil;
 import com.opslab.util.CheckUtil;
+import com.opslab.util.FileUtil;
 
 import java.io.*;
 import java.nio.charset.Charset;

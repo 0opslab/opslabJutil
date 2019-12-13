@@ -1,14 +1,13 @@
 package com.opslab.util.ftp;
 
-import com.opslab.util.FileUtil;
 import com.opslab.util.CheckUtil;
+import com.opslab.util.FileUtil;
 import com.opslab.util.JacksonUtil;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
 import org.apache.commons.net.ftp.FTPReply;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 
 import java.io.*;
 import java.util.*;

@@ -1,6 +1,6 @@
 package com.opslab.util.ftp;
 
-import com.opslab.util.DateUtil;
+import com.opslab.helper.DateHelper;
 
 /**
  * Ftp操作日志
@@ -13,7 +13,7 @@ public class FTPLog {
     private String localFile;
     private String remoteFile;
     private String ReplyCodeDesc;
-    private String createTime = DateUtil.currentDateTime();
+    private String createTime = DateHelper.currentDateTime();
 
     public String getHost() {
         return host;

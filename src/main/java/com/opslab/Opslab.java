@@ -126,9 +126,84 @@ public final class Opslab {
 
 
     /**
+     * JVM的版本
+     */
+    public static final String JVM_VERSION = "java.version";
+    /**
+     * JVM的编码
+     */
+    public static final String JVM_ENCODING = "file.encoding";
+    /**
+     * JVM默认的临时目录
+     */
+    public static final String JVM_TEMPDIR = "java.io.tmpdir";
+
+    /**
+     * http代理主机标识
+     */
+    public static final String HTTP_PROXY_HOST = "http.proxyHost";
+
+    /**
+     * http代理主机端口
+     */
+    public static final String HTTP_PROXY_PORT = "http.proxyPort";
+
+    /**
+     * http代理用户标识
+     */
+    public static final String HTTP_PROXY_USER = "http.proxyUser";
+
+    /**
+     * http代理用户密码标识
+     */
+    public static final String HTTP_PROXY_PASSWORD = "http.proxyPassword";
+
+    /**
+     * 主机架构
+     */
+    public static final String SYS_OS_ARCH = "os.arch";
+    /**
+     * 主机类型
+     */
+    public static final String SYS_OS_NAME = "os.name";
+    /**
+     * 主机类型版本
+     */
+    public static final String SYS_OS_VERSION = "os.version";
+    /**
+     * 操作系统类型
+     */
+    public static final String SYS_SUN_DESKTOP = "sun.desktop";
+    /**
+     * 当前用户
+     */
+    public static final String SYS_CURRENT_USER = "user.name";
+    /**
+     * 当前用户的家目录
+     */
+    public static final String SYS_CURRENT_USERHOME = "user.home";
+    /**
+     * 当用用户的工作目录
+     */
+    public static final String SYS_CURRENT_USERDIR = "user.dir";
+
+
+    public static final String SYS_FILE_SEPARATOR = "file.separator";
+    /**
+     * 系统路径分隔符key
+     */
+    public static final String SYS_PATH_SEPARATOR = "path.separator";
+
+    /**
+     * 系统换行符key
+     */
+    public static final String SYS_LINE_SEPARATOR = "line.separator";
+
+
+    /**
      * 常用的符号
      */
-    public final static String[] SYMBOL_FH = new String[]{"░", "▒", "▣", "▤", "▥", "▦", "▧", "▨", "▩",
+    public static final String[] SYMBOL_FH = new String[]{"░", "▒", "▣", "▤", "▥", "▦", "▧", "▨", "▩",
             "▪", "▫", "▬", "◆", "◇", "◈", "◎", "●", "◐", "◑", "☉", "☎", "☏", "☜", "☞", "☺", "☻", "☼",
             "♠", "♡", "♢", "♣", "♤", "♥", "♦", "♧", "♨", "♩", "♪", "♫", "♬", "♭", ".", "。", "，", "、", ";", "：", "？", "!",
             "ˉ", "ˇ", "¨", "`", "~", "々", "～", "‖", "∶", "'", "`", "|", "·", "…", "—", "～", "-",
@@ -138,7 +213,7 @@ public final class Opslab {
     /**
      * 常用的数学符号
      */
-    public final static String[] SYMBOL_MATH = new String[]{"+", "-", "×", "÷", "﹢", "﹣", "±", "/", "=", "∥", "∠", "≌", "∽",
+    public static final String[] SYMBOL_MATH = new String[]{"+", "-", "×", "÷", "﹢", "﹣", "±", "/", "=", "∥", "∠", "≌", "∽",
             "≦", "≧", "≒", "﹤", "﹥", "≈", "≡", "≠", "=", "≤", "≥", "<", ">", "≮", "≯", "∷", "∶", "∫", "∮",
             "∝", "∞", "∧", "∨", "∑", "∏", "∪", "∩", "∈", "∵", "∴", "⊥", "∥", "∠", "⌒", "⊙", "√", "∟", "⊿", "㏒", "㏑", "%", "‰"};
 
@@ -146,20 +221,20 @@ public final class Opslab {
     /**
      * 计量符号
      */
-    public final static String[] SYMBOL_UNIT = new String[]{"㎎", "㎏", "㎜", "㎝", "㎞", "㎡", "㏄", "㏎", "㏑",
+    public static final String[] SYMBOL_UNIT = new String[]{"㎎", "㎏", "㎜", "㎝", "㎞", "㎡", "㏄", "㏎", "㏑",
             "㏒", "㏕", "℡", "%", "‰", "℃", "℉", "°", "′", "″", "$", "￡", "￥", "￠", "♂", "♀", "℅"};
 
     /**
      * 常用的数学符号
      */
-    public final static String SYMBOL_NUMBER = "①②③④⑤⑥⑦⑧⑨⑩㈠㈡㈢㈣㈤㈥㈦㈧㈨㈩⑴⑵⑶⑷⑸⑹⑺⑻⑼⑽⑾⑿⒀⒁⒂⒃⒄⒅⒆⒇" +
+    public static final String SYMBOL_NUMBER = "①②③④⑤⑥⑦⑧⑨⑩㈠㈡㈢㈣㈤㈥㈦㈧㈨㈩⑴⑵⑶⑷⑸⑹⑺⑻⑼⑽⑾⑿⒀⒁⒂⒃⒄⒅⒆⒇" +
             "ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩⅪⅫⅰⅱⅲⅳⅴⅵⅶⅷⅸⅹ";
 
 
     /**
      * 一些常用的无意义的符号(只相对于中文)
      */
-    public final static char[] SYMBOL_UNMEANING = ("·ˉˇ¨〃々—～‖…「」『』〖〗【】±+-×÷∧∨∑∏∪∩∈√⊥∥∠⌒⊙∫∮≡≌≈∽∝≠≮≯≤≥∞∶ ∵∴∷♂♀°′" +
+    public static final char[] SYMBOL_UNMEANING = ("·ˉˇ¨〃々—～‖…「」『』〖〗【】±+-×÷∧∨∑∏∪∩∈√⊥∥∠⌒⊙∫∮≡≌≈∽∝≠≮≯≤≥∞∶ ∵∴∷♂♀°′" +
             "″℃$¤￠￡‰§№☆★〇○●◎◇◆ 回□■△▽⊿▲▼◣◤◢◥▁▂▃▄▅▆▇█▉▊▋▌▍▎▏▓※→←↑↓↖↗↘↙〓!￥^`{|｝ぁあぃいぅうぇえぉおかがきぎ" +
             "くぐけげこごさざしじすずせぜそぞただちぢっつづてでとどなにぬねのはばぱひびぴ" +
             "ふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろゎわゐゑをんァアィイゥウェエォオカガキギクグケゲコゴサザシジスズセ" +

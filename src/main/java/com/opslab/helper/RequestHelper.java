@@ -1,12 +1,13 @@
 package com.opslab.helper;
 
-import com.opslab.Opslab;
 import com.opslab.bean.ClientInfo;
 
 import javax.servlet.ServletRequest;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
-import java.util.*;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  * 封装常见的Request方法
@@ -87,6 +88,7 @@ public class RequestHelper {
 
     /**
      * 获取请求参数
+     *
      * @param request
      * @return
      */
@@ -119,11 +121,12 @@ public class RequestHelper {
 
     /**
      * 获取请求参数
+     *
      * @param request
      * @return
      */
-    public static  Map<String,Object> getParams(HttpServletRequest request) {
-        Map<String,Object> map = new HashMap();
+    public static Map<String, Object> getParams(HttpServletRequest request) {
+        Map<String, Object> map = new HashMap();
         Enumeration paramNames = request.getParameterNames();
         while (paramNames.hasMoreElements()) {
             String paramName = (String) paramNames.nextElement();
@@ -140,6 +143,7 @@ public class RequestHelper {
 
     /**
      * 获取请求参数
+     *
      * @param request
      * @return
      */
@@ -172,16 +176,17 @@ public class RequestHelper {
 
     /**
      * 获取整型参数
+     *
      * @param request
      * @param paramName
      * @return
      */
-    public static Integer paramInteger(HttpServletRequest request,String paramName){
+    public static Integer paramInteger(HttpServletRequest request, String paramName) {
         String parameter = request.getParameter(paramName);
         Integer value = null;
-        try{
+        try {
             value = Integer.parseInt(parameter);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return value;
@@ -190,69 +195,65 @@ public class RequestHelper {
     /**
      * 获取客户端请求信息
      */
-    public static ClientInfo clientInfo(HttpServletRequest request){
+    public static ClientInfo clientInfo(HttpServletRequest request) {
         ClientInfo info = new ClientInfo();
         info.setReqTime(System.currentTimeMillis());
         info.setClientIp(getIpAddr(request));
-        String ua = request.getHeader("User-Agent");
-        info.setUserAgents(ua);
         info.setReferer(request.getHeader("referer"));
         info.setUri(request.getRequestURI());
 
-        //if (!multiRequest) {
-        //    Map<String, Object> params = RequestHelper.getParams(request);
-        //    info.setParams(params);
-        //    // 转换request
-        //    //MultipartHttpServletRequest multiRequest = (MultipartHttpServletRequest) request;
-        //    //// 获得文件
-        //    //Map<String, MultipartFile> fileMap = multiRequest.getFileMap();
-        //    //if(fileMap != null && fileMap.size() > 0){
-        //    //    params = new HashMap<>();
-        //    //    for (Map.Entry<String,MultipartFile> file:fileMap.entrySet()){
-        //    //        MultipartFile ff = file.getValue();
-        //    //        params.put("fileName",ff.getOriginalFilename());
-        //    //        params.put("fileSize",ff.getSize());
-        //    //    }
-        //    //}
-        //}
-        return info;
-    }
 
-    /**
-     * 获取cookie
-     * @param request
-     * @param key
-     * @return
-     */
-    public static String cookieKey(HttpServletRequest request,String key){
-        Cookie[] cookies = request.getCookies();
-        for (Cookie cookie : cookies) {
-            if(key.equals(cookie.getName())){
-                return cookie.getValue();
-            }
+        String ua = request.getHeader("User-Agent");
+        info.setUserAgents(ua);
+        ua = ua.toUpperCase();
+
+
+        if (ua.contains("WINDOWS NT 5.1")) {
+            info.setPlatform("WindowsVista");
         }
-        return Opslab.STR_EMPTY;
-    }
-
-    /**
-     * 从http头和cookie中获取值
-     * @param request
-     * @param key
-     * @return
-     */
-    public static String headerOrcookieKey(HttpServletRequest request,String key){
-        String header = request.getHeader(key);
-        if(StringHelper.isNotEmpty(header)){
-            return header;
+        if (ua.contains("WINDOWS NT 6.1")) {
+            info.setPlatform("Windows7");
         }
-        Cookie[] cookies = request.getCookies();
-        for (Cookie cookie : cookies) {
-            if(key.equals(cookie.getName())){
-                return cookie.getValue();
-            }
+        if (ua.contains("WINDOWS NT 6.2")) {
+            info.setPlatform("Windows8");
         }
-        return Opslab.STR_EMPTY;
+        if (ua.contains("WINDOWS NT 10")) {
+            info.setPlatform("Windows10");
+        }
+        if (ua.contains("MAC")) {
+            info.setPlatform("MacOS");
+        }
+        if (ua.contains("LINUX")) {
+            info.setPlatform("Linux");
+        }
+        if (ua.contains("ANDROID")) {
+            info.setPlatform("android");
+        }
+        if (ua.contains("IPHONE")) {
+            info.setPlatform("ios");
+        }
+        if (ua.contains("IOS")) {
+            info.setPlatform("ios");
+        }
+
+            //if (!multiRequest) {
+            //    Map<String, Object> params = RequestHelper.getParams(request);
+            //    info.setParams(params);
+            //    // 转换request
+            //    //MultipartHttpServletRequest multiRequest = (MultipartHttpServletRequest) request;
+            //    //// 获得文件
+            //    //Map<String, MultipartFile> fileMap = multiRequest.getFileMap();
+            //    //if(fileMap != null && fileMap.size() > 0){
+            //    //    params = new HashMap<>();
+            //    //    for (Map.Entry<String,MultipartFile> file:fileMap.entrySet()){
+            //    //        MultipartFile ff = file.getValue();
+            //    //        params.put("fileName",ff.getOriginalFilename());
+            //    //        params.put("fileSize",ff.getSize());
+            //    //    }
+            //    //}
+            //}
+            return info;
+        }
+
+
     }
-
-
-}

@@ -2,7 +2,7 @@ package com.opslab.helper;
 
 
 import com.opslab.Opslab;
-import com.opslab.other.SSLmiTM;
+import com.opslab.useful.SSLmiTM;
 
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
