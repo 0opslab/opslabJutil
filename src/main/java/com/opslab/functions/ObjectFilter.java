@@ -6,5 +6,10 @@ package com.opslab.functions;
  * @param <T>
  */
 public interface ObjectFilter<T> {
+    /**
+     * 实现自定义过滤方法
+     * @param t
+     * @return
+     */
     boolean filter(T t);
 }

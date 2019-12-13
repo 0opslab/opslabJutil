@@ -1,5 +1,9 @@
-package com.opslab.common;
+package com.opslab.other;
 
+/**
+ * SSLmiTM
+ * #nodoc-主要用于忽略SSL校验发起请求
+ */
 public class SSLmiTM implements javax.net.ssl.TrustManager, javax.net.ssl.X509TrustManager {
     public java.security.cert.X509Certificate[] getAcceptedIssuers() {
         return null;

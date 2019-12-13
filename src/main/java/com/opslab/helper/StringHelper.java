@@ -12,6 +12,9 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * 字符串常用操作方法
+ */
 public class StringHelper {
     /**
      * 下划线
@@ -229,10 +232,22 @@ public class StringHelper {
         }
     }
 
+    /**
+     * 判断字符串是否有长度
+     * @param str
+     * @return
+     */
     public static boolean hasLength(String str) {
         return str != null && !str.isEmpty();
     }
 
+    /**
+     * 字符串替换
+     * @param inString
+     * @param oldPattern
+     * @param newPattern
+     * @return
+     */
     public static String replace(String inString, String oldPattern, String newPattern) {
         if (hasLength(inString) && hasLength(oldPattern) && newPattern != null) {
             int index = inString.indexOf(oldPattern);

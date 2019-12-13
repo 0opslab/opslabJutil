@@ -1,6 +1,6 @@
 package com.opslab.util.image;
 
-import com.opslab.util.RandomUtil;
+import com.opslab.util.RandomHelper;
 import junit.framework.TestCase;
 import com.opslab.util.TestUtil;
 import org.junit.Ignore;
@@ -14,8 +14,8 @@ public class ImageCaptchaTest extends TestCase {
     private String path_temp = TestUtil.path + "/temp/image";
 
     public void testPngCaptcha() throws Exception {
-        System.out.println(ImageCaptcha.pngCaptcha(5, path_temp + RandomUtil.UUID() + ".png"));
-        System.out.println(ImageCaptcha.pngCaptcha(6, path_temp + RandomUtil.UUID() + ".png"));
+        System.out.println(ImageCaptcha.pngCaptcha(5, path_temp + RandomHelper.UUID() + ".png"));
+        System.out.println(ImageCaptcha.pngCaptcha(6, path_temp + RandomHelper.UUID() + ".png"));
 
         System.out.println("<img src='"+ImageCaptcha.pngCaptchaBase64(6)+"'/>");
 
@@ -23,8 +23,8 @@ public class ImageCaptchaTest extends TestCase {
     }
 
     public void testGifCaptch() throws Exception {
-        System.out.println(ImageCaptcha.gifCaptch(5, path_temp + RandomUtil.UUID() + ".gif"));
-        System.out.println(ImageCaptcha.gifCaptch(6, path_temp + RandomUtil.UUID() + ".gif"));
+        System.out.println(ImageCaptcha.gifCaptch(5, path_temp + RandomHelper.UUID() + ".gif"));
+        System.out.println(ImageCaptcha.gifCaptch(6, path_temp + RandomHelper.UUID() + ".gif"));
     }
 
 

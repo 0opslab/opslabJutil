@@ -2,7 +2,7 @@ package com.opslab.helper;
 
 import com.opslab.bean.ResultBean;
 import com.opslab.util.JacksonUtil;
-import com.opslab.util.RandomUtil;
+import com.opslab.util.RandomHelper;
 import com.opslab.util.TestUtil;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -23,10 +23,10 @@ public class ImageHelperTest {
     public void tesCaptch(){
         int width = 200;
         int height = 40;
-        ResultBean resultBean = ImageHelper.pngCaptcha(5, width, height, path_temp + RandomUtil.UUID() + ".png");
+        ResultBean resultBean = ImageHelper.pngCaptcha(5, width, height, path_temp + RandomHelper.UUID() + ".png");
         System.out.println(JacksonUtil.toJson(resultBean));
 
-        ResultBean resultBean1 = ImageHelper.pngCaptcha(6, width, height, path_temp + RandomUtil.UUID() + ".png");
+        ResultBean resultBean1 = ImageHelper.pngCaptcha(6, width, height, path_temp + RandomHelper.UUID() + ".png");
         System.out.println(JacksonUtil.toJson(resultBean1));
 
 
@@ -36,10 +36,10 @@ public class ImageHelperTest {
         }
 
 
-        ResultBean resultBean3 = ImageHelper.gifCaptch(5, width, height, path_temp + RandomUtil.UUID() + ".gif");
+        ResultBean resultBean3 = ImageHelper.gifCaptch(5, width, height, path_temp + RandomHelper.UUID() + ".gif");
         System.out.println(JacksonUtil.toJson(resultBean3));
 
-        ResultBean resultBean4 = ImageHelper.gifCaptch(5, width, height, path_temp + RandomUtil.UUID() + ".gif");
+        ResultBean resultBean4 = ImageHelper.gifCaptch(5, width, height, path_temp + RandomHelper.UUID() + ".gif");
         System.out.println(JacksonUtil.toJson(resultBean4));
 
         ResultBean resultBean5 = ImageHelper.gifCaptchBase64(6,  width,height);

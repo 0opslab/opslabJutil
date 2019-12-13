@@ -11,8 +11,11 @@ import java.io.IOException;
 import java.io.OutputStream;
 
 /**
- * Class AnimatedGifEncoder - Encodes a GIF file consisting of one or
- * more frames.
+ * GIF文件进行编码
+ * #nodoc- Encodes a GIF file consisting of one or more frames.
+ *
+ *
+ *
  * <pre>
  * Example:
  *    AnimatedGifEncoder e = new AnimatedGifEncoder();
@@ -82,7 +85,6 @@ public class GifEncoder {
      * image is added.
      *
      * @param iter int number of iterations.
-     * @return
      */
     public void setRepeat(int iter) {
         if (iter >= 0) {

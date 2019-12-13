@@ -1,4 +1,4 @@
-package com.opslab.util;
+package com.opslab.helper;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
  * Description:
  * 封装一些正则相关的操作
  */
-public final class RegUtil {
+public final class RegHepler {
 
     /**
      * Alphanumeric characters

@@ -14,6 +14,9 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.io.StringWriter;
 
+/**
+ * 基于Jackson的JSON工具
+ */
 public class JacksonUtil {
     private static Logger logger = LoggerFactory.getLogger(JacksonUtil.class);
 

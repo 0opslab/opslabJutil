@@ -1,4 +1,4 @@
-package com.opslab.util;
+package com.opslab.helper;
 
 
 import com.opslab.Opslab;
@@ -11,10 +11,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * @author:Neptune
- * @Description:DateUtil 提供一些常用的时间想法的方法
+ * 提供一些常用的时间想法的方法
  */
-public final class DateUtil {
+public final class DateHelper {
 
 
     //注意SimpleDateFormat不是线程安全的
@@ -148,7 +147,7 @@ public final class DateUtil {
      * @return
      */
     public static Date year(int year) {
-        java.util.Calendar Cal = java.util.Calendar.getInstance();
+        Calendar Cal = Calendar.getInstance();
         Cal.setTime(new Date());
         Cal.add(Calendar.YEAR, year);
         return Cal.getTime();
@@ -162,9 +161,9 @@ public final class DateUtil {
      * @return
      */
     public static Date year(Date date, int year) {
-        java.util.Calendar Cal = java.util.Calendar.getInstance();
+        Calendar Cal = Calendar.getInstance();
         Cal.setTime(date);
-        Cal.add(java.util.Calendar.YEAR, year);
+        Cal.add(Calendar.YEAR, year);
         return Cal.getTime();
     }
 
@@ -175,7 +174,7 @@ public final class DateUtil {
      * @return
      */
     public static Date month(int month) {
-        java.util.Calendar Cal = java.util.Calendar.getInstance();
+        Calendar Cal = Calendar.getInstance();
         Cal.setTime(new Date());
         Cal.add(Calendar.MONTH, month);
         return Cal.getTime();
@@ -189,9 +188,9 @@ public final class DateUtil {
      * @return
      */
     public static Date month(Date date, int month) {
-        java.util.Calendar Cal = java.util.Calendar.getInstance();
+        Calendar Cal = Calendar.getInstance();
         Cal.setTime(date);
-        Cal.add(java.util.Calendar.MONTH, month);
+        Cal.add(Calendar.MONTH, month);
         return Cal.getTime();
     }
 
@@ -202,7 +201,7 @@ public final class DateUtil {
      * @return
      */
     public static Date day(int day) {
-        java.util.Calendar Cal = java.util.Calendar.getInstance();
+        Calendar Cal = Calendar.getInstance();
         Cal.setTime(new Date());
         Cal.add(Calendar.DAY_OF_YEAR, day);
         return Cal.getTime();
@@ -216,9 +215,9 @@ public final class DateUtil {
      * @return
      */
     public static Date day(Date date, int day) {
-        java.util.Calendar Cal = java.util.Calendar.getInstance();
+        Calendar Cal = Calendar.getInstance();
         Cal.setTime(date);
-        Cal.add(java.util.Calendar.DAY_OF_YEAR, day);
+        Cal.add(Calendar.DAY_OF_YEAR, day);
         return Cal.getTime();
     }
 
@@ -229,9 +228,9 @@ public final class DateUtil {
      * @return
      */
     public static Date hour(float hour) {
-        java.util.Calendar Cal = java.util.Calendar.getInstance();
+        Calendar Cal = Calendar.getInstance();
         Cal.setTime(new Date());
-        Cal.add(java.util.Calendar.MINUTE, (int) (hour * 60));
+        Cal.add(Calendar.MINUTE, (int) (hour * 60));
         return Cal.getTime();
     }
 
@@ -243,9 +242,9 @@ public final class DateUtil {
      * @return
      */
     public static Date hour(Date date, float hour) {
-        java.util.Calendar Cal = java.util.Calendar.getInstance();
+        Calendar Cal = Calendar.getInstance();
         Cal.setTime(date);
-        Cal.add(java.util.Calendar.MINUTE, (int) (hour * 60));
+        Cal.add(Calendar.MINUTE, (int) (hour * 60));
         return Cal.getTime();
     }
 
@@ -256,9 +255,9 @@ public final class DateUtil {
      * @return
      */
     public static Date minute(int minute) {
-        java.util.Calendar Cal = java.util.Calendar.getInstance();
+        Calendar Cal = Calendar.getInstance();
         Cal.setTime(new Date());
-        Cal.add(java.util.Calendar.MINUTE, minute);
+        Cal.add(Calendar.MINUTE, minute);
         return Cal.getTime();
     }
 
@@ -270,9 +269,9 @@ public final class DateUtil {
      * @return
      */
     public static Date minute(Date date, int minute) {
-        java.util.Calendar Cal = java.util.Calendar.getInstance();
+        Calendar Cal = Calendar.getInstance();
         Cal.setTime(date);
-        Cal.add(java.util.Calendar.MINUTE, minute);
+        Cal.add(Calendar.MINUTE, minute);
         return Cal.getTime();
     }
 
@@ -784,7 +783,7 @@ public final class DateUtil {
     public static Date calculate(Date date, int second, String timeBurst) {
         Pattern p = Pattern.compile("^\\d{2}:\\d{2}-\\d{2}:\\d{2}");
         Matcher m = p.matcher(timeBurst);
-        java.util.Calendar cal = java.util.Calendar.getInstance();
+        Calendar cal = Calendar.getInstance();
         if (m.matches()) {
             String[] a = timeBurst.split("-");
             try {

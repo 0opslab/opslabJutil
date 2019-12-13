@@ -1,9 +1,14 @@
-package com.opslab.util;
+package com.opslab.helper;
 
+
+import com.opslab.util.ArrayUtil;
 
 import java.util.*;
 
-public final class RandomUtil {
+/**
+ * 随机相关的方法封装
+ */
+public final class RandomHelper {
     public static final String ALLCHAR
             = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     public static final String LETTERCHAR

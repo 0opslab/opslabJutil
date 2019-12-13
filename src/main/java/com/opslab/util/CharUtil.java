@@ -5,7 +5,7 @@ import com.opslab.Opslab;
 import java.io.UnsupportedEncodingException;
 
 /**
- * Various character and character sequence utilities, including <code>char[]</code> - <code>byte[]</code> conversions.
+ * 字符和字符序列常用方法
  */
 public final class CharUtil {
 

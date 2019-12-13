@@ -3,7 +3,7 @@ package com.opslab.util.ftp;
 import java.util.Date;
 
 /**
- * FTP文件熟悉
+ * 文件属性
  */
 public class FileAttr {
     private String fileName;

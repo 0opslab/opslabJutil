@@ -5,7 +5,10 @@ package com.opslab.functions;
  */
 public interface ObjectHandler<T> {
 
-
+    /**
+     * 实现自定义处理方法
+     * @param t
+     */
     void handler(T t);
 
 

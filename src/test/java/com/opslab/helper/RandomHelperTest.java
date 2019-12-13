@@ -1,22 +1,20 @@
-package com.opslab.util;
+package com.opslab.helper;
 
-import com.opslab.helper.CollectionHelper;
-import com.opslab.helper.StringHelper;
+import com.opslab.util.RandomHelper;
 import org.junit.Ignore;
 import org.junit.Test;
 
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import static com.opslab.util.RandomUtil.integer;
+import static com.opslab.util.RandomHelper.integer;
 import static junit.framework.Assert.assertEquals;
 
 @Ignore
-public class RandomUtilTest {
+public class RandomHelperTest {
 
     @Test
     public void testInteger() {
@@ -39,7 +37,7 @@ public class RandomUtilTest {
     @Test
     public void testUUid16(){
         for (int i = 0; i < 1000; i++) {
-            System.out.println(RandomUtil.uuid16());
+            System.out.println(RandomHelper.uuid16());
         }
     }
 
@@ -48,7 +46,7 @@ public class RandomUtilTest {
     public void testInteger1() {
         Map<Integer, Integer> map = new HashMap();
         for (int i = 0; i < 1000; i++) {
-            int integer = RandomUtil.integer(1, 100);
+            int integer = RandomHelper.integer(1, 100);
             if (map.containsKey(integer)) {
                 map.put(integer, map.get(integer) + 1);
 
@@ -64,30 +62,30 @@ public class RandomUtilTest {
 
         System.out.println(integer(30, 10));
         System.out.println(integer(0, 10));
-        System.out.println(RandomUtil.number(10));
-        System.out.println(RandomUtil.number(10));
-        System.out.println(RandomUtil.string(10));
-        System.out.println(RandomUtil.mixString(10));
-        System.out.println(RandomUtil.lowerString(10));
-        System.out.println(RandomUtil.upperString(10));
-        System.out.println(RandomUtil.zeroString(10));
-        System.out.println(RandomUtil.toFixdLengthString(123, 10));
-        System.out.println(RandomUtil.toFixdLengthString(123L, 10));
+        System.out.println(RandomHelper.number(10));
+        System.out.println(RandomHelper.number(10));
+        System.out.println(RandomHelper.string(10));
+        System.out.println(RandomHelper.mixString(10));
+        System.out.println(RandomHelper.lowerString(10));
+        System.out.println(RandomHelper.upperString(10));
+        System.out.println(RandomHelper.zeroString(10));
+        System.out.println(RandomHelper.toFixdLengthString(123, 10));
+        System.out.println(RandomHelper.toFixdLengthString(123L, 10));
         int[] in = {1, 2, 3, 4, 5, 6, 7};
-        System.out.println(RandomUtil.getNotSimple(in, 3));
+        System.out.println(RandomHelper.getNotSimple(in, 3));
     }
 
     @Test
     public void testUuid() {
-        System.out.println(RandomUtil.uuid());
-        System.out.println(RandomUtil.UUID());
-        System.out.println(RandomUtil.squid("1234"));
-        System.out.println(RandomUtil.squid("1234"));
-        System.out.println(RandomUtil.squid("1234"));
+        System.out.println(RandomHelper.uuid());
+        System.out.println(RandomHelper.UUID());
+        System.out.println(RandomHelper.squid("1234"));
+        System.out.println(RandomHelper.squid("1234"));
+        System.out.println(RandomHelper.squid("1234"));
         for (int i = 0; i < 10; i++) {
             Set<String> set = new HashSet<>(100000);
             for (int j = 0; j < 100000; j++) {
-                set.add(RandomUtil.squid("1234"));
+                set.add(RandomHelper.squid("1234"));
             }
             assertEquals("出现重复主键", 100000, set.size());
         }
@@ -99,7 +97,7 @@ public class RandomUtilTest {
         for (int j = 0; j < 10; j++) {
             Map<Integer, Integer> map = new HashMap();
             for (int i = 0; i < 1000000; i++) {
-                Integer integer = RandomUtil.randomItem(new Integer[]{10, 30, 50});
+                Integer integer = RandomHelper.randomItem(new Integer[]{10, 30, 50});
                 if (map.containsKey(integer)) {
                     map.put(integer, map.get(integer) + 1);
                 } else {
@@ -120,7 +118,7 @@ public class RandomUtilTest {
             Map<Integer, Integer> map = new HashMap();
             for (int i = 0; i < 1000000; i++) {
                 double[] percentum = new double[]{0.6, 0.3, 0.1};
-                Integer integer = RandomUtil.randomItem(new Integer[]{10, 30, 50}, percentum);
+                Integer integer = RandomHelper.randomItem(new Integer[]{10, 30, 50}, percentum);
                 if (map.containsKey(integer)) {
                     map.put(integer, map.get(integer) + 1);
                 } else {
@@ -142,7 +140,7 @@ public class RandomUtilTest {
             Map<Integer, Integer> map2 = new HashMap();
             for (int i = 0; i < 1000000; i++) {
                 double[] percentum = new double[]{0.6, 0.4999, 0.0001};
-                Integer integer = RandomUtil.randomItem(new Integer[]{10, 30, 50}, percentum);
+                Integer integer = RandomHelper.randomItem(new Integer[]{10, 30, 50}, percentum);
                 if (map2.containsKey(integer)) {
                     map2.put(integer, map2.get(integer) + 1);
                 } else {
@@ -162,7 +160,7 @@ public class RandomUtilTest {
             Map<Integer, Integer> map3 = new HashMap();
             for (int i = 0; i < 1000000; i++) {
                 double[] percentum = new double[]{0.6, 0.49999, 0.00001};
-                Integer integer = RandomUtil.randomItem(new Integer[]{10, 30, 50}, percentum);
+                Integer integer = RandomHelper.randomItem(new Integer[]{10, 30, 50}, percentum);
                 if (map3.containsKey(integer)) {
                     map3.put(integer, map3.get(integer) + 1);
                 } else {

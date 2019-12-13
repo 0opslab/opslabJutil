@@ -21,7 +21,7 @@ public final class StreamUtil {
     /**
      * Read an input stream into a byte[]
      */
-    public final static byte[] stream2Byte(InputStream is) throws IOException {
+    public  static final byte[] stream2Byte(InputStream is) throws IOException {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         int len = 0;
         byte[] b = new byte[1024];
@@ -33,9 +33,9 @@ public final class StreamUtil {
     }
 
     /**
-     * @方法功能 InputStream 转为 byte
+     * InputStream 转为 byte
      */
-    public final static byte[] inputStream2Byte(InputStream inStream) throws Exception {
+    public  static final byte[] inputStream2Byte(InputStream inStream) throws Exception {
         int count = 0;
         while (count == 0) {
             count = inStream.available();
@@ -46,19 +46,19 @@ public final class StreamUtil {
     }
 
     /**
+     * byte 转 inputstream
      * @return InputStream
      * @throws Exception
      * @方法功能 byte 转为 InputStream
      */
-    public final static InputStream byte2InputStream(byte[] b) throws Exception {
-        InputStream is = new ByteArrayInputStream(b);
-        return is;
+    public  static final InputStream byte2InputStream(byte[] b) throws Exception {
+        return new ByteArrayInputStream(b);
     }
 
     /**
      * 将流另存为文件
      */
-    public final static void streamSaveAsFile(InputStream is, File outfile) {
+    public  static final void streamSaveAsFile(InputStream is, File outfile) {
         try (FileOutputStream fos = new FileOutputStream(outfile)) {
             byte[] buffer = new byte[1024];
             int len;

@@ -45,7 +45,7 @@ public class FileUtilTest {
     public void testModify() {
         String exefile = path + "cmdexe";
         Date date = FileUtil.modifyTime(new File(exefile));
-        //assertEquals("获取文件修改的最后时间错误","2010-11-21 11:24:03",DateUtil.DateTime(date));
+        //assertEquals("获取文件修改的最后时间错误","2010-11-21 11:24:03",DateHelper.DateTime(date));
     }
 
     @Test

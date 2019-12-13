@@ -1,7 +1,7 @@
 package com.opslab.util.image.GIF;
 
 /**
- * Created by Administrator on 2016/4/23 0023.
+ * #nodoc- GifQuant
  */
 public class Quant {
     protected static final int netsize = 256; /* number of colours used */

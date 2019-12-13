@@ -1,13 +1,16 @@
 package com.opslab.helper;
 
 import com.opslab.bean.ResultBean;
-import com.opslab.util.RandomUtil;
+import com.opslab.util.RandomHelper;
 import com.opslab.util.image.CaptchaUtil;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.File;
 
+/**
+ * 提供图片操作的常用方法
+ */
 public final class ImageHelper {
     /**
      * 判断呢是否是图片
@@ -43,7 +46,7 @@ public final class ImageHelper {
      * @param file   文件位置
      */
     public static ResultBean pngCaptcha(int strlen, int width, int height, String file) {
-        String random = RandomUtil.string(strlen);
+        String random = RandomHelper.string(strlen);
         if (CaptchaUtil.pngCaptcha(random, width, height, file)) {
             return new ResultBean(random,null,true);
         }
@@ -58,7 +61,7 @@ public final class ImageHelper {
      * @return
      */
     public static ResultBean pngCaptchaBase64(int strlen,int width,int height) {
-        String random = RandomUtil.string(strlen);
+        String random = RandomHelper.string(strlen);
         String data = CaptchaUtil.pngCaptchaBase64(random, width, height);
         if(data != null){
             return new ResultBean(random,data,true);
@@ -76,7 +79,7 @@ public final class ImageHelper {
      * @return
      */
     public static ResultBean gifCaptch(int strlen,int width,int height, String file) {
-        String random = RandomUtil.string(strlen);
+        String random = RandomHelper.string(strlen);
         if (CaptchaUtil.gifCaptcha(random, width, height, file)) {
             return new ResultBean(random,null,true);
         }
@@ -91,7 +94,7 @@ public final class ImageHelper {
      * @return
      */
     public static ResultBean gifCaptchBase64(int strlen,int width,int height) {
-        String random = RandomUtil.string(strlen);
+        String random = RandomHelper.string(strlen);
         String data = CaptchaUtil.gifCaptchaBase64(random, width, height);
         if(data != null){
             return new ResultBean(random,data,true);

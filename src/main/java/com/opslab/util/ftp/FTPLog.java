@@ -3,7 +3,8 @@ package com.opslab.util.ftp;
 import com.opslab.util.DateUtil;
 
 /**
- * Created by Administrator on 2015-04-08.
+ * Ftp操作日志
+ * @author Created by Administrator on 2015-04-08.
  */
 public class FTPLog {
     private String host;

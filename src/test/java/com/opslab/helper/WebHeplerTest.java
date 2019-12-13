@@ -1,20 +1,19 @@
-package com.opslab.util.web;
+package com.opslab.helper;
 
 import com.opslab.Opslab;
-import com.opslab.util.CharsetUtil;
 import junit.framework.TestCase;
 import org.junit.Test;
 
 import java.io.UnsupportedEncodingException;
 
 
-public class WebUtilTest extends TestCase {
+public class WebHeplerTest extends TestCase {
 
     @Test
     public void testhtml() {
         String html = "<div class=\"ipaddress\">服务器IP地址：</div>";
-        System.out.println(WebUtil.unhtml(html));
-        assertEquals(html, WebUtil.html(WebUtil.unhtml(html)));
+        System.out.println(WebHelper.unhtml(html));
+        assertEquals(html, WebHelper.html(WebHelper.unhtml(html)));
     }
 
     @Test
@@ -26,12 +25,12 @@ public class WebUtilTest extends TestCase {
                 "73%22%3E%E6%9C%8D%E5%8A%A1%E5%99%A8%49%50%E5%9C%B0%E5%9D%80%EF%BC" +
                 "%9A%3C%2F%64%69%76%3E";
         //GBK
-        assertEquals(gbk, WebUtil.escape(unescape, Opslab.GBK));
-        assertEquals(unescape, WebUtil.unescape(gbk, Opslab.GBK));
+        assertEquals(gbk, WebHelper.escape(unescape, Opslab.GBK));
+        assertEquals(unescape, WebHelper.unescape(gbk, Opslab.GBK));
 
         //utf8
-        assertEquals(utf8, WebUtil.escape(unescape, Opslab.UTF_8));
-        assertEquals(unescape, WebUtil.unescape(utf8, Opslab.UTF_8));
+        assertEquals(utf8, WebHelper.escape(unescape, Opslab.UTF_8));
+        assertEquals(unescape, WebHelper.unescape(utf8, Opslab.UTF_8));
     }
 
 

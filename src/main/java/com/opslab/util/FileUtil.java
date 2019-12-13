@@ -1,7 +1,7 @@
 package com.opslab.util;
 
+import com.opslab.helper.RegHepler;
 import com.opslab.util.algorithmImpl.FileTypeImpl;
-import com.opslab.util.algorithmImpl.FileImpl;
 
 import java.io.*;
 import java.math.BigInteger;
@@ -674,7 +674,7 @@ public final class FileUtil {
                     list.addAll(searchFile(file, reg));
                 } else {
                     String Name = file.getName();
-                    if (RegUtil.isMatche(Name, reg)) {
+                    if (RegHepler.isMatche(Name, reg)) {
                         list.add(file);
                     }
                 }

@@ -1,5 +1,8 @@
 package com.opslab.annotion;
 
+/**
+ * 常见业务类型标识
+ */
 public enum MethodType {
     //业务访问
     ACCESS,

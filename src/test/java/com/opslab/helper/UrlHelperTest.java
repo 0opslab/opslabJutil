@@ -1,7 +1,7 @@
-package com.opslab.util.web;
+package com.opslab.helper;
 
 import com.opslab.Opslab;
-import com.opslab.util.CharsetUtil;
+import com.opslab.helper.UrlHelper;
 import junit.framework.TestCase;
 import org.junit.Test;
 
@@ -9,74 +9,74 @@ import java.io.UnsupportedEncodingException;
 import java.util.Map;
 
 
-public class UrlUtilTest extends TestCase {
+public class UrlHelperTest extends TestCase {
 
     @Test
     public void testParam() {
         String url = "http://www.baidu.com/page.jsp?act=list&ad=12&redirect=true";
 
         //设置参数
-        System.out.println(UrlUtil.setParam(url, "act", "listnew"));
+        System.out.println(UrlHelper.setParam(url, "act", "listnew"));
 
         //移除单个参数
-        System.out.println(UrlUtil.removeParam(url, "act"));
+        System.out.println(UrlHelper.removeParam(url, "act"));
 
         //移除多个参数
-        System.out.println(UrlUtil.removeParam(url, "act", "ad", "redirect"));
+        System.out.println(UrlHelper.removeParam(url, "act", "ad", "redirect"));
 
     }
 
     @Test
     public void testEncode() {
-        assertEquals("/aaa", UrlUtil.encode("/aaa"));
-        assertEquals("/aaa?", UrlUtil.encode("/aaa?"));
-        assertEquals("/aaa?b", UrlUtil.encode("/aaa?b"));
-        assertEquals("/aaa?b=", UrlUtil.encode("/aaa?b="));
-        assertEquals("/aaa?b=c", UrlUtil.encode("/aaa?b=c"));
-        assertEquals("/aaa?b=%20c", UrlUtil.encode("/aaa?b= c"));
-        assertEquals("/aaa?b=%20c&", UrlUtil.encode("/aaa?b= c&"));
-        assertEquals("/aaa?b=%20c&dd", UrlUtil.encode("/aaa?b= c&dd"));
-        assertEquals("/aaa?b=%20c&dd=", UrlUtil.encode("/aaa?b= c&dd="));
-        assertEquals("/aaa?b=%20%20c&dd==", UrlUtil.encode("/aaa?b=  c&dd=="));
-        assertEquals("?data=The%20string%20%C3%BC@foo-bar", UrlUtil.encode("?data=The string ü@foo-bar"));
+        assertEquals("/aaa", UrlHelper.encode("/aaa"));
+        assertEquals("/aaa?", UrlHelper.encode("/aaa?"));
+        assertEquals("/aaa?b", UrlHelper.encode("/aaa?b"));
+        assertEquals("/aaa?b=", UrlHelper.encode("/aaa?b="));
+        assertEquals("/aaa?b=c", UrlHelper.encode("/aaa?b=c"));
+        assertEquals("/aaa?b=%20c", UrlHelper.encode("/aaa?b= c"));
+        assertEquals("/aaa?b=%20c&", UrlHelper.encode("/aaa?b= c&"));
+        assertEquals("/aaa?b=%20c&dd", UrlHelper.encode("/aaa?b= c&dd"));
+        assertEquals("/aaa?b=%20c&dd=", UrlHelper.encode("/aaa?b= c&dd="));
+        assertEquals("/aaa?b=%20%20c&dd==", UrlHelper.encode("/aaa?b=  c&dd=="));
+        assertEquals("?data=The%20string%20%C3%BC@foo-bar", UrlHelper.encode("?data=The string ü@foo-bar"));
     }
 
     @Test
     public void testDecode() {
-        assertEquals("/aaa", UrlUtil.decode("/aaa"));
-        assertEquals("/aaa?", UrlUtil.decode("/aaa?"));
-        assertEquals("/aaa?b", UrlUtil.decode("/aaa?b"));
-        assertEquals("/aaa?b=", UrlUtil.decode("/aaa?b="));
-        assertEquals("/aaa?b=c", UrlUtil.decode("/aaa?b=c"));
-        assertEquals("/aaa?b= c", UrlUtil.decode("/aaa?b=%20c"));
-        assertEquals("/aaa?b= c&", UrlUtil.decode("/aaa?b=%20c&"));
-        assertEquals("/aaa?b= c&dd", UrlUtil.decode("/aaa?b=%20c&dd"));
-        assertEquals("/aaa?b= c&dd=", UrlUtil.decode("/aaa?b=%20c&dd="));
-        assertEquals("/aaa?b=  c&dd==", UrlUtil.decode("/aaa?b=%20%20c&dd=="));
-        assertEquals("?data=The string ü@foo-bar", UrlUtil.decode("?data=The%20string%20%C3%BC@foo-bar"));
+        assertEquals("/aaa", UrlHelper.decode("/aaa"));
+        assertEquals("/aaa?", UrlHelper.decode("/aaa?"));
+        assertEquals("/aaa?b", UrlHelper.decode("/aaa?b"));
+        assertEquals("/aaa?b=", UrlHelper.decode("/aaa?b="));
+        assertEquals("/aaa?b=c", UrlHelper.decode("/aaa?b=c"));
+        assertEquals("/aaa?b= c", UrlHelper.decode("/aaa?b=%20c"));
+        assertEquals("/aaa?b= c&", UrlHelper.decode("/aaa?b=%20c&"));
+        assertEquals("/aaa?b= c&dd", UrlHelper.decode("/aaa?b=%20c&dd"));
+        assertEquals("/aaa?b= c&dd=", UrlHelper.decode("/aaa?b=%20c&dd="));
+        assertEquals("/aaa?b=  c&dd==", UrlHelper.decode("/aaa?b=%20%20c&dd=="));
+        assertEquals("?data=The string ü@foo-bar", UrlHelper.decode("?data=The%20string%20%C3%BC@foo-bar"));
     }
 
 
     @Test
     public void testUrlBuilder() {
-        assertEquals("http://www.google.com", UrlUtil.build("http://www.google.com").toString());
-        assertEquals("https://www.google.com/search?q=java%26struts", UrlUtil.build("https://www.google.com/search").queryParam("q", "java&struts").toString());
-        assertEquals("https://www.google.com/search?pa%20ram=jodd%2Bjava", UrlUtil.build("https://www.google.com/search").queryParam("pa ram", "jodd+java").toString());
-        assertEquals("/foo?foo=one&bar=two", UrlUtil.build("/foo").queryParam("foo", "one").queryParam("bar", "two").toString());
+        assertEquals("http://www.google.com", UrlHelper.build("http://www.google.com").toString());
+        assertEquals("https://www.google.com/search?q=java%26struts", UrlHelper.build("https://www.google.com/search").queryParam("q", "java&struts").toString());
+        assertEquals("https://www.google.com/search?pa%20ram=jodd%2Bjava", UrlHelper.build("https://www.google.com/search").queryParam("pa ram", "jodd+java").toString());
+        assertEquals("/foo?foo=one&bar=two", UrlHelper.build("/foo").queryParam("foo", "one").queryParam("bar", "two").toString());
     }
 
     @Test
     public void testQuerySimple() throws UnsupportedEncodingException {
-        assertEquals("%E4%B8%AD%E5%9B%BD", UrlUtil.encodeQueryParam("中国"));    // utf8
-        assertEquals("%D6%D0%B9%FA", UrlUtil.encodeQueryParam("中国", Opslab.GBK));
+        assertEquals("%E4%B8%AD%E5%9B%BD", UrlHelper.encodeQueryParam("中国"));    // utf8
+        assertEquals("%D6%D0%B9%FA", UrlHelper.encodeQueryParam("中国", Opslab.GBK));
         assertEquals("https://www.google.com/search?q=Java%20Util",
-                UrlUtil.encodeHttpUrl("https://www.google.com/search?q=Java Util"));
+                UrlHelper.encodeHttpUrl("https://www.google.com/search?q=Java Util"));
 
-        assertEquals("中国", UrlUtil.decode("%E4%B8%AD%E5%9B%BD"));
-        assertEquals("中国", UrlUtil.decodeQuery("%E4%B8%AD%E5%9B%BD"));
-        assertEquals("中国", UrlUtil.decode("%e4%b8%ad%e5%9b%bd"));
-        assertEquals("中国", UrlUtil.decode("%D6%D0%B9%FA", Opslab.GBK));
-        assertEquals("中国", UrlUtil.decodeQuery("%D6%D0%B9%FA", Opslab.GBK));
+        assertEquals("中国", UrlHelper.decode("%E4%B8%AD%E5%9B%BD"));
+        assertEquals("中国", UrlHelper.decodeQuery("%E4%B8%AD%E5%9B%BD"));
+        assertEquals("中国", UrlHelper.decode("%e4%b8%ad%e5%9b%bd"));
+        assertEquals("中国", UrlHelper.decode("%D6%D0%B9%FA", Opslab.GBK));
+        assertEquals("中国", UrlHelper.decodeQuery("%D6%D0%B9%FA", Opslab.GBK));
     }
 
     @Test
@@ -139,29 +139,29 @@ public class UrlUtilTest extends TestCase {
                 "&mainSheet.dealContent=1\n" +
                 "&textfield23=4004\n" +
                 "&textfield23=%CD%B6%CB%DF%B4%A6%C0%ED%D6%D0%D0%C4%D7%E9";
-        System.out.println(UrlUtil.decodeQuery(http_request, Opslab.GBK));
+        System.out.println(UrlHelper.decodeQuery(http_request, Opslab.GBK));
     }
 
     @Test
     public void testParseQuery() {
         String query = "id=111&name=test&password=p0ssw0rd";
-        Map<String, String> queryMap = UrlUtil.parseQuery(query, '&', '=', null);
+        Map<String, String> queryMap = UrlHelper.parseQuery(query, '&', '=', null);
         System.out.println(queryMap);
-        Map<String, String> httpQueryMap = UrlUtil.httpParseQuery(query);
+        Map<String, String> httpQueryMap = UrlHelper.httpParseQuery(query);
         System.out.println(httpQueryMap);
 
         //数组解析
         String query2 = "id=111&name=test&password[]=p0ssw0rd&password[]=123456";
-        Map<String, String> queryMap1 = UrlUtil.parseQuery(query2, '&', '=', ",");
+        Map<String, String> queryMap1 = UrlHelper.parseQuery(query2, '&', '=', ",");
         System.out.println(queryMap1);
-        Map<String, String> httpQueryMap1 = UrlUtil.httpParseQuery(query2);
+        Map<String, String> httpQueryMap1 = UrlHelper.httpParseQuery(query2);
         System.out.println(httpQueryMap1);
 
         //"id=111&name=test&password=p0ssw0rd,=123456"
         String query3 = "id=111&name=test&password=p0ssw0rd,123456";
-        Map<String, String> queryMap2 = UrlUtil.parseQuery(query3, '&', '=', ",");
+        Map<String, String> queryMap2 = UrlHelper.parseQuery(query3, '&', '=', ",");
         System.out.println(queryMap2);
-        Map<String, String> httpQueryMap2 = UrlUtil.httpParseQuery(query3);
+        Map<String, String> httpQueryMap2 = UrlHelper.httpParseQuery(query3);
         System.out.println(httpQueryMap2);
     }
 
