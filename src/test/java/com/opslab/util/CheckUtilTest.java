@@ -10,8 +10,8 @@ public class CheckUtilTest extends TestCase {
     public void testIsValid() throws Exception {
         assertEquals(false, CheckUtil.valid(""));
         assertEquals(true, CheckUtil.valid("111"));
-        assertEquals(true, CheckUtil.valid("111", "2222"));
-        assertEquals(false, CheckUtil.valid("111", ""));
+        assertEquals(true, CheckUtil.valid(new String[]{"111", "2222"}));
+        assertEquals(false, CheckUtil.valid(new String[]{"111", ""}));
     }
 
     public void testIsValid1() throws Exception {

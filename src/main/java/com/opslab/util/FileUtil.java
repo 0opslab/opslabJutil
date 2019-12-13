@@ -311,9 +311,7 @@ public final class FileUtil {
     }
 
     /**
-     * 获取文件的类型
-     * <p/>
-     * Summary:只利用文件头做判断故不全
+     * 获取文件的类型 只利用文件头做判断故不全
      *
      * @param file 需要处理的文件
      * @return 文件类型

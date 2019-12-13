@@ -15,7 +15,7 @@ public final class ZIPUtil {
      *
      * @param file 需要压缩的文件或目录
      * @param dest 压缩后的文件名称
-     * @throws Exception
+     * @throws IOException
      */
     public static void deCompress(File file, String dest) throws IOException {
         try (ZipOutputStream zos = new ZipOutputStream(new FileOutputStream(dest))) {

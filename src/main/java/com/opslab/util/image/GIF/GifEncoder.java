@@ -220,7 +220,6 @@ public class GifEncoder {
      * than 20 do not yield significant improvements in speed.
      *
      * @param quality int greater than 0.
-     * @return
      */
     public void setQuality(int quality) {
         if (quality < 1) quality = 1;

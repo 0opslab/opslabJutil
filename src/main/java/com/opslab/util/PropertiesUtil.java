@@ -64,7 +64,7 @@ public final class PropertiesUtil {
      * 读取Properties的全部信息
      *
      * @param filePath 读取的属性文件
-     * @return 返回所有的属性 key:value<>key:value
+     * @return 返回所有的属性 key:valu
      */
     public final static Map<String, String> GetAllProperties(String filePath) throws IOException {
         Map<String, String> map = new HashMap<>();

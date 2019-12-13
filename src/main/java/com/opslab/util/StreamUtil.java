@@ -46,10 +46,9 @@ public final class StreamUtil {
     }
 
     /**
-     * byte 转 inputstream
+     * byte 转为 InputStream
      * @return InputStream
      * @throws Exception
-     * @方法功能 byte 转为 InputStream
      */
     public  static final InputStream byte2InputStream(byte[] b) throws Exception {
         return new ByteArrayInputStream(b);

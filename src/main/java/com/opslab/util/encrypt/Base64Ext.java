@@ -1,11 +1,5 @@
 package com.opslab.util.encrypt;/*
- * Copyright (C) 2010 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
+
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -18,7 +12,7 @@ package com.opslab.util.encrypt;/*
 import java.io.UnsupportedEncodingException;
 
 /**
- * @nodoc- Utilities for encoding and decoding the Base64 representation of
+ * #nodoc- Utilities for encoding and decoding the Base64 representation of
  * binary data.  See RFCs <a
  * href="http://www.ietf.org/rfc/rfc2045.txt">2045</a> and <a
  * href="http://www.ietf.org/rfc/rfc3548.txt">3548</a>.
@@ -57,7 +51,7 @@ public class Base64Ext {
     public static final int URL_SAFE = 8;
 
     /**
-     * Flag to pass to {@link Base64OutputStream} to indicate that it
+     * Flag to pass to  to indicate that it
      * should not close the output stream it is wrapping when it
      * itself is closed.
      */

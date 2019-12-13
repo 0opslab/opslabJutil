@@ -4,7 +4,6 @@ package com.opslab.util.ftp;
 import org.apache.commons.net.ftp.FTPClient;
 
 import java.io.File;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -49,7 +48,7 @@ public interface FTPUtil {
     public List<String> listFile(String directory);
 
     //获取远程文件夹的目录结构
-    public LinkedList<String> listDir(String direcotyr);
+    public List<String> listDir(String direcotyr);
 
     //获取远程文件属性以Map形式返回
     public Map<String, FileAttr> listFileAttr(String directory);
