@@ -1,7 +1,7 @@
 package com.opslab.util.algorithmImpl;
 
 import com.opslab.Opslab;
-import com.opslab.util.SysUtil;
+import com.opslab.helper.SysHepler;
 
 import java.io.UnsupportedEncodingException;
 
@@ -137,7 +137,7 @@ public class StringImpl {
      */
     public static String simpleEncoding(String str) {
         try {
-            byte[] bs = str.getBytes(SysUtil.JVM_ENCODING);
+            byte[] bs = str.getBytes(SysHepler.JVM_ENCODING);
             if (str.equals(new String(bs, Opslab.UTF_8))) {
                 return Opslab.UTF_8;
             }

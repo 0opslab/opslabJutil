@@ -1,6 +1,8 @@
-package com.opslab.util;
+package com.opslab.helper;
 
 import com.opslab.Opslab;
+import com.opslab.util.CheckUtil;
+import com.opslab.util.PropertiesUtil;
 import com.sun.management.OperatingSystemMXBean;
 
 import java.lang.management.ManagementFactory;
@@ -15,7 +17,7 @@ import java.util.List;
 /**
  * 提供些获取系统信息相关的工具方法
  */
-public class SysUtil {
+public class SysHepler {
 
     /**
      * JVM的版本
@@ -150,6 +152,28 @@ public class SysUtil {
     public final static void setHttpProxy(String host, String port) {
         System.getProperties().put(Opslab.HTTP_PROXY_HOST, host);
         System.getProperties().put(Opslab.HTTP_PROXY_PORT, port);
+    }
+
+    /**
+     * 判断是否符是合法的文件路径
+     *
+     * @param path 需要处理的文件路径
+     */
+    public final static boolean legalFile(String path) {
+        //下面的正则表达式有问题
+        String regex = "[a-zA-Z]:(?:[/][^/:*?\"<>|.][^/:*?\"<>|]{0,254})+";
+        //String regex ="^([a-zA-z]:)|(^\\.{0,2}/)|(^\\w*)\\w([^:?*\"><|]){0,250}";
+        return RegHepler.isMatche(commandPath(path), regex);
+    }
+
+    /**
+     * 返回一个通用的文件路径
+     *
+     * @param file 需要处理的文件路径
+     * @return Summary windows中路径分隔符是\在linux中是/但windows也支持/方式 故全部使用/
+     */
+    public final static String commandPath(String file) {
+        return file.replaceAll("\\\\{1,}", "/").replaceAll("\\/{2,}", "/");
     }
 
 }

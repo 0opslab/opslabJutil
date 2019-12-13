@@ -1,6 +1,5 @@
 package com.opslab.helper;
 
-import com.opslab.util.ConvertUtil;
 import com.opslab.util.StringUtil;
 
 import java.io.UnsupportedEncodingException;
@@ -24,7 +23,7 @@ public class WebHelper {
         if (StringUtil.isEmpty(str)) {
             return "";
         }
-        char[] chars = ConvertUtil.bytesToChars(ConvertUtil.encodeBytes(str.getBytes(encoding), '%'));
+        char[] chars = ConvertHepler.bytesToChars(ConvertHepler.encodeBytes(str.getBytes(encoding), '%'));
         return new String(chars);
     }
 

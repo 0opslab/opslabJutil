@@ -1,6 +1,4 @@
-package com.opslab.util;
-
-import com.opslab.helper.DateHelper;
+package com.opslab.helper;
 
 import java.text.ParseException;
 import java.util.Date;
@@ -10,12 +8,12 @@ import static org.junit.Assert.assertEquals;
 /**
  * 测试线程安全性
  */
-public class DateUtilThreadSafe extends Thread {
+public class DateHeplerThreadSafe extends Thread {
 
     public static void main(String[] args) {
         System.out.println("线程安全测试");
         for (int i = 0; i < 5; i++) {
-            (new DateUtilThreadSafe()).start();
+            (new DateHeplerThreadSafe()).start();
         }
         System.out.println("主线程运行结束");
     }

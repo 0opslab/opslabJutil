@@ -18,7 +18,7 @@ public final class CheckUtil {
      * @param format 时间格式
      * @return 是否符合
      */
-    public final static boolean isDate(String date, String format) {
+    public  static final boolean isDate(String date, String format) {
         try {
             SimpleDateFormat sdf = new SimpleDateFormat(format);
             sdf.parse(date);
@@ -32,7 +32,7 @@ public final class CheckUtil {
     /**
      * 判断字符串有效性
      */
-    public final static boolean valid(String src) {
+    public static final boolean valid(String src) {
         return !(src == null || "".equals(src.trim()));
     }
 
@@ -42,7 +42,7 @@ public final class CheckUtil {
      * @param src
      * @return
      */
-    public final static boolean valid(String... src) {
+    public static final boolean valid(String[] src) {
         for (String s : src) {
             if (!valid(s)) {
                 return false;
@@ -55,7 +55,7 @@ public final class CheckUtil {
     /**
      * 判断一个对象是否为空
      */
-    public final static boolean valid(Object obj) {
+    public static final boolean valid(Object obj) {
         return !(null == obj);
     }
 
@@ -65,17 +65,14 @@ public final class CheckUtil {
      * @param objs
      * @return
      */
-    public final static boolean valid(Object[] objs) {
-        if (objs != null && objs.length != 0) {
-            return true;
-        }
-        return false;
+    public static final boolean valid(Object[] objs) {
+        return objs != null && objs.length != 0;
     }
 
     /**
      * 判断集合的有效性
      */
-    public final static boolean valid(Collection col) {
+    public static final boolean valid(Collection col) {
         return !(col == null || col.isEmpty());
     }
 
@@ -85,7 +82,7 @@ public final class CheckUtil {
      * @param cols
      * @return
      */
-    public final static boolean valid(Collection... cols) {
+    public static final boolean valid(Collection... cols) {
         for (Collection c : cols) {
             if (!valid(c)) {
                 return false;
@@ -100,7 +97,7 @@ public final class CheckUtil {
      * @param map
      * @return
      */
-    public final static boolean valid(Map map) {
+    public static final boolean valid(Map map) {
         return !(map == null || map.isEmpty());
     }
 
@@ -110,7 +107,7 @@ public final class CheckUtil {
      * @param maps 需要判断map
      * @return 是否全部有效
      */
-    public final static boolean valid(Map... maps) {
+    public static final boolean valid(Map... maps) {
         for (Map m : maps) {
             if (!valid(m)) {
                 return false;

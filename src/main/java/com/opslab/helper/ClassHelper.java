@@ -1,7 +1,9 @@
-package com.opslab.util;
+package com.opslab.helper;
 
 
-import com.opslab.helper.StringHelper;
+import com.opslab.util.AssertUtil;
+import com.opslab.util.ExceptionUtil;
+import com.opslab.util.FileUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,8 +26,8 @@ import java.util.jar.JarFile;
  * <h6>Description:<h6>
  * <p>Java Class与反射相关的一些工具类</p>
  */
-public final class ClassUtil {
-    private static Logger logger = LoggerFactory.getLogger(ClassUtil.class);
+public final class ClassHelper {
+    private static Logger logger = LoggerFactory.getLogger(ClassHelper.class);
 
     /**
      * 获取类加载器
@@ -354,7 +356,7 @@ public final class ClassUtil {
                 JarEntry jarEntry = entrys.nextElement();
                 String entryName = jarEntry.getName();
                 if (!entryName.endsWith(".class") && !entryName.endsWith("/")) {
-                    resource.add(FilePathUtil.commandPath(jarPath) + "!" + entryName);
+                    resource.add(SysHepler.commandPath(jarPath) + "!" + entryName);
                 }
             }
         } catch (IOException e) {
@@ -378,7 +380,7 @@ public final class ClassUtil {
                 JarEntry jarEntry = entrys.nextElement();
                 String entryName = jarEntry.getName();
                 if (entryName.endsWith(suffix)) {
-                    resource.add(FilePathUtil.commandPath(jarPath) + "!" + entryName);
+                    resource.add(SysHepler.commandPath(jarPath) + "!" + entryName);
                 }
             }
         } catch (IOException e) {

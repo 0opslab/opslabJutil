@@ -1,6 +1,8 @@
 package com.opslab.util;
 
 
+import com.opslab.helper.ClassHelper;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,7 +22,7 @@ public class ConfigUtil {
     public static URL findAsResource(final String path) {
         URL url = null;
 
-        ClassLoader contextClassLoader = ClassUtil.getContextClassLoader();
+        ClassLoader contextClassLoader = ClassHelper.getContextClassLoader();
         if (contextClassLoader != null) {
             url = contextClassLoader.getResource(path);
         }

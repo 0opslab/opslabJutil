@@ -1,4 +1,7 @@
-package com.opslab.util;
+package com.opslab.helper;
+
+import com.opslab.Opslab;
+import com.opslab.util.CheckUtil;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
@@ -8,14 +11,14 @@ import java.util.List;
 /**
  * 常用类型转换
  */
-public final class ConvertUtil {
+public final class ConvertHepler {
 
-    private final static String hexStr = "0123456789ABCDEF";
+
 
     /**
      * 短整型与字节的转换
      */
-    public final static byte[] shortToByte(short number) {
+    public static final  byte[] shortToByte(short number) {
         int temp = number;
         byte[] b = new byte[2];
         for (int i = 0; i < b.length; i++) {
@@ -30,7 +33,7 @@ public final class ConvertUtil {
     /**
      * 字节的转换与短整型
      */
-    public final static short byteToShort(byte[] b) {
+    public static final  short byteToShort(byte[] b) {
         short s;
         // 最低位
         short s0 = (short) (b[0] & 0xff);
@@ -43,7 +46,7 @@ public final class ConvertUtil {
     /**
      * 整型与字节数组的转换
      */
-    public final static byte[] intToByte(int i) {
+    public static final  byte[] intToByte(int i) {
         byte[] bt = new byte[4];
         bt[0] = (byte) (0xff & i);
         bt[1] = (byte) ((0xff00 & i) >> 8);
@@ -57,7 +60,7 @@ public final class ConvertUtil {
      *
      * @param arr 整型数组
      */
-    public final static byte[] intToByte(int[] arr) {
+    public static final  byte[] intToByte(int[] arr) {
         byte[] bt = new byte[arr.length * 4];
         for (int i = 0; i < arr.length; i++) {
             byte[] t = intToByte(arr[i]);
@@ -66,7 +69,7 @@ public final class ConvertUtil {
         return bt;
     }
 
-    public final static byte[] encodeBytes(byte[] source, char split) {
+    public static final  byte[] encodeBytes(byte[] source, char split) {
         ByteArrayOutputStream bos = new ByteArrayOutputStream(source.length);
         for (byte b : source) {
             if (b < 0) {
@@ -87,7 +90,7 @@ public final class ConvertUtil {
      *
      * @param bytes bytes数组
      */
-    public final static char[] bytesToChars(byte[] bytes) {
+    public static final  char[] bytesToChars(byte[] bytes) {
         char[] chars = new char[]{};
         if (CheckUtil.valid(bytes)) {
             chars = new char[bytes.length];
@@ -101,7 +104,7 @@ public final class ConvertUtil {
     /**
      * 字节数组和整型的转换
      */
-    public final static int bytesToInt(byte[] bytes) {
+    public static final  int bytesToInt(byte[] bytes) {
         int num = bytes[0] & 0xFF;
         num |= ((bytes[1] << 8) & 0xFF00);
         num |= ((bytes[2] << 16) & 0xFF0000);
@@ -112,7 +115,7 @@ public final class ConvertUtil {
     /**
      * 字节数组和长整型的转换
      */
-    public final static byte[] longToByte(long number) {
+    public static final  byte[] longToByte(long number) {
         long temp = number;
         byte[] b = new byte[8];
         for (int i = 0; i < b.length; i++) {
@@ -127,7 +130,7 @@ public final class ConvertUtil {
     /**
      * 字节数组和长整型的转换
      */
-    public final static long byteToLong(byte[] b) {
+    public static final  long byteToLong(byte[] b) {
         long s;
         long s0 = b[0] & 0xff;// 最低位
         long s1 = b[1] & 0xff;
@@ -153,7 +156,7 @@ public final class ConvertUtil {
      *
      * @param src 要转换成二进制字符串的byte值
      */
-    public final static String byteToBinary(byte src) {
+    public static final  String byteToBinary(byte src) {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < 8; i++) {
             result.append(src % 2 == 0 ? '0' : '1');
@@ -167,7 +170,7 @@ public final class ConvertUtil {
      *
      * @param hexStr 十六进制字符串
      */
-    public final static String hexStringToBin(String hexStr) {
+    public static final  String hexStringToBin(String hexStr) {
         hexStr = hexStr.replaceAll("\\s", "").replaceAll("0x", "");
         char[] achar = hexStr.toCharArray();
 
@@ -185,13 +188,13 @@ public final class ConvertUtil {
      *
      * @param bytes bytes数组
      */
-    public final static String bytesToHexString(byte[] bytes) {
+    public static final  String bytesToHexString(byte[] bytes) {
         StringBuilder result = new StringBuilder();
         for (byte b : bytes) {
             //字节高4位
-            result.append(String.valueOf(hexStr.charAt((b & 0xF0) >> 4)));
+            result.append(String.valueOf(Opslab.HEX_CHAR_STR.charAt((b & 0xF0) >> 4)));
             //字节低4位
-            result.append(String.valueOf(hexStr.charAt(b & 0x0F)));
+            result.append(String.valueOf(Opslab.HEX_CHAR_STR.charAt(b & 0x0F)));
             result.append(" ");
         }
         return result.toString();
@@ -203,7 +206,7 @@ public final class ConvertUtil {
      * @param hexString 16进制字符串
      * @return byte[]
      */
-    public final static byte[] hexStringToByte(String hexString) {
+    public static final  byte[] hexStringToByte(String hexString) {
         int len = (hexString.length() / 2);
         byte[] result = new byte[len];
         char[] achar = hexString.toCharArray();
@@ -214,8 +217,27 @@ public final class ConvertUtil {
         return result;
     }
 
-    private final static int toByte(char c) {
-        return (byte) hexStr.indexOf(c);
+    private static final  int toByte(char c) {
+        return (byte) Opslab.HEX_CHAR_STR.indexOf(c);
+    }
+
+
+    /**
+     * 对象转换为整数(转换parseInt(String.valueOf(obj)))
+     * @param obj
+     * @param defaultValue
+     * @return
+     */
+    public static Integer toInteger(Object obj, Integer defaultValue) {
+        if (obj == null) {
+            return defaultValue;
+        }
+        try {
+            return Integer.parseInt(String.valueOf(obj));
+        }catch (NumberFormatException e){
+            return defaultValue;
+        }
+
     }
 
 
@@ -256,6 +278,25 @@ public final class ConvertUtil {
             list.add(Integer.parseInt(ss));
         }
         return list;
+    }
+
+
+    /**
+     * 对象转换为长整数(转换parseLong(String.valueOf(obj)))
+     * @param obj
+     * @param defaultValue
+     * @return
+     */
+    public static Long toInteger(Object obj, Long defaultValue) {
+        if (obj == null) {
+            return defaultValue;
+        }
+        try {
+            return Long.parseLong(String.valueOf(obj));
+        }catch (NumberFormatException e){
+            return defaultValue;
+        }
+
     }
 
 

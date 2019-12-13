@@ -1,6 +1,7 @@
 package com.opslab.util;
 
 import com.opslab.helper.RegHepler;
+import com.opslab.helper.SysHepler;
 import com.opslab.util.algorithmImpl.FileTypeImpl;
 
 import java.io.*;
@@ -185,7 +186,7 @@ public final class FileUtil {
         ) {
             long fileLength = randomFile.length();
             randomFile.seek(fileLength);
-            randomFile.writeBytes(SysUtil.FILE_SEPARATOR + str);
+            randomFile.writeBytes(SysHepler.FILE_SEPARATOR + str);
             return true;
         } catch (IOException e) {
             e.printStackTrace();

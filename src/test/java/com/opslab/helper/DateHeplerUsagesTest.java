@@ -1,7 +1,9 @@
-package com.opslab.util;
+package com.opslab.helper;
 
 
 import com.opslab.helper.DateHelper;
+import com.opslab.util.FileUtil;
+import com.opslab.util.TestUtil;
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -14,7 +16,7 @@ import java.util.Map;
 /**
  * 对DateUtil的测试实例的引用
  */
-public class DateUtilUsagesTest {
+public class DateHeplerUsagesTest {
     String path = TestUtil.path;
 
     @Test

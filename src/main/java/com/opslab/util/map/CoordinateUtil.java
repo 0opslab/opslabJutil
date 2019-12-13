@@ -13,7 +13,7 @@ public final class CoordinateUtil {
      * @param lat2  第二点纬度
      * @return 返回距离 单位：米
      */
-    public final static double distance(double long1, double lat1, double long2, double lat2) {
+    public static final double distance(double long1, double lat1, double long2, double lat2) {
         double a, b, R;
         R = 6378137; // 地球半径
         lat1 = lat1 * Math.PI / 180.0;
