@@ -3,13 +3,14 @@ package com.opslab.util;
 import com.opslab.Opslab;
 import com.opslab.util.CharsetUtil;
 import com.opslab.util.StreamUtil;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
 import java.io.InputStream;
 
-
+@Ignore
 public class StreamUtilTest {
 
 
