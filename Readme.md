@@ -5,10 +5,10 @@
 节约撸码时间以方便有更多的时间去把妹子～
 
 
-<p style="text-align:center;"> 
-<img src="https://0opslab.github.io/img/wpwx.png"alt="关注我" style="max-width:20%;">
-<img src="https://0opslab.github.io/img/wxpay.png" alt="请问喝杯咖啡" style="max-width:20%;" />
-</p>
+<div align=center> 
+<img src="https://0opslab.github.io/img/wpwx.png" alt="关注我">
+<img src="https://0opslab.github.io/img/wxpay.png" alt="请问喝杯咖啡"/>
+</div>
 
 ---
 #开发环境
@@ -34,7 +34,7 @@
     <artifactId>opslabJutil</artifactId>
     <version>3.0.0</version>
     <scope>system</scope>
-    <systemPath>${project.basedir}/libs/opslabJutil-2.0.2.jar</systemPath>
+    <systemPath>${project.basedir}/libs/opslabJutil-3.0.0.jar</systemPath>
 </dependency>
 ```
 
