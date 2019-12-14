@@ -6,7 +6,7 @@
 
 
 <p style="text-align:center;"> 
-<img src="https://0opslab.github.io/img/wpwx.png"alt="关注我" style="zoom:20%;">
+<img src="https://0opslab.github.io/img/wpwx.png"alt="关注我" style="max-width:20%;">
 <img src="https://0opslab.github.io/img/wxpay.png" alt="请问喝杯咖啡" style="max-width:20%;" />
 </p>
 
