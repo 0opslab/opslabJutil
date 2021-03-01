@@ -4,7 +4,7 @@ import junit.framework.TestCase;
 
 import java.util.HashMap;
 import java.util.Map;
-
+@SuppressWarnings("unchecked")
 public class CheckUtilTest extends TestCase {
 
     public void testIsValid() throws Exception {

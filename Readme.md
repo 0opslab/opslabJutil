@@ -1,13 +1,11 @@
 #opslabJutil
 ---
-封装了一些常用Java操作方法,便于重复开发利用.另外希望身为Java牛牛的你们一起测试和完善 一起封装和完成常用的Java代码。
-节约撸码时间以方便有更多的时间去把妹子～扫描可关注我(微信公众号),当然也可以请我喝杯咖啡
+封装了一些常用Java操作方法,便于重复开发利用.
+另外希望身为Java牛牛的你们一起测试和完善 一起封装和完成常用的Java代码。
+节约撸码时间以方便有更多的时间去把妹子～
 
-
-<div align=center> 
-<img src="https://0opslab.github.io/img/wpwx.png" alt="关注我">
-<img src="https://0opslab.github.io/img/wxpay.png" alt="请问喝杯咖啡"/>
-</div>
+<img src="https://0opslab.github.io/img/wpwx.png" alt="关注我" style="max-width:20%;" />
+<img src="https://0opslab.github.io/img/wxpay.png" alt="请问喝杯咖啡" style="max-width:20%;" />
 
 ---
 #开发环境
@@ -33,14 +31,18 @@
     <artifactId>opslabJutil</artifactId>
     <version>3.0.0</version>
     <scope>system</scope>
-    <systemPath>${project.basedir}/libs/opslabJutil-3.0.0.jar</systemPath>
+    <systemPath>${project.basedir}/libs/opslabJutil-2.0.2.jar</systemPath>
 </dependency>
 ```
 
 ## 在线api
-[opslabJutil2.x API Doc](https://0opslab.github.io/opslabJutil/opslabJutil2.0.html)<br>
+[opslabJutil2.x API Doc](https://0opslab.github.io/opslabJutil/opslabJutil2.0.html)
+[opslabJutil3.0.0 API Doc](https://0opslab.github.io/opslabJutil/opslabJutil3.0.0.html)
 
-[opslabJutil3.0.0 API Doc](https://0opslab.github.io/opslabJutil/opslabJutil3.0.0.html)<br>
+## 下一步计划
+* 加入WEB开发中常用的代码,如HTTP的安全校验,HTTP请求信的过滤,已经HTTP的请求的性能分析等工作。
+* 安全校验
+* 代码优化
 
-
-
+## config
+如果需要修改默认配置可以通过在classpath下添加0opslab.properties文件来进行一些配置

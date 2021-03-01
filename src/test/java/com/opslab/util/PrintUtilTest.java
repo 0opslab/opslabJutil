@@ -1,10 +1,10 @@
 package com.opslab.util;
 
-import com.opslab.temp.model.User;
+import com.opslab.temp.model.TessModelUser;
 import org.junit.Test;
 
 import java.util.*;
-
+@SuppressWarnings("unchecked")
 public class PrintUtilTest {
     @Test
     public void testPrint() throws Exception {
@@ -38,7 +38,7 @@ public class PrintUtilTest {
         System.out.println(chars);
         int[] ints = new int[]{1, 2, 34,};
         System.out.println(ints);
-        User[] users = new User[]{new User("11", "aa"), new User("22", "bb")};
+        TessModelUser[] users = new TessModelUser[]{new TessModelUser("11", "aa"), new TessModelUser("22", "bb")};
         System.out.println(users);
     }
 

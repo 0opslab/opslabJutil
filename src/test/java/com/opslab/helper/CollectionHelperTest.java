@@ -2,7 +2,7 @@ package com.opslab.helper;
 
 import com.opslab.functions.ObjectHandler;
 import com.opslab.functions.ObjectProcess;
-import com.opslab.temp.model.User;
+import com.opslab.temp.model.TessModelUser;
 import com.opslab.util.FileUtil;
 import com.opslab.util.TestUtil;
 import org.junit.Ignore;
@@ -15,6 +15,7 @@ import java.util.*;
  * 测试集合对象的一些助手工具方法
  */
 @Ignore
+@SuppressWarnings("unchecked")
 public class CollectionHelperTest {
     String path = TestUtil.path;
 
@@ -67,10 +68,10 @@ public class CollectionHelperTest {
      */
     @Test
     public void testDeepCopy() {
-        List<User> list1 = new ArrayList<>();
-        User user1 = new User("111", "AAA");
-        User user2 = new User("222", "BBB");
-        User user3 = new User("333", "CCC");
+        List<TessModelUser> list1 = new ArrayList<>();
+        TessModelUser user1 = new TessModelUser("111", "AAA");
+        TessModelUser user2 = new TessModelUser("222", "BBB");
+        TessModelUser user3 = new TessModelUser("333", "CCC");
         list1.add(user1);
         list1.add(user2);
         list1.add(user3);
@@ -78,12 +79,12 @@ public class CollectionHelperTest {
         user1.setUserId("444");
         System.out.println("list:" + list1);
 
-        Set<User> set = new HashSet<>(list1);
+        Set<TessModelUser> set = new HashSet<>(list1);
         System.out.println("Set:" + set);
 
         System.out.println("==============");
         user2.setUserId("5555");
-        list1.add(new User("666", "EEE"));
+        list1.add(new TessModelUser("666", "EEE"));
         System.out.println("list:" + list1);
         System.out.println("Set:" + set);
 

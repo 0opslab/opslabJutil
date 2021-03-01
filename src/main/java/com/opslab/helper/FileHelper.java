@@ -1,15 +1,5 @@
 package com.opslab.helper;
 
-import java.io.*;
-import java.nio.ByteBuffer;
-import java.nio.channels.FileChannel;
-import java.security.MessageDigest;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.regex.Pattern;
-import javax.activation.MimetypesFileTypeMap;
-
 import com.opslab.functions.ObjectFilter;
 import com.opslab.functions.ObjectHandler;
 import com.opslab.functions.ObjectProcess;
@@ -20,11 +10,22 @@ import com.opslab.util.encrypt.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.activation.MimetypesFileTypeMap;
+import java.io.*;
+import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
+import java.security.MessageDigest;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.regex.Pattern;
+
 
 
 /**
  * 一些操作文件的便捷方法
  */
+@SuppressWarnings("unchecked")
 public final class FileHelper {
     private static Logger logger = LoggerFactory.getLogger(FileHelper.class);
 
@@ -165,10 +166,13 @@ public final class FileHelper {
     public static String readContents(File file) {
         try (FileInputStream in = new FileInputStream(file)) {
             Long filelength = file.length();
-            byte[] filecontent = new byte[filelength.intValue()];
-            if(in.read(filecontent)>0){
-                return new String(filecontent);
+            if(filelength > 0){
+                byte[] filecontent = new byte[filelength.intValue()];
+                if(in.read(filecontent)>0){
+                    return new String(filecontent);
+                }
             }
+            return "";
         }catch (IOException e) {
             e.printStackTrace();
         }
@@ -440,11 +444,9 @@ public final class FileHelper {
      * @return 是否成功
      */
     public static boolean delete(File file) {
-        if (file == null)
-            return false;
+        if (file == null){return false;}
 
-        if (file.isFile())
-            return file.delete();
+        if (file.isFile()){return file.delete();}
 
         File[] files = file.listFiles();
         if (files == null || files.length == 0) {

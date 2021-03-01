@@ -1,5 +1,6 @@
 package com.opslab.helper;
 
+import com.opslab.Opslab;
 import com.opslab.util.CheckUtil;
 import com.opslab.util.algorithmImpl.BCConvert;
 
@@ -19,6 +20,7 @@ public class StringHelper {
      * 下划线
      */
     private static final char SEPARATOR = '_';
+    public static final Pattern PATTER_BLANK_CODE =Pattern.compile("\\s*|\t|\r|\n");
 
     /**
      * 判断是否是空字符串 null和"" 都返回 true
@@ -27,7 +29,7 @@ public class StringHelper {
      * @return 是否有效
      */
     public static boolean isEmpty(String str) {
-        return str == null || str.equals("");
+        return str == null || "".equals(str);
     }
 
     /**
@@ -51,8 +53,9 @@ public class StringHelper {
         String result = "";
         if (array != null) {
             for (String temp : array) {
-                if (temp != null && temp.trim().length() > 0)
+                if (temp != null && temp.trim().length() > 0){
                     result += (temp + symbol);
+                }
             }
             if (result.length() > 1 && CheckUtil.valid(symbol)) {
                 result = result.substring(0, result.length() - symbol.length());
@@ -124,8 +127,7 @@ public class StringHelper {
      */
     public static String replaceBlank(String str) {
         if (str != null) {
-            Pattern p = Pattern.compile("\\s*|\t|\r|\n");
-            Matcher m = p.matcher(str);
+            Matcher m = PATTER_BLANK_CODE.matcher(str);
             str = m.replaceAll("");
         }
         return str;
@@ -233,6 +235,7 @@ public class StringHelper {
 
     /**
      * 判断字符串是否有长度
+     *
      * @param str
      * @return
      */
@@ -242,6 +245,7 @@ public class StringHelper {
 
     /**
      * 字符串替换
+     *
      * @param inString
      * @param oldPattern
      * @param newPattern
@@ -309,5 +313,44 @@ public class StringHelper {
         return sb.toString();
     }
 
+    /**
+     * 字符串转换成为16进制(无需Unicode编码)
+     *
+     * @param str
+     * @return
+     */
+    public static String str2HexStr(String str) {
 
+        StringBuilder sb = new StringBuilder("");
+        byte[] bs = str.getBytes();
+        int bit;
+        for (int i = 0; i < bs.length; i++) {
+            bit = (bs[i] & 0x0f0) >> 4;
+            sb.append(Opslab.HEX_CHAR[bit]);
+            bit = bs[i] & 0x0f;
+            sb.append(Opslab.HEX_CHAR[bit]);
+            // sb.append(' ');
+        }
+        return sb.toString().trim();
+    }
+
+
+    /**
+     * 16进制直接转换成为字符串(无需Unicode解码)
+     *
+     * @param hexStr
+     * @return
+     */
+    public static String hexStr2Str(String hexStr) {
+        String str = Opslab.HEX_CHAR_STR;
+        char[] hexs = hexStr.toCharArray();
+        byte[] bytes = new byte[hexStr.length() / 2];
+        int n;
+        for (int i = 0; i < bytes.length; i++) {
+            n = str.indexOf(hexs[2 * i]) * 16;
+            n += str.indexOf(hexs[2 * i + 1]);
+            bytes[i] = (byte) (n & 0xff);
+        }
+        return new String(bytes);
+    }
 }

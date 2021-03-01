@@ -40,7 +40,6 @@ public final class ClassHelper {
     }
 
 
-
     /**
      * 获取指定类的全部属性字段
      *
@@ -293,7 +292,7 @@ public final class ClassHelper {
             if (file.getName().endsWith(".class")) {
                 String childFilePath = file.getPath();
                 int index = filePath.replaceAll("\\\\", ".").length();
-                childFilePath = childFilePath.replaceAll("\\\\", ".").substring(index+1, childFilePath.length());
+                childFilePath = childFilePath.replaceAll("\\\\", ".").substring(index + 1, childFilePath.length());
                 myClassName.add(childFilePath);
             }
         }
@@ -391,6 +390,7 @@ public final class ClassHelper {
 
     /**
      * 获取类加载器已经加载的类
+     *
      * @param classLoader
      * @return
      * @throws NoSuchFieldException
@@ -398,14 +398,15 @@ public final class ClassHelper {
      */
     public static List<Class> getLoaderClass(ClassLoader classLoader) throws NoSuchFieldException, IllegalAccessException {
         Class cla = classLoader.getClass();
-        while (cla != ClassLoader.class)
+        while (cla != ClassLoader.class){
             cla = cla.getSuperclass();
+        }
         Field field = cla.getDeclaredField("classes");
         field.setAccessible(true);
         Vector v = (Vector) field.get(classLoader);
         List<Class> result = new ArrayList<>();
         for (int i = 0; i < v.size(); i++) {
-            result.add((Class)v.get(i));
+            result.add((Class) v.get(i));
         }
         return result;
     }
@@ -470,12 +471,13 @@ public final class ClassHelper {
 
     /**
      * 获取资源文件
+     *
      * @param resourceLocation
      * @return
      * @throws FileNotFoundException
      */
     public static File getFile(String resourceLocation) throws FileNotFoundException {
-        AssertUtil.notNull(resourceLocation,"Resource location must not be null");
+        AssertUtil.notNull(resourceLocation, "Resource location must not be null");
         if (resourceLocation.startsWith("classpath:")) {
             String path = resourceLocation.substring("classpath:".length());
             String description = "class path resource [" + path + "]";

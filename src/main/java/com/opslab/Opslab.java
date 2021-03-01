@@ -195,6 +195,11 @@ public final class Opslab {
     public static final  String HEX_CHAR_STR = "0123456789ABCDEF";
 
     /**
+     * 十六进制字符
+     */
+    public static final char[] HEX_CHAR =  "0123456789ABCDEF".toCharArray();
+
+    /**
      * 常用的符号
      */
     public static final String[] SYMBOL_FH = new String[]{"░", "▒", "▣", "▤", "▥", "▦", "▧", "▨", "▩",

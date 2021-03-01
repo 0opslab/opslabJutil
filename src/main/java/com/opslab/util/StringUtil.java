@@ -15,6 +15,8 @@ import java.util.regex.Pattern;
  */
 public final class StringUtil {
 
+    public static final Pattern PATTERN_BLANK =Pattern.compile("\\s*|\t|\r|\n");
+
     /**
      * 判断是否是空字符串 null和"" 都返回 true
      *
@@ -22,7 +24,7 @@ public final class StringUtil {
      * @return 是否有效
      */
     public static boolean isEmpty(String str) {
-        return str == null || str.equals("");
+        return str == null || "".equals(str);
     }
 
     /**
@@ -37,8 +39,10 @@ public final class StringUtil {
         if (list != null) {
             for (Object o : list) {
                 String temp = o.toString();
-                if (temp.trim().length() > 0)
+                if (temp.trim().length() > 0){
                     result += (temp + symbol);
+                }
+
             }
             if (result.length() > 1) {
                 result = result.substring(0, result.length() - 1);
@@ -133,8 +137,10 @@ public final class StringUtil {
         String result = "";
         if (array != null) {
             for (String temp : array) {
-                if (temp != null && temp.trim().length() > 0)
+                if (temp != null && temp.trim().length() > 0){
                     result += (temp + symbol);
+                }
+
             }
             if (result.length() > 1 && CheckUtil.valid(symbol)) {
                 result = result.substring(0, result.length() - symbol.length());
@@ -153,8 +159,10 @@ public final class StringUtil {
     public static String join(String linkStr, String... strs) {
         StringBuffer result = new StringBuffer();
         for (String temp : strs) {
-            if (temp != null && temp.trim().length() > 0)
+            if (temp != null && temp.trim().length() > 0){
                 result.append(temp + linkStr);
+            }
+
         }
         if (result.length() > 1 && CheckUtil.valid(linkStr)) {
             return result.substring(0, result.length() - linkStr.length());
@@ -188,8 +196,10 @@ public final class StringUtil {
      */
     public static String repeat(String src, int num) {
         StringBuilder s = new StringBuilder();
-        for (int i = 0; i < num; i++)
+        for (int i = 0; i < num; i++){
             s.append(src);
+        }
+
         return s.toString();
     }
 
@@ -317,8 +327,7 @@ public final class StringUtil {
      */
     public static String replaceBlank(String str) {
         if (str != null) {
-            Pattern p = Pattern.compile("\\s*|\t|\r|\n");
-            Matcher m = p.matcher(str);
+            Matcher m = PATTERN_BLANK.matcher(str);
             str = m.replaceAll("");
         }
         return str;

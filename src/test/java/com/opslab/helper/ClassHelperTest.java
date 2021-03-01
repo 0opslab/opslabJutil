@@ -1,7 +1,6 @@
 package com.opslab.helper;
 
-import com.opslab.helper.ClassHelper;
-import com.opslab.temp.model.BusinessLog;
+import com.opslab.temp.model.TessModelBusinessLog;
 import com.opslab.util.TestUtil;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -141,7 +140,7 @@ public class ClassHelperTest {
     public void testGetterAndSetter() throws InvocationTargetException, IllegalAccessException {
 
         System.out.println("============Setter和Getter================");
-        BusinessLog log = new BusinessLog();
+        TessModelBusinessLog log = new TessModelBusinessLog();
         ClassHelper.setter(log, "operationName", "setter-method-test", String.class);
         System.out.println(log);
 

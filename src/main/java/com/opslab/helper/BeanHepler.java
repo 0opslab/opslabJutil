@@ -1,9 +1,9 @@
 package com.opslab.helper;
 
 import com.opslab.bean.BeanStruct;
+import com.opslab.functions.PropertyFilter;
 import com.opslab.util.CheckUtil;
 import com.opslab.util.algorithmImpl.BeanFactory;
-import com.opslab.functions.PropertyFilter;
 
 import java.beans.IntrospectionException;
 import java.lang.reflect.InvocationTargetException;
@@ -470,9 +470,7 @@ public class BeanHepler {
                 //如果你想尽可能多的复制属性的话你可以
                 Object value = readMethod(srcBean, getReadMethod(srcBean, key));
                 writeMethod(destBean, getWriteMethod(destBean, key), value);
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (InvocationTargetException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
@@ -518,12 +516,9 @@ public class BeanHepler {
             try {
                 value = readMethod(srcBean, getReadMethodIgnore(srcBean, key));
                 writeMethod(destBean, getWriteMethodIgnore(destBean, key), value);
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
-
         }
     }
 
@@ -595,12 +590,9 @@ public class BeanHepler {
                     try {
                         Object value = readMethod(srcBean, getReadMethod(srcBean, srcKey));
                         writeMethod(destBean, getWriteMethod(destBean, dstKey), value);
-                    } catch (InvocationTargetException e) {
-                        e.printStackTrace();
-                    } catch (IllegalAccessException e) {
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
-
                 }
             }
         }

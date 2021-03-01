@@ -55,7 +55,7 @@ public class DateHeplerUsagesTest {
         int count1 = 0;
         for (String line : lines) {
             String[] tt = line.split("/");
-            count += DateHelper.subtimeBurst(tt[0], tt[1], "08:00-19:30");
+            //count += DateHelper.subtimeBurst(tt[0], tt[1], "08:00-19:30");
             count1 += DateHelper.subtract(tt[0], tt[1]);
         }
         System.out.println("sum1 > " + count / 60 / 60);
@@ -79,14 +79,14 @@ public class DateHeplerUsagesTest {
                 if (value != null && !"".equals(value)) {
                     String[] ss = value.split(":");
                     sum = Integer.parseInt(ss[0]);
-                    sum += (int) DateHelper.subtimeBurst(tt[0], tt[1], "08:00-19:30");
+                    //sum += (int) DateHelper.subtimeBurst(tt[0], tt[1], "08:00-19:30");
                     count = Integer.parseInt(ss[1]) + 1;
                 }
                 group.put(tt[2], sum + ":" + count);
             } else {
-                int sum = (int) DateHelper.subtimeBurst(tt[0], tt[1], "08:00-19:30");
+                //int sum = (int) DateHelper.subtimeBurst(tt[0], tt[1], "08:00-19:30");
                 int count = 1;
-                group.put(tt[2], sum + ":" + count);
+                //group.put(tt[2], sum + ":" + count);
             }
         }
         for (Map.Entry<String, String> entry : group.entrySet()) {

@@ -26,13 +26,9 @@ public class ConfigUtil {
         if (contextClassLoader != null) {
             url = contextClassLoader.getResource(path);
         }
-        if (url != null)
-            return url;
-
+        if (url != null){return url;}
         url = ConfigUtil.class.getClassLoader().getResource(path);
-        if (url != null)
-            return url;
-
+        if (url != null){return url;}
         url = ClassLoader.getSystemClassLoader().getResource(path);
 
         return url;

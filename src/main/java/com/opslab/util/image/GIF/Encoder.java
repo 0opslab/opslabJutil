@@ -127,8 +127,10 @@ public class Encoder {
     // characters, flush the packet to disk.
     void char_out(byte c, OutputStream outs) throws IOException {
         accum[a_count++] = c;
-        if (a_count >= 254)
+        if (a_count >= 254){
             flush_char(outs);
+        }
+
     }
 
     // Clear out the hash table
@@ -144,8 +146,9 @@ public class Encoder {
 
     // reset code table
     void cl_hash(int hsize) {
-        for (int i = 0; i < hsize; ++i)
+        for (int i = 0; i < hsize; ++i) {
             htab[i] = -1;
+        }
     }
 
     void compress(int init_bits, OutputStream outs) throws IOException {
@@ -169,36 +172,41 @@ public class Encoder {
         EOFCode = ClearCode + 1;
         free_ent = ClearCode + 2;
 
-        a_count = 0; // clear packet
+        a_count = 0;
 
         ent = nextPixel();
 
         hshift = 0;
-        for (fcode = hsize; fcode < 65536; fcode *= 2)
+        for (fcode = hsize; fcode < 65536; fcode *= 2) {
             ++hshift;
-        hshift = 8 - hshift; // set hash code range bound
+        }
+        hshift = 8 - hshift;
 
         hsize_reg = hsize;
-        cl_hash(hsize_reg); // clear hash table
+        cl_hash(hsize_reg);
 
         output(ClearCode, outs);
 
         outer_loop:
         while ((c = nextPixel()) != EOF) {
             fcode = (c << maxbits) + ent;
-            i = (c << hshift) ^ ent; // xor hashing
+            i = (c << hshift) ^ ent;
 
             if (htab[i] == fcode) {
                 ent = codetab[i];
                 continue;
-            } else if (htab[i] >= 0) // non-empty slot
+            } else if (htab[i] >= 0)
             {
-                disp = hsize_reg - i; // secondary hash (after G. Knott)
-                if (i == 0)
+                disp = hsize_reg - i;
+                if (i == 0) {
                     disp = 1;
+                }
+
                 do {
-                    if ((i -= disp) < 0)
+                    if ((i -= disp) < 0) {
                         i += hsize_reg;
+                    }
+
 
                     if (htab[i] == fcode) {
                         ent = codetab[i];
@@ -209,10 +217,12 @@ public class Encoder {
             output(ent, outs);
             ent = c;
             if (free_ent < maxmaxcode) {
-                codetab[i] = free_ent++; // code -> hashtable
+                codetab[i] = free_ent++;
                 htab[i] = fcode;
-            } else
+            } else {
                 cl_block(outs);
+            }
+
         }
         // Put out the final code.
         output(ent, outs);
@@ -248,8 +258,9 @@ public class Encoder {
     // Return the next pixel from the image
     //----------------------------------------------------------------------------
     private int nextPixel() {
-        if (remaining == 0)
+        if (remaining == 0) {
             return EOF;
+        }
 
         --remaining;
 
@@ -261,10 +272,11 @@ public class Encoder {
     void output(int code, OutputStream outs) throws IOException {
         cur_accum &= masks[cur_bits];
 
-        if (cur_bits > 0)
+        if (cur_bits > 0) {
             cur_accum |= (code << cur_bits);
-        else
+        } else {
             cur_accum = code;
+        }
 
         cur_bits += n_bits;
 
@@ -282,10 +294,11 @@ public class Encoder {
                 clear_flg = false;
             } else {
                 ++n_bits;
-                if (n_bits == maxbits)
+                if (n_bits == maxbits) {
                     maxcode = maxmaxcode;
-                else
+                } else {
                     maxcode = MAXCODE(n_bits);
+                }
             }
         }
 

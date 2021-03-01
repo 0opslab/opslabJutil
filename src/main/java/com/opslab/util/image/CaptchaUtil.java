@@ -31,10 +31,10 @@ public final class CaptchaUtil {
      * @return Color 随机颜色
      */
     protected static Color color(int fc, int bc) {
-        if (fc > 255)
-            fc = 255;
-        if (bc > 255)
-            bc = 255;
+        if (fc > 255){fc = 255;}
+
+        if (bc > 255){bc = 255;}
+
         int r = fc + num(bc - fc);
         int g = fc + num(bc - fc);
         int b = fc + num(bc - fc);

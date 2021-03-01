@@ -99,6 +99,7 @@ public final class HttpHelper {
                 //该部分必须在获取connection前调用
                 trustAllHttpsCertificates();
                 HostnameVerifier hv = new HostnameVerifier() {
+                    @Override
                     public boolean verify(String urlHostName, SSLSession session) {
                         return true;
                     }
@@ -269,6 +270,7 @@ public final class HttpHelper {
                 //该部分必须在获取connection前调用
                 trustAllHttpsCertificates();
                 HostnameVerifier hv = new HostnameVerifier() {
+                    @Override
                     public boolean verify(String urlHostName, SSLSession session) {
                         return true;
                     }

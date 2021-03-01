@@ -1,6 +1,5 @@
 package com.opslab.helper;
 
-import java.text.ParseException;
 import java.util.Date;
 
 import static org.junit.Assert.assertEquals;
@@ -27,14 +26,12 @@ public class DateHeplerThreadSafe extends Thread {
             } catch (InterruptedException e1) {
                 e1.printStackTrace();
             }
-            try {
-                Date date = DateHelper.dateTime("2013-05-24 06:02:20");
-                //System.out.println(this.getName()+":"+DateHelper.DateTime(date));
-                assertEquals("计算有误", "2013-05-24 06:02:20", DateHelper.dateTime(date));
 
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
+            Date date = DateHelper.dateTime("2013-05-24 06:02:20");
+            //System.out.println(this.getName()+":"+DateHelper.DateTime(date));
+            assertEquals("计算有误", "2013-05-24 06:02:20", DateHelper.format(date));
+
+
             i++;
         }
     }

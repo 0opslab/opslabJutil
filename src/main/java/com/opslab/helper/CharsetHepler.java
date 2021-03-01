@@ -1,6 +1,7 @@
-package com.opslab.util;
+package com.opslab.helper;
 
 import com.opslab.Opslab;
+import com.opslab.util.StringUtil;
 
 import java.io.ByteArrayOutputStream;
 import java.io.OutputStreamWriter;
@@ -10,7 +11,7 @@ import java.io.UnsupportedEncodingException;
  * Description:
  * 编码相关的封装类
  */
-public final class CharsetUtil {
+public final class CharsetHepler {
 
 
     /**
@@ -137,7 +138,6 @@ public final class CharsetUtil {
             return s1;
         }
     }
-
 
 
 }

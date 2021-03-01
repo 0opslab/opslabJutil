@@ -1,12 +1,11 @@
 package com.opslab.helper;
 
 import com.opslab.functions.PropertyFilter;
-import com.opslab.helper.BeanHepler;
 import com.opslab.util.StringUtil;
 import junit.framework.TestCase;
-import com.opslab.temp.model.BusinessLog;
-import com.opslab.temp.model.Log;
-import com.opslab.temp.model.Log2;
+import com.opslab.temp.model.TessModelBusinessLog;
+import com.opslab.temp.model.TessModelLog;
+import com.opslab.temp.model.TessModelLog2;
 import org.junit.Test;
 
 import java.lang.reflect.InvocationTargetException;
@@ -15,7 +14,7 @@ public class BeanHeplerTest extends TestCase {
 
     @Test
     public void testHasProperties() {
-        BusinessLog bean = new BusinessLog();
+        TessModelBusinessLog bean = new TessModelBusinessLog();
 
         //Bean类是否有operationName属性
         assertEquals(true, BeanHepler.hasProperty(bean, "operationName"));
@@ -42,7 +41,7 @@ public class BeanHeplerTest extends TestCase {
     @Test
     public void testGetProperties() throws InvocationTargetException, IllegalAccessException {
         String value = "Test BeanHepler getProperties Method";
-        BusinessLog bean = new BusinessLog();
+        TessModelBusinessLog bean = new TessModelBusinessLog();
         bean.setOperationName(value);
 
         assertEquals(value, BeanHepler.getProperty(bean, "operationName"));
@@ -79,7 +78,7 @@ public class BeanHeplerTest extends TestCase {
     @Test
     public void testSetProperties() throws InvocationTargetException, IllegalAccessException {
         String value = "Properties's value1";
-        BusinessLog bean = new BusinessLog();
+        TessModelBusinessLog bean = new TessModelBusinessLog();
 
         BeanHepler.setProperty(bean, "operationName", value);
         assertEquals(value, bean.getOperationName());
@@ -114,40 +113,40 @@ public class BeanHeplerTest extends TestCase {
     @Test
     public void testCopyProperty() throws InvocationTargetException, IllegalAccessException {
 
-        BusinessLog bean1 = new BusinessLog();
+        TessModelBusinessLog bean1 = new TessModelBusinessLog();
         bean1.setOperationName("operationName test");
         bean1.setOperation_type("operationName type");
 
-        Log bean2 = new Log();
+        TessModelLog bean2 = new TessModelLog();
 
         BeanHepler.copyProperty(bean1, bean2, new String[]{"operationName"});
         System.out.println(bean2);
 
-        Log bean3 = new Log();
+        TessModelLog bean3 = new TessModelLog();
         BeanHepler.copyProperties(bean1, bean3);
         System.out.println(bean3);
         BeanHepler.copyPropertiesPeaceful(bean1, bean3);
         System.out.println(bean3);
 
 
-        Log2 bean4 = new Log2();
+        TessModelLog2 bean4 = new TessModelLog2();
         BeanHepler.copyPropertiesIgnoreCase(bean1, bean4);
         System.out.println(bean4);
         BeanHepler.copyPropertiesIgnoreCasePeaceful(bean1, bean4);
         System.out.println(bean4);
-        Log bean5 = new Log();
+        TessModelLog bean5 = new TessModelLog();
         BeanHepler.copyPropertyPeaceful(bean1, bean5, new String[]{"operationName"});
         System.out.println(bean4);
     }
 
     @Test
     public void testCopyProperties() throws InvocationTargetException, IllegalAccessException {
-        BusinessLog bean1 = new BusinessLog();
+        TessModelBusinessLog bean1 = new TessModelBusinessLog();
         bean1.setOperationName("operationName test");
         bean1.setOperation_type("operationName type");
         bean1.setLogType("logTypevalue");
 
-        Log2 bean2 = new Log2();
+        TessModelLog2 bean2 = new TessModelLog2();
 
         System.out.println("复制前:" + bean1);
         System.out.println("复制前:" + bean2);

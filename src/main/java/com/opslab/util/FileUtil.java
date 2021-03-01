@@ -56,8 +56,9 @@ public final class FileUtil {
             return null;
         } finally {
             try {
-                if (fileInputStream != null)
+                if (fileInputStream != null){
                     fileInputStream.close();
+                }
             } catch (IOException e) {
                 e.printStackTrace();
             }

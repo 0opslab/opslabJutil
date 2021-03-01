@@ -14,6 +14,11 @@ import java.util.regex.Pattern;
  * 一些中文的操作
  */
 public final class ChineseHelper {
+
+    public static final Pattern PATTERN_CHINESE_BY_REG =Pattern.compile("[\\u4E00-\\u9FBF]+");
+    public static final Pattern PATTERN_CHINESE =Pattern.compile("[\u4E00-\u9FA5]+");
+    public static final Pattern PATTERN_MESSY_CODE =Pattern.compile("\\s*|\t*|\r*|\n*");
+
     /**
      * 将字符串中的中文转化为拼音,其他字符不变
      *
@@ -34,8 +39,10 @@ public final class ChineseHelper {
                 if (java.lang.Character.toString(input[i]).matches("[\\u4E00-\\u9FA5]+")) {
                     String[] temp = PinyinHelper.toHanyuPinyinStringArray(input[i], format);
                     output += temp[0];
-                } else
+                } else{
                     output += java.lang.Character.toString(input[i]);
+                }
+
             }
         } catch (BadHanyuPinyinOutputFormatCombination e) {
             e.printStackTrace();
@@ -99,13 +106,16 @@ public final class ChineseHelper {
     }
 
 
-    // 只能判断部分CJK字符（CJK统一汉字）
-    public  static boolean isChineseByREG(String str) {
+    /**
+     * 只能判断部分CJK字符（CJK统一汉字）
+     * @param str
+     * @return
+     */
+    public  static boolean isChineseByReg(String str) {
         if (str == null) {
             return false;
         }
-        Pattern pattern = Pattern.compile("[\\u4E00-\\u9FBF]+");
-        return pattern.matcher(str.trim()).find();
+        return PATTERN_CHINESE_BY_REG.matcher(str.trim()).find();
     }
 
     // 只能判断部分CJK字符（CJK统一汉字）
@@ -121,7 +131,11 @@ public final class ChineseHelper {
     }
 
 
-    // 完整的判断中文汉字和符号
+    /**
+     * 完整的判断中文汉字和符号
+     * @param strName
+     * @return
+     */
     public  static boolean isChinese(String strName) {
         char[] ch = strName.toCharArray();
         for (int i = 0; i < ch.length; i++) {
@@ -150,9 +164,8 @@ public final class ChineseHelper {
     /**
      * 获取一个字符串中中文字符的个数
      */
-    public  static int ChineseLength(String str) {
-        Pattern p = Pattern.compile("[\u4E00-\u9FA5]+");
-        Matcher m = p.matcher(str);
+    public  static int chineseLength(String str) {
+        Matcher m = PATTERN_CHINESE.matcher(str);
         int i = 0;
         while (m.find()) {
             String temp = m.group(0);
@@ -168,27 +181,29 @@ public final class ChineseHelper {
      * @return
      */
     public  static float isMessyCode(String strName) {
-        Pattern p = Pattern.compile("\\s*|\t*|\r*|\n*");
-        Matcher m = p.matcher(strName);
+        Matcher m = PATTERN_MESSY_CODE.matcher(strName);
         String after = m.replaceAll("");
         String temp = after.replaceAll("\\p{P}", "");
         char[] ch = temp.trim().toCharArray();
         float chLength = 0;
         float count = 0;
-        for (char c : ch)
+        for (char c : ch){
             if (!Character.isLetterOrDigit(c)) {
                 if (!isChinese(c)) {
                     count = count + 1;
                 }
                 chLength++;
             }
+        }
+
         return count / chLength;
     }
 
-    /* 18位标准身份证号
+    /**
+     *  18位标准身份证号
      * 方法用途：15位身份证转化为18位标准证件号
      */
-    public static String transIDCard15to18(String IdCardNO){
+    public static String transIdCard15to18(String IdCardNO){
         String cardNo=null;
         if(null!=IdCardNO&&IdCardNO.trim().length()==15){
             IdCardNO=IdCardNO.trim();
@@ -199,7 +214,11 @@ public final class ChineseHelper {
         }
         return cardNo;
     }
-    /* 方法用途：15位补全身份证号码
+
+    /**
+     * 15位补全身份证号码
+     * @param newCardId
+     * @return
      */
     private static String transCardLastNo(String newCardId){
         char[] ch=newCardId.toCharArray();

@@ -15,6 +15,7 @@ import static org.junit.Assert.assertEquals;
 
 
 @Ignore
+@SuppressWarnings("unchecked")
 public class RandomHelperTest {
 
     @Test

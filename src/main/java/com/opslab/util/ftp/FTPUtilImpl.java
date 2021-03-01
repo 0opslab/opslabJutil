@@ -21,6 +21,7 @@ public class FTPUtilImpl implements FTPUtil {
     private Logger logger = LoggerFactory.getLogger(FTPUtilImpl.class);
     private FTPClient client;
     private FTPVo vo;
+    public static final Pattern PATTERN_PARENT_PATH =Pattern.compile("[/]+");
 
 
     public FTPUtilImpl(FTPVo vo) throws IOException {
@@ -28,7 +29,12 @@ public class FTPUtilImpl implements FTPUtil {
         client = createFTPClien(vo);
     }
 
-    //创建变连接FTP
+
+    /**
+     * 创建变连接FTP
+     * @param vo
+     * @return
+     */
     private FTPClient createFTPClien(FTPVo vo) {
         FTPClient client = new FTPClient();
         int reply = -1;
@@ -302,6 +308,7 @@ public class FTPUtilImpl implements FTPUtil {
         return false;
     }
 
+    @Override
     public LinkedList<String> listDir(String directory) {
         LinkedList<String> list = new LinkedList<String>();
         try {
@@ -339,8 +346,7 @@ public class FTPUtilImpl implements FTPUtil {
     private String getParentPath(String file) {
         if (file.indexOf("/") != -1) {
             String temp = null;
-            Pattern p = Pattern.compile("[/]+");
-            Matcher m = p.matcher(file);
+            Matcher m = PATTERN_PARENT_PATH.matcher(file);
             int i = 0;
             while (m.find()) {
                 temp = m.group(0);

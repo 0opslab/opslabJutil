@@ -8,6 +8,7 @@ import java.util.*;
 /**
  * 随机相关的方法封装
  */
+@SuppressWarnings("unchecked")
 public final class RandomHelper {
     public static final String ALLCHAR
             = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -177,13 +178,13 @@ public final class RandomHelper {
         return param[index];
     }
 
-    public static String uuid16(){
-        String uuid= UUID.randomUUID().toString();
-        char[] cs=new char[32];
-        char c=0;
-        for(int i=uuid.length()/2,j=1;i-->0;){
-            if((c=uuid.charAt(i))!='-'){
-                cs[j++]=c;
+    public static String uuid16() {
+        String uuid = UUID.randomUUID().toString();
+        char[] cs = new char[32];
+        char c = 0;
+        for (int i = uuid.length() / 2, j = 1; i-- > 0; ) {
+            if ((c = uuid.charAt(i)) != '-') {
+                cs[j++] = c;
             }
         }
         return String.valueOf(cs);
@@ -195,10 +196,8 @@ public final class RandomHelper {
      * @return 小写的UUID
      */
     public static String uuid() {
-        UUID uuid = UUID.randomUUID();
-        String s = uuid.toString();
-        return s.substring(0, 8) + s.substring(9, 13) +
-                s.substring(14, 18) + s.substring(19, 23) + s.substring(24);
+        return UUID.randomUUID().toString();
+
     }
 
     /**
@@ -207,11 +206,7 @@ public final class RandomHelper {
      * @return 大写的UUID
      */
     public static String UUID() {
-        UUID uuid = UUID.randomUUID();
-        String s = uuid.toString();
-        String temp = s.substring(0, 8) + s.substring(9, 13) +
-                s.substring(14, 18) + s.substring(19, 23) + s.substring(24);
-        return temp.toUpperCase();
+        return UUID.randomUUID().toString().toUpperCase();
     }
 
     /**
@@ -224,7 +219,7 @@ public final class RandomHelper {
      * @return
      */
     public static String squid(String hostFeature) {
-        Long date = new Date().getTime();
+        Long date = System.currentTimeMillis();
         String s = UUID.randomUUID().toString();
         String str = Long.toHexString(date);
         String result = str + hostFeature

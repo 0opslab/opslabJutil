@@ -87,6 +87,7 @@ public class FileImpl {
      */
     private static String geestFileEncoding(File file, nsDetector det) {
         det.Init(new nsICharsetDetectionObserver() {
+            @Override
             public void Notify(String charset) {
                 found = true;
                 encoding = charset;

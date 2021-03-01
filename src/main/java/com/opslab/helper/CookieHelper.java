@@ -167,9 +167,6 @@ public class CookieHelper {
             return header;
         }
         Cookie[] cookies = request.getCookies();
-        if(cookies == null){
-            return Opslab.STR_EMPTY;
-        }
         for (Cookie cookie : cookies) {
             if(key.equals(cookie.getName())){
                 return cookie.getValue();
