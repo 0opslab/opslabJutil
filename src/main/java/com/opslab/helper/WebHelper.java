@@ -1,6 +1,5 @@
 package com.opslab.helper;
 
-import com.opslab.bean.ClientInfo;
 import com.opslab.util.StringUtil;
 
 import javax.servlet.ServletRequest;
@@ -18,14 +17,8 @@ import java.util.regex.Pattern;
  */
 @SuppressWarnings("unchecked")
 public class WebHelper {
-    // Avoid anything between script tags
-    static Pattern scriptPattern = Pattern.compile("<script>(.*?)</script>", Pattern.CASE_INSENSITIVE);
 
-    static Pattern scriptPattern_html_src = Pattern.compile("src[\r\n]*=[\r\n]*\\\'(.*?)\\\'", Pattern
-            .CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL);
 
-    static Pattern scriptPattern_html_script = Pattern.compile("<script(.*?)>", Pattern.CASE_INSENSITIVE | Pattern
-            .MULTILINE | Pattern.DOTALL);
     /**
      * 对字符串进行编码
      *
@@ -91,6 +84,7 @@ public class WebHelper {
 
     /**
      * html转实体
+     *
      * @param content
      * @return
      */
@@ -160,7 +154,6 @@ public class WebHelper {
     }
 
 
-
     /**
      * 设置 Cookie, 过期时间为30分钟
      *
@@ -204,7 +197,7 @@ public class WebHelper {
         Cookie cookie = null;
         try {
             cookie = new Cookie(name, URLEncoder.encode(value, "UTF-8"));
-            if(domain != null && !"".equals(domain)){
+            if (domain != null && !"".equals(domain)) {
                 cookie.setDomain(domain);
             }
             cookie.setMaxAge(maxAge);
@@ -392,7 +385,7 @@ public class WebHelper {
                 value = "";
             } else if (valueObj instanceof String[]) {
                 String[] values = (String[]) valueObj;
-                value = StringHelper.join(values,",");
+                value = StringHelper.join(values, ",");
             } else {
                 value = valueObj.toString();
             }
@@ -444,7 +437,7 @@ public class WebHelper {
                 value = "";
             } else if (valueObj instanceof String[]) {
                 String[] values = (String[]) valueObj;
-                value = StringHelper.join(values,",");
+                value = StringHelper.join(values, ",");
             } else {
                 value = valueObj.toString();
             }
@@ -474,63 +467,36 @@ public class WebHelper {
     /**
      * 获取客户端请求信息
      */
-    public static ClientInfo clientInfo(HttpServletRequest request) {
-        ClientInfo info = new ClientInfo();
-        info.setReqTime(System.currentTimeMillis());
-        info.setClientIp(getIpAddr(request));
-        info.setReferer(request.getHeader("referer"));
-        info.setUri(request.getRequestURI());
+    public static String platForm(String userAgent) {
 
+        //String ua = request.getHeader("User-Agent");
 
-        String ua = request.getHeader("User-Agent");
-        info.setUserAgents(ua);
-        ua = ua.toUpperCase();
-
-
-        if (ua.contains("WINDOWS NT 5.1")) {
-            info.setPlatform("WindowsVista");
+        if (userAgent.contains("WINDOWS NT 5.1")) {
+            return "WindowsVista";
         }
-        if (ua.contains("WINDOWS NT 6.1")) {
-            info.setPlatform("Windows7");
+        if (userAgent.contains("WINDOWS NT 6.1")) {
+            return "Windows7";
         }
-        if (ua.contains("WINDOWS NT 6.2")) {
-            info.setPlatform("Windows8");
+        if (userAgent.contains("WINDOWS NT 6.2")) {
+            return "Windows8";
         }
-        if (ua.contains("WINDOWS NT 10")) {
-            info.setPlatform("Windows10");
+        if (userAgent.contains("WINDOWS NT 10")) {
+            return "Windows10";
         }
-        if (ua.contains("MAC")) {
-            info.setPlatform("MacOS");
+        if (userAgent.contains("MAC")) {
+            return "MacOS";
         }
-        if (ua.contains("LINUX")) {
-            info.setPlatform("Linux");
+        if (userAgent.contains("LINUX")) {
+            return "Linux";
         }
-        if (ua.contains("ANDROID")) {
-            info.setPlatform("android");
+        if (userAgent.contains("ANDROID")) {
+            return "android";
         }
-        if (ua.contains("IPHONE")) {
-            info.setPlatform("ios");
-        }
-        if (ua.contains("IOS")) {
-            info.setPlatform("ios");
+        if (userAgent.contains("IPHONE") || userAgent.contains("IOS")) {
+            return "ios";
         }
 
-        //if (!multiRequest) {
-        //    Map<String, Object> params = RequestHelper.getParams(request);
-        //    info.setParams(params);
-        //    // 转换request
-        //    //MultipartHttpServletRequest multiRequest = (MultipartHttpServletRequest) request;
-        //    //// 获得文件
-        //    //Map<String, MultipartFile> fileMap = multiRequest.getFileMap();
-        //    //if(fileMap != null && fileMap.size() > 0){
-        //    //    params = new HashMap<>();
-        //    //    for (Map.Entry<String,MultipartFile> file:fileMap.entrySet()){
-        //    //        MultipartFile ff = file.getValue();
-        //    //        params.put("fileName",ff.getOriginalFilename());
-        //    //        params.put("fileSize",ff.getSize());
-        //    //    }
-        //    //}
-        //}
-        return info;
+        return "Unkonw";
     }
+
 }
