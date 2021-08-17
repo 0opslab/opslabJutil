@@ -86,4 +86,12 @@ public class JacksonUtil {
         }
         return object;
     }
+
+    /**
+     * 以JSON的格式打印对象
+     */
+    public static void printJSONObject(Object obj) {
+        String json = toJson(obj);
+        System.out.println(json);
+    }
 }
