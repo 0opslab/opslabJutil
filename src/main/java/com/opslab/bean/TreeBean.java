@@ -2,12 +2,15 @@ package com.opslab.bean;
 
 
 
+import lombok.Data;
+
 import java.util.Date;
+import java.util.List;
 
 /**
  * 树形结构
  */
-
+@Data
 public class TreeBean {
     /*节点ID*/
     private String treeId;
@@ -18,7 +21,7 @@ public class TreeBean {
     /*创建时间*/
     private Date createTime;
     /** 节点下的子节点 */
-    private TreeBean[] childrens;
+    private List<TreeBean> childrens;
 
 
     public String getTreeId() {
@@ -53,11 +56,20 @@ public class TreeBean {
         this.createTime = createTime;
     }
 
-    public TreeBean[] getChildrens() {
+    public List<TreeBean> getChildrens() {
         return childrens;
     }
 
-    public void setChildrens(TreeBean[] childrens) {
+    public void setChildrens(List<TreeBean> childrens) {
         this.childrens = childrens;
+    }
+
+    public TreeBean() {
+    }
+
+    public TreeBean(String treeId, String treeName, String parentId) {
+        this.treeId = treeId;
+        this.treeName = treeName;
+        this.parentId = parentId;
     }
 }

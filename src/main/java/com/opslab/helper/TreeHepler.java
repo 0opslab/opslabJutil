@@ -4,6 +4,8 @@ import com.opslab.bean.TreeBean;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class TreeHepler {
     /**
@@ -17,38 +19,6 @@ public class TreeHepler {
             return null;
         }
         return getJsonCity(list, null);
-//        List<TreeBean> parent = new ArrayList<TreeBean>();
-//        List<TreeBean> child = new ArrayList<TreeBean>();
-//
-//        for (TreeBean bean : list) {
-//            String parenId = bean.getParentId();
-//            if (parenId != null && parenId.trim().length() > 0) {
-//                child.add(bean);
-//            } else {
-//                parent.add(bean);
-//            }
-//        }
-//        System.out.println(JacksonUtil.toJSON(parent));
-//        System.out.println(JacksonUtil.toJSON(child));
-
-//        for (TreeBean pbean:parent){
-//            for (TreeBean cbean:child){
-//                if(cbean.getParentId().equals(pbean.getTreeId())){
-//                    pbean.getChildren().add(cbean);
-//                }
-//            }
-//        }
-//        System.out.println(JacksonUtil.toJSON(parent));
-//
-//        for (TreeBean pbean:parent){
-//            for (TreeBean pPbean:parent){
-//                if(pbean.getTreeId().equals(pPbean.getParentId())){
-//                    pbean.getChildren().add(pPbean);
-//                }
-//            }
-//        }
-//        return parent;
-
     }
 
     /**
@@ -62,7 +32,7 @@ public class TreeHepler {
      *
      * @return
      */
-    public static List<TreeBean> getJsonCity(List<TreeBean> list, List<TreeBean> reList) {
+    private static List<TreeBean> getJsonCity(List<TreeBean> list, List<TreeBean> reList) {
 
         TreeBean pcity = new TreeBean();
         TreeBean city = new TreeBean();
@@ -92,22 +62,22 @@ public class TreeHepler {
 
                 //将获取的子节点list放入数组中
                 List<String> keys = new ArrayList<>();
-                TreeBean[] childrens = pcity.getChildrens();
+                List<TreeBean> childrens = pcity.getChildrens();
                 int size = listCity.size();
                 int ssize = 0;
-                if(childrens != null && childrens.length > 0){
-                    size += childrens.length;
-                    ssize = childrens.length;
+                if (childrens != null && childrens.size() > 0) {
+                    size += childrens.size();
+                    ssize = childrens.size();
                 }
 
                 TreeBean[] childs = new TreeBean[size];
 
                 for (int j = 0; j < ssize; j++) {
-                    TreeBean bean = childrens[j];
-                    if(bean != null){
+                    TreeBean bean = childrens.get(j);
+                    if (bean != null) {
                         String key = bean.getTreeId();
-                        if(!keys.contains(key)){
-                            childs[j]=bean;
+                        if (!keys.contains(key)) {
+                            childs[j] = bean;
                             keys.add(key);
                         }
                     }
@@ -115,10 +85,10 @@ public class TreeHepler {
 
                 for (int j = 0; j < listCity.size(); j++) {
                     TreeBean bean = listCity.get(j);
-                    if(bean != null){
+                    if (bean != null) {
                         String key = bean.getTreeId();
-                        if(!keys.contains(key)){
-                            childs[ssize+j]=listCity.get(j);
+                        if (!keys.contains(key)) {
+                            childs[ssize + j] = listCity.get(j);
                             keys.add(key);
                         }
                     }
@@ -145,14 +115,49 @@ public class TreeHepler {
 
     }
 
-    public static TreeBean[] deleteArrayNull(TreeBean[] array) {
+    private static List<TreeBean> deleteArrayNull(TreeBean[] array) {
         List<TreeBean> tmp = new ArrayList<TreeBean>();
-        for(TreeBean str:array){
-            if(str!=null){
+        for (TreeBean str : array) {
+            if (str != null) {
                 tmp.add(str);
             }
         }
-        return tmp.toArray(new TreeBean[0]);
+        return tmp;
     }
+
+    /**
+     * 递归查询子节点
+     *
+     * @param root 根节点
+     * @param all  所有节点
+     * @return 根节点信息
+     */
+    private static List<TreeBean> getChildrens(TreeBean root, List<TreeBean> all) {
+        return all.stream().filter(m -> {
+            return Objects.equals(m.getParentId(), root.getTreeId());
+        }).map(
+                (m) -> {
+                    m.setChildrens(getChildrens(m, all));
+                    return m;
+                }
+        ).collect(Collectors.toList());
+    }
+
+    /**
+     * 将具有父子关系的list集合转换为树形结构
+     * 利用java8的一种更高级的实现方法
+     * @param tree
+     * @param rootId
+     * @return
+     */
+    public static List<TreeBean> getTree(List<TreeBean> tree, String rootId) {
+        return tree.stream().filter(m -> rootId.equals(m.getParentId())).map(
+                (m) -> {
+                    m.setChildrens(getChildrens(m, tree));
+                    return m;
+                }
+        ).collect(Collectors.toList());
+    }
+
 
 }

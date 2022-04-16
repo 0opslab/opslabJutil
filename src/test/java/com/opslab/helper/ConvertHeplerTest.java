@@ -85,7 +85,7 @@ public class ConvertHeplerTest {
 
 
     @Test
-    public void arrayList(){
+    public void arrayList() {
         String hexStr = "E4 B8 AD E6 96 87";
         List<String> strings = ConvertHepler.arrayToList(hexStr.split(" "));
         System.out.println(JacksonUtil.toJson(strings));
