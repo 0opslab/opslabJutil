@@ -4,8 +4,8 @@
 另外希望身为Java牛牛的你们一起测试和完善 一起封装和完成常用的Java代码。
 节约撸码时间以方便有更多的时间去把妹子～
 
-<img src="https://0opslab.github.io/img/wpwx.png" alt="关注我" style="max-width:20%;" />
-<img src="https://0opslab.github.io/img/wxpay.png" alt="请问喝杯咖啡" style="max-width:20%;" />
+<img src="https://0opslab.github.io/img/wpwx.png" alt="关注我" style="max-width:15%;" />
+<img src="https://0opslab.github.io/img/wxpay.png" alt="请问喝杯咖啡" style="max-width:15%;" />
 
 ---
 #开发环境
@@ -29,9 +29,9 @@
 <dependency>
     <groupId>com.0opslab</groupId>
     <artifactId>opslabJutil</artifactId>
-    <version>3.0.0</version>
+    <version>3.1.0</version>
     <scope>system</scope>
-    <systemPath>${project.basedir}/libs/opslabJutil-2.0.2.jar</systemPath>
+    <systemPath>${project.basedir}/libs/opslabJutil-3.1.0.jar</systemPath>
 </dependency>
 ```
 
@@ -46,3 +46,4 @@
 
 ## config
 如果需要修改默认配置可以通过在classpath下添加0opslab.properties文件来进行一些配置
+
