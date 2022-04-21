@@ -1,11 +1,11 @@
 package com.opslab.helper;
 
-import com.google.common.collect.Lists;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -447,7 +447,7 @@ public class Date8Helper {
      * <li>结果为：[2019-02-28,2019-12-31, 2020-01-01,2020-05-25]</li><br>
      */
     public static List<String> getPieDateRange(String startDate, String endDate, String period) {
-        List<String> result = Lists.newArrayList();
+        List<String> result = new ArrayList<>();
         LocalDate end = LocalDate.parse(endDate, yyyyMMdd_EN);
         LocalDate start = LocalDate.parse(startDate, yyyyMMdd_EN);
         LocalDate tmp = start;

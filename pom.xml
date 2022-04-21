@@ -6,10 +6,11 @@
 
     <groupId>com.0opslab</groupId>
     <artifactId>opslabJutil</artifactId>
-    <version>3.0.1</version>
+    <version>3.1.0</version>
 
     <name>opslabJutil</name>
-    <description>Simple and convenient to use it to accomplish common development java code</description>
+    <description>Simple and convenient to use it to accomplish common development java code
+    </description>
     <url>https://github.com/0opslab/opslabJutil</url>
 
     <licenses>
@@ -28,13 +29,23 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>nexus-aliyun</id>
+            <name>nexus-aliyun</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
     <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.12</version>
-            <scope>test</scope>
-        </dependency>
+
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
@@ -52,8 +63,7 @@
         <dependency>
             <groupId>com.belerweb</groupId>
             <artifactId>pinyin4j</artifactId>
-            <version>2.5.0</version>
-            <scope>provided</scope>
+            <version>2.5.1</version>
         </dependency>
         <!--apache-commons-net-->
         <dependency>
@@ -62,47 +72,12 @@
             <version>3.3</version>
             <scope>provided</scope>
         </dependency>
-        <!--hamcrest-core-->
-        <dependency>
-            <groupId>antlr</groupId>
-            <artifactId>antlr</artifactId>
-            <version>2.7.7</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>net.sourceforge.jchardet</groupId>
-            <artifactId>jchardet</artifactId>
-            <version>1.0</version>
-            <scope>provided</scope>
-        </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>3.1.0</version>
             <scope>provided</scope>
         </dependency>
-        <!--guava-->
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>19.0</version>
-            <scope>provided</scope>
-        </dependency>
-        <!-- jackson-->
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>2.10.0</version>
-        </dependency>
-
-        <!--lombok-->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.4</version>
-        </dependency>
-
     </dependencies>
 
 

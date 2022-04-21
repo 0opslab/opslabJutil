@@ -4,8 +4,7 @@ package com.opslab.helper;
 import com.opslab.Opslab;
 
 import java.text.ParseException;
-import java.time.*;
-import java.time.format.DateTimeFormatter;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.regex.Matcher;
@@ -15,71 +14,38 @@ import java.util.regex.Pattern;
  * 提供一些常用的时间想法的方法
  */
 public final class DateHelper {
+    //注意SimpleDateFormat不是线程安全的
+    private static ThreadLocal<SimpleDateFormat> ThreadDateTime = new ThreadLocal<SimpleDateFormat>();
+    private static ThreadLocal<SimpleDateFormat> ThreadDate = new ThreadLocal<SimpleDateFormat>();
+    private static ThreadLocal<SimpleDateFormat> ThreadTime = new ThreadLocal<SimpleDateFormat>();
 
-
-    private static DateTimeFormatter DATETIME_FORMAT = DateTimeFormatter.ofPattern(Opslab.DATETIME_FORMAT);
-    private static DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern(Opslab.DATE_FORMAT);
-    private static DateTimeFormatter TIME_FORMAT = DateTimeFormatter.ofPattern(Opslab.TIME_FORMAT);
-
-    public static final Pattern PATTERN_DATETIME_BURST = Pattern.compile("^\\d{2}:\\d{2}:\\d{2}-\\d{2}:\\d{2}:\\d{2}");
-
-
-    /**
-     * LocalDate 转 Date
-     */
-    public static Date asDate(LocalDate localDate) {
-        return Date.from(localDate.atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
-    }
-
-    /**
-     * LocalDateTime 转 Date
-     */
-    public static Date asDate(LocalDateTime localDateTime) {
-        return Date.from(localDateTime.atZone(ZoneId.systemDefault()).toInstant());
-    }
-
-
-    /**
-     * Date 转 LocalDate
-     * @param date
-     * @return
-     */
-    public static LocalDate asLocalDate(Date date) {
-        return Instant.ofEpochMilli(date.getTime()).atZone(ZoneId.systemDefault()).toLocalDate();
-    }
-
-    /**
-     * Date 转 LocalDateTime
-     * @param date
-     * @return
-     */
-    public static LocalDateTime asLocalDateTime(Date date) {
-        return Instant.ofEpochMilli(date.getTime()).atZone(ZoneId.systemDefault()).toLocalDateTime();
-    }
-
-    /**
-     * Date 转 localDate
-     */
-    public static LocalDate date2LocalDate(Date date) {
-        Instant instant = date.toInstant();
-        ZonedDateTime zdt = instant.atZone(ZoneId.systemDefault());
-        LocalDate localDate = zdt.toLocalDate();
-        return localDate;
-    }
-
-    /**
-     * instant 转 date
-     *
-     * @param instant
-     * @return
-     */
-    public static Date Instan2Date(Instant instant) {
-        try {
-            return new Date(instant.toEpochMilli());
-        } catch (ArithmeticException ex) {
-            throw new IllegalArgumentException(ex);
+    private static SimpleDateFormat DateTimeInstance() {
+        SimpleDateFormat df = ThreadDateTime.get();
+        if (df == null) {
+            df = new SimpleDateFormat(Opslab.DATETIME_FORMAT);
+            ThreadDateTime.set(df);
         }
+        return df;
     }
+
+    private static SimpleDateFormat DateInstance() {
+        SimpleDateFormat df = ThreadDate.get();
+        if (df == null) {
+            df = new SimpleDateFormat(Opslab.DATE_FORMAT);
+            ThreadDate.set(df);
+        }
+        return df;
+    }
+
+    private static SimpleDateFormat TimeInstance() {
+        SimpleDateFormat df = ThreadTime.get();
+        if (df == null) {
+            df = new SimpleDateFormat(Opslab.TIME_FORMAT);
+            ThreadTime.set(df);
+        }
+        return df;
+    }
+
 
     /**
      * 获取当前日期时间
@@ -87,7 +53,7 @@ public final class DateHelper {
      * @return 返回当前时间的字符串值
      */
     public static String currentDateTime() {
-        return DATETIME_FORMAT.format(Instant.now());
+        return DateTimeInstance().format(new Date());
     }
 
     /**
@@ -96,35 +62,8 @@ public final class DateHelper {
      * @param date
      * @return
      */
-    public static String format(Date date) {
-        return DATETIME_FORMAT.format(date.toInstant());
-    }
-    public static String format(LocalDateTime date) {
-        return DATETIME_FORMAT.format(date);
-    }
-    /**
-     * 格式化日期
-     * @param date
-     * @return
-     */
-    public static String formatDate(Date date) {
-        return DATE_FORMAT.format(date.toInstant());
-    }
-    public static String formatDate(LocalDate date) {
-        return DATE_FORMAT.format(date);
-    }
-
-
-    /**
-     * 格式化时间
-     * @param date
-     * @return
-     */
-    public static String formatTime(Date date) {
-        return TIME_FORMAT.format(date.toInstant());
-    }
-    public static String formatTime(LocalTime date) {
-        return TIME_FORMAT.format(date);
+    public static String dateTime(Date date) {
+        return DateTimeInstance().format(date);
     }
 
     /**
@@ -134,10 +73,9 @@ public final class DateHelper {
      * @return
      * @throws ParseException
      */
-    public static Date dateTime(String datestr)  {
-        return asDate(LocalDateTime.parse(datestr, DATETIME_FORMAT));
+    public static Date dateTime(String datestr) throws ParseException {
+        return DateTimeInstance().parse(datestr);
     }
-
 
     /**
      * 获取当前的日期
@@ -145,11 +83,30 @@ public final class DateHelper {
      * @return
      */
     public static String currentDate() {
-        return DATE_FORMAT.format(Instant.now());
+        return DateInstance().format(new Date());
     }
 
+    /**
+     * 将指定的时间格式化成出返回
+     *
+     * @param date
+     * @return
+     */
+    public static String date(Date date) {
+        return DateInstance().format(date);
+    }
 
+    public static String formatDate(Date date) {
+        return DateInstance().format(date);
+    }
 
+    public static String formatDateTime(Date date) {
+        return DateTimeInstance().format(date);
+    }
+
+    public static String formatTime(Date date) {
+        return TimeInstance().format(date);
+    }
     /**
      * 将指定的字符串解析为时间类型
      *
@@ -157,8 +114,8 @@ public final class DateHelper {
      * @return
      * @throws ParseException
      */
-    public static LocalDate date(String dateStr) throws ParseException {
-        return LocalDate.parse(dateStr, DATE_FORMAT);
+    public static Date date(String dateStr) throws ParseException {
+        return DateInstance().parse(dateStr);
     }
 
     /**
@@ -167,10 +124,18 @@ public final class DateHelper {
      * @return
      */
     public static String currentTime() {
-        return TIME_FORMAT.format(Instant.now());
+        return TimeInstance().format(new Date());
     }
 
-
+    /**
+     * 讲指定的时间格式化成出返回
+     *
+     * @param date
+     * @return
+     */
+    public static String time(Date date) {
+        return TimeInstance().format(date);
+    }
 
     /**
      * 将指定的字符串解析为时间类型
@@ -179,9 +144,8 @@ public final class DateHelper {
      * @return
      * @throws ParseException
      */
-    public static Date time(String dateStr) {
-        return asDate(LocalDateTime.parse(dateStr, TIME_FORMAT));
-
+    public static Date time(String dateStr) throws ParseException {
+        return TimeInstance().parse(dateStr);
     }
 
 
@@ -329,9 +293,9 @@ public final class DateHelper {
      */
     public static boolean isDate(String date) {
         try {
-            DATETIME_FORMAT.parse(date);
+            DateTimeInstance().parse(date);
             return true;
-        } catch (Exception e) {
+        } catch (ParseException e) {
             e.printStackTrace();
         }
         return false;
@@ -358,14 +322,13 @@ public final class DateHelper {
      * @return 秒
      */
     public static long subtract(String date1, String date2) {
-        long rs = 0l;
+        long rs = 0;
         try {
-            LocalDateTime start = LocalDateTime.parse(date1, DATETIME_FORMAT);
-            LocalDateTime end = LocalDateTime.parse(date2, DATETIME_FORMAT);
-            Duration duration =Duration.between(end, start);
-            rs =  Math.abs(duration.getSeconds());
-        } catch (Exception e) {
-            rs = -1;
+            Date start = DateTimeInstance().parse(date1);
+            Date end = DateTimeInstance().parse(date2);
+            long cha = (end.getTime() - start.getTime()) / 1000;
+            rs = cha;
+        } catch (ParseException e) {
             e.printStackTrace();
         }
         return rs;
@@ -379,10 +342,15 @@ public final class DateHelper {
      * @param date2
      * @return 分钟
      */
-    public static long subtractMinute(String date1, String date2) {
-        long rs = subtract(date1, date2);
-        if (rs > 0) {
-            return rs / 60;
+    public static int subtractMinute(String date1, String date2) {
+        int rs = 0;
+        try {
+            Date start = DateTimeInstance().parse(date1);
+            Date end = DateTimeInstance().parse(date2);
+            long cha = (end.getTime() - start.getTime()) / 1000;
+            rs = (int) cha / (60);
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
         return rs;
     }
@@ -418,10 +386,15 @@ public final class DateHelper {
      * @param date2
      * @return 小时
      */
-    public static long subtractHour(String date1, String date2) {
-        long rs = subtract(date1, date2);
-        if (rs > 0) {
-            return rs / 3600;
+    public static int subtractHour(String date1, String date2) {
+        int rs = 0;
+        try {
+            Date start = DateTimeInstance().parse(date1);
+            Date end = DateTimeInstance().parse(date2);
+            long cha = (end.getTime() - start.getTime()) / 1000;
+            rs = (int) cha / (60 * 60);
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
         return rs;
     }
@@ -434,10 +407,15 @@ public final class DateHelper {
      * @param date2
      * @return 天
      */
-    public static long subtractDay(String date1, String date2) {
-        long rs = subtract(date1, date2);
-        if (rs > 0) {
-            return rs / 86400;
+    public static int subtractDay(String date1, String date2) {
+        int rs = 0;
+        try {
+            Date start = DateTimeInstance().parse(date1);
+            Date end = DateTimeInstance().parse(date2);
+            long sss = (end.getTime() - start.getTime()) / 1000;
+            rs = (int) sss / (60 * 60 * 24);
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
         return rs;
     }
@@ -463,19 +441,21 @@ public final class DateHelper {
      */
     public static int subtractMonth(String date1, String date2) {
         int result;
+        Calendar c1 = Calendar.getInstance();
+        Calendar c2 = Calendar.getInstance();
         try {
-            LocalDate start = LocalDate.parse(date1, DATE_FORMAT);
-            LocalDate end = LocalDate.parse(date2, DATE_FORMAT);
-            int year1 = start.getYear();
-            int month1 = start.getMonthValue();
-            int year2 = end.getYear();
-            int month2 = end.getMonthValue();
+            c1.setTime(DateInstance().parse(date1));
+            c2.setTime(DateInstance().parse(date2));
+            int year1 = c1.get(Calendar.YEAR);
+            int month1 = c1.get(Calendar.MONTH);
+            int year2 = c2.get(Calendar.YEAR);
+            int month2 = c2.get(Calendar.MONTH);
             if (year1 == year2) {
                 result = month2 - month1;
             } else {
                 result = 12 * (year2 - year1) + month2 - month1;
             }
-        } catch (Exception e) {
+        } catch (ParseException e) {
             e.printStackTrace();
             result = -1;
         }
@@ -516,13 +496,15 @@ public final class DateHelper {
      */
     public static int subtractYear(String date1, String date2) {
         int result;
+        Calendar c1 = Calendar.getInstance();
+        Calendar c2 = Calendar.getInstance();
         try {
-            LocalDate start = LocalDate.parse(date1, DATE_FORMAT);
-            LocalDate end = LocalDate.parse(date2, DATE_FORMAT);
-            int year1 = start.getYear();
-            int year2 = end.getYear();
+            c1.setTime(DateInstance().parse(date1));
+            c2.setTime(DateInstance().parse(date2));
+            int year1 = c1.get(Calendar.YEAR);
+            int year2 = c2.get(Calendar.YEAR);
             result = year2 - year1;
-        } catch (Exception e) {
+        } catch (ParseException e) {
             e.printStackTrace();
             result = -1;
         }
@@ -549,7 +531,7 @@ public final class DateHelper {
     }
 
     /**
-     * 获取俩个时间的差结果用时秒表示
+     * 获取俩个时间的查结果用时秒表示
      *
      * @param date1
      * @param date2
@@ -559,12 +541,14 @@ public final class DateHelper {
     public static String subtractTime(String date1, String date2) {
         String result = "";
         try {
-            long sss = subtract(date1, date2);
+            Date start = DateTimeInstance().parse(date1);
+            Date end = DateTimeInstance().parse(date2);
+            long sss = (end.getTime() - start.getTime()) / 1000;
             int hh = (int) sss / (60 * 60);
             int mm = (int) (sss - hh * 60 * 60) / (60);
             int ss = (int) (sss - hh * 60 * 60 - mm * 60);
             result = hh + ":" + mm + ":" + ss;
-        } catch (Exception e) {
+        } catch (ParseException e) {
             e.printStackTrace();
         }
         return result;
@@ -581,13 +565,15 @@ public final class DateHelper {
     public static String subtractDate(String date1, String date2) {
         String result = "";
         try {
-            long sss = subtract(date1, date2);
+            Date start = DateTimeInstance().parse(date1);
+            Date end = DateTimeInstance().parse(date2);
+            long sss = (end.getTime() - start.getTime()) / 1000;
             int dd = (int) sss / (60 * 60 * 24);
             int hh = (int) (sss - dd * 60 * 60 * 24) / (60 * 60);
             int mm = (int) (sss - dd * 60 * 60 * 24 - hh * 60 * 60) / (60);
             int ss = (int) (sss - dd * 60 * 60 * 24 - hh * 60 * 60 - mm * 60);
             result = dd + "-" + hh + ":" + mm + ":" + ss;
-        } catch (Exception e) {
+        } catch (ParseException e) {
             e.printStackTrace();
         }
         return result;
@@ -639,8 +625,8 @@ public final class DateHelper {
     public static int subDay(String startTime, String endTime) {
         int days = 0;
         try {
-            Date date1 = asDate(LocalDateTime.parse(startTime, DATETIME_FORMAT));
-            Date date2 = asDate(LocalDateTime.parse(endTime, DATETIME_FORMAT));
+            Date date1 = DateInstance().parse(DateInstance().format(DateTimeInstance().parse(startTime)));
+            Date date2 = DateInstance().parse(DateInstance().format(DateTimeInstance().parse(endTime)));
             Calendar can1 = Calendar.getInstance();
             can1.setTime(date1);
             Calendar can2 = Calendar.getInstance();
@@ -663,9 +649,8 @@ public final class DateHelper {
                 can.add(Calendar.YEAR, 1);
             }
 
-        } catch (Exception e) {
+        } catch (ParseException e) {
             e.printStackTrace();
-            days = -1;
         }
         return days;
     }
@@ -680,106 +665,99 @@ public final class DateHelper {
      * @throws ParseException
      * @summary 格式错误返回0
      */
-    //public static long subtimeBurst(String startDate, String endDate, String timeBurst)
-    //        throws ParseException {
-    //    LocalDateTime start = LocalDateTime.parse(startDate, DATETIME_FORMAT);
-    //    LocalDateTime end = LocalDateTime.parse(endDate, DATETIME_FORMAT);
-    //    return subtimeBurst(asDate(start), asDate(end), timeBurst);
-    //}
+    public static long subtimeBurst(String startDate, String endDate, String timeBurst)
+            throws ParseException {
+        Date start = DateTimeInstance().parse(startDate);
+        Date end = DateTimeInstance().parse(endDate);
+        return subtimeBurst(start, end, timeBurst);
+    }
 
     /**
      * 返回俩个时间在时间段(例如每天的08:00:00-18:00:00)的时长-单位秒
      *
      * @param startDate
      * @param endDate
-     * @param timeBurst 只就按该时间段内的08:00:00-18:00:00时长
+     * @param timeBurst 只就按该时间段内的08:00-18:00时长
      * @return 计算后的秒数
      * @throws ParseException
      */
-    //public static long subtimeBurst(Date startDate, Date endDate, String timeBurst) {
-    //    Matcher m = PATTERN_DATETIME_BURST.matcher(timeBurst);
-    //    if(!m.matches()){
-    //        return  -1;
-    //    }
-    //    String[] a = timeBurst.split("-");
-    //    LocalTime startBurst = LocalTime.parse(a[0],TIME_FORMAT);
-    //    LocalTime endBurst = LocalTime.parse(a[0],TIME_FORMAT);
-    //    long burstSeconds = Duration.between(endBurst, startBurst).getSeconds();
-    //    if(burstSeconds <=0){
-    //        return -1;
-    //    }
-    //
-    //
-    //        int day = subDay(startDate, endDate);
-    //        if (day > 0) {
-    //            long firstMintues = 0;
-    //            long lastMintues = 0;
-    //            long daySecond = 0;
-    //
-    //            //daySecond = subtract(dayStart, dayEnd);
-    //            //if ((startDate.after(dayStart) || startDate.equals(dayStart))
-    //            //        && startDate.before(dayEnd)) {
-    //            //    firstMintues = (dayEnd.getTime() - startDate.getTime()) / 1000;
-    //            //} else if (startDate.before(dayStart)) {
-    //            //    firstMintues = (dayEnd.getTime() - dayStart.getTime()) / 1000;
-    //            //}
-    //            //dayStart = DATETIME_FORMAT.parse(DATE_FORMAT.format(endDate) + " " + a[0] + ":00");
-    //            //dayEnd = DATETIME_FORMAT.parse(DATE_FORMAT.format(endDate) + " " + a[1] + ":00");
-    //            //if (endDate.after(dayStart) && (endDate.before(dayEnd) || endDate.equals(dayEnd))) {
-    //            //    lastMintues = (endDate.getTime() - dayStart.getTime()) / 1000;
-    //            //} else if (endDate.after(dayEnd)) {
-    //            //    lastMintues = (dayEnd.getTime() - dayStart.getTime()) / 1000;
-    //            //}
-    //            //第一天的秒数 + 最好一天的秒数 + 天数*全天的秒数
-    //            //second = firstMintues + lastMintues;
-    //            //second += (day - 1) * daySecond;
-    //        } else {
-    //            //Date dayStart = asDate(LocalDateTime.parse(DATE_FORMAT.format(date.toInstant())+" " + a[0] + ":00",
-    //            //        DATETIME_FORMAT));
-    //            //Date dayEnd = asDate(LocalDateTime.parse(DATE_FORMAT.format(date.toInstant())+" " + a[1] + ":00",
-    //            //        DATETIME_FORMAT));
-    //            //if ((startDate.after(dayStart) || startDate.equals(dayStart))
-    //            //        && startDate.before(dayEnd) && endDate.after(dayStart)
-    //            //        && (endDate.before(dayEnd) || endDate.equals(dayEnd))) {
-    //            //    second = (endDate.getTime() - startDate.getTime()) / 1000;
-    //            //} else {
-    //            //    if (startDate.before(dayStart)) {
-    //            //        if (endDate.before(dayEnd)) {
-    //            //            second = (endDate.getTime() - dayStart.getTime()) / 1000;
-    //            //        } else {
-    //            //            second = (dayEnd.getTime() - dayStart.getTime()) / 1000;
-    //            //        }
-    //            //    }
-    //            //    if (startDate.after(dayStart)) {
-    //            //        if (endDate.before(dayEnd)) {
-    //            //            second = (endDate.getTime() - startDate.getTime()) / 1000;
-    //            //        } else {
-    //            //            second = (dayEnd.getTime() - startDate.getTime()) / 1000;
-    //            //        }
-    //            //    }
-    //            //}
-    //            //if ((startDate.before(dayStart) && endDate.before(dayStart))
-    //            //        || startDate.after(dayEnd) && endDate.after(dayEnd)) {
-    //            //    second = 0;
-    //            //}
-    //        }
-    //
-    //
-    //    return -1;
-    //}
-
-    /**
-     * 时间Date在时间段(例如每天的08:00:00-18:00:00)上增加或减去second秒
-     *
-     * @param date
-     * @param second
-     * @param timeBurst
-     * @return 计算后的时间
-     * @Suumary 指定的格式错误后返回原数据
-     */
-    public static LocalDateTime calculate(String date, int second, String timeBurst) {
-        LocalDateTime startTime = LocalDateTime.parse(date, DATETIME_FORMAT);
-        return calculate(startTime, second, timeBurst);
+    public static long subtimeBurst(Date startDate, Date endDate, String timeBurst)
+            throws ParseException {
+        long second = 0;
+        Pattern p = Pattern.compile("^\\d{2}:\\d{2}:\\d{2}-\\d{2}:\\d{2}:\\d{2}");
+        Matcher m = p.matcher(timeBurst);
+        boolean falg = false;
+        if (startDate.after(endDate)) {
+            Date temp = startDate;
+            startDate = endDate;
+            endDate = temp;
+            falg = true;
+        }
+        if (m.matches()) {
+            String[] a = timeBurst.split("-");
+            int day = subDay(startDate, endDate);
+            if (day > 0) {
+                long firstMintues = 0;
+                long lastMintues = 0;
+                long daySecond = 0;
+                String strDayStart = DateInstance().format(startDate) + " " + a[0];
+                String strDayEnd = DateInstance().format(startDate) + " " + a[1] ;
+                Date dayStart = DateTimeInstance().parse(strDayStart);
+                Date dayEnd = DateTimeInstance().parse(strDayEnd);
+                daySecond = subtract(dayStart, dayEnd);
+                if ((startDate.after(dayStart) || startDate.equals(dayStart))
+                        && startDate.before(dayEnd)) {
+                    firstMintues = (dayEnd.getTime() - startDate.getTime()) / 1000;
+                } else if (startDate.before(dayStart)) {
+                    firstMintues = (dayEnd.getTime() - dayStart.getTime()) / 1000;
+                }
+                dayStart = DateTimeInstance().parse(DateInstance().format(endDate) + " " + a[0]);
+                dayEnd = DateTimeInstance().parse(DateInstance().format(endDate) + " " + a[1] );
+                if (endDate.after(dayStart) && (endDate.before(dayEnd) || endDate.equals(dayEnd))) {
+                    lastMintues = (endDate.getTime() - dayStart.getTime()) / 1000;
+                } else if (endDate.after(dayEnd)) {
+                    lastMintues = (dayEnd.getTime() - dayStart.getTime()) / 1000;
+                }
+                //第一天的秒数 + 最好一天的秒数 + 天数*全天的秒数
+                second = firstMintues + lastMintues;
+                second += (day - 1) * daySecond;
+            } else {
+                String strDayStart = DateInstance().format(startDate) + " " + a[0];
+                String strDayEnd = DateInstance().format(startDate) + " " + a[1];
+                Date dayStart = DateTimeInstance().parse(strDayStart);
+                Date dayEnd = DateTimeInstance().parse(strDayEnd);
+                if ((startDate.after(dayStart) || startDate.equals(dayStart))
+                        && startDate.before(dayEnd) && endDate.after(dayStart)
+                        && (endDate.before(dayEnd) || endDate.equals(dayEnd))) {
+                    second = (endDate.getTime() - startDate.getTime()) / 1000;
+                } else {
+                    if (startDate.before(dayStart)) {
+                        if (endDate.before(dayEnd)) {
+                            second = (endDate.getTime() - dayStart.getTime()) / 1000;
+                        } else {
+                            second = (dayEnd.getTime() - dayStart.getTime()) / 1000;
+                        }
+                    }
+                    if (startDate.after(dayStart)) {
+                        if (endDate.before(dayEnd)) {
+                            second = (endDate.getTime() - startDate.getTime()) / 1000;
+                        } else {
+                            second = (dayEnd.getTime() - startDate.getTime()) / 1000;
+                        }
+                    }
+                }
+                if ((startDate.before(dayStart) && endDate.before(dayStart))
+                        || startDate.after(dayEnd) && endDate.after(dayEnd)) {
+                    second = 0;
+                }
+            }
+        } else {
+            second = (endDate.getTime() - startDate.getTime()) / 1000;
+        }
+        if (falg) {
+            second = Long.parseLong("-" + second);
+        }
+        return second;
     }
 
     /**
@@ -791,39 +769,93 @@ public final class DateHelper {
      * @return 计算后的时间
      * @Suumary 指定的格式错误后返回原数据
      */
-    public static LocalDateTime calculate(LocalDateTime date, int second, String timeBurst) {
-        Matcher m = PATTERN_DATETIME_BURST.matcher(timeBurst);
-        if(!m.matches()){
-            throw  new RuntimeException("TimeBurstFormatError");
+    public static Date calculate(String date, int second, String timeBurst) {
+        Date start = null;
+        try {
+            start = DateTimeInstance().parse(date);
+            return calculate(start, second, timeBurst);
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
-        String[] a = timeBurst.split("-");
-        LocalTime startBurst = LocalTime.parse(a[0],TIME_FORMAT);
-        LocalTime endBurst = LocalTime.parse(a[1],TIME_FORMAT);
-        //获取时间段相差的秒数
-        long burstSeconds = Duration.between(startBurst,endBurst).getSeconds();
-        if(burstSeconds <=0){
-            throw  new RuntimeException("TimeBurst Invalid time period");
+        return new Date();
+    }
+
+    /**
+     * 时间Date在时间段(例如每天的08:00:00-18:00:00)上增加或减去second秒
+     *
+     * @param date
+     * @param second
+     * @param timeBurst
+     * @return 计算后的时间
+     * @Suumary 指定的格式错误后返回原数据
+     */
+    public static Date calculate(Date date, int second, String timeBurst) {
+        Pattern p = Pattern.compile("^\\d{2}:\\d{2}:\\d{2}-\\d{2}:\\d{2}:\\d{2}");
+        Matcher m = p.matcher(timeBurst);
+        Calendar cal = Calendar.getInstance();
+        if (m.matches()) {
+            String[] a = timeBurst.split("-");
+            try {
+                Date dayStart = DateTimeInstance().parse(DateInstance().format(date) + " " + a[0] );
+                Date dayEnd = DateTimeInstance().parse(DateInstance().format(date) + " " + a[1]);
+                int DaySecond = (int) subtract(dayStart, dayEnd);
+                int toDaySecond = (int) subtract(dayStart, dayEnd);
+                if (second >= 0) {
+                    if ((date.after(dayStart) || date.equals(dayStart))
+                            && (date.before(dayEnd) || date.equals(dayEnd))) {
+                        cal.setTime(date);
+                        toDaySecond = (int) subtract(date, dayEnd);
+                    }
+                    if (date.before(dayStart)) {
+                        cal.setTime(dayStart);
+                        toDaySecond = (int) subtract(dayStart, dayEnd);
+                    }
+                    if (date.after(dayEnd)) {
+                        cal.setTime(day(dayStart, 1));
+                        toDaySecond = 0;
+                    }
+
+                    if (second > toDaySecond) {
+                        int day = (second - toDaySecond) / DaySecond;
+                        int remainder = (second - toDaySecond) % DaySecond;
+                        cal.setTime(day(dayStart, 1));
+                        cal.add(Calendar.DAY_OF_YEAR, day);
+                        cal.add(Calendar.SECOND, remainder);
+                    } else {
+                        cal.add(Calendar.SECOND, second);
+                    }
+
+                } else {
+                    if ((date.after(dayStart) || date.equals(dayStart))
+                            && (date.before(dayEnd) || date.equals(dayEnd))) {
+                        cal.setTime(date);
+                        toDaySecond = (int) subtract(date, dayStart);
+                    }
+                    if (date.before(dayStart)) {
+                        cal.setTime(day(dayEnd, -1));
+                        toDaySecond = 0;
+                    }
+                    if (date.after(dayEnd)) {
+                        cal.setTime(dayEnd);
+                        toDaySecond = (int) subtract(dayStart, dayEnd);
+                    }
+                    if (Math.abs(second) > Math.abs(toDaySecond)) {
+                        int day = (Math.abs(second) - Math.abs(toDaySecond)) / DaySecond;
+                        int remainder = (Math.abs(second) - Math.abs(toDaySecond)) % DaySecond;
+                        cal.setTime(day(dayEnd, -1));
+                        cal.add(Calendar.DAY_OF_YEAR, Integer.valueOf("-" + day));
+                        cal.add(Calendar.SECOND, Integer.valueOf("-" + remainder));
+                    } else {
+                        cal.add(Calendar.SECOND, second);
+                    }
+                }
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        } else {
+            cal.setTime(date);
         }
-
-
-
-        LocalTime startlocalTime = date.toLocalTime();
-        if(startlocalTime.isBefore(startBurst)){
-            startlocalTime = startBurst;
-        }
-        //第一天有效的秒数
-        long startDaySeconds = Math.abs(Duration.between(endBurst, startlocalTime).getSeconds());
-        if(second  <= startDaySeconds){
-            date = date.plusSeconds(second);
-            return date;
-        }
-
-        long days = (second - startDaySeconds )/burstSeconds;
-        date = date.plusDays(days+1);
-        date = date.with(startBurst);
-        long endDaysSeconds = ((second - startDaySeconds) - startDaySeconds * days) % burstSeconds;
-        date = date.plusSeconds(endDaysSeconds);
-        return date;
+        return cal.getTime();
     }
 
     /**
@@ -835,16 +867,9 @@ public final class DateHelper {
      * @return
      * @throws ParseException
      */
-    public static boolean between(String startTime, String endTime, Date date){
-        try {
-            LocalDateTime start = LocalDateTime.parse(startTime, DATETIME_FORMAT);
-            LocalDateTime end = LocalDateTime.parse(endTime, DATETIME_FORMAT);
-            return between(asDate(start), asDate(end), date);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return false;
-
+    public static boolean between(String startTime, String endTime, Date date)
+            throws ParseException {
+        return between(dateTime(startTime), dateTime(endTime), date);
     }
 
     /**

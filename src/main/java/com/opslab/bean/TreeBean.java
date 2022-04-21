@@ -2,7 +2,7 @@ package com.opslab.bean;
 
 
 
-import lombok.Data;
+
 
 import java.util.Date;
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * 树形结构
  */
-@Data
+
 public class TreeBean {
     /*节点ID*/
     private String treeId;

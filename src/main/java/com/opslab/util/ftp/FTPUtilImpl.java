@@ -2,7 +2,6 @@ package com.opslab.util.ftp;
 
 import com.opslab.util.CheckUtil;
 import com.opslab.util.FileUtil;
-import com.opslab.util.JacksonUtil;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
 import org.apache.commons.net.ftp.FTPReply;
@@ -73,7 +72,7 @@ public class FTPUtilImpl implements FTPUtil {
         log.setRemoteFile("");
         log.setReplyCode(replyCode);
         log.setReplyCodeDesc(FTPConstant.REPLYCODE.get(replyCode));
-        logger.info(JacksonUtil.toJson(log));
+        logger.info(log.toString());
         return FTPReply.isPositiveCompletion(replyCode);
     }
 
@@ -86,7 +85,7 @@ public class FTPUtilImpl implements FTPUtil {
         log.setRemoteFile(remoteFile);
         log.setReplyCode(replyCode);
         log.setReplyCodeDesc(FTPConstant.REPLYCODE.get(replyCode));
-        logger.info(JacksonUtil.toJson(log));
+        logger.info(log.toString());
         return FTPReply.isPositiveCompletion(replyCode);
     }
 
