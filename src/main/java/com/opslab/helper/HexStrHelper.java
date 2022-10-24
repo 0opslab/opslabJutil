@@ -44,11 +44,11 @@ public class HexStrHelper {
 
         Integer[] arr = new Integer[str.length()];
         int  i = 0;
-            for (char c : str.toCharArray()) {
-                //System.out.println(c+">"+((int)c));
-               arr[i] = ((int)c);
-               i = i+1;
-            }
+        for (char c : str.toCharArray()) {
+            //System.out.println(c+">"+((int)c));
+            arr[i] = ((int)c);
+            i = i+1;
+        }
         return arr;
     }
 

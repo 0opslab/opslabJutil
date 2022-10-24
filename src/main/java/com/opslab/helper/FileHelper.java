@@ -5,6 +5,7 @@ import com.opslab.functions.ObjectHandler;
 import com.opslab.functions.ObjectProcess;
 import com.opslab.util.AssertUtil;
 import com.opslab.util.ZIPUtil;
+import com.opslab.util.algorithmImpl.FileImpl;
 import com.opslab.util.encrypt.Base64;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -732,6 +733,20 @@ public final class FileHelper {
 
     }
 
+    /**
+     * 利用字节特征探测文件编码
+     *
+     * @param file 需要处理的文件
+     * @return UTF-8 Unicode UTF-16BE GBK or null
+     */
+    public static String simpleEncoding(File file) {
+        try {
+            return FileImpl.guestFileEncoding(file);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 
     /**

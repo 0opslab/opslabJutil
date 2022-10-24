@@ -14,48 +14,25 @@ import java.security.MessageDigest;
  */
 public class CryptoHelper {
 
-    private static final Charset charset = Charset.forName("UTF-8");
+    private static final Charset CHARSET = Charset.forName("UTF-8");
 
     private static final String UTF8 = "UTF-8";
-    /**
-     * BASE64解密
-     *
-     * @param key
-     * @return
-     * @throws Exception
-     */
 
-    public static byte[] decryptBASE64(String key) throws Exception {
-        return Base64Ext.decode(key.getBytes(charset), Base64Ext.NO_WRAP);
-    }
-
-    /**
-     * BASE64加密
-     *
-     * @param key
-     * @return
-     * @throws Exception
-     */
-    public static String encryptBASE64(byte[] key) throws Exception {
-        return new String(Base64Ext.encode(key, Base64Ext.NO_WRAP),UTF8);
-
-    }
 
 
     /**
      * 字符串加密函数MD5实现
      */
-    public final static String md5(String password) {
+    public  static String md5(String password) {
         MessageDigest md;
         try {
             // 生成一个MD5加密计算摘要
             md = MessageDigest.getInstance("MD5");
             // 计算md5函数
-            md.update(password.getBytes(charset));
+            md.update(password.getBytes(CHARSET));
             // digest()最后确定返回md5 hash值，返回值为8为字符串。因为md5 hash值是16位的hex值，实际上就是8位的字符
             // BigInteger函数则将8位的字符串转换成16位hex值，用字符串来表示；得到字符串形式的hash值
-            String pwd = new BigInteger(1, md.digest()).toString(16);
-            return pwd;
+            return new BigInteger(1, md.digest()).toString(16);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -70,7 +47,11 @@ public class CryptoHelper {
      * @return string
      */
     public static String aesEncrypt(String secretKey, String str) {
-        return Decode.str2HexStr(ASEUtil.AESEncode(secretKey, str));
+        String aesEncode = ASEUtil.AESEncode(secretKey, str);
+        if (aesEncode != null && aesEncode.length() > 0){
+            return Decode.str2HexStr(aesEncode);
+        }
+        return null;
     }
 
     /**

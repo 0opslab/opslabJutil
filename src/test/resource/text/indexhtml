@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset=Opslab.UTF_8>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="./scripts/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./scripts/bootstrap/normalize.css">
+    <link rel="stylesheet" type="text/css" href="./scripts/jqueryui/jquery-ui.min.css">
+
+    <link rel="stylesheet" type="text/css" href="./style/common.css"/>
+
+    <!--通用的CSS-->
+    <link rel="stylesheet" type="text/css" href="./style/index.css">
+    <!-- 以下两个插件用于在IE8以及以下版本浏览器支持HTML5元素和媒体查询，如果不需要用可以移除 -->
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="./scripts/bootstrap/html5shiv.js"></script>
+    <script type="text/javascript" src="./scripts/bootstrap/respond.min.js"></script>
+    <![endif]-->
+    <!-- 如果要使用Bootstrap的js插件，必须先调入jQuery -->
+    <script type="text/javascript" src="./scripts/jquery.min.js"></script>
+    <!-- 包括所有bootstrap的js插件或者可以根据需要使用的js插件调用　-->
+    <script type="text/javascript" src="./scripts/bootstrap/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script type="text/javascript" src="./scripts/bootstrap/ie10-viewport-bug-workaround.js"></script>
+
+    <script type="text/javascript" src="scripts/jqueryui/jquery-ui.min.js"></script>
+
+    <script type="text/javascript" src="./index.js" charset=Opslab.UTF_8></script>
+    <script type="text/javascript" src="./index-data.js" charset=Opslab.UTF_8></script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="navbar-header">
+        <b class="navbar-brand">Boostrap实例</b>
+    </div>
+    <div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">zTree</a></li>
+            <li><a href="#">SVN</a></li>
+        </ul>
+    </div>
+    <div>
+        <form class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">提交</button>
+        </form>
+    </div>
+</nav>
+<div id="body">
+    <div id="main-meun">
+        <ul id="mainMenuTree" class="nav nav-list">
+
+        </ul>
+    </div>
+    <div id="main-content">
+    </div>
+</div>
+</body>
+</html>

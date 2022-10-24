@@ -207,8 +207,8 @@ public class GifEncoder {
      *
      * @param fps float frame rate (frames per second)
      */
-    public void setFrameRate(float fps) {
-        if (fps != 0f) {
+    public void setFrameRate(Float fps) {
+        if (!fps.equals(0f)) {
             delay = Math.round(100f / fps);
         }
     }

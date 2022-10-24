@@ -1,7 +1,7 @@
 package com.opslab.helper;
 
-import sun.misc.BASE64Decoder;
-import sun.misc.BASE64Encoder;
+import com.opslab.util.encrypt.Base64Ext;
+
 
 import java.io.*;
 
@@ -12,16 +12,15 @@ public class PdfHelper {
     /**
      * Description: 将base64编码内容转换为Pdf
      *
-     * @param base64编码内容，文件的存储路径（含文件名）
+     * @param base64Content base64编码内容，文件的存储路径（含文件名）
      */
     public static void base64StringToPdf(String base64Content, String filePath) {
-        BASE64Decoder decoder = new BASE64Decoder();
         BufferedInputStream bis = null;
         FileOutputStream fos = null;
         BufferedOutputStream bos = null;
 
         try {
-            byte[] bytes = decoder.decodeBuffer(base64Content);//base64编码内容转换为字节数组
+            byte[] bytes = Base64Ext.decode(base64Content.getBytes(), Base64Ext.NO_WRAP);
             ByteArrayInputStream byteInputStream = new ByteArrayInputStream(bytes);
             bis = new BufferedInputStream(byteInputStream);
             File file = new File(filePath);
@@ -55,10 +54,9 @@ public class PdfHelper {
     /**
      * Description: 将pdf文件转换为Base64编码
      *
-     * @param 要转的的pdf文件
+     * @param file 要转的的pdf文件
      */
-    public static String PDFToBase64(File file) {
-        BASE64Encoder encoder = new BASE64Encoder();
+    public static String pfd2Base64(File file) {
         FileInputStream fin = null;
         BufferedInputStream bin = null;
         ByteArrayOutputStream baos = null;
@@ -77,8 +75,7 @@ public class PdfHelper {
             //刷新此输出流并强制写出所有缓冲的输出字节
             bout.flush();
             byte[] bytes = baos.toByteArray();
-            return encoder.encodeBuffer(bytes).trim();
-
+            return Base64Ext.encodeToString(bytes, Base64Ext.NO_WRAP);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
