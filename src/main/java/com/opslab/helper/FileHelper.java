@@ -21,7 +21,6 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 
-
 /**
  * 一些操作文件的便捷方法
  */
@@ -82,6 +81,7 @@ public final class FileHelper {
 
     /**
      * 获取文件content-type
+     *
      * @param file
      * @return
      */
@@ -166,14 +166,14 @@ public final class FileHelper {
     public static String readContents(File file) {
         try (FileInputStream in = new FileInputStream(file)) {
             Long filelength = file.length();
-            if(filelength > 0){
+            if (filelength > 0) {
                 byte[] filecontent = new byte[filelength.intValue()];
-                if(in.read(filecontent)>0){
+                if (in.read(filecontent) > 0) {
                     return new String(filecontent);
                 }
             }
             return "";
-        }catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         return null;
@@ -444,9 +444,13 @@ public final class FileHelper {
      * @return 是否成功
      */
     public static boolean delete(File file) {
-        if (file == null){return false;}
+        if (file == null) {
+            return false;
+        }
 
-        if (file.isFile()){return file.delete();}
+        if (file.isFile()) {
+            return file.delete();
+        }
 
         File[] files = file.listFiles();
         if (files == null || files.length == 0) {
@@ -731,21 +735,6 @@ public final class FileHelper {
             return "";
         }
 
-    }
-
-    /**
-     * 利用字节特征探测文件编码
-     *
-     * @param file 需要处理的文件
-     * @return UTF-8 Unicode UTF-16BE GBK or null
-     */
-    public static String simpleEncoding(File file) {
-        try {
-            return FileImpl.guestFileEncoding(file);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
     }
 
 
